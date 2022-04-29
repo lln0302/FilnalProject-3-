@@ -8,7 +8,7 @@ spring:
       suffix: .jsp
   datasource: #바이바티스
     driver-class-name: com.mysql.cj.jdbc.Driver
-    url: jdbc:mysql://mulcampingdb.canyejspavcg.us-east-1.rds.amazonaws.com/?characterEncoding=UTF-8
+    url: jdbc:mysql://mulcampingdb.canyejspavcg.us-east-1.rds.amazonaws.com/mulcamping?characterEncoding=UTF-8
     username: admin
     password: mulcam333
 
