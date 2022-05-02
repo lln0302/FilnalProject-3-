@@ -1,1 +1,14 @@
 @charset "UTF-8";
+
+body, div, ul, li {
+	margin:0;
+	padding:0;
+	list-style-type: none;
+}
+
+h1 {
+	text-align: center;
+	padding: 10px;
+	margin: 20px;
+	margin-top: 40px;
+}

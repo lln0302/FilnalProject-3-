@@ -3,6 +3,3 @@
 <%@ taglib uri="http://java.sun.com/jsp/jstl/core" prefix="c"%>
 
 
-<ul>
-	<li><a href="/car/carList"> carList이동 </a></li>
-</ul>

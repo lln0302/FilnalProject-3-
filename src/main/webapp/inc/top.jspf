@@ -43,7 +43,7 @@
                     <li class="nav__item">
                         <a href="#" class="nav__link">CAMPING TOGETHER</a>
                         <div class="dropdown-content">
-                            <a href="#">car camping</a>
+                            <a href="/car/carList">car camping</a>
                             <a href="#">camping supplies</a>
                             <a href="#">gather people</a>                            
                         </div>
