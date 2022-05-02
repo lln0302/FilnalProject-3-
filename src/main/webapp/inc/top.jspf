@@ -1,5 +1,6 @@
 <%@ page language="java" contentType="text/html; charset=UTF-8" pageEncoding="UTF-8"%>
 <%@ taglib uri="http://java.sun.com/jsp/jstl/core" prefix="c" %>
+<c:set var="url" value="<%=request.getContextPath()%>"/>
 <!DOCTYPE html>
 <html>
 
@@ -58,8 +59,29 @@
 				
 		<div class="main__top">
 			<div class="main__loginSign">
-   				 <a href="#">login</a>
-  				 <a href="#">Sign-up</a>
+                <c:if test="${isadmin == 1}">
+                    <div id="admin">
+                        <a href="#"><span>관리자 페이지</span></a>
+                    </div>
+                </c:if>
+                <c:if test="${logStatus == 'Y'}">
+                    <div id="login">
+                        <span>${nickname} 님</span>
+                        <ul class="sub" style="list-style: none;">
+                            <li><a href="${url}/member/myPage">마이 페이지</a></li>
+                        </ul>
+                    </div>
+                    <div id="logout">
+                        <a href="${url}/member/logout"><span>로그아웃</span></a>
+                    </div>
+                </c:if>
+                <c:if test="${logStatus != 'Y'}">
+                    <div id="login">
+                        <a href="${url}/member/loginForm"><span>로그인</span></a>
+                    </div>
+                </c:if>
+
+  				 <a href="${url}/member/memberForm">Sign-up</a>
 			</div>
         </div>
      </nav>
