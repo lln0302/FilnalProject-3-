@@ -3,5 +3,6 @@
 <%@ taglib uri="http://java.sun.com/jsp/jstl/core" prefix="c"%>
 
 
-여기는 메인페이지
----------------------
+<ul>
+	<li><a href="/car/carList"> carList이동 </a></li>
+</ul>
