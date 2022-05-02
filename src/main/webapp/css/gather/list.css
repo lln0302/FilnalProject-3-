@@ -1,0 +1,33 @@
+@charset "UTF-8";
+.gatherList{
+	border-left: 2px solid gray;
+ 	border-right: 2px solid gray;
+}
+
+.writeBtn{
+	border-bottom : 5px solid;
+	padding: 5px;
+}
+
+/*리스트 박스*/
+#camperTitle{
+	font-size:2.0em;
+	margin-left:10px;	
+}
+
+#camperName{
+	float:right;
+	font-size:1.2em;
+	line-height:45px;
+}
+
+#list img{
+	background:yellow;
+	float:right;
+	height:190px;
+	width:300px;
+}
+
+.listContent>div{
+	margin:20px;
+}
