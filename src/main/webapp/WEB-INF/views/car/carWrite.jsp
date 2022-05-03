@@ -9,16 +9,22 @@
 
 <script>
 	$(function() {
-		CKEDITOR.replace("content");
+		CKEDITOR.replace("content", {
+			height: 543,
+		});
 		
 	});
+	function cwSearch() {
+		alert("눌림");
+	}
 </script>
 
 
 <h1>오늘 당신의 차박 장소는 어디였나요?</h1>
 
-<div class="container" style="height: 1200px;">
+<div class="container" style="height: 1000px;">
 
+<form action="/car/carInfo">
 	<div id="carMapWrap">
 		<table id="cwTable">
 			<tr>
@@ -28,14 +34,14 @@
 						<option value="경기">경기</option>
 					</select>
 				</td>
-				<td><input type="text" id="locX" name="locX" value="" placeholder="위도 값을 입력해주세요"/></td>
-				<td><input type="text" id="locY" name="locY" value="" placeholder="경도 값을 입력해주세요"/></td>
-				<td><button onclick="">검색</button></td>
+				<td><input type="text" id="locX" name="locX" value="" placeholder="위도 값을 입력"/></td>
+				<td><input type="text" id="locY" name="locY" value="" placeholder="경도 값을 입력"/></td>
+				<td><button onclick="cwSearch(); return false;">검색</button></td>
 			</tr>
 		
 		</table>
 		
-		<hr><!-- -------------------------------------------- -->
+		<hr><!-- ---------------------------- -->
 		
 		
 		<div class="map_wrap">
@@ -54,8 +60,16 @@
 	
 	
 	<div id="carWriteWrap">
-	
+		<input type="text" id="carName" placeholder="제목을 입력하세요"/><hr style="margin:16px 0"/>
+		<textarea id="content" name="content"></textarea>
 	</div>
+	
+	
+	<input type="submit" value="등록하기!" id="carWriteSubmit"/>
+</form>
 
-</div>
+</div><br/>
+
+
+
 <script src="/js/car/carWrite.js"></script>

@@ -22,7 +22,7 @@ dependencies {
 	providedRuntime 'org.springframework.boot:spring-boot-starter-tomcat'
 	testImplementation 'org.springframework.boot:spring-boot-starter-test'
 	
-	//ºäÆäÀÌÁö¸¦ jsp·Î »ç¿ëÇÏ±âÀ§ÇÑ ÇÁ·¹ÀÓ¿öÅ©Ãß°¡
+	// ë·°í˜ì´ì§€ë¥¼ jspë¡œ ì‚¬ìš©í•˜ê¸°ìœ„í•œ í”„ë ˆì„ì›Œí¬ì¶”ê°€
 	// https://mvnrepository.com/artifact/org.apache.tomcat.embed/tomcat-embed-jasper
 	implementation 'org.apache.tomcat.embed:tomcat-embed-jasper:9.0.60'
 	// https://mvnrepository.com/artifact/javax.servlet/jstl
@@ -30,7 +30,7 @@ dependencies {
 	// https://mvnrepository.com/artifact/javax.inject/javax.inject
 	implementation 'javax.inject:javax.inject:1'
 	
-	//ÆÄÀÏ ¾÷·Îµå
+	// íŒŒì¼ ì—…ë¡œë“œ
 	// https://mvnrepository.com/artifact/commons-fileupload/commons-fileupload
 	implementation 'commons-fileupload:commons-fileupload:1.4'
 	// https://mvnrepository.com/artifact/commons-io/commons-io

@@ -24,6 +24,13 @@ public class CarController {
 		return mav;
 	}
 	
+	@GetMapping("carInfo")
+	public ModelAndView carInfo() {
+		ModelAndView mav = new ModelAndView();
+		mav.setViewName("car/carInfo");
+		return mav;
+	}
+	
 	
 	
 	///////////////////////////////////////

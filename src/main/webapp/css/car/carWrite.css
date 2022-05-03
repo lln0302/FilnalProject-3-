@@ -1,33 +1,76 @@
 @charset "UTF-8";
 
+.container>* {
+	margin:1%;
+}
+
 #carMapWrap {
-	width: 50%;
-	height: 1200px;
+	width: 42%;
+	height: 900px;
 	float:left;
 }
 
 #carWriteWrap {
-	width: 50%;
-	height: 1200px;
-	background-color: blue;
+	width: 54%;
+	height: 900px;
 	float:left;
 }
 
-#cwTable td{
-	width:25%;
+#cwTable {
+	margin: 1%;
+}
+
+#cwTable td:nth-child(2), #cwTable td:nth-child(3){
+	width:31%;
+	padding: 2px;
+}
+#cwTable td:nth-child(1), #cwTable td:nth-child(4){
+	width:15%;
 	padding: 2px;
 }
 #cwTable td *{
 	width:100%;
 }
+#cwTable button {
+	border: 0px;
+	border-radius : 2px;
+	background-color: #DCDCDC;
+	padding: 2px 0;
+}
+#cwTable button:hover {
+	background-color: #BEBEBE;
+}
 
 #cwLabel {
 	border: 1px solid black;
 	width: 100%;
+	padding: 5px;
+	font-size: 12px;
+}
+
+#carWriteWrap {
+	padding-top : 1px;
+}
+#carWriteWrap>* {
+	width: 98%;
+	margin:1%;
+	margin-bottom:2px;
+}
+
+#carWriteSubmit {
+	width: 20%;
+	margin-left: 76%;
+	padding: 5px;
+	border: 0px;
+	border-radius: 5px;
+	background-color: #DCDCDC;
+}
+#carWriteSubmit:hover {
+	background-color: #BEBEBE;
 }
 
 
-.map_wrap {position:relative;width:100%;height:350px;}
+.map_wrap {position:relative;width:100%;height:750px;}
 .title {font-weight:bold;display:block;}
 .hAddr {position:absolute;left:10px;top:10px;border-radius: 2px;background:#fff;background:rgba(255,255,255,0.8);z-index:1;padding:5px;}
 #centerAddr {display:block;margin-top:2px;font-weight: normal;}
