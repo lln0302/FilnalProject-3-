@@ -4,6 +4,7 @@
 <script src="/js/home/jquery.fullPage.js"></script>
 
 
+<<<<<<< HEAD
 <script>
 	$(document).ready(function() {
 		$('#fullpage').fullpage({
@@ -70,3 +71,8 @@
 	
 
 </main>
+=======
+<ul>
+	<li><a href="/car/carList"> carList이동 </a></li>
+</ul>
+>>>>>>> branch 'master' of https://github.com/lln0302/FilnalProject-3-.git
