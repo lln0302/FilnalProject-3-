@@ -7,12 +7,12 @@
 <link rel="stylesheet" href="https://use.fontawesome.com/releases/v5.7.0/css/all.css" integrity="sha384-lZN37f5QGtY3VHgisS14W3ExzMWZxybE1SJSEsQp9S+oqd12jhcu+A56Ebc1zFSJ" crossorigin="anonymous">
 
 
-<div class="container">
+<div class="container" id="ciBody">
 	<h1>[제목이 들어갈 부분입니다]</h1>
 	<div id="ciHead">
-		<span id="ciNick">[닉네임]</span> | <i class="fa fa-clock clock"></i><span id="ciDate">[등록일]</span>
+		<span id="ciNick">[닉네임]</span> | <i class="fa fa-clock clock"></i> <span id="ciDate">[등록일]</span>
 	</div>
-	
+	<hr>
 	<div class="map_wrap">
 		<div id="map" style="width:100%;height:100%;position:relative;overflow:hidden;"></div>
 	    <div class="hAddr">

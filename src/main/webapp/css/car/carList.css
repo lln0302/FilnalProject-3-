@@ -5,6 +5,10 @@
 .writeBtn{
    border-bottom : 5px solid;
    padding: 5px;
+   color: #E6BA95;
+}
+.writeBtn:hover {
+	color: #D6AA85;
 }
 
 /*리스트 박스*/
@@ -41,6 +45,12 @@
 
 /* 맵 ~ 버튼*/
 
+#keyword {
+	padding: 4.5px
+}
+
+
+
 #map {
 	width: 69%;
 	height: 1000px;
@@ -58,12 +68,15 @@
 #menu_wrap .option p {margin:10px 0;}  
 #menu_wrap .option button {margin-left:5px;}
 
-#menu_wrap button, #carWriteButton {
+#menu_wrap button {
 	border:0px;
-	padding:7px 17px;
-	background-color: #CECECE;
+	padding:6px 17px;
+	background-color: #E6BA95;
 	border-radius: 4px;
 	font-size:12px;
+}
+#menu_wrap button:hover {
+	background-color: #D6AA85;
 }
 
 #placesList li {list-style: none;}

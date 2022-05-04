@@ -3,20 +3,27 @@
 .container {
 	height: auto;
 	text-align: center;
-	background-color: #CECECE;
 }
+#ciBody {
+	/*background-color: #FFD4AE;*/
+	padding: 30px;
+	padding-top: 10px;
+	border: 2px solid orange;
+	
+}
+
 #ciHead, #ciFoot {
 	width: 100%;
 	text-align: right;
 }
 
 #ciRep {
-	width:96%;
-	margin: 2%;
+	width:100%;
+	margin-top:10px;
 }
 
 #ciReply {
-	width: 100%;
+	width: 89%;
 	padding: 5px;
 	margin-bottom: 10px;
 }
@@ -32,7 +39,12 @@
 #ciReplyList hr {
 	margin-bottom:5px;
 }
-
-.clock {
-	padding: 5px;
+ #ciReplyButton {
+ 	width: 10%;
+ 	background-color: #E6BA95;
+ 	padding: 6px 12px;
+ 	border: 0px;
+ }
+ #ciReplyButton:hover {
+	background-color: #D6AA85;
 }

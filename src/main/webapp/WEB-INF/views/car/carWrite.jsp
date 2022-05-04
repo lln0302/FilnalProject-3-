@@ -10,21 +10,21 @@
 <script>
 	$(function() {
 		CKEDITOR.replace("content", {
-			height: 543,
+			height: 575,
 		});
 		
 	});
 	function cwSearch() {
-		alert("눌림");
+		alert("cwSearch 눌림");
 	}
 </script>
 
 
 <h1>오늘 당신의 차박 장소는 어디였나요?</h1>
 
-<div class="container" style="height: 1000px;">
+<div class="container">
 
-<form action="/car/carInfo">
+<form action="/car/carInfo" id="cwFrm">
 	<div id="carMapWrap">
 		<table id="cwTable">
 			<tr>
@@ -50,9 +50,10 @@
 		        <span class="title">지도중심기준 행정동 주소정보</span>
 		        <span id="centerAddr"></span>
 		    </div>
+		    <label id="cwLabel">현재 지도의 중앙 좌표 >> <span>X: Y:</span></label>
 		</div>	
 		
-		<label id="cwLabel">현재 지도의 중앙 좌표 >> <span>X: Y:</span></label>
+		
 	</div>
 	
 	
@@ -64,8 +65,10 @@
 		<textarea id="content" name="content"></textarea>
 	</div>
 	
+	<div id="cwWriteSubmitWrap">
+		<input type="submit" value="등록" id="carWriteSubmit"/>
+	</div>
 	
-	<input type="submit" value="등록하기!" id="carWriteSubmit"/>
 </form>
 
 </div><br/>
