@@ -4,35 +4,45 @@
 	margin: 0px;
 	padding: 0px;
 }
-
- .nav {
-    background-color: white;
-    width: 100%;
-    box-shadow: 0px 2px 4px rgb(151 149 149 / 32%);
-    padding: 10px;
-}
-  
   
  .logo{
     position: relative;
   }
+  
+.nav__menu{
+    width: 700px;
+    margin: 0 auto;
+    overflow: hidden;
+}
  
 
 .nav__list {
-  display: flex;
-  flex-direction: column;
   list-style: none;
+
 }
 
 .nav__link {
-  color: #67493B;
-  font-weight: 20px;
-  text-transform: uppercase;
-  font-size:25px;
+    color: #67493B;
+    font-weight: 700;
+    font-size: 23px;
 }
 
 .nav__link:hover {
-  color:#F89A35;
+ 	color:#F89A35;
+}
+
+.nav__link__r{
+	margin-left: 232px;
+}
+
+.nav__item{
+    float: left;
+    padding: 10px 20px;
+    height: 50px;
+    line-height: 50px;
+    text-align: center;
+    margin-top: 32px;
+	
 }
 
 
@@ -62,4 +72,32 @@
 .dropdown-content a:hover {
   background-color: #F89A35;
   color: white;
+}
+
+
+/* 데스크탑에서 사용될 스타일*/ 
+@media screen and (min-width: 769px) { 
+
+ .nav {
+	background-color: white;
+    height: 145px;
+    width: 100%;
+    box-shadow: 0px 2px 4px rgb(151 149 149 / 32%);
+    padding: 10px;
+    overflow: hidden;
+}
+
+
+
+
+
+}
+
+
+
+/* 모바일에 사용될 스트일 시트를 여기에 작성합니다. */ 
+@media screen and (max-width: 768px) { 
+
+
+
 }
