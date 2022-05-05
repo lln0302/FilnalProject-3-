@@ -1,0 +1,24 @@
+main{
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    height: 100vh;
+    background-image: linear-gradient( rgba(0, 0, 0, 0.3), rgba(0, 0, 0, 0.3)),url("/img/member/loginForm.jpg");
+    background-size: cover;
+    background-attachment : fixed;
+    padding:0;
+}
+
+.memberForm {
+    width: 700px;
+    height: 700px;
+    padding: 20px;
+    padding-left: 110px;
+    align-items: center;
+    margin:0 auto;
+    background-color:rgba(255,255,255, 0.7);
+    border-radius: 15px;
+    position: relative;
+    bottom: 5vh;
+    border: 2px solid grey;
+}
