@@ -1,3 +1,5 @@
+<%@ page language="java" contentType="text/html; charset=UTF-8" pageEncoding="UTF-8"%>
+<%@ taglib uri="http://java.sun.com/jsp/jstl/core" prefix="c"%>
 <link rel="stylesheet" href="/css/home/jquery.fullPage.css">
 <link rel="stylesheet" href="/css/home/home.css">
 <script src="https://code.jquery.com/jquery-3.6.0.min.js" integrity="sha256-/xUj+3OJU5yExlq6GSYGSHk7tPXikynS7ogEvDej/m4=" crossorigin="anonymous"></script>
@@ -22,7 +24,7 @@
 	<ul class="h__myMenu">
 		<li data-menuanchor="section1" class="menu1"><a href="#section1">SEARCH
 			<ul class="h__menu1__s h__submenu">
-				<li data-menuanchor="section2"><a href="#section2">camping list</a></li>
+				<li data-menuanchor="section2"><a href="camping/campingSearch">camping list</a></li>
 				<li data-menuanchor="section3"><a href="#section3">hash tag</a></li>
 				<li data-menuanchor="section4"><a href="#section4">recommend</a></li>
 			</ul>
