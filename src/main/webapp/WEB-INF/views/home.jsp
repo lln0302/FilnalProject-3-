@@ -1,3 +1,4 @@
+<%@ page language="java" contentType="text/html; charset=UTF-8" pageEncoding="UTF-8"%>
 <link rel="stylesheet" href="/css/home/jquery.fullPage.css">
 <link rel="stylesheet" href="/css/home/home.css">
 <script src="https://code.jquery.com/jquery-3.6.0.min.js" integrity="sha256-/xUj+3OJU5yExlq6GSYGSHk7tPXikynS7ogEvDej/m4=" crossorigin="anonymous"></script>
@@ -31,7 +32,7 @@
 			<ul class="h__menu2__s h__submenu">
 				<li data-menuanchor="section2"><a href="#section2">car camping</a></li>
 				<li data-menuanchor="section3"><a href="#section3">camping supplies</a></li>
-				<li data-menuanchor="section4"><a href="#section4">gather people</a></li>
+				<li data-menuanchor="section4"><a href="/gather/gatherList">gather people</a></li>
 			</ul>
 		</li>
 	</ul>
@@ -42,7 +43,7 @@
 	<section class="section demo" id="section1">
 		<div class="s1_container">
 			<div><img alt="logo" src="/img/logo/mulcamping_logo-05.png" width="160px"></div>
-			<h1>멀캠핑에서 <br/> 캠핑을 시작해보세요</h1>
+			<h1>ë©ìº íìì <br/> ìº íì ììí´ë³´ì¸ì</h1>
 			<input type="button" value="sign in"/>
 			<input type="button" value="sign up"/>
 	  		<a href="#section2"><span></span>Scroll</a>
@@ -51,39 +52,39 @@
 	
 	<section class="section" id="section3">
 		<div class="slide">
-<!-- 			<h1>캠핑장소를 찾아보세요</h1> -->
+<!-- 			<h1>ìº íì¥ìë¥¼ ì°¾ìë³´ì¸ì</h1> -->
 
 		<div class='h__card'>
 		<a href="#">
 			<div class="h__card1">
 				<h3 class="h__card1__title">
-	              <strong>캠핑장 둘러보기</strong><br/>
+	              <strong>ìº íì¥ ëë¬ë³´ê¸°</strong><br/>
 	              <span>Camping List</span>              
 	            </h3>
 	            <img alt="thumbnail" src="/img/home/06.png" width="80%">
-	            <div class="h__card1__contents">밤이면 별이 쏟아지는 <br/> 캠핑 장소를 찾고 계신가요? <br/> 가고싶은 캠핑 사이트를 찾아보세요</div>
+	            <div class="h__card1__contents">ë°¤ì´ë©´ ë³ì´ ììì§ë <br/> ìº í ì¥ìë¥¼ ì°¾ê³  ê³ì ê°ì? <br/> ê°ê³ ì¶ì ìº í ì¬ì´í¸ë¥¼ ì°¾ìë³´ì¸ì</div>
 			</div>
 		</a>
 
 		<a href="#">
 			<div class="h__card1">
 				<h3 class="h__card1__title">
-	              <strong>해쉬태그로 캠핑장 찾기</strong><br/>
+	              <strong>í´ì¬íê·¸ë¡ ìº íì¥ ì°¾ê¸°</strong><br/>
 	              <span>hash tag(#)</span>              
 	            </h3>
 	            <img alt="thumbnail" src="/img/home/04.jpg" width="80%">
-	            <div class="h__card1__contents">#주차가 편한 <br/> #물놀이 하기 좋은 <br/> #사이트 간격이 넓은 </div>
+	            <div class="h__card1__contents">#ì£¼ì°¨ê° í¸í <br/> #ë¬¼ëì´ íê¸° ì¢ì <br/> #ì¬ì´í¸ ê°ê²©ì´ ëì </div>
 			</div>
 		</a>
 				
 		<a href="#">
 			<div class="h__card1">
 				<h3 class="h__card1__title">
-	              <strong>멀캠핑이 추천하는</strong><br/>
+	              <strong>ë©ìº íì´ ì¶ì²íë</strong><br/>
 	              <span>recommend</span>              
 	            </h3>
 	            <img alt="thumbnail" src="/img/home/05.jpg" width="80%">
-	            <div class="h__card1__contents">아직 정하지 못하셨나요?<br/> 멀캠핑이 추천하는 <br/> 캠핑장 리스트를 보세요! </div>
+	            <div class="h__card1__contents">ìì§ ì íì§ ëª»íì¨ëì?<br/> ë©ìº íì´ ì¶ì²íë <br/> ìº íì¥ ë¦¬ì¤í¸ë¥¼ ë³´ì¸ì! </div>
 			</div>
 		</a>				
 		</div>
@@ -101,7 +102,7 @@
 	</section>
 	
 	<section class="section" id="section4">
-		<h2>사람들을 모아 함께 캠핑을 즐겨보세요!</h2>
+		<h2>ì¬ëë¤ì ëª¨ì í¨ê» ìº íì ì¦ê²¨ë³´ì¸ì!</h2>
 	</section>
 	
 	<section class="section fp-auto-height" id="section5">

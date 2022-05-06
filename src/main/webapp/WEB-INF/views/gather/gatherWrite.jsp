@@ -1,7 +1,6 @@
 <%@ page language="java" contentType="text/html; charset=UTF-8" pageEncoding="UTF-8"%>
 <%@ taglib uri="http://java.sun.com/jsp/jstl/core" prefix="c"%>
 <link rel="stylesheet" href="/css/gather/write.css" type="text/css"/>
-<script src="//cdn.ckeditor.com/4.17.2/full/ckeditor.js"></script>
 <script>
 	$(function(){
 		
@@ -11,7 +10,7 @@
 		
 		CKEDITOR.replace("content", {
 			height:'500px',
-			startupFocus: false,
+			filebrowserUploadUrl:'/gather/imageUpload.do',
 		});
 		
 		$("#writeForm").submit(function(){
@@ -62,7 +61,7 @@
 				</div>	
 				<div class="col-7 writeDate">
 					<span>일정</span>
-					<input type="text" id="datepicker1"/> ~
+					<input type="text" id="datepicker1"/> -
 					<input type="text" id="datepicker2"/>
 				</div>
 			</div>
