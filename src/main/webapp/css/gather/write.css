@@ -7,21 +7,21 @@
 
 .writeMark{
 	font-size:2.0em;
-	margin-top:20px;
-}
-
-.writeTitle, .writeCamper, .writeDate{
-	background:#E6BA95;
-	padding:10px;
-	border-radius: 3px;
-	margin-left:20px;
-}
-
-.writeTitle>span, .writeCamper>span, .writeDate>span{
 	margin:20px;
 }
 
-.writeTitle>input, .writeCamper>input, .writeDate>input{
+.writeTitle, .writeCamper, .writeDate, .writePlace{
+	background:#E6BA95;
+	padding:10px;
+	border-radius: 3px;
+	margin-left:30px;
+}
+
+.writeTitle>span, .writeCamper>span, .writeDate>span, .writePlace>span{
+	margin:20px;
+}
+
+.writeTitle>input, .writeCamper>input, .writeDate>input, .writePlace>input{
 	border-radius: 5px;
 	border: solid #E6BA95;
 }
