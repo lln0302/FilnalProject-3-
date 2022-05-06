@@ -15,4 +15,18 @@ public class SupplyController {
 		mav.setViewName("supply/supplyList");
 		return mav;
 	}
+	
+	@GetMapping("supplyInfo")
+	public ModelAndView supplyInfo() {
+		ModelAndView mav = new ModelAndView();
+		mav.setViewName("supply/supplyInfo");
+		return mav;
+	}
+	
+	@GetMapping("supplyWrite")
+	public ModelAndView supplyWrite() {
+		ModelAndView mav = new ModelAndView();
+		mav.setViewName("supply/supplyWrite");
+		return mav;
+	}
 }

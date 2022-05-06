@@ -24,7 +24,7 @@
 
 #ciReply {
 	width: 89%;
-	padding: 5px;
+	padding: 4px;
 	margin-bottom: 10px;
 }
 
@@ -39,12 +39,13 @@
 #ciReplyList hr {
 	margin-bottom:5px;
 }
- #ciReplyButton {
+#ciReplyButton {
  	width: 10%;
  	background-color: #E6BA95;
  	padding: 6px 12px;
  	border: 0px;
- }
- #ciReplyButton:hover {
+ 	border-radius: 5px;
+}
+#ciReplyButton:hover {
 	background-color: #D6AA85;
 }
