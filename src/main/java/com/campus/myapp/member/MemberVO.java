@@ -6,6 +6,8 @@ public class MemberVO {
     private String nickname;
     private String userpwd;
     private String usertel;
+    private String usertel1;
+    private String usertel2;
     private String birth;
     private String gender;
     private String email;
@@ -47,10 +49,13 @@ public class MemberVO {
     }
 
     public String getUsertel() {
+        usertel = usertel1+usertel2;
         return usertel;
     }
 
     public void setUsertel(String usertel) {
+        usertel1 = usertel.substring(0, 3);
+        usertel2 = usertel.substring(3);
         this.usertel = usertel;
     }
 

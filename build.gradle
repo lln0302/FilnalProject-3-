@@ -21,7 +21,7 @@ dependencies {
 	runtimeOnly 'mysql:mysql-connector-java'
 	providedRuntime 'org.springframework.boot:spring-boot-starter-tomcat'
 	testImplementation 'org.springframework.boot:spring-boot-starter-test'
-	
+
 	// 뷰페이지를 jsp로 사용하기위한 프레임워크추가
 	// https://mvnrepository.com/artifact/org.apache.tomcat.embed/tomcat-embed-jasper
 	implementation 'org.apache.tomcat.embed:tomcat-embed-jasper:9.0.60'
@@ -29,12 +29,18 @@ dependencies {
 	implementation 'javax.servlet:jstl:1.2'
 	// https://mvnrepository.com/artifact/javax.inject/javax.inject
 	implementation 'javax.inject:javax.inject:1'
-	
+
 	// 파일 업로드
 	// https://mvnrepository.com/artifact/commons-fileupload/commons-fileupload
 	implementation 'commons-fileupload:commons-fileupload:1.4'
 	// https://mvnrepository.com/artifact/commons-io/commons-io
-	implementation 'commons-io:commons-io:2.11.0'	
+	implementation 'commons-io:commons-io:2.11.0'
+
+	//문자 인증 관련 라이브러리
+	//1) nurigo : https://mvnrepository.com/artifact/net.nurigo/sdk
+	implementation group: 'net.nurigo', name: 'sdk', version: '4.1.3'
+	//2) artifact : https://mvnrepository.com/artifact/com.squareup.okhttp3/okhttp
+	implementation group: 'com.squareup.okhttp3', name: 'okhttp', version: '4.9.3'
 }
 
 tasks.named('test') {
