@@ -1,7 +1,4 @@
 @charset "UTF-8";
-
-
-
 .writeBtn{
    border-bottom : 5px solid;
    padding: 5px;
@@ -33,23 +30,10 @@
    margin:20px;
 }
 
-
-
-
-
-
-
-
-
-
-
 /* 맵 ~ 버튼*/
-
 #keyword {
 	padding: 4.5px
 }
-
-
 
 #map {
 	width: 69%;
