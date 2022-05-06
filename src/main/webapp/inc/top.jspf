@@ -33,7 +33,7 @@
     <header class="header" id="header">
         <nav class="nav">
             <div class="logo">
-                <a href="/"><img src="/img/logo/mulcamping_logo-03.png" width="60%"></a>
+                <a href="/"><img src="/img/logo/mulcamping_logo-03.png" width="48%"></a>
             </div>
             
             <div class="nav__menu">
@@ -47,7 +47,7 @@
                         </div>
                     </li>
                     <li class="nav__item">
-                        <a href="#" class="nav__link">CAMPING TOGETHER</a>
+                        <a href="#" class="nav__link nav__link__r">CAMPING TOGETHER</a>
                         <div class="dropdown-content">
                             <a href="#">car camping</a>
                             <a href="#">camping supplies</a>
