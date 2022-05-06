@@ -7,4 +7,9 @@ import org.springframework.stereotype.Repository;
 @Repository
 public interface MemberDAO {
     public MemberVO loginCheck(MemberVO vo);
+    public int memberInsert(MemberVO vo);
+
+    public MemberVO checkId(MemberVO vo);
+    public MemberVO checkNick(MemberVO vo);
+    public MemberVO checkTel(MemberVO vo);
 }
