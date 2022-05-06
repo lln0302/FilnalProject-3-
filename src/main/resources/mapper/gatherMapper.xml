@@ -4,10 +4,9 @@
         "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
 <mapper namespace="com.campus.myapp.gather.GatherDAO">
 	<insert id="gatherInsert">
-		INSERT INTO gather(nickname, title, content, place, startdate, enddate, gmemberno)
-		VALUES(#{nickname}, #{title}, #{content}, #{place},
-		STR_TO_DATE(#{startdate}, '%Y-%m-%d'),  STR_TO_DATE(#{enddate}, '%Y-%m-%d'), 
-		#{gmemberno})
+		INSERT INTO gather(nickname, title, content, place, gmemberno, startdate, enddate)
+		VALUES(#{nickname}, #{title}, #{content}, #{place}, #{gmemberno},
+		STR_TO_DATE(#{startdate}, '%Y-%m-%d'),  STR_TO_DATE(#{enddate}, '%Y-%m-%d'))
 	</insert>
-	
+
 </mapper>

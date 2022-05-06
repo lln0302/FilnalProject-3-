@@ -36,7 +36,7 @@ public class GatherVO {
 	public String getStartdate() {
 		return startdate;
 	}
-	public void setDate(String startdate) {
+	public void setStartdate(String startdate) {
 		this.startdate = startdate;
 	}
 	public String getEnddate() {

@@ -134,7 +134,7 @@ public class GatherController {
 	}
 	
 	//Ckeditor 서버로 전송된 이미지 뿌려주기
-	@RequestMapping(value="/ckImgSubmit")
+	@RequestMapping(value="ckImgSubmit")
 	public void ckImgSubmit(@RequestParam(value="uid")String uid, 
 			@RequestParam(value="fileName") String fileName, 
 			@RequestParam(value="dateForFile") String dateForFile) throws Exception {
@@ -170,6 +170,9 @@ public class GatherController {
 	public ModelAndView GatherWriteOk(GatherVO vo, MultipartFile file, HttpSession session) throws Exception {
 		// 현재 session에 있는 nickname
 		vo.setNickname((String)session.getAttribute("nickname"));
+		System.out.println(vo.getStartdate());
+		System.out.println(vo.getEnddate());
+		
 		try {
 			int cnt = service.gatherInsert(vo);
 			mav.addObject("cnt", cnt);
@@ -177,8 +180,8 @@ public class GatherController {
 			e.printStackTrace();
 			System.out.println("등록 오류");
 		}
+		
 		mav.setViewName("gather/writeOK");
-		System.out.println("등록 실패");
 		return mav;
 	}
 	
