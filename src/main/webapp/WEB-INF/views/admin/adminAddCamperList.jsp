@@ -15,7 +15,7 @@
 <script async src='/cdn-cgi/bm/cv/669835187/api.js'></script>
 <script type="text/javascript" src="/js/admin/adminSideTab.js"></script>
 <style>
-.containerMemberList {
+.containerAddCamperList {
 	float:left;
 	width: 1000px;
 	height: 1000px;
@@ -26,24 +26,24 @@
 #header, footer {
 	display: none;
 }
-#memberList{
+#addCamperList{
 	overflow:auto;
 }
-#memberList>li{
+#addCamperList>li{
 	list-style-type: none;
 	float:left;
 	height: 50px;
 	line-height: 50px;
-	width:13%;
+	width:10%;
 	border-bottom:solid 3px gray;
 	text-align: center;
 	background-color: rgba(205, 188, 171, 0.5);
 	font-weight: bold;
 }
-#memberList>li:nth-child(7n+6){
-	width:15%;
+#addCamperList>li:nth-child(5n+1){
+	width:50%;
 }
-#memberList>li:nth-child(7n+7){
+#addCamperList>li:nth-child(5n+5){
 	width:20%
 }
 </style>
@@ -81,28 +81,24 @@
 			</ul>
 			<div id="adminMainContentTop">
 				<hr id="hr2px_red">
-				회원목록
+				*캠퍼모집목록*
 			</div>
 			<hr id="hr2px">
-				<div class="containerMemberList">
-					<ul id="memberList">
-						<li>아이디</li>
-						<li>이름</li>
-						<li>닉네임</li>
-						<li>등급</li>
+				<div class="containerAddCamperList">
+					<ul id="addCamperList">
+						<li>글제목</li>
+						<li>인원</li>
+						<li>작성자</li>
 						<li>매너온도</li>
-						<li>연락처</li>
-						<li>가입일</li>
-					
-						
+						<li>작성일</li>
 					
 						<!--<c:forEach var="vo" items="${lst}">
-							<li><a href="/admin/adminMembersInfo?nickname=${vo.nickname}">${vo.userid}</a></li>
-							<li>${vo.username}</li>
-							<li>${vo.nickname}</li>
-							<li>${vo.userscore}</li>
-							<li>${vo.usertel}</li>
-							<li>${vo.joindate}</li>
+							<li>${vo}</li>
+							<li><a href="/admin/adminAddCamperListInfo?no=${vo}">${vo}</a></li>
+							<li>${vo}</li>
+							<li>${vo}</li>
+							<li>${vo}</li>
+							<li>${vo}</li>
 						</c:forEach>-->
 					</ul>
 				

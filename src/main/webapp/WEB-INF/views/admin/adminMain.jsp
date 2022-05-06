@@ -60,14 +60,14 @@
 					
 				<li class='menuExpansion'>
 					<div class='menu_img' id="menu2">
-							<a class="menuATag" href="/adminMain"><div class="menu2right">대시보드</div></a><div class="menu2left">1</div>
-							<a class="menuATag" href="/adminMembers"><div class="menu2right">회원목록</div></a><div class="menu2left">2</div>
-							<a class="menuATag" href="/adminMain"><div class="menu2right">캠핑장목록</div></a><div class="menu2left">3</div>
-							<a class="menuATag" href="/adminMain"><div class="menu2right">캠퍼모집목록</div></a><div class="menu2left">4</div>
-							<a class="menuATag" href="/adminMain"><div class="menu2right">차박지공유목록</div></a><div class="menu2left">5</div>
-							<a class="menuATag" href="/adminMain"><div class="menu2right">캠핑용품나눔목록</div></a><div class="menu2left">6</div>
-							<a class="menuATag" href="/adminMain"><div class="menu2right">리뷰목록</div></a><div class="menu2left">7</div>
-							<a class="menuATag" href="/adminMain"><div class="menu2right">댓글목록</div></a><div class="menu2left">8</div>
+							<a class="menuATag" href="/admin/adminMain"><div class="menu2right">대시보드</div></a><div class="menu2left">1</div>
+							<a class="menuATag" href="/admin/adminMembers"><div class="menu2right">회원목록</div></a><div class="menu2left">2</div>
+							<a class="menuATag" href="/admin/adminCampList"><div class="menu2right">캠핑장목록</div></a><div class="menu2left">3</div>
+							<a class="menuATag" href="/admin/adminAddCamperList"><div class="menu2right">캠퍼모집목록</div></a><div class="menu2left">4</div>
+							<a class="menuATag" href="/admin/adminAutoCampList"><div class="menu2right">차박지공유목록</div></a><div class="menu2left">5</div>
+							<a class="menuATag" href="/admin/adminShareList"><div class="menu2right">캠핑용품나눔목록</div></a><div class="menu2left">6</div>
+							<a class="menuATag" href="/admin/adminReviewList"><div class="menu2right">리뷰목록</div></a><div class="menu2left">7</div>
+							<a class="menuATag" href="/admin/adminCommentList"><div class="menu2right">댓글목록</div></a><div class="menu2left">8</div>
 					</div>
 				</li>
 			</ul>
