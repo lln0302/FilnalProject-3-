@@ -14,15 +14,5 @@ public class HomeController {
 	}
 	
 	
-	/* 22-04-29 오어진 임시추가부분*/
-	@GetMapping("/car/carList")
-	public ModelAndView carList() {
-		ModelAndView mav = new ModelAndView();
-		mav.setViewName("car/carList");
-		return mav;
-	}
 	
-	
-	
-	///////////////////////////////////////
 }

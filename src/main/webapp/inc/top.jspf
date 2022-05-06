@@ -52,8 +52,8 @@
                     <li class="nav__item">
                         <a href="#" class="nav__link nav__link__r">CAMPING TOGETHER</a>
                         <div class="dropdown-content">
-                            <a href="#">car camping</a>
-                            <a href="#">camping supplies</a>
+                            <a href="/car/carList">car camping</a>
+                            <a href="/supply/supplyList">camping supplies</a>
                             <a href="/gather/gatherList">gather people</a>                            
                         </div>
                     </li>
