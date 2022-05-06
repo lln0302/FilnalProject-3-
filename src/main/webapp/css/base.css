@@ -12,3 +12,8 @@ h1 {
 	margin:20px;
 	margin-top:40px;
 }
+
+a, a:visited, a:hover, a:active{
+	text-decoration:none; 
+	color:black; 
+}

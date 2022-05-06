@@ -43,8 +43,6 @@
 
 	});
 </script>
-
-
 <div class="container">
 	<h1>캠퍼모임을 만들어보세요!</h1>
 	<div id="gatherWrite">
