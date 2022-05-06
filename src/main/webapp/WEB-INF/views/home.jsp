@@ -11,7 +11,7 @@
 			//options here
 			navigation: true,
 			anchors: ['section1', 'section2', 'section3', 'section4', 'section5'],
-			sectionsColor: ['#f2f2f2', '#4BBFC3', '#7BAABE', 'whitesmoke', '#000'],		
+ 			sectionsColor: ['#f2f2f2', '#4BBFC3', '#7BAABE', 'whitesmoke', '#000'],		 
 		});
 	});
 </script>
@@ -39,7 +39,7 @@
 
 
 <main id="fullpage">
-	<section class="section demo" id="section0">
+	<section class="section demo" id="section1">
 		<div class="s1_container">
 			<div><img alt="logo" src="/img/logo/mulcamping_logo-05.png" width="160px"></div>
 			<h1>멀캠핑에서 <br/> 캠핑을 시작해보세요</h1>
@@ -48,26 +48,66 @@
 	  		<a href="#section2"><span></span>Scroll</a>
   		</div>
 	</section>
-	<section class="section">
+	
+	<section class="section" id="section3">
 		<div class="slide">
-			<h3>slide 01</h3>
+<!-- 			<h1>캠핑장소를 찾아보세요</h1> -->
+
+		<div class='h__card'>
+		<a href="#">
+			<div class="h__card1">
+				<h3 class="h__card1__title">
+	              <strong>캠핑장 둘러보기</strong><br/>
+	              <span>Camping List</span>              
+	            </h3>
+	            <img alt="thumbnail" src="/img/home/06.png" width="80%">
+	            <div class="h__card1__contents">밤이면 별이 쏟아지는 <br/> 캠핑 장소를 찾고 계신가요? <br/> 가고싶은 캠핑 사이트를 찾아보세요</div>
+			</div>
+		</a>
+
+		<a href="#">
+			<div class="h__card1">
+				<h3 class="h__card1__title">
+	              <strong>해쉬태그로 캠핑장 찾기</strong><br/>
+	              <span>hash tag(#)</span>              
+	            </h3>
+	            <img alt="thumbnail" src="/img/home/04.jpg" width="80%">
+	            <div class="h__card1__contents">#주차가 편한 <br/> #물놀이 하기 좋은 <br/> #사이트 간격이 넓은 </div>
+			</div>
+		</a>
+				
+		<a href="#">
+			<div class="h__card1">
+				<h3 class="h__card1__title">
+	              <strong>멀캠핑이 추천하는</strong><br/>
+	              <span>recommend</span>              
+	            </h3>
+	            <img alt="thumbnail" src="/img/home/05.jpg" width="80%">
+	            <div class="h__card1__contents">아직 정하지 못하셨나요?<br/> 멀캠핑이 추천하는 <br/> 캠핑장 리스트를 보세요! </div>
+			</div>
+		</a>				
 		</div>
-		<div class="slide">
-			<h3>slide 02</h3>
+	</div>
+
+		
+		
+		<div class="slide" >
+			<h3>car camping</h3>
 		</div>
+		
 		<div class="slide">
-			<h3>slide 03</h3>
+			<h3>camping supplies</h3>
 		</div>
 	</section>
-	<section class="section">
-		<h2>section 3</h2>
+	
+	<section class="section" id="section4">
+		<h2>사람들을 모아 함께 캠핑을 즐겨보세요!</h2>
 	</section>
-	<section class="section">
-		<h2>section 4</h2>
-	</section>
-	<section class="section fp-auto-height">
+	
+	<section class="section fp-auto-height" id="section5">
 		<h2>footer</h2>
 	</section>
 	
 
 </main>
+
