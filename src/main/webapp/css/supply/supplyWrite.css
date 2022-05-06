@@ -1,0 +1,35 @@
+@charset "UTF-8";
+
+h5 {
+	text-align: center;
+	padding: 10px;
+}
+
+#swFrm {
+	border: 2px solid orange;
+	padding: 30px;
+	padding-top: 40px;
+}
+
+#swName {
+	width: 100%;
+	padding: 10px;
+}
+
+#swWriteSubmitWrap{ 
+	margin-top: 10px;
+	text-align: right;
+}
+
+#supplyWriteSubmit {
+	width: 90px;
+	padding: 6px 12px;
+	border: 0px;
+	border-radius: 5px;
+	background-color: #E6BA95;
+	margin-bottom: 17px;
+}
+
+#supplyWriteSubmit:hover {
+	background-color: #D6AA85;
+}
