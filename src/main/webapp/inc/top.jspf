@@ -25,65 +25,58 @@
 <link rel="stylesheet" href="/css/top.css" type="text/css"/>
 <link rel="stylesheet" href="/css/base.css" type="text/css"/>
 
-
+<!-- axios 라이브러리 추가 -->
+<script src="https://cdn.jsdelivr.net/npm/axios/dist/axios.min.js"></script>
+<script src="//cdn.ckeditor.com/4.17.2/full/ckeditor.js"></script>
 </head>
 
 <body>
 
-    <header class="header" id="header">
-        <nav class="nav">
-            <div class="logo">
-                <a href="/"><img src="/img/logo/mulcamping_logo-03.png" width="60%"></a>
-            </div>
-            
-            <div class="nav__menu">
-                <ul class="nav__list">
-                    <li class="nav__item">
-                        <a href="#" class="nav__link active-link">SEARCH</a>
-                        <div class="dropdown-content">
-                            <a href="#">camping list</a>
-                            <a href="#">hash tag</a>
-                            <a href="#">recommend</a>                            
-                        </div>
-                    </li>
-                    <li class="nav__item">
-                        <a href="#" class="nav__link">CAMPING TOGETHER</a>
-                        <div class="dropdown-content">
-                            <a href="#">car camping</a>
-                            <a href="#">camping supplies</a>
-                            <a href="/gather/gatherList">gather people</a>                            
-                        </div>
-                    </li>
-                </ul>
-             </div>
-				
-		<div class="main__top">
-			<div class="main__loginSign">
-                <c:if test="${isadmin == 1}">
-                    <div id="admin">
-                        <a href="#"><span>관리자 페이지</span></a>
-                    </div>
-                </c:if>
-                <c:if test="${logStatus == 'Y'}">
-                    <div id="login">
-                        <span>${nickname} 님</span>
-                        <ul class="sub" style="list-style: none;">
-                            <li><a href="${url}/member/myPage">마이 페이지</a></li>
-                        </ul>
-                    </div>
-                    <div id="logout">
-                        <a href="${url}/member/logout"><span>로그아웃</span></a>
-                    </div>
-                </c:if>
-                <c:if test="${logStatus != 'Y'}">
-                    <div id="login">
-                        <a href="${url}/member/loginForm"><span>로그인</span></a>
-                    </div>
-                </c:if>
-
-  				 <a href="${url}/member/memberForm">Sign-up</a>
-			</div>
-        </div>
+    <header class="header" id="header">  
+    	<div class="top__box">
+   	 		<div class="t__loginSign">
+	                <c:if test="${isadmin == 1}">
+	                    <div id="admin">
+	                        <a href="#">관리자 페이지</a>
+	                    </div>
+	                </c:if>
+	                <c:if test="${logStatus == 'Y'}">
+	                    <div id="login">
+	                        <b style="color: #67493B; padding-right: 10px;"> ${nickname} 님 환영합니다:)</b>
+							<a href="${url}/member/myPage">My-page</a>
+	                    </div>
+	                    <div id="logout">
+	                        <a href="${url}/member/logout">Log-out</a>
+	                    </div>
+	                </c:if>
+	                <c:if test="${logStatus != 'Y'}">
+	                    <div id="login">
+	                        <a href="${url}/member/loginForm">Sign-in</a>
+	                    </div>
+	                </c:if>
+			</div>		
+    	</div> 
+		<nav class="top__nav">
+			<ul class="t__myMenu">
+				<li data-menuanchor="section1" class="menu1"><a href="#section1">SEARCH</a>
+					<ul class="t__menu1__s t__submenu">
+						<li data-menuanchor="section2"><a href="camping/campingSearch">camping list</a></li>
+						<li data-menuanchor="section3"><a href="#section3">hash tag</a></li>
+						<li data-menuanchor="section4"><a href="#section4">recommend</a></li>
+					</ul>
+				</li>
+				<li class="logo">
+                <a href="/"><img src="/img/logo/mulcamping_logo-03.png" width="50%"></a>
+            	</li>
+				<li data-menuanchor="section1" class="menu2"><a href="#section1">CAMPING TOGETHER</a>
+					<ul class="t__menu2__s t__submenu">
+						<li data-menuanchor="section2"><a href="/car/carList">car camping</a></li>
+						<li data-menuanchor="section3"><a href="/supply/supplyList">camping supplies</a></li>
+						<li data-menuanchor="section4"><a href="/gather/gatherList">gather people</a></li>
+					</ul>
+				</li>
+			</ul>	
+			
      </nav>
  </header>
 

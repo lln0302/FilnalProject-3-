@@ -12,7 +12,7 @@ spring:
     username: admin
     password: mulcam333
     
-  devtools: #자동실행
+  devtools: # 코드 수정 시 서버 자동 자동실행
     livereload:
       enabled: true
   servlet:  #multipart
@@ -22,5 +22,6 @@ spring:
       max-request-size: 100MB
       
 mybatis:
-  type-aliases-package: com.campus.myapp.vo #mybatis에서 패키지 생략 할 수 있도록 설정
+  type-aliases-package: com.campus.myapp. #mybatis에서 패키지 생략 할 수 있도록 설정
   mapper-locations: mapper/*Mapper.xml #쿼리문 경로 지정x  
+  

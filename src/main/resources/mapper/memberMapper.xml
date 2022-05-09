@@ -7,4 +7,24 @@
         SELECT userid, nickname, isadmin FROM member
         WHERE userid=#{userid} and userpwd=#{userpwd}
     </select>
+    <insert id="memberInsert">
+        INSERT INTO member(userid, username, nickname, userpwd, usertel, birth, gender, email)
+        VALUE (#{userid}, #{username}, #{nickname}, #{userpwd}, #{usertel}, #{birth}, #{gender}, #{email})
+    </insert>
+    <select id="checkId" resultType="com.campus.myapp.member.MemberVO">
+        SELECT userid FROM member
+        WHERE userid=#{userid}
+    </select>
+    <select id="checkNick" resultType="com.campus.myapp.member.MemberVO">
+        SELECT nickname FROM member
+        WHERE nickname=#{nickname}
+    </select>
+    <select id="checkTel" resultType="com.campus.myapp.member.MemberVO">
+        SELECT usertel FROM member
+        WHERE usertel=#{usertel}
+    </select>
+    <select id="findUserid" resultType="com.campus.myapp.member.MemberVO">
+        SELECT userid from member
+        WHERE username=#{username} and usertel=#{usertelP}
+    </select>
 </mapper>
