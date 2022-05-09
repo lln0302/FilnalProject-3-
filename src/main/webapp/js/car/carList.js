@@ -124,18 +124,24 @@ function displayPlaces(places) {
 function getListItem(index, places) {
 
     var el = document.createElement('li'),
-    itemStr = '<span class="markerbg marker_' + (index+1) + '"></span>' +
+    itemStr = '<span class="marker_' + (index+1) + '"><img src="/img/supply/cat.jpg"></span>' +
                 '<div class="info">' +
-                '   <h5>' + places.place_name + '</h5>';
+                //'   <h5>' + places.place_name + '</h5>';
+                '<h5>[글 제목이 들어갈 부분입니다]</h5>';
 
     if (places.road_address_name) {
-        itemStr += '    <span>' + places.road_address_name + '</span>' +
-                    '   <span class="jibun gray">' +  places.address_name  + '</span>';
+        itemStr += '    <span>' + /*places.road_address_name*/'[서울] 작성자' + '</span>' +
+                    '   <span class="jibun gray">' +  /*places.address_name*/''  + '</span>';
+                    
     } else {
-        itemStr += '    <span>' +  places.address_name  + '</span>'; 
+        itemStr += '    <span>' +  /*places.address_name*/'[서울] 작성자'  + '</span>'; 
     }
                  
-      itemStr += '  <span class="tel">' + places.phone  + '</span>' +
+      itemStr += '  <br><span class="tel">' + /*places.phone*/
+      				'<i class="fas fa-eye"></i>[조회수]&nbsp;&nbsp;&nbsp;'  +
+      				'<i class="fas fa-comment"></i>[댓글수]&nbsp;&nbsp;&nbsp;' +
+      				'<i class="fa fa-clock clock"></i>2022-01-01 ' +
+      				'</span>' +
                 '</div>';           
 
     el.innerHTML = itemStr;

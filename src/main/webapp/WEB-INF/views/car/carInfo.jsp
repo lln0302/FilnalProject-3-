@@ -13,6 +13,11 @@
 		<span id="ciNick">[닉네임]</span> | <i class="fa fa-clock clock"></i> <span id="ciDate">[등록일]</span>
 	</div>
 	<hr>
+	
+	<c:if test="${logStatus=='Y' }">
+		<div style="text-align: right;"> <button class="ciDE">수정</button><button class="ciDE">삭제</button></div>
+	</c:if>
+	
 	<div class="map_wrap">
 		<div id="map" style="width:100%;height:100%;position:relative;overflow:hidden;"></div>
 	    <div class="hAddr">

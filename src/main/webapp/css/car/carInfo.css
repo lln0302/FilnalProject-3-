@@ -11,7 +11,16 @@
 	border: 2px solid orange;
 	
 }
-
+.ciDE {
+	width: 5%;
+ 	background-color: #E6BA95;
+ 	margin-left: 5px;
+ 	margin-top:-5px;
+ 	padding: 6px;
+ 	border: 0px;
+ 	border-radius: 5px;
+}
+.ciDE:hover { background-color: #D6AA85;}
 #ciHead, #ciFoot {
 	width: 100%;
 	text-align: right;

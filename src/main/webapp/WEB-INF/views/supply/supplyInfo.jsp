@@ -16,6 +16,9 @@
 	</div>
 	<hr>
 	
+	<c:if test="${logStatus=='Y' }">
+		<div style="text-align: right;"> <button class="ciDE">수정</button><button class="ciDE">삭제</button></div>
+	</c:if>
 	<img src="/img/supply/cat.jpg" id="spInfoImg">
 	
 	<div id="spContent">

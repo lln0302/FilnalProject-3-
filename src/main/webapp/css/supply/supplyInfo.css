@@ -10,6 +10,19 @@ h5 {
 	text-align: center;
 }
 
+.siDE {
+	width: 5%;
+ 	background-color: #E6BA95;
+ 	margin-left: 5px;
+ 	margin-top:-5px;
+ 	padding: 6px;
+ 	border: 0px;
+ 	border-radius: 5px;
+}
+.siDE:hover {
+	background-color: #D6AA85;
+}
+
 #spBody {
 	padding: 30px;
 	padding-top: 10px;
