@@ -31,10 +31,12 @@
 		<div class="col-6">
 			<div id="joinCamper">
 				<span>
-					<span id="gnewno">${view.gnewno}</span> / 
+					<span id="gnewno">현재 참여 신청 인원: ${view.gnewno}</span> / 
 					<span id="gmemberno">${view.gmemberno}</span>
 				</span>
-				<input type="button" class="btn gnewnoBtn1" id="gnewnoBtn1" value="캠핑 참여">
+				<c:if test="${nickname!=view.nickname}">
+					<input type="button" class="btn gnewnoBtn1" id="gnewnoBtn1" value="캠핑 참여">
+				</c:if>
 			</div>
 			<p id="joinWarn">🛑 캠핑 일주일 전 캠핑 취소를 하시면 매너온도가 내려가게 됩니다.</p>
 			<table class="table table-striped">
