@@ -1,0 +1,33 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE mapper
+        PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN"
+        "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+<mapper namespace="com.campus.myapp.admin.AdminDAO">
+    <select id="adminMembers" resultType="com.campus.myapp.admin.AdminMemberVO">
+        SELECT userid, username, nickname, email, case isadmin when 0 then '관리자' else '사용자'end AS isadmin, userscore, usertel, joindate from member
+        <if test="searchWord != null">
+		where 				${searchKey}
+		like 				'%${searchWord}%'
+		</if>
+        order by joindate desc
+        limit		 		${onePageRecord}
+		offset				${offsetIndex}
+    </select>
+    <select id="allList" resultType="com.campus.myapp.admin.AdminMemberVO">
+        SELECT userid, username, nickname, email, case isadmin when 0 then '관리자' else '사용자'end AS isadmin, userscore, usertel, joindate from member
+        <if test="searchWord != null">
+		where 				${searchKey}
+		like 				'%${searchWord}%'
+		</if>
+        order by joindate desc
+        limit		 		${onePageRecord}
+		offset				${offsetIndex}
+    </select>
+    <select id="totalRecord" resultType="int">
+    	select count(nickname) cnt from member
+    	<if test="searchWord != null">
+			where 			${searchKey}
+			like 			'%${searchWord}%'
+		</if>
+    </select>
+</mapper>
