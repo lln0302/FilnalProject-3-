@@ -12,4 +12,11 @@ public interface GatherService {
 
 	// 게시판의 레코드 개수 
 	public int selectTotalPosts(PagingVO pvo, GatherVO vo);
+	
+	// 게시판 상세페이지
+	public GatherVO gatherView(int gatherno);
+	
+	// 조회수 증가
+	public int updateViews(int gatherno);
+	
 }

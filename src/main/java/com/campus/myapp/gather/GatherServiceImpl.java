@@ -24,11 +24,24 @@ public class GatherServiceImpl implements GatherService {
 		return dao.gatherList(pvo, vo);
 	}
 
+	// 게시판의 레코드 개수 
 	@Override
 	public int selectTotalPosts(PagingVO pvo, GatherVO vo) {
 		return dao.selectTotalPosts(pvo, vo);
 	}
 
+	// 게시판의 상세페이지
+	@Override
+	public GatherVO gatherView(int gatherno) {
+		return dao.gatherView(gatherno);
+	}
+
+	@Override
+	public int updateViews(int gatherno) {
+		return dao.updateViews(gatherno);
+	}
+
+	
 
 	
 }

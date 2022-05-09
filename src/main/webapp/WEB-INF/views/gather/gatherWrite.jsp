@@ -22,7 +22,7 @@
 		
 		CKEDITOR.replace("content", {
 			height:'500px',
-			filebrowserUploadUrl:'/gather/imageUpload',
+			filebrowserUploadUrl:'/gather/ckUpload',
 		});
 		
 		$("#writeForm").submit(function(){
