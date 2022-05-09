@@ -247,6 +247,8 @@ ul.h__myMenu > li ul.h__submenu > li:hover {
 } */
 
 
+/*============ #section 3 / slide 1 =========== */ 
+
 .h__card{
   	display: flex;
   	justify-content: center;
@@ -289,6 +291,114 @@ ul.h__myMenu > li ul.h__submenu > li:hover {
 }
 
 .h__card1__contents{
+	color: rgba(255, 255, 255, .9);
+	font-family: 'IBM Plex Sans KR', sans-serif;
+	font-weight: 300;
+	font-size: 20px;
+	padding: 10px 10px;
+	
+}
+
+
+
+
+/*============ #section 3 / slide 2 =========== */ 
+
+.h__card{
+  	display: flex;
+  	justify-content: center;
+}
+
+.h__card2{
+	position: relative;
+    top: 50px;
+    width: 1200px;
+    height: 600px;
+    background-color: rgba(0, 0 , 0, .3);
+    padding: 20px 10px;
+    margin: 50px 40px;
+    box-shadow: 5px 13px 10px 1px rgb(0 0 0 / 50%);
+    transition: all 250ms linear;
+    float: left;
+}
+
+.h__card2:hover{
+    background: #ff853c;
+    box-shadow: 30px 40px 30px 0px rgb(0 0 0 / 35%);
+  	transform: translateY(-15px);
+}
+
+
+.h__card2__title{
+	color: rgba(255, 255, 255, .9);
+	font-family: 'IBM Plex Sans KR', sans-serif;
+	font-weight: 300;
+	font-size: 25px;
+	padding: 10px 10px;
+}
+
+.h__card2 img {
+	width: 1000px;
+	height: 350px;
+	object-fit: cover;
+	margin-top: 10px;
+	margin-bottom: 10px;
+}
+
+.h__card2__contents{
+	color: rgba(255, 255, 255, .9);
+	font-family: 'IBM Plex Sans KR', sans-serif;
+	font-weight: 300;
+	font-size: 20px;
+	padding: 10px 10px;
+	
+}
+
+
+/*============ #section 3 / slide 3 =========== */ 
+
+.h__card{
+  	display: flex;
+  	justify-content: center;
+}
+
+.h__card3{
+	position: relative;
+    top: 50px;
+    width: 1200px;
+    height: 600px;
+    background-color: rgba(0, 0 , 0, .3);
+    padding: 20px 10px;
+    margin: 50px 40px;
+    box-shadow: 5px 13px 10px 1px rgb(0 0 0 / 50%);
+    transition: all 250ms linear;
+    float: left;
+}
+
+.h__card3:hover{
+    background: #ffa909;
+    box-shadow: 30px 40px 30px 0px rgb(0 0 0 / 35%);
+  	transform: translateY(-15px);
+}
+
+
+.h__card3__title{
+	color: rgba(255, 255, 255, .9);
+	font-family: 'IBM Plex Sans KR', sans-serif;
+	font-weight: 300;
+	font-size: 25px;
+	padding: 10px 10px;
+}
+
+.h__card3 img {
+	width: 1000px;
+	height: 350px;
+	object-fit: cover;
+	margin-top: 10px;
+	margin-bottom: 10px;
+}
+
+.h__card3__contents{
 	color: rgba(255, 255, 255, .9);
 	font-family: 'IBM Plex Sans KR', sans-serif;
 	font-weight: 300;

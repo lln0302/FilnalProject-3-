@@ -94,11 +94,35 @@
 		
 		
 		<div class="slide" >
-			<h3>car camping</h3>
+		<div class='h__card'>
+			<a href="#">
+			<div class="h__card2">
+				<h3 class="h__card2__title">
+	              <strong>차박지 공유</strong><br/>
+	              <span>car camping</span>              
+	            </h3>
+	            <img alt="thumbnail" src="/img/home/08.png" width="80%">
+	            <div class="h__card2__contents">추억이 가득한 차박장소를 공유해주세요!<br/>뒷처리는 깔끔하게합시다!</div>
+			</div>
+		</a>				
+		</div>
 		</div>
 		
+		
 		<div class="slide">
-			<h3>camping supplies</h3>
+		<div class='h__card'>
+			<a href="#">
+			<div class="h__card3">
+				<h3 class="h__card3__title">
+	              <strong>캠핑용품</strong><br/>
+	              <span>camping supplies</span>              
+	            </h3>
+	            <img alt="thumbnail" src="/img/home/10.jpg" width="80%">
+	            <div class="h__card3__contents">안쓰는 캠핑용품<br/>나눔 합시다 :)</div>
+			</div>
+		</a>				
+		</div>
+		</div>
 		</div>
 	</section>
 	
