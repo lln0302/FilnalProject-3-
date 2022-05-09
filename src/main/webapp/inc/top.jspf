@@ -5,88 +5,79 @@
 <html>
 
 <head>
-    <meta charset="utf-8">
-    <title>Mulcamping</title>
+<meta charset="utf-8">
+<title>Mulcamping</title>
 
-    <!-- 부트스트랩 CSS -->
-    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap-icons@1.8.1/font/bootstrap-icons.css">
-    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap@4.6.1/dist/css/bootstrap.min.css" integrity="sha384-zCbKRCUGaJDkqS1kPbPd7TveP5iyJE0EjAuZQTgFLD2ylzuqKfdKlfG/eSrtxUkn" crossorigin="anonymous">
+<!-- 부트스트랩 CSS -->
+<link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap-icons@1.8.1/font/bootstrap-icons.css">
+<link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap@4.6.1/dist/css/bootstrap.min.css" integrity="sha384-zCbKRCUGaJDkqS1kPbPd7TveP5iyJE0EjAuZQTgFLD2ylzuqKfdKlfG/eSrtxUkn" crossorigin="anonymous">
 
-    <!-- 제이쿼리, 플러그인 CDN -->
-    <!-- <link rel="stylesheet" href="/jquery-ui/jquery-ui.min.css">
-    <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.6.0/jquery.min.js"></script>
-    <script src="/jquery-ui/jquery-ui.min.js"></script>-->
-    <link rel="stylesheet" href="//code.jquery.com/ui/1.13.1/themes/base/jquery-ui.css"> 
-    <script src="https://code.jquery.com/jquery-3.6.0.js"></script>
-    <script src="https://code.jquery.com/ui/1.13.1/jquery-ui.js"></script>
+<!-- 제이쿼리, 플러그인 CDN -->
+<!-- <link rel="stylesheet" href="/jquery-ui/jquery-ui.min.css">
+<script src="https://ajax.googleapis.com/ajax/libs/jquery/3.6.0/jquery.min.js"></script>
+<script src="/jquery-ui/jquery-ui.min.js"></script>-->
+<link rel="stylesheet" href="//code.jquery.com/ui/1.13.1/themes/base/jquery-ui.css"> 
+<script src="https://code.jquery.com/jquery-3.6.0.js"></script>
+<script src="https://code.jquery.com/ui/1.13.1/jquery-ui.js"></script>
 
-    <!-- 부트스트랩 JS -->
-    <script src="https://cdn.jsdelivr.net/npm/bootstrap@4.6.1/dist/js/bootstrap.bundle.min.js" integrity="sha384-fQybjgWLrvvRgtW6bFlB7jaZrFsaBXjsOMm/tB9LTS58ONXgqbR9W8oWht/amnpF" crossorigin="anonymous"></script>
-    <link rel="stylesheet" href="/css/top.css" type="text/css"/>
-    <link rel="stylesheet" href="/css/base.css" type="text/css"/>
+<!-- 부트스트랩 JS -->
+<script src="https://cdn.jsdelivr.net/npm/bootstrap@4.6.1/dist/js/bootstrap.bundle.min.js" integrity="sha384-fQybjgWLrvvRgtW6bFlB7jaZrFsaBXjsOMm/tB9LTS58ONXgqbR9W8oWht/amnpF" crossorigin="anonymous"></script>
+<link rel="stylesheet" href="/css/top.css" type="text/css"/>
+<link rel="stylesheet" href="/css/base.css" type="text/css"/>
 
-    <!-- axios 라이브러리 추가 -->
-    <script src="https://cdn.jsdelivr.net/npm/axios/dist/axios.min.js"></script>
-    <!--<script src="https://cdnjs.cloudflare.com/ajax/libs/jquery/3.6.0/jquery.min.js"></script>  -->
 
+<!-- axios 라이브러리 추가 -->
+<script src="https://cdn.jsdelivr.net/npm/axios/dist/axios.min.js"></script>
+<script src="//cdn.ckeditor.com/4.17.2/full/ckeditor.js"></script>
 </head>
 
 <body>
 
-    <header class="header" id="header">
-        <nav class="nav">
-            <div class="logo">
-                <a href="/"><img src="/img/logo/mulcamping_logo-03.png" width="48%"></a>
-            </div>
-            
-            <div class="nav__menu">
-                <ul class="nav__list">
-                    <li class="nav__item">
-                        <a href="#" class="nav__link active-link">SEARCH</a>
-                        <div class="dropdown-content">
-                            <a href="#">camping list</a>
-                            <a href="#">hash tag</a>
-                            <a href="#">recommend</a>                            
-                        </div>
-                    </li>
-                    <li class="nav__item">
-                        <a href="#" class="nav__link nav__link__r">CAMPING TOGETHER</a>
-                        <div class="dropdown-content">
-                            <a href="/car/carList">car camping</a>
-                            <a href="/supply/supplyList">camping supplies</a>
-                            <a href="/gather/gatherList">gather people</a>                            
-                        </div>
-                    </li>
-                </ul>
-             </div>
-				
-		<div class="main__top">
-			<div class="main__loginSign">
-                <c:if test="${isadmin == 1}">
-                    <div id="admin">
-                        <a href="#"><span>관리자 페이지</span></a>
-                    </div>
-                </c:if>
-                <c:if test="${logStatus == 'Y'}">
-                    <div id="login">
-                        <span>${nickname} 님</span>
-                        <ul class="sub" style="list-style: none;">
-                            <li><a href="${url}/member/myPage">마이 페이지</a></li>
-                        </ul>
-                    </div>
-                    <div id="logout">
-                        <a href="${url}/member/logout"><span>로그아웃</span></a>
-                    </div>
-                </c:if>
-                <c:if test="${logStatus != 'Y'}">
-                    <div id="login">
-                        <a href="${url}/member/loginForm"><span>로그인</span></a>
-                    </div>
-                </c:if>
-
-  				 <a href="${url}/member/memberForm">Sign-up</a>
-			</div>
-        </div>
+    <header class="header" id="header">   
+		<nav class="top__nav">
+			<ul class="t__myMenu">
+				<li data-menuanchor="section1" class="menu1"><a href="#section1">SEARCH</a>
+					<ul class="t__menu1__s t__submenu">
+						<li data-menuanchor="section2"><a href="camping/campingSearch">camping list</a></li>
+						<li data-menuanchor="section3"><a href="#section3">hash tag</a></li>
+						<li data-menuanchor="section4"><a href="#section4">recommend</a></li>
+					</ul>
+				</li>
+				<li class="logo">
+                <a href="/"><img src="/img/logo/mulcamping_logo-03.png" width="45%"></a>
+            	</li>
+				<li data-menuanchor="section1" class="menu2"><a href="#section1">CAMPING TOGETHER</a>
+					<ul class="t__menu2__s t__submenu">
+						<li data-menuanchor="section2"><a href="/car/carList">car camping</a></li>
+						<li data-menuanchor="section3"><a href="/supply/supplyList">camping supplies</a></li>
+						<li data-menuanchor="section4"><a href="/gather/gatherList">gather people</a></li>
+					</ul>
+				</li>
+			</ul>	
+			<div class="t__loginSign">
+	                <c:if test="${isadmin == 1}">
+	                    <div id="admin">
+	                        <a href="#"><span>관리자 페이지</span></a>
+	                    </div>
+	                </c:if>
+	                <c:if test="${logStatus == 'Y'}">
+	                    <div id="login">
+	                        <span>${nickname} 님</span>
+	                        <ul class="sub" style="list-style: none;">
+	                            <li><a href="${url}/member/myPage">마이 페이지</a></li>
+	                        </ul>
+	                    </div>
+	                    <div id="logout">
+	                        <a href="${url}/member/logout"><span>로그아웃</span></a>
+	                    </div>
+	                </c:if>
+	                <c:if test="${logStatus != 'Y'}">
+	                    <div id="login">
+	                        <a href="${url}/member/loginForm"><span>Sign-in</span></a>
+	                    </div>
+	                </c:if>
+	  				 <a href="${url}/member/memberForm">Sign-up</a>
+			</div>		
      </nav>
  </header>
 

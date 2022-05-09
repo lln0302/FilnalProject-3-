@@ -25,7 +25,7 @@
 }
 
 #placeAndDate{
-	background:beige;
+	/*background:beige;*/
 	padding:10px;
 }
 
@@ -40,11 +40,11 @@
 
 #gatherContent{
 	padding:20px;
-	background:beige;
+	/*background:beige;*/
 }
 
 #joinCamper{
-	background:pink;
+	/*background:pink;*/
 	padding:10px;
 	margin:20px;
 	display:flex;
@@ -57,7 +57,7 @@
 }
 
 #gnewnoBtn1 {
-	background:yellow;
+	/*background:yellow;*/
 	font-size:1.2em;
 }
 

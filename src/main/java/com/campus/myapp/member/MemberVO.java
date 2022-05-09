@@ -8,6 +8,32 @@ public class MemberVO {
     private String usertel;
     private String usertel1;
     private String usertel2;
+    private String usertelP;
+
+    public String getUsertel1() {
+        return usertel1;
+    }
+
+    public void setUsertel1(String usertel1) {
+        this.usertel1 = usertel1;
+    }
+
+    public String getUsertel2() {
+        return usertel2;
+    }
+
+    public void setUsertel2(String usertel2) {
+        this.usertel2 = usertel2;
+    }
+
+    public String getUsertelP() {
+        return usertelP;
+    }
+
+    public void setUsertelP(String usertelP) {
+        this.usertelP = usertelP;
+    }
+
     private String birth;
     private String gender;
     private String email;

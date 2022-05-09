@@ -10,7 +10,7 @@ main {
 }
 
 
-.loginForm {
+.memberFind {
     width: 100%;
     height: 100%;
     align-items: center;
@@ -22,7 +22,7 @@ main {
 }
 
 h1 {
-    margin-top: 20vh;
+    margin-top: 8vh;
     position: relative;
     text-align: center;
     margin-right: 40vw;
@@ -40,7 +40,7 @@ h1 {
     color: #f9f9f9;
 }
 
-.login-btn {
+.find-btn {
     position: relative;
     top: 3vh;
     width: 20vw;
@@ -48,34 +48,40 @@ h1 {
     background: none;
     color: #f9f9f9;
     border-radius: 4px;
-    border: 2px solid rgba(200, 200, 200, 55%);
+    border: 2px solid rgba(70, 70, 70, 55%);
 }
 
-.login-btn:hover {
+.find-btn:hover {
     color: darkorange;
 }
 
-.join-a {
-    color: #f9f9f9;
+a {
+    color: white;
+}
+
+.nav-pills .nav-link.active {
+    color: darkorange;
+}
+
+.state {
+    font-size: 0.8em;
+    color: #ca2819;
     position: relative;
-    top: 7vh;
-    left: 5vw;
+    bottom: 1.5vh;
 }
 
-.join-a:hover {
-    color: darkorange;
+.stateOk {
+    font-size: 0.8em;
+    color: #0000CD;
 }
 
-.find-a {
-    color: #f9f9f9;
+.join-tag {
     position: relative;
-    top: 7vh;
-    left: 8vw;
+    top: 6vh;
+    left: 8.5vw;
+    color: #f9f9f9;
 }
 
-.find-a:hover {
+.join-tag:hover {
     color: darkorange;
 }
-
-
-
