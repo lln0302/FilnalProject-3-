@@ -1,6 +1,22 @@
 <%@ page language="java" contentType="text/html; charset=UTF-8" pageEncoding="UTF-8"%>
-<footer id=footer>
-여기는 푸터 입니당
+
+<style>
+#footer{
+	height:70px;
+	text-align: center;
+	justify-content: center;
+	padding: 20px 20px;
+	margin-top: 30px;
+	background:rgba(0, 0, 0, .5);
+}
+</style>
+
+
+
+<footer id="footer">
+<div class="footer_c" style="color: white">
+Copyrights(c) 2022 TEAM Campers ALL RIGHTS RESERVED.
+</div>
 </footer>
 </body>
 </html>
