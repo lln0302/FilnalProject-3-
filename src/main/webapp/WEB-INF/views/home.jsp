@@ -45,8 +45,18 @@
 		<div class="s1_container">
 			<div><img alt="logo" src="/img/logo/mulcamping_logo-05.png" width="160px"></div>
 			<h1>멀캠핑에서 <br/> 캠핑을 시작해보세요</h1>
-			<input type="button" value="sign in"/>
-			<input type="button" value="sign up"/>
+			<c:if test="${logStatus == 'Y'}">
+				<div id="logout">
+					<input type="button" value="mypage" onclick="location.href='${url}/member/myPageMain'"/>
+					<input type="button" value="logout" onclick="location.href='${url}/member/logout'"/>
+				</div>
+			</c:if>
+			<c:if test="${logStatus != 'Y'}">
+				<div id="login">
+					<input type="button" value="sign in" onclick="location.href='${url}/member/loginForm'"/>
+					<input type="button" value="sign up" onclick="location.href='${url}/member/memberForm'"/>
+				</div>
+			</c:if>
 	  		<a href="#section2"><span></span>Scroll</a>
   		</div>
 	</section>

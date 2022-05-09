@@ -23,4 +23,8 @@
         SELECT usertel FROM member
         WHERE usertel=#{usertel}
     </select>
+    <select id="findUserid" resultType="com.campus.myapp.member.MemberVO">
+        SELECT userid from member
+        WHERE username=#{username} and usertel=#{usertelP}
+    </select>
 </mapper>
