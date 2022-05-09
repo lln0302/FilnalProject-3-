@@ -11,16 +11,24 @@
 	border: 2px solid orange;
 	
 }
-.ciDE {
+
+#ciEdit, #ciDel {
 	width: 5%;
- 	background-color: #E6BA95;
+ 	background-color: #f58243;
  	margin-left: 5px;
  	margin-top:-5px;
  	padding: 6px;
  	border: 0px;
  	border-radius: 5px;
 }
-.ciDE:hover { background-color: #D6AA85;}
+
+#ciDel {
+	background-color: #67493B;
+}
+
+#ciEdit:hover { background-color: #e57233; }
+#ciDel:hover { background-color: #57392B; }
+
 #ciHead, #ciFoot {
 	width: 100%;
 	text-align: right;
@@ -50,11 +58,11 @@
 }
 #ciReplyButton {
  	width: 10%;
- 	background-color: #E6BA95;
+ 	background-color: #f58243;
  	padding: 6px 12px;
  	border: 0px;
  	border-radius: 5px;
 }
 #ciReplyButton:hover {
-	background-color: #D6AA85;
+	background-color: #e57233;
 }

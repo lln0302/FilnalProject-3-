@@ -17,10 +17,10 @@
 	</div> 
 	-->
 	<div class="col-12" style="text-align: right">
-      <a href="/car/carWrite"><i class="fa fa-pen writeBtn"></i></a>
+      <a href="/car/carWrite"><i class="fa fa-pen writeBtn fa-lg"></i></a>
     </div>
 	<div class="map_wrap">
-	    <div id="map" style="width:50%;height:100%;position:relative;overflow:hidden;"></div>
+	    <div id="map"></div>
 		
 		<div id="menu_wrap" class="bg_white">
 		        <div class="option">

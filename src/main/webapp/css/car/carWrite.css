@@ -42,11 +42,11 @@
 #cwTable button {
 	border: 0px;
 	border-radius : 2px;
-	background-color: #E6BA95;
+	background-color: #f58243;
 	padding: 2px 0;
 }
 #cwTable button:hover {
-	background-color: #D6AA85;
+	background-color: #e57233;
 }
 
 #cwLabel {
@@ -70,12 +70,12 @@
 	padding: 6px 12px;
 	border: 0px;
 	border-radius: 5px;
-	background-color: #E6BA95;
+	background-color: #f58243;
 	margin-right: 17px;
 	margin-bottom: 17px;
 }
 #carWriteSubmit:hover {
-	background-color: #D6AA85;
+	background-color: #e57233;
 }
 
 

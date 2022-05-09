@@ -15,9 +15,9 @@
 		<span id="ciNick">[닉네임]</span> | <i class="fa fa-clock clock"></i> <span id="ciDate">[등록일]</span>
 	</div>
 	<hr>
-	
+	<!-- 본인 게시물인 경우에만 나타나도록 설정해줘야 함 -->
 	<c:if test="${logStatus=='Y' }">
-		<div style="text-align: right;"> <button class="ciDE">수정</button><button class="ciDE">삭제</button></div>
+		<div style="text-align: right;"> <button id="ciEdit">수정</button><button id="ciDel">삭제</button></div>
 	</c:if>
 	<img src="/img/supply/cat.jpg" id="spInfoImg">
 	
@@ -44,7 +44,7 @@
 					[닉네임1] 님 - 나눔 원합니다!! | [등록일]
 				</div>
 				<div class="goChatDiv">
-					<button class="goChat">채팅방 이동</button>
+					<button class="goChat" onclick="location.href='supplyChat'">채팅방 이동</button>
 				</div>
 				<br>
 			</li>
