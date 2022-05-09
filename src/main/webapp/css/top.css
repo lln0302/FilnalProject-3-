@@ -20,6 +20,29 @@
     box-shadow: 1px 2px 6px 0px rgb(0 0 0 / 15%);
 }
 
+.top__box{
+    position: relative;
+    border-bottom: 1px solid #f1f1f1;
+}
+
+.t__loginSign{
+	position: relative;
+    color: #464646;
+    font-size: 15px;
+    font-family: 'IBM Plex Sans', sans-serif;
+    padding: 10px 20px;	
+    text-align: right;
+}
+
+.t__loginSign > div{
+	display: inline;
+}
+
+.t__loginSign  a{
+	padding: 0px 10px; 
+}
+
+
 .top__nav ul{
 	display: flex;
 	justify-content: center;
@@ -29,9 +52,9 @@
 
 
 ul.t__myMenu > li { 
-    display: inline-block;
-    width: 350px;
-    padding: 15px 10px;
+	display: inline-block;
+    width: 280px;
+    padding: 0px 10px;
     text-align: center;
     position: relative;
    
@@ -41,7 +64,7 @@ ul.t__myMenu > li {
 ul.t__myMenu > li ul.t__submenu { 
 	display:none; 
 	position:absolute;
-	top:55px; 
+	top:35px; 
 	left:0; 
 }
 
@@ -53,7 +76,7 @@ ul.t__myMenu > li:hover ul.t__submenu {
 
 ul.t__myMenu > li ul.t__submenu > li { 
 	display:inline-block; 
-	width:350px; 
+	width:280px; 
 	padding:5px 10px; 
 	text-align:center;
 }
@@ -69,9 +92,3 @@ ul.t__myMenu > li ul.t__submenu > li:hover {
     font-family: 'IBM Plex Sans', sans-serif;
 }
 
-.t__loginSign{
-	position: absolute;
-    right: 24px;
-    top: 6px;
-    
-}

@@ -1,14 +1,11 @@
-package com.campus.myapp.member;
+package com.campus.myapp.admin;
 
-public class MemberVO {
+public class AdminMemberVO {
     private String userid;
     private String username;
     private String nickname;
     private String userpwd;
     private String usertel;
-    private String usertel1;
-    private String usertel2;
-    private String usertelP;
     private String birth;
     private String gender;
     private String email;
@@ -17,28 +14,6 @@ public class MemberVO {
     private String userscore;
     private String zzim_zzimno;
 
-    public String getUsertel1() {
-        return usertel1;
-    }
-
-    public void setUsertel1(String usertel1) {
-        this.usertel1 = usertel1;
-    }
-
-    public String getUsertel2() {
-        return usertel2;
-    }
-
-    public void setUsertel2(String usertel2) {
-        this.usertel2 = usertel2;
-    }
-
-    public String getUsertelP() {
-        return usertelP;
-    }
-    public void setUsertelP(String usertelP) {
-        this.usertelP = usertelP;
-    }
     public String getUserid() {
         return userid;
     }
@@ -72,13 +47,10 @@ public class MemberVO {
     }
 
     public String getUsertel() {
-        usertel = usertel1+usertel2;
         return usertel;
     }
 
     public void setUsertel(String usertel) {
-        usertel1 = usertel.substring(0, 3);
-        usertel2 = usertel.substring(3);
         this.usertel = usertel;
     }
 

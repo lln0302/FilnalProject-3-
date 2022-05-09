@@ -2,7 +2,7 @@
 
 	#adminPage {
 		position: absolute;
-		left: 0%;
+		left: 25%;
 		width:1200px;
 		height:2000px;
 		/*background-color:red;*/
@@ -12,10 +12,10 @@
 		width:1200px;
 		height:1900px;
 		position:relative;
-		background-color:gray;
+		background:rgba(242, 242, 242, 1);
 	}
 	#adminMainContentTop {
-		width:1100px;
+		width:1050px;
 		height: 72px;
 		font-size: 48px;
 		line-height:72px;
@@ -68,31 +68,46 @@
 	}
 	.menuExpansion{
 		position: absolute;
-		background-color:green;
-		box-shadow: 0 0 5px #7D909F;
+		background:rgba(100, 100, 100, 1);
 		width:300px;
-		height:820px;
+		height:765px;
 		overflow:hidden;
 		text-align:center;
 	}
 	.menu_img{
 		float: left;
 		width:100px;
-		height:820px;
-		line-height: 100px;
-		background-color:green;
-		padding: 10px 10px 10px 10px;
+		height:765px;
+		background:rgba(100, 100, 100, 1);
 		cursor:pointer;
 		text-align:center;
 	}
+
+	#menu1 {
+		width:100px;
+		padding:0px;
+	}
 	#menu2 {
 		width:300px;
+		padding:0px;
+	}
+	.menu_imgs {
+		width:90px;
+		height:95px;
+		object-fit:cover;
+		padding: 6px 0px 0px 0px;
 	}
 	.menu2left{
-		width:80px;
-		/*padding: 60px 0px 0px 0px;*/
+		width:90px;
+		height:95px;
+		object-fit:cover;
+		padding: 6px 0px 0px 0px;
+		
 	}
 	.menu2right{
-		width:180px;
+		width:200px;
+		height:95px;
+		object-fit:cover;
 		float:right;
+		padding: 6px 5px 0px 0px;
 	}

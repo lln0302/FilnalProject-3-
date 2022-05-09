@@ -2,10 +2,13 @@
          pageEncoding="UTF-8"%>
 <%@ taglib uri="http://java.sun.com/jsp/jstl/core" prefix="c" %>
 <script src="${url}/js/member/myPageMain.js"></script>
+<script src='fullcalendar-scheduler/main.js'></script>
 <link rel="stylesheet"  href="/css/member/myPageMain.css" type="text/css"/>
+<link href='fullcalendar-scheduler/main.css' rel='stylesheet' />
 
 <main>
     <section class="myPageMain">
+        <div id="calender"></div>
         <nav class="main-menu">
             <ul>
                 <li>
