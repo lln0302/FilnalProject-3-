@@ -24,7 +24,7 @@
 	<ul class="h__myMenu">
 		<li data-menuanchor="section1" class="menu1"><a href="#section1">SEARCH
 			<ul class="h__menu1__s h__submenu">
-				<li data-menuanchor="section2"><a href="#section2">camping list</a></li>
+				<li data-menuanchor="section2"><a href="camping/campingSearch">camping list</a></li>
 				<li data-menuanchor="section3"><a href="#section3">hash tag</a></li>
 				<li data-menuanchor="section4"><a href="#section4">recommend</a></li>
 			</ul>
@@ -33,7 +33,7 @@
 			<ul class="h__menu2__s h__submenu">
 				<li data-menuanchor="section2"><a href="#section2">car camping</a></li>
 				<li data-menuanchor="section3"><a href="#section3">camping supplies</a></li>
-				<li data-menuanchor="section4"><a href="#section4">gather people</a></li>
+				<li data-menuanchor="section4"><a href="gather/gatherList">gather people</a></li>
 			</ul>
 		</li>
 	</ul>
@@ -136,4 +136,3 @@
 	
 
 </main>
-

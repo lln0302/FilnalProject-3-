@@ -12,6 +12,12 @@ public class GatherServiceImpl implements GatherService {
 	@Inject
 	GatherDAO dao;
 
+	// 캠퍼 모집 글 등록
+	@Override
+	public int gatherInsert(GatherVO vo) {
+		return dao.gatherInsert(vo);
+	}
+	
 	// 캠퍼 모집 리스트
 	@Override
 	public List<GatherVO> gatherList(PagingVO pvo, GatherVO vo) {
@@ -22,5 +28,7 @@ public class GatherServiceImpl implements GatherService {
 	public int selectTotalPosts(PagingVO pvo, GatherVO vo) {
 		return dao.selectTotalPosts(pvo, vo);
 	}
+
+
 	
 }

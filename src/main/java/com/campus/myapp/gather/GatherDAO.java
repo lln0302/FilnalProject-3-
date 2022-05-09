@@ -9,6 +9,9 @@ import org.springframework.stereotype.Repository;
 @Repository
 public interface GatherDAO {
 
+	// 캠퍼 모집 글 등록
+	public int gatherInsert(GatherVO vo);
+	
 	// 캠퍼 모집 리스트
 	public List<GatherVO> gatherList(PagingVO pvo, GatherVO vo);
 

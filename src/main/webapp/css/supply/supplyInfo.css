@@ -1,0 +1,91 @@
+@charset "UTF-8";
+
+h5 {
+	text-align: center;
+	padding: 10px;
+}
+
+.container {
+	height: auto;
+	text-align: center;
+}
+
+#spBody {
+	padding: 30px;
+	padding-top: 10px;
+	border: 2px solid orange;
+	
+}
+
+#spInfoImg {
+	width: 60%;
+	height: auto;
+}
+
+#spHead, #spFoot {
+	width: 100%;
+	text-align: right;
+}
+
+#spRep {
+	width:100%;
+	margin-top:10px;
+}
+
+#spReply {
+	width: 89%;
+	padding: 4px;
+	margin-bottom: 10px;
+}
+
+#spReplyList {
+	margin-top: 10px;
+}
+
+#spReplyList * {
+	text-align: left;
+}
+
+#spReplyList li{
+	padding: 5px;
+	margin-bottom: 5px;
+	padding-right: 0px;
+}
+#spReplyList div {
+	width: 70%;
+	float: left;
+}
+
+#spReplyList .spUserInfo {
+	padding: 6px 0;
+}
+
+#spReplyList>li>.goChatDiv {
+	width: 30%;
+	text-align: right;
+}
+
+#spReplyList hr {
+	margin-bottom:5px;
+}
+#spReplyButton {
+ 	width: 100%;
+ 	background-color: #E6BA95;
+ 	padding: 6px 12px;
+ 	border: 0px;
+ 	border-radius: 5px;
+}
+#spReplyButton:hover {
+	background-color: #D6AA85;
+}
+
+.goChat {
+	border: 0px;
+	border-radius: 5px;
+	padding: 6px 12px;
+	background-color: #E6BA95;
+}
+
+.goChat:hover {
+	background-color: #D6AA85;
+}
