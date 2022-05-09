@@ -97,4 +97,21 @@ public class MemberController {
     public MemberVO checkTel (@RequestBody MemberVO vo) {
         return memberservice.checkTel(vo);
     }
+
+    @GetMapping("myPageMain")
+    public String myPageMain() {
+        return "member/myPageMain";
+    }
+
+    @GetMapping("memberFind")
+    public String memberFind() {
+        return "member/memberFind";
+    }
+
+    @PostMapping("/findUserid")
+    @ResponseBody
+    public MemberVO findUserid(@RequestBody MemberVO vo) {
+        return memberservice.findUserid(vo);
+    }
+
 }

@@ -4,8 +4,7 @@ public class PagingVO {
 
 	private int currentPage = 1;     // 현재페이지
 	private int startPage = 1;       // 시작페이지
-	private int endPage;             // 마지막페이지
-	private int postsPerPage = 10;   // 한 페이지당 표시할 글 개수
+	private int postsPerPage = 4;    // 한 페이지당 표시할 글 개수
 	private int displayPageNum = 5;  // 하단에 한 번에 표시할 페이지 수
 	private int totalPosts;          // 모든 글 개수(DB)
 	private int totalPages;          // 총 페이지 수
@@ -27,12 +26,7 @@ public class PagingVO {
 	public void setStartPage(int startPage) {
 		this.startPage = startPage;
 	}
-	public int getEndPage() {
-		return endPage;
-	}
-	public void setEndPage(int endPage) {
-		this.endPage = endPage;
-	}
+	
 	public int getPostsPerPage() {
 		return postsPerPage;
 	}
@@ -52,9 +46,9 @@ public class PagingVO {
 		this.totalPosts = totalPosts;
 		// 총 페이지 수
 		if(totalPosts%postsPerPage==0) { // 총 게시글 수에서 한 페이지당 표시할 수가 나누어떨어지면 
-			totalPosts = totalPosts/postsPerPage; // 나눗셈 몫이 totalPosts안으로
+			totalPages = totalPosts/postsPerPage; // 나눗셈 몫이 totalPosts안으로
 		}else {
-			totalPosts = totalPosts/postsPerPage+1; // 몫+1 그 다음 페이지로
+			totalPages = (int)Math.ceil((double)totalPosts/postsPerPage); // 몫+1 그 다음 페이지로
 		}
 	}
 	public int getTotalPages() {

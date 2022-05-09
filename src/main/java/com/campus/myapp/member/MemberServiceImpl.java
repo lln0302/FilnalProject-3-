@@ -48,4 +48,9 @@ public class MemberServiceImpl implements MemberService {
         SingleMessageSentResponse response = messageService.sendOne(new SingleMessageSendingRequest(message));
         System.out.println(response);
     }
+
+    @Override
+    public MemberVO findUserid(MemberVO vo) {
+        return dao.findUserid(vo);
+    }
 }

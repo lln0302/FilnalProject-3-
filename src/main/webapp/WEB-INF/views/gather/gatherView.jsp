@@ -3,16 +3,16 @@
 <link rel="stylesheet" href="/css/gather/view.css" type="text/css"/>
 <script src="https://kit.fontawesome.com/76aefe2b67.js"></script>
 <div class="container gatherView">
-	<h1>캠퍼 모집</h1>
-	<div class="col-12 camperTitle">제목</div>
+	<h1>${view.title}</h1>
+	<div class="col-12 camperTitle"></div>
 	<hr/>
 	<ul id="iconsAndName">
-		<li><i class="fa fa-eye fa-lg"></i> 1</li>
-		<li><i class="fa fa-clock fa-lg"></i> 2022-05-02</li>
-		<li>작성자</li>
-		<c:if test="${logId==viewvo.userid}">
+		<li><i class="fa fa-eye fa-lg"></i> ${view.views}</li>
+		<li><i class="fa fa-clock fa-lg"></i> ${view.createdate}</li>
+		<li>${view.nickname}</li>
+		<c:if test="${nickname==view.nickname}">
 			<li>
-				<a href="/gather/gatherEdit?no=${viewVo.no}" class="btn" id="gatherEdit">수정</a>
+				<a href="/gather/gatherEdit?no=${view.gatherno}" class="btn" id="gatherEdit">수정</a>
 				<input type="button" class="btn" id="gatherDel" value="삭제"/>
 			</li>
 		</c:if>
@@ -20,17 +20,20 @@
 	<div class="row">
 		<div class="col-6">
 			<div id="placeAndDate">
-				<div><i class="fa fa-location-arrow"></i> 전라북도 순천시 00 캠핑장</div>
-				<div><i class="fa fa-calendar"></i> 2022/04/26 ~ 2022/04/30</div>
+				<div><i class="fa fa-location-arrow"></i> ${view.place}</div>
+				<div><i class="fa fa-calendar"></i> ${view.startdate} ~ ${view.enddate}</div>
 			</div>
 			<hr/>
 			<div id="gatherContent">
-				<div>sodfsdofsdofjsodfjasofjoad</div>
+				<div>${view.content}</div>
 			</div>
 		</div>
 		<div class="col-6">
 			<div id="joinCamper">
-				<span><span id="gnewno">1</span> / <span id="gmemberno">5</span></span>
+				<span>
+					<span id="gnewno">${view.gnewno}</span> / 
+					<span id="gmemberno">${view.gmemberno}</span>
+				</span>
 				<input type="button" class="btn gnewnoBtn1" id="gnewnoBtn1" value="캠핑 참여">
 			</div>
 			<p id="joinWarn">🛑 캠핑 일주일 전 캠핑 취소를 하시면 매너온도가 내려가게 됩니다.</p>
