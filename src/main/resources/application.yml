@@ -24,3 +24,4 @@ spring:
 mybatis:
   type-aliases-package: com.campus.myapp. #mybatis에서 패키지 생략 할 수 있도록 설정
   mapper-locations: mapper/*Mapper.xml #쿼리문 경로 지정x  
+  

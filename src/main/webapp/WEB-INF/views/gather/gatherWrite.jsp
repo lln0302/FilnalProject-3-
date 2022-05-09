@@ -4,7 +4,7 @@
 <script>
 	$(function(){
 		
-		$("input[name='startdate'], input[name='enddate']").datepicker({
+		$("#startdate, #enddate").datepicker({
 			dateFormat: 'yy-mm-dd',  // Input Display Format 변경
 			changeMonth: true,       // select 문으로 월 선택 가능  
 			changeYear: true, 		 // select 문으로 년 선택 가능
@@ -22,7 +22,7 @@
 		
 		CKEDITOR.replace("content", {
 			height:'500px',
-			filebrowserUploadUrl:'/gather/imageUpload',
+			filebrowserUploadUrl:'/gather/ckUpload',
 		});
 		
 		$("#writeForm").submit(function(){
