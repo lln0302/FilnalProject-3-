@@ -63,19 +63,17 @@
 					<div class="writeMark">제목 및 장소<hr/></div>
 				</div>
 				<div class="col-6 writeTitle">
-					<span>제목을 적어주세요</span>
-					<input type="text" name="title" id="gatherTitle" class="col-12"/>
-				</div>
+					<input type="text" name="title" id="gatherTitle" class="col-12" placeholder="제목을 적어주세요"/>
+				</div> 
 				<div class="col-5 writePlace">
-					<span>장소를 적어주세요</span>
-					<input type="text" name="place" id="gatherPlace" class="col-12"/>
+					<input type="text" name="place" id="gatherPlace" class="col-12" placeholder="장소를 적어주세요"/>
 				</div>
 				<div class="col-12">
 					<div class="writeMark">모집인원 및 날짜<hr/></div>
 				</div>
 				<div class="col-4 writeCamper">
 					<span>모집인원</span>
-					<input type="number" class="col-6" id="number" name="gmemberno" min="0"/>명
+					<input type="number" class="col-6" id="number" name="gmemberno" min="0"/> 명
 				</div>	
 				<div class="col-7 writeDate">
 					<span>일정</span>
@@ -83,7 +81,7 @@
 					<input type="text" id="enddate" name="enddate" autocomplete="off" readonly="readonly"/>
 				</div>
 				<div class="col-12">
-					<div class="writeMark">세부 내용<hr/></div>
+					<div class="writeMark">세부 내용</div>
 					<textarea name="content"></textarea>
 				</div>
 				<div class="col-12 btns">
@@ -94,5 +92,4 @@
 			</div>
 		</form>
 	</div>
-	
 </div>

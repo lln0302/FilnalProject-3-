@@ -47,27 +47,50 @@
 			<ul style="z-index:2;">
 				<li>
 					<div class='menu_img' id="menu1">
-						<div>1</div>
-						<div>2</div>
-						<div>3</div>
-						<div>4</div>
-						<div>5</div>
-						<div>6</div>
-						<div>7</div>
-						<div>8</div>
+						<img src="/img/admin/adminLeftTap1/dash_red.PNG" class="menu_imgs" id="menu_img_dashBoard" />
+						<img src="/img/admin/adminLeftTap1/members.PNG" class="menu_imgs" id="menu_img_members" />
+						<img src="/img/admin/adminLeftTap1/campList.PNG" class="menu_imgs" id="menu_img_campList" />
+						<img src="/img/admin/adminLeftTap1/addCamperList.PNG" class="menu_imgs" id="menu_img_addCamperList" />
+						<img src="/img/admin/adminLeftTap1/autoCampList.PNG" class="menu_imgs" id="menu_img_autoCampList" />
+						<img src="/img/admin/adminLeftTap1/shareList.PNG" class="menu_imgs" id="menu_img_shareList" />
+						<img src="/img/admin/adminLeftTap1/reviewList.PNG" class="menu_imgs" id="menu_img_reviewList" />
+						<img src="/img/admin/adminLeftTap1/commentList.PNG" class="menu_imgs" id="menu_img_commentList" />
 					</div>
 				</li>
 					
 				<li class='menuExpansion'>
 					<div class='menu_img' id="menu2">
-							<a class="menuATag" href="/admin/adminMain"><div class="menu2right">대시보드</div></a><div class="menu2left">1</div>
-							<a class="menuATag" href="/admin/adminMembers"><div class="menu2right">회원목록</div></a><div class="menu2left">2</div>
-							<a class="menuATag" href="/admin/adminCampList"><div class="menu2right">캠핑장목록</div></a><div class="menu2left">3</div>
-							<a class="menuATag" href="/admin/adminAddCamperList"><div class="menu2right">캠퍼모집목록</div></a><div class="menu2left">4</div>
-							<a class="menuATag" href="/admin/adminAutoCampList"><div class="menu2right">차박지공유목록</div></a><div class="menu2left">5</div>
-							<a class="menuATag" href="/admin/adminShareList"><div class="menu2right">캠핑용품나눔목록</div></a><div class="menu2left">6</div>
-							<a class="menuATag" href="/admin/adminReviewList"><div class="menu2right">리뷰목록</div></a><div class="menu2left">7</div>
-							<a class="menuATag" href="/admin/adminCommentList"><div class="menu2right">댓글목록</div></a><div class="menu2left">8</div>
+							<a class="menuATag" href="/admin/adminMain">
+								<img src="/img/admin/adminLeftTap2/dashboard_bold.PNG" class="menu2right" id="dashboard_img"/>
+							</a><img src="/img/admin/adminLeftTap1/dash_red.PNG" class="menu2left" id="menu_img_dashBoard" />
+							
+							<a class="menuATag" href="/admin/adminMembers">
+								<img src="/img/admin/adminLeftTap2/members_none.PNG" class="menu2right" id="members_img"/>
+							</a><img src="/img/admin/adminLeftTap1/members.PNG" class="menu2left" id="menu_img_members" />
+							
+							<a class="menuATag" href="/admin/adminCampList">
+								<img src="/img/admin/adminLeftTap2/campList_none.PNG" class="menu2right" id="campList_img"/>
+							</a><img src="/img/admin/adminLeftTap1/campList.PNG" class="menu2left" id="menu_img_campList" />
+							
+							<a class="menuATag" href="/admin/adminAddCamperList">
+								<img src="/img/admin/adminLeftTap2/addCamperList_none.PNG" class="menu2right" id="addCamperList_img"/>
+							</a><img src="/img/admin/adminLeftTap1/addCamperList.PNG" class="menu2left" id="menu_img_addCamperList" />
+							
+							<a class="menuATag" href="/admin/adminAutoCampList">
+								<img src="/img/admin/adminLeftTap2/autoCampList_none.PNG" class="menu2right" id="autoCampList_img"/>
+							</a><img src="/img/admin/adminLeftTap1/autoCampList.PNG" class="menu2left" id="menu_img_autoCampList" />
+							
+							<a class="menuATag" href="/admin/adminShareList">
+								<img src="/img/admin/adminLeftTap2/shareList_none.PNG" class="menu2right" id="shareList_img"/>
+							</a><img src="/img/admin/adminLeftTap1/shareList.PNG" class="menu2left" id="menu_img_shareList" />
+							
+							<a class="menuATag" href="/admin/adminReviewList">
+								<img src="/img/admin/adminLeftTap2/reviewList_none.PNG" class="menu2right" id="reviewList_img"/>
+							</a><img src="/img/admin/adminLeftTap1/reviewList.PNG" class="menu2left" id="menu_img_reviewList" />
+							
+							<a class="menuATag" href="/admin/adminCommentList">
+								<img src="/img/admin/adminLeftTap2/commentList_none.PNG" class="menu2right" id="commentList_img"/>
+							</a><img src="/img/admin/adminLeftTap1/commentList.PNG" class="menu2left" id="menu_img_commentList" />
 					</div>
 				</li>
 			</ul>

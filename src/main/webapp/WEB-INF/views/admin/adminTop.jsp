@@ -8,6 +8,10 @@
 </head>
 
 <style>
+	a, a:link, a:visited, a:hover, a:active{
+		color:black;
+		text-decoration: none;
+	}
 	#header, footer {
 		display: none;
 	}
@@ -27,20 +31,27 @@
 </style>
 <body>
 	
-		<div id="adminTop" style="width:1200px;height:90px;background-color:orange;">
+		<div id="adminTop" style="width:1200px;height:90px;background:rgba(170, 170, 170, 0.7);">
 			<div class="adminTopMenu" id="logoPart">
-				<a href="/adminMain"><img id="adminMainHomeLogo" src="/img/logo/mulcamping_logo-05.png" /></a>
+				<a href="/admin/adminMain"><img id="adminMainHomeLogo" src="/img/logo/mulcamping_logo-05.png" /></a>
 			</div>
 			<div class="adminTopMenu">　</div>
 			<div class="adminTopMenu">　</div>
-			<c:if test="${logId==null }">
+			<!--<c:if test="${logId==null }">-->
 				<div class="adminTopMenu" id="signInPart">
-					<a href="/adminSignIn">로그인</a>
+					<a href="#">
+					<span style="background:rgba(210, 210, 210, 0.7); border-radius: 8px;">
+						<span style="color:orange;font-weight: bold;">관리자</span>
+						<span>님</span>
+					</span>
+					</a>
 				</div>
 				<div class="adminTopMenu" id="signUpPart">
-					<a href="/member/memberForm">회원가입</a>
+					<a href="/">
+						<span style="background:rgba(210, 210, 210, 0.7); border-radius: 8px;">메인페이지</span>
+						</a>
 				</div>
-			</c:if>
+			<!--</c:if>-->
 			<!--<c:if test="${logId==!null }">
 				<div class="adminTopMenu">
 					<b style="font-size:12px;color:orange;">관리자( ${username } )</b>님

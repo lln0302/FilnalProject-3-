@@ -9,6 +9,13 @@ public class MemberVO {
     private String usertel1;
     private String usertel2;
     private String usertelP;
+    private String birth;
+    private String gender;
+    private String email;
+    private String joindate;
+    private String isadmin;
+    private String userscore;
+    private String zzim_zzimno;
 
     public String getUsertel1() {
         return usertel1;
@@ -29,19 +36,9 @@ public class MemberVO {
     public String getUsertelP() {
         return usertelP;
     }
-
     public void setUsertelP(String usertelP) {
         this.usertelP = usertelP;
     }
-
-    private String birth;
-    private String gender;
-    private String email;
-    private String joindate;
-    private String isadmin;
-    private String userscore;
-    private String zzim_zzimno;
-
     public String getUserid() {
         return userid;
     }

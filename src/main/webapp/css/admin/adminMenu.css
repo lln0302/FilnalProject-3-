@@ -1,0 +1,63 @@
+@charset "UTF-8";
+
+.containerList {
+	float:left;
+	width: 1000px;
+	height: 690px;
+	border: 1px solid #ddd;
+	padding: 10px;
+	border-radius: 4px;
+}
+#header, footer {
+	display: none;
+}
+#listMenu{
+	overflow:auto;
+}
+#listMenu>li{
+	list-style-type: none;
+	float:left;
+	height: 50px;
+	line-height: 50px;
+	width:10%;
+	border-bottom:solid 3px gray;
+	text-align: left;
+	background-color: rgba(205, 188, 171, 0.5);
+	font-weight: bold;
+	white-space: nowrap;
+	overflow: hidden;
+	text-overflow: ellipsis;
+	padding:0px 5px;
+}
+#listMenu>#listMenuFE>li{
+list-style-type: none;
+	float:left;
+	height: 50px;
+	line-height: 50px;
+	width:10%;
+	border-bottom:solid 3px gray;
+	text-align: left;
+	background-color:white;
+	font-weight:normal;
+	white-space: nowrap;
+	overflow: hidden;
+	text-overflow: ellipsis;
+	padding:0px 5px;
+}
+/*페이징*/
+.paging{
+	margin: 10px 35%;
+	height: 30px;
+	overflow: auto;
+}
+.paging>li{
+	float:left;
+	width:30px;
+	text-align: center;
+	
+}
+/*검색*/
+#searchFrm{
+	padding:0px 5px 10px 0px;
+	text-align:left;
+}
