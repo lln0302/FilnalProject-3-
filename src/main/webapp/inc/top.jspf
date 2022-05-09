@@ -31,7 +31,6 @@
 </head>
 
 <body>
-
     <header class="header" id="header">  
     	<div class="top__box">
    	 		<div class="t__loginSign">
@@ -78,7 +77,6 @@
 					</ul>
 				</li>
 			</ul>	
-			
-     </nav>
+     	</nav>
  </header>
 
