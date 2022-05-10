@@ -1,0 +1,19 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE mapper
+  PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN"
+  "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+
+<mapper namespace="com.campus.myapp.camping.CampingDAO">
+    <insert id="addplace">
+        insert into campinglist(contentId, facltNm, lineIntro, intro, featureNm, induty, lctCl, doNm, sigunguNm, addr1, addr2, tel, homepage, resveUrl, resveCl, sbrsCl, posblFcltyCl, firstImageUrl, operPdCl, operDeCl)
+        values(#{contentId}, #{facltNm}, #{lineIntro}, #{intro}, #{featureNm}, #{induty}, #{lctCl}, #{doNm}, #{sigunguNm}, #{addr1}, #{addr2}, #{tel}, #{homepage}, #{resveUrl}, #{resveCl}, #{sbrsCl}, #{posblFcltyCl},#{firstImageUrl}, #{operPdCl}, #{operDeCl})
+    </insert>
+	
+	<select id="totalRecord" resultType="int">
+		select count(contentId) from campinglist
+	</select>
+	
+	<select id="campingSearch" resultType="CampingVO">
+		select firstImageUrl, sigunguNm, doNm, facltNm, addr2, addr1, tel from campinglist	
+	</select>
+</mapper>
