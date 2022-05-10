@@ -2,6 +2,7 @@
 <%@ taglib uri="http://java.sun.com/jsp/jstl/core" prefix="c"%>
 <link rel="stylesheet" href="/css/gather/view.css" type="text/css"/>
 <script src="https://kit.fontawesome.com/76aefe2b67.js"></script>
+<script src="/js/gather/reply.css"></script>
 <div class="container gatherView">
 	<h1>${view.title}</h1>
 	<div class="col-12 camperTitle"></div>
@@ -62,8 +63,8 @@
 			<i class="fa fa-comment replyMark"> 3</i>
 		</div>
 		<div class="col-12">
-			<form id="replyLine" method="post">
-				<input type="hidden" name="gatherno">
+			<form  method="post" id="replyLine">
+				<input type="hidden" name="gatherno" id="gatherno">
 				<textarea name="content" id="content" class="replyContent" 
 				placeholder="댓글을 입력해주세요"></textarea>
 				<input type="submit" class="btn replyBtn" value="작성" >
