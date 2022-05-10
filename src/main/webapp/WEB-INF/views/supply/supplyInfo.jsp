@@ -44,7 +44,7 @@
 					[닉네임1] 님 - 나눔 원합니다!! | [등록일]
 				</div>
 				<div class="goChatDiv">
-					<button class="goChat" onclick="location.href='supplyChat'">채팅방 이동</button>
+					<button class="goChat" onclick="popup()">채팅방 이동</button>
 				</div>
 				<br>
 			</li>
@@ -64,3 +64,5 @@
 	
 	
 </div>
+
+<script src="/js/supply/supplyInfo.js"></script>

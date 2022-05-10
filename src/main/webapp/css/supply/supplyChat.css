@@ -2,33 +2,68 @@
 
 .container {
 	background-color: #f58243;
-	height: 1000px;
+	height: 650px;
 }
 #scBody {
 	padding: 3%;
 	text-align: center;
 }
+
+/* 채팅창 */
 #chatting {
 	width: 100%;
-	height: 800px;
+	height: 500px;
 	margin-top: 10px;
-	background-color: brown;
+	background-color: #67493B;
 	padding: 1%;
+	overflow-y: scroll;
+	border-radius: 5px;
 }
-#chatSeller {
+
+#chatting::-webkit-scrollbar {
+	width: 10px;
+}
+#chatting::-webkit-scrollbar-thumb {
+	background-color: #f58243;
+	border-radius: 5px;
+}
+#chatting::-webkit-scrollbar-track {
+	background-color: #67493B;
+	border-radius: 5px;
+}
+
+
+legend {
+	background-color: red;
+	border-radius: 15px;
+	padding: 5px;
+	padding-left: 10px;
+	padding-right: 10px;
+	font-size: 1em;
+	margin-bottom: 0px;
+}
+/*말풍선 - 판매자(오른쪽)*/
+.chatSeller {
 	position: relative;
 	padding: 5px;
 	text-align: right;
 	background-color: #fFF243;
 	margin: 5px;
-	width: 60%;
-	right:-39%;
+	max-width: 180px;
+	min-width: 120px;
+	border: 3px solid black;
+	border-radius: 10px;
 }
-#chatBuyer {
+
+/*말풍선 - 구매자(왼쪽)*/
+.chatBuyer {
 	position: relative;
 	text-align: left;
 	padding: 5px;
-	background-color: #f58243;
+	background-color: white;
 	margin: 5px;
-	width: 60%;
+	max-width: 180px;
+	min-width: 120px;
+	border: 3px solid black;
+	border-radius: 10px;
 }
