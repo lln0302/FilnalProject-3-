@@ -1,8 +1,19 @@
 <%@ page language="java" contentType="text/html; charset=UTF-8" pageEncoding="UTF-8"%>
 <%@ taglib uri="http://java.sun.com/jsp/jstl/core" prefix="c"%>
 <link rel="stylesheet" href="/css/gather/view.css" type="text/css"/>
+<link rel="stylesheet" href="/css/gather/reply.css" type="text/css"/>
 <script src="https://kit.fontawesome.com/76aefe2b67.js"></script>
-<script src="/js/gather/reply.css"></script>
+<script src="/js/gather/reply.js"></script>
+<script>
+	let nickname = "${nickname}";
+	$(function(){
+		$("#gatherDel").on('click', function(){
+			if(confirm("삭제하시겠어요?")){
+				location.href="/gather/gatherDel?gatherno=${view.gatherno}";
+			}
+		});
+	})
+</script>
 <div class="container gatherView">
 	<h1>${view.title}</h1>
 	<div class="col-12 camperTitle"></div>
@@ -63,15 +74,14 @@
 			<i class="fa fa-comment replyMark"> 3</i>
 		</div>
 		<div class="col-12">
-			<form  method="post" id="replyLine">
-				<input type="hidden" name="gatherno" id="gatherno">
-				<textarea name="content" id="content" class="replyContent" 
-				placeholder="댓글을 입력해주세요"></textarea>
+			<form method="post" id="replyLine">
+				<input type="hidden" name="gatherno" id="gatherno" value="${view.gatherno}">
+				<textarea name="content" id="content" placeholder="댓글을 입력해주세요"></textarea>
 				<input type="submit" class="btn replyBtn" value="작성" >
 			</form>
 		</div>
 		<!-- 댓글 목록 표시 -->
-		<div id="replyList">
+		<div id="replyList" class="col-12">
 		</div>
 	</div>
 </div>

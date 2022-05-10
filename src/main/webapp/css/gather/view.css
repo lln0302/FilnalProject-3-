@@ -3,7 +3,7 @@
 .gatherView{
 	border-left: 2px solid gray;
  	border-right: 2px solid gray;
- 	 font-family: 'Gowun Dodum', sans-serif;  /*메인페이지 타이틀 폰트*/
+ 	font-family: 'Gowun Dodum', sans-serif;  /*메인페이지 타이틀 폰트*/
 	font-family: 'IBM Plex Sans', sans-serif; /* 본문 영문 폰트*/
 	font-family: 'IBM Plex Sans KR', sans-serif; /* 본문 한글폰트 */
 }
@@ -13,15 +13,13 @@
 	font-size:2.0em;
 }
 
-#gatherEdit, #gnewnoBtn1{
+#gatherEdit, #gnewnoBtn1, #edit, .editForm input[value=수정] {
 	background:rgb(245, 130, 67);
 	color:white;
-	padding:10px;
 }
-#gatherDel{
+#gatherDel, #del{
 	background:#67493B;
 	color:white;
-	padding:10px;
 }
 
 #iconsAndName{
@@ -92,7 +90,7 @@
 	display:flex;
 }
 
-#replyLine>textarea{
+#replyLine textarea, .editForm textarea{
 	padding: 15px;
 	border: none;
 	border-radius:10px;
@@ -106,4 +104,18 @@
 	margin-left:10px;
 	background:rgb(245, 130, 67);
 	color:white
+}
+
+#rList{
+	margin-top:20px;
+}
+
+#edit{
+	margin-left:20px;
+	margin-right:20px;
+}
+
+.editForm{
+	display:none;
+	margin-top:10px;
 }
