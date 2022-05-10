@@ -37,7 +37,7 @@
    	 		<div class="t__loginSign">
 	                <c:if test="${isadmin == 1}">
 	                    <div id="admin" style="color: #67493B; padding-right: 10px;">
-	                        <a href="#"><b>관리자 페이지</b></a>
+	                        <a href="/admin/adminMain"><b>관리자 페이지</b></a>
 	                    </div>
 	                </c:if>
 	                <c:if test="${logStatus == 'Y'}">
