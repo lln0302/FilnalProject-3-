@@ -141,7 +141,7 @@
 	</section>
 	
 	<section class="section fp-auto-height" id="section5">
-		<h2>footer</h2>
+		<span>Copyrights(c) 2022 TEAM Campers ALL RIGHTS RESERVED.<span></span>
 	</section>
 	
 
