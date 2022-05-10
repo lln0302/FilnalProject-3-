@@ -21,7 +21,7 @@
 	<ul id="iconsAndName">
 		<li><i class="fa fa-eye fa-lg"></i> ${view.views}</li>
 		<li><i class="fa fa-clock fa-lg"></i> ${view.createdate}</li>
-		<li>${view.nickname}</li>
+		<li>${view.nickname} 님</li>
 		<c:if test="${nickname==view.nickname}">
 			<li>
 				<a href="/gather/gatherEdit?no=${view.gatherno}" class="btn" id="gatherEdit">수정</a>

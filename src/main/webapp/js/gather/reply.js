@@ -70,6 +70,7 @@ $(function(){
 			data: $(this).serialize(),
 			type:'POST',
 			success:function(){
+				alert('댓글이 수정되었습니다.');
 				replyList();
 			},error:function(){
 				console.log("Edit error")
@@ -82,7 +83,7 @@ $(function(){
 		if(confirm('댓글을 삭제하시겠어요?')){
 			$.ajax({
 				url:'/gather/replyDel',
-				data:"replyno="+$(this).attr("title"),
+				data:"replyno="+$('.editForm input[name=replyno]').val(),
 				type:'GET',
 				success:function(){
 					alert('댓글이 삭제되었습니다.');
