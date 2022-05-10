@@ -1,5 +1,7 @@
 package com.campus.myapp.camping;
 
+import java.util.List;
+
 public class CampingVO {
     private String contentId;
     private String facltNm;
@@ -21,7 +23,9 @@ public class CampingVO {
     private String firstImageUrl ;
     private String operPdCl;
     private String operDeCl;   
-    	
+    
+    private List<Integer> contentIdList;
+    
 	@Override
 	public String toString() {
 		return "CampingVO [contentId=" + contentId + ", facltNm=" + facltNm + ", lineIntro=" + lineIntro + ", intro=" + intro + ", featureNm=" + featureNm + ", induty="+induty+", lctCl="+lctCl+
@@ -187,5 +191,13 @@ public class CampingVO {
 
 	public void setOperDeCl(String operDeCl) {
 		this.operDeCl = operDeCl;
+	}
+
+	public List<Integer> getContentIdList() {
+		return contentIdList;
+	}
+
+	public void setContentIdList(List<Integer> contentIdList) {
+		this.contentIdList = contentIdList;
 	}   
 }

@@ -39,7 +39,7 @@
 		var area16 = ["거제시", "거창군", "고성군", "김해시", "남해군", "밀양시", "사천시", "산청군", "양산시", "의령군", "진주시", "창녕군", "창원시", "통영시", "하동군", "함안군", "함양군", "합천군"];
 		var area17 = ["서귀포시", "제주시"];	
 	
-		$("select[name^=sido]").each(function(){
+		$("select[name^=doNm]").each(function(){
 			$selsido = $(this);
 			$.each(eval(area0), function(){
 				$selsido.append("<option value='"+this+"'>"+this+"</option>");
@@ -47,16 +47,16 @@
 			$selsido.next().append("<option value=''>구/군 선택</option>");
 		});
 		
-		$("select[name^=sido]").change(function(){
+		$("select[name^=doNm]").change(function(){
 			var area = "area"+$("option", $(this)).index($("option:selected", $(this)));
-			var $gugun = $(this).next();
-			$("option", $gugun).remove();
+			var $sigugunNm = $(this).next();
+			$("option", $sigugunNm).remove();
 			
 			if(area == "area0")
-				$gugun.append("<option value=''>구/군 선택</option>");
+				$sigugunNm.append("<option value=''>구/군 선택</option>");
 			else{
 				$.each(eval(area), function(){
-					$gugun.append("<option value='"+this+"'>"+this+"</option>");
+					$sigugunNm.append("<option value='"+this+"'>"+this+"</option>");
 				});
 			}
 		});
@@ -76,11 +76,11 @@
 	var value_sido = "";
 	var value_gungu = "";
 	function changeSido(){
-		value_sido = document.getElementById('sido');		
+		value_sido = document.getElementById('doNm');		
 		console.log(value_sido.options[value_sido.selectedIndex].value);
 	}
 	function changeGungu(){
-		value_gungu = document.getElementById('gungu');
+		value_gungu = document.getElementById('sigunguNm');
 		console.log(value_gungu.options[value_gungu.selectedIndex].value);
 	}
 	
@@ -109,41 +109,6 @@
 			success : function(result){
 				console.log(result);
 				addplaces(result.response.body.items.item);
-				var tag="";				
-				$.each(result.response.body.items.item, function(index, itm){					
-					tag += '<div style="border-bottom:1px solid gray; position:relative; padding:25px 20px; height:230px;">';
-						tag += '<a href='+'camping/campingView'+'>';
-						tag += '<div style="float:left; width:30%; box-sizing:border-box;">';						
-						if(itm.firstImageUrl == undefined){
-							tag += '<img src=/img/camping/autumn-season-5580627__340.webp style="width:250px; height:183.33px;">';
-						}else{
-							tag += '<img src="'+itm.firstImageUrl+'"style=width:275px; height:195px;">';	
-						}							
-						tag += '</div></a>';
-						tag += '<div style="float:left; width:70%; box-sizing:border-box;">';
-							tag += '<h2>';
-							if(itm.sigunguNm == undefined){
-								tag += '<a href='+'camping/campingView'+'>'+'['+itm.doNm+'&nbsp'+']'+itm.facltNm+'</a>';
-							}else{
-								tag += '<a href='+'camping/campingView'+'>'+'['+itm.doNm+'&nbsp'+itm.sigunguNm+']'+itm.facltNm+'</a>';	
-							}								
-							tag += '</h2>';
-							tag += '<ul>';
-								if(itm.addr2 == undefined){
-									tag += '<li>'+itm.addr1+'</li>';
-								}else{
-									tag += '<li>'+itm.addr1+itm.addr2+'</li>';
-								}	
-								if(itm.tel == undefined){
-									tag += '';
-								}else {
-									tag += '<li>'+itm.tel+'</li>';	
-								}
-							tag += '</ul>';
-						tag += '</div>';
-					tag += '</div>';
-					$("#camping").html(tag);
-				});			
 			}
 		});		
 	}	
@@ -164,8 +129,8 @@
 					<ul>
 						<li>	
 							<strong>지역</strong>							
-							<select id="sido" name="sido" onchange="changeSido()"></select>							
-							<select id="gungu" name="gungu" onchange="changeGungu()"></select>								
+							<select id="sido" name="doNm" onchange="changeSido()"></select>							
+							<select id="gungu" name="sigunguNm" onchange="changeGungu()"></select>								
 							<button class= "btn" type="button" onclick="Displaydetail()">상세 조건</button>
 						</li>
 					</ul>
@@ -174,18 +139,18 @@
 					<ul>					
 						<li>
 							<strong>주요 시설</strong>
-							<label><input type="checkbox" name="normal" value="일반야영장">일반야영장</label>
-							<label><input type="checkbox" name="car" value="자동차야영장">자동차야영장</label>
-							<label><input type="checkbox" name="caravane" value="카라반">카라반</label>
-							<label><input type="checkbox" name="glamping" value="글램핑">글램핑</label>
+							<label><input type="checkbox" name="induty" value="일반야영장">일반야영장</label>
+							<label><input type="checkbox" name="induty" value="자동차야영장">자동차야영장</label>
+							<label><input type="checkbox" name="induty" value="카라반">카라반</label>
+							<label><input type="checkbox" name="induty" value="글램핑">글램핑</label>
 						</li>						
 						<li>
 							<strong>부대시설</strong>
-							<label><input type="checkbox" name="electricity" value="전기">전기</label>
-							<label><input type="checkbox" name="wifi" value="무선인터넷">무선인터넷</label>
-							<label><input type="checkbox" name="firewood" value="장작판매">장작판매</label>
-							<label><input type="checkbox" name="hotwater" value="온수">온수</label>
-							<label><input type="checkbox" name="mart" value="마트.편의점">마트.편의점</label>						
+							<label><input type="checkbox" name="sbrsCl" value="전기">전기</label>
+							<label><input type="checkbox" name="sbrsCl" value="무선인터넷">무선인터넷</label>
+							<label><input type="checkbox" name="sbrsCl" value="장작판매">장작판매</label>
+							<label><input type="checkbox" name="sbrsCl" value="온수">온수</label>
+							<label><input type="checkbox" name="sbrsCl" value="마트.편의점">마트.편의점</label>						
 						</li>												
 					</ul>
 				</div>
@@ -202,39 +167,77 @@
 				<script>
 					ListUpcampinginfo();
 				</script>
-				<div style="border-bottom:1px solid gray; position:relative; padding:25px 20px; height:230px;">
-					<a href='camping/campingView'>
-					<div style="float:left; width:30%; box-sizing:border-box;">
-						<c:if test="${vo.firstImageUrl == '' }">
-							<img src="/img/camping/autumn-season-5580627__340.webp" style="width:250px; height:183.33px;">
-						</c:if>
-							<img src="${vo.firstImageUrl}" style=width:275px; height:195px;">						
-					</div>
-					</a>
-					<div style="float:left; width:70%; box-sizing: border-box;">
-						<h2>
-							<c:if test="${vo.sigunguNm == '' }">
-								<a href="camping/campingView">"["+${vo.doNm}+"]"+${vo.facltNm }</a>
+				<c:forEach var="vo" items="${list }">
+					<div style="border-bottom:1px solid gray; position:relative; padding:25px 20px; height:230px;">
+						<a href='camping/campingView'>
+						<div style="float:left; width:30%; box-sizing:border-box;">
+							<c:if test="${vo.firstImageUrl == '' }">
+								<img src="/img/camping/autumn-season-5580627__340.webp" style="width:250px; height:183.33px;">
 							</c:if>
-								<a href="camping/campingView">[+${vo.doNm }+${vo.sigunguNm }+]+${vo.facltNm }</a>							
-						</h2>
-						<ul>
-							<c:if test="${vo.addr2 =='' }">
-								<li>${vo.addr1 }</li>
-							</c:if>
-								<li>${vo.addr1 }+${vo.addr2 }</li>
-							<c:if test="${vo.tel != ''}">
-								<li>${vo.tel }</li>
-							</c:if>
-						</ul>
-					</div>
-				</div>						
+								<img src="${vo.firstImageUrl}" style=width:275px; height:195px;">						
+						</div>
+						</a>
+						<div style="float:left; width:70%; box-sizing: border-box;">
+							<h2>
+								<c:if test="${vo.sigunguNm == '' }">
+									<a href="camping/campingView">[${vo.doNm}]  ${vo.facltNm }</a>
+								</c:if>
+									<a href="camping/campingView">[${vo.doNm }  ${vo.sigunguNm }] ${vo.facltNm }</a>							
+							</h2>
+							<ul>
+								<c:if test="${vo.addr2 =='' }">
+									<li>${vo.addr1 }</li>
+								</c:if>
+									<li>${vo.addr1 } ${vo.addr2 }</li>
+								<c:if test="${vo.tel != ''}">
+									<li>${vo.tel }</li>
+								</c:if>
+							</ul>
+						</div>
+					</div>		
+				</c:forEach>				
 			</ul>			
 		</div>
 		<div class="List-paging"><h1>Page</h1>
-			<ul id="paging" class="pagination">
-										
+			<ul class="paging">
+				<!-- 이전페이지  -->
+				<c:if test="${pVO.pageNum==1 }">
+					<li>prev</li>
+				</c:if>
+				<c:if test="${pVO.pageNum>1 }">
+					<li><a href="camping/campingSearch?pageNum="${pVO.pageNum-1}>		 		
+			 		prev</a></li>
+				</c:if>
+				<!-- 페이지 번호 -->
+				<c:forEach var="p" begin="${pVO.startPage }" end="${pVO.startPage+pVO.onePageCount-1 }">
+					<!-- 총페이지수 보다 출력할 페이지번호가 작을때-->
+					<c:if test="${p<=pVO.totalPage }">
+						<c:if test="${p==pVO.pageNum }">
+							<li style="background-color: red">
+						</c:if>
+						<c:if test="${p!=pVO.pageNum }">
+							<li>
+						</c:if>
+						<a href="/camping/campingSearch?pageNum=${p}">${p }</a>
+					</c:if>
+				</c:forEach>
+				<!-- 다음페이지 -->		
+				<c:if test="${pVO.pageNum==pVo.totalPage }">
+					<li>next</li>	
+				</c:if>
+				<c:if test="${pVO.pageNum<pVO.totalPage }">
+					<li><a href="/camping/campingSearch?pageNum=${pVO.pageNum+1 } ">next</a></li>
+				</c:if>											
 			</ul>
 		</div>
 	</div>
 </div>
+<style>
+/*페이징*/
+	.paging{
+		margin:30px 0px; height: 30px; overflow: auto;
+	}
+	.paging>li{
+		float:left; padding-right:30px;
+	}
+</style>
