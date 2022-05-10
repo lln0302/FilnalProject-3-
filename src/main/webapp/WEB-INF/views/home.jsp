@@ -13,7 +13,7 @@
 			//options here
 			navigation: true,
 			anchors: ['section1', 'section2', 'section3', 'section4', 'section5'],
- 			sectionsColor: ['#f2f2f2', '#4BBFC3', '#7BAABE', 'whitesmoke', '#000'],		 
+ 			sectionsColor: ['#f2f2f2', '#4BBFC3', '#7BAABE', 'black'],		 
 		});
 	});
 </script>
@@ -106,7 +106,7 @@
 		<div class="slide" >
 		<div class='h__card'>
 			<a href="#">
-			<div class="h__card2">
+			<div class="h__card2"> 
 				<h3 class="h__card2__title">
 	              <strong>차박지 공유</strong><br/>
 	              <span>car camping</span>              
@@ -132,16 +132,22 @@
 			</div>
 		</a>				
 		</div>
-		</div>
-		</div>
+	</div>
 	</section>
 	
 	<section class="section" id="section4">
-		<h2>사람들을 모아 함께 캠핑을 즐겨보세요!</h2>
+		<video id="myVideo" loop muted data-autoplay>
+			<source src="/img/home/fire.mp4" type="video/mp4">
+		</video>
+		<div class="layer">
+			<h1>혼자 가기 쓸쓸할땐, <br/> 함께 캠핑을 즐겨보세요. </h1>
+				<input type="button" value="함께하기" onclick="location.href='${url}/gather/gatherList'"/>
+		</div>
+	
 	</section>
 	
 	<section class="section fp-auto-height" id="section5">
-		<h2>footer</h2>
+		<span style="color: white;">Copyrights(c) 2022 TEAM Campers ALL RIGHTS RESERVED.</span>
 	</section>
 	
 

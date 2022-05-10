@@ -35,8 +35,8 @@
     	<div class="top__box">
    	 		<div class="t__loginSign">
 	                <c:if test="${isadmin == 1}">
-	                    <div id="admin">
-	                        <a href="#">관리자 페이지</a>
+	                    <div id="admin" style="color: #67493B; padding-right: 10px;">
+	                        <a href="/admin/adminMain"><b>관리자 페이지</b></a>
 	                    </div>
 	                </c:if>
 	                <c:if test="${logStatus == 'Y'}">
@@ -51,8 +51,10 @@
 	                <c:if test="${logStatus != 'Y'}">
 	                    <div id="login">
 	                        <a href="${url}/member/loginForm">Sign-in</a>
+	                        <a href="${url}/member/memberForm">Sign-up</a>
 	                    </div>
 	                </c:if>
+	
 			</div>		
     	</div> 
 		<nav class="top__nav">

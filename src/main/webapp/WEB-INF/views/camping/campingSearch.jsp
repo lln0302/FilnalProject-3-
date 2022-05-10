@@ -13,14 +13,14 @@
 	}
 	
 	.detail, .tag_search{
-		width:49.75%;		
+		width: 30%;		
 	}
 </style>
 <script>
 
 	//지역 검색
 	$('document').ready(function(){
-		var area0 = ["시/도 선택", "서울시", "부산시", "대구시", "인천시", "광주시", "대전시", "세종시", "경기도", "강원도", "충청북도", "충청남도", "전라북도", "전라남도", "경상북도", "경상남도", "제주도"];
+		var area0 = ["시/도 선택", "서울시", "부산시", "대구시", "인천시", "광주시", "대전시", "울산시", "세종시", "경기도", "강원도", "충청북도", "충청남도", "전라북도", "전라남도", "경상북도", "경상남도", "제주도"];
 		var area1 = ["강남구","강동구","강북구","강서구","관악구","광진구","구로구","금천구","노원구","도봉구","동대문구","동작구","마포구","서대문구","서초구","성동구","성북구","송파구","양천구","영등포구","용산구","은평구","종로구","중구","중랑구"];
 		var area2 = ["강서구", "금정구", "기장군", "남구", "동구", "동래구", "부산진구", "북구", "사상구", "사하구", "서구", "수영구", "연제구", "영도구", "중구", "해운대구"];
 		var area3 = ["남구", "달서구", "달성군", "동구", "북구", "상주", "서구", "수성구", "중구"];
@@ -71,154 +71,170 @@
 			$('#search_detail').hide();
 		}
 	}
+
+	//시도 군구 옵션값
+	var value_sido = "";
+	var value_gungu = "";
+	function changeSido(){
+		value_sido = document.getElementById('sido');		
+		console.log(value_sido.options[value_sido.selectedIndex].value);
+	}
+	function changeGungu(){
+		value_gungu = document.getElementById('gungu');
+		console.log(value_gungu.options[value_gungu.selectedIndex].value);
+	}
+	
+	//api 데이터 DB로 저장
+	 function addplaces(result) {
+         $.ajax({
+            type : 'post',
+            url : '/camping/addplace',
+            contentType : 'application/json; charset=UTF-8',
+            data : JSON.stringify(result),
+            async : false,
+            success : function(res) {
+            },
+            error : function(e) {
+               alert(e.responseText);
+            }
+         });
+      }
 	
 	//캠핑리스트 api 받아오기
 	function ListUpcampinginfo(){
-		$.ajax({
+		var pageNum = 1;
+		$.ajax({			
 			type : 'get',
-			url : "http://api.visitkorea.or.kr/openapi/service/rest/GoCamping/basedList?ServiceKey=aP86zX%2BZyECfP94oWJpuGYSq%2FU4SWkv8At%2FwBv6YUfMepr6LdpZutU23EH2VFkgws6DngpHe0crNKiYVnVOmuQ%3D%3D&numOfRows=10&pageNo=1&MobileOS=ETC&MobileApp=TestApp&_type=json",
-			success : function(result){
-				console.log(result);				
-				var tag="";
-				$.each(result.response.body.items.item, function(index, itm){					
-					tag += '<li>';
-						tag += '<div>';
-							tag += '<a href='+'camping/campingView'+'>';
-							tag += '<div style="position:relative; display:block;">';
-								tag += '<img src="'+itm.firstImageUrl+'"style=width:275px; height:195px;">';
-							tag += '</div></a>';
-							tag += '<div style="position:relative; display:block;">';
-								tag += '<h2>';
-									tag += '<a href='+'camping/campingView'+'>'+'['+itm.doNm+'&nbsp'+itm.sigunguNm+']'+itm.facltNm+'</a>';
-								tag += '</h2>';
-								tag += '<ul>';
-									tag += '<li>'+itm.addr1+itm.addr2+'</li>';
-									tag += '<li>'+itm.tel+'</li>';
-							tag += '</div>';
-						tag += '</div>';
-					tag += '</li>';
-					$('#camping').html(tag);					
-				});				
-			},
-			error:function(error){
-				console.log(error.responseText);
-			}
-		});
-	}
-	
-	<%--
-	function ListUpcampinginfo2(){
-		$.ajax({
-			type : 'get',
-			url :"api.do?key=1", //"http://api.visitkorea.or.kr/openapi/service/rest/GoCamping/basedList?ServiceKey=aP86zX%2BZyECfP94oWJpuGYSq%2FU4SWkv8At%2FwBv6YUfMepr6LdpZutU23EH2VFkgws6DngpHe0crNKiYVnVOmuQ%3D%3D&numOfRows=10&pageNo=1&MobileOS=ETC&MobileApp=TestApp&_type=json",
+			url : "http://api.visitkorea.or.kr/openapi/service/rest/GoCamping/basedList?ServiceKey=aP86zX%2BZyECfP94oWJpuGYSq%2FU4SWkv8At%2FwBv6YUfMepr6LdpZutU23EH2VFkgws6DngpHe0crNKiYVnVOmuQ%3D%3D&numOfRows=10&pageNo="+pageNum+"&MobileOS=ETC&MobileApp=TestApp&_type=json",
 			success : function(result){
 				console.log(result);
-				alert(JSON.stringify(result.response.body.items.item))
-				var tag="";
-				$.each(result.response.body.items.item, function(index, itm){
-					console.log(itm.addr1+"<<<")
-					tag += '<li>'+itm.addr1+' ';
-					if(itm.addr2 == undefined){
-						tag += "";
-					}
-					else{
-						tag += ' '+itm.addr2+'</li>';
-					}
-				});
-				$('#camping').html(tag);
-			},
-			error:function(error){
-				console.log(error.responseText);
+				addplaces(result.response.body.items.item);
+				var tag="";				
+				$.each(result.response.body.items.item, function(index, itm){					
+					tag += '<div style="border-bottom:1px solid gray; position:relative; padding:25px 20px; height:230px;">';
+						tag += '<a href='+'camping/campingView'+'>';
+						tag += '<div style="float:left; width:30%; box-sizing:border-box;">';						
+						if(itm.firstImageUrl == undefined){
+							tag += '<img src=/img/camping/autumn-season-5580627__340.webp style="width:250px; height:183.33px;">';
+						}else{
+							tag += '<img src="'+itm.firstImageUrl+'"style=width:275px; height:195px;">';	
+						}							
+						tag += '</div></a>';
+						tag += '<div style="float:left; width:70%; box-sizing:border-box;">';
+							tag += '<h2>';
+							if(itm.sigunguNm == undefined){
+								tag += '<a href='+'camping/campingView'+'>'+'['+itm.doNm+'&nbsp'+']'+itm.facltNm+'</a>';
+							}else{
+								tag += '<a href='+'camping/campingView'+'>'+'['+itm.doNm+'&nbsp'+itm.sigunguNm+']'+itm.facltNm+'</a>';	
+							}								
+							tag += '</h2>';
+							tag += '<ul>';
+								if(itm.addr2 == undefined){
+									tag += '<li>'+itm.addr1+'</li>';
+								}else{
+									tag += '<li>'+itm.addr1+itm.addr2+'</li>';
+								}	
+								if(itm.tel == undefined){
+									tag += '';
+								}else {
+									tag += '<li>'+itm.tel+'</li>';	
+								}
+							tag += '</ul>';
+						tag += '</div>';
+					tag += '</div>';
+					$("#camping").html(tag);
+				});			
 			}
-		});
-	}
-	--%>
+		});		
+	}	
 </script>
 
-<div class="campingSearch">	
-	<div class="searchbox">
-		<form method="get" action="/camping/campingList">		
+<div class="container">
+	<div class="campingSearch" style="overflow:auto;">	
+		<div class="searchbox">	
+			<form id="serachForm" action="/camping/campingSearch" method="get">			
 			<div>
 				<div>
-					<button class="detail" type="button" >상세검색</button>			
-					<button class="tag_search" type="button">
+					<button class="btn detail" type="button">상세검색</button>			
+					<button class="btn tag_search" type="button">
 						<span>태그로 검색</span>
 					</button>					
 				</div>
 				<div>
 					<ul>
 						<li>	
-							<strong>지역</strong>
-							<select id="sido" name="sido"></select>
-							<select id="gungu" name="gungu"></select>
-							<button type="button" onclick="Displaydetail()">상세 조건</button>
+							<strong>지역</strong>							
+							<select id="sido" name="sido" onchange="changeSido()"></select>							
+							<select id="gungu" name="gungu" onchange="changeGungu()"></select>								
+							<button class= "btn" type="button" onclick="Displaydetail()">상세 조건</button>
 						</li>
 					</ul>
 				</div>
 				<div id="search_detail" style="display:none;">
-					<ul>
-						<li>
-							<strong>입지 구분</strong>
-							<label><input type="checkbox" name="beach" value="해변">해변</label>
-							<label><input type="checkbox" name="island" value="섬">섬</label>
-							<label><input type="checkbox" name="mountain" value="산">산</label>
-							<label><input type="checkbox" name="forest" value="숲">숲</label>
-							<label><input type="checkbox" name="valley" value="계곡">계곡</label>
-							<label><input type="checkbox" name="river" value="강">강</label>
-							<label><input type="checkbox" name="river" value="강">강</label>
-							<label><input type="checkbox" name="river" value="강">강</label>
-						</li>
+					<ul>					
 						<li>
 							<strong>주요 시설</strong>
 							<label><input type="checkbox" name="normal" value="일반야영장">일반야영장</label>
 							<label><input type="checkbox" name="car" value="자동차야영장">자동차야영장</label>
 							<label><input type="checkbox" name="caravane" value="카라반">카라반</label>
 							<label><input type="checkbox" name="glamping" value="글램핑">글램핑</label>
-						</li>
-						<li>
-							<strong>바닥형태</strong>
-							<label><input type="checkbox" name="grass" value="잔디">잔디</label>
-							<label><input type="checkbox" name="deck" value="데크">데크</label>
-							<label><input type="checkbox" name="crushed" value="파쇄석">파쇄석</label>
-							<label><input type="checkbox" name="pebble" value="자갈">자갈</label>
-							<label><input type="checkbox" name="soil" value="맨흙">맨흙</label>
-						</li>
+						</li>						
 						<li>
 							<strong>부대시설</strong>
 							<label><input type="checkbox" name="electricity" value="전기">전기</label>
 							<label><input type="checkbox" name="wifi" value="무선인터넷">무선인터넷</label>
 							<label><input type="checkbox" name="firewood" value="장작판매">장작판매</label>
 							<label><input type="checkbox" name="hotwater" value="온수">온수</label>
-							<label><input type="checkbox" name="trampoline" value="트렘폴린">트렘폴린</label>
-							<label><input type="checkbox" name="playground" value="놀이터">놀이터</label>
-						</li>
-						<li>
-							<label><input type="checkbox" name="trail" value="산책로">산책로</label>
-							<label><input type="checkbox" name="ground" value="운동장">운동장</label>
-							<label><input type="checkbox" name="sports" value="운동시설">운동시설</label>
-							<label><input type="checkbox" name="mart" value="마트.편의점">마트.편의점</label>
-						</li>
-						<li>
-							<strong>가격대</strong>
-							<input type="text" name="searchMummPc" id="searchMummPc" maxlength="7" title="최저금액"> 
-							<input type="text" name="searchMxmmPc" id="searchMxmmPc" maxlength="7" title="최대금액">
-						</li>
+							<label><input type="checkbox" name="mart" value="마트.편의점">마트.편의점</label>						
+						</li>												
 					</ul>
 				</div>
 				<div>
-					<button type="button">캠핑장 검색</button>
+					<button id="searchCampinginfo" class="btn" type="submit">캠핑장 검색</button>
 				</div>				
-			</div>			
-		</form>
-	</div>
-	<div style="background-color: #eff0f4; width:100%; height:auto; padding:9px 0; position:relative;">
-	</div>
-	<div class = "campingListShow" id="camping">		
-		<ul>
-			<script>
-				ListUpcampinginfo();
-			</script>						
-		</ul>
+			</div>	
+			</form>
+		</div>
+		<div style="background-color: #eff0f4; width:100%; height:auto; padding:9px 0; position:relative; border-bottom:2px solid black;">
+		</div>
+		<div class = "campingListShow" id="camping">		
+			<ul class="campingSearch">
+				<script>
+					ListUpcampinginfo();
+				</script>
+				<div style="border-bottom:1px solid gray; position:relative; padding:25px 20px; height:230px;">
+					<a href='camping/campingView'>
+					<div style="float:left; width:30%; box-sizing:border-box;">
+						<c:if test="${vo.firstImageUrl == '' }">
+							<img src="/img/camping/autumn-season-5580627__340.webp" style="width:250px; height:183.33px;">
+						</c:if>
+							<img src="${vo.firstImageUrl}" style=width:275px; height:195px;">						
+					</div>
+					</a>
+					<div style="float:left; width:70%; box-sizing: border-box;">
+						<h2>
+							<c:if test="${vo.sigunguNm == '' }">
+								<a href="camping/campingView">"["+${vo.doNm}+"]"+${vo.facltNm }</a>
+							</c:if>
+								<a href="camping/campingView">[+${vo.doNm }+${vo.sigunguNm }+]+${vo.facltNm }</a>							
+						</h2>
+						<ul>
+							<c:if test="${vo.addr2 =='' }">
+								<li>${vo.addr1 }</li>
+							</c:if>
+								<li>${vo.addr1 }+${vo.addr2 }</li>
+							<c:if test="${vo.tel != ''}">
+								<li>${vo.tel }</li>
+							</c:if>
+						</ul>
+					</div>
+				</div>						
+			</ul>			
+		</div>
+		<div class="List-paging"><h1>Page</h1>
+			<ul id="paging" class="pagination">
+										
+			</ul>
+		</div>
 	</div>
 </div>
-

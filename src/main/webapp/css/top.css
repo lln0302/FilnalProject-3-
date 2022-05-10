@@ -30,6 +30,7 @@
     color: #464646;
     font-size: 15px;
     font-family: 'IBM Plex Sans', sans-serif;
+    font-family: 'IBM Plex Sans KR', sans-serif;
     padding: 10px 20px;	
     text-align: right;
 }
@@ -40,6 +41,7 @@
 
 .t__loginSign  a{
 	padding: 0px 10px; 
+	color: #242424;
 }
 
 
