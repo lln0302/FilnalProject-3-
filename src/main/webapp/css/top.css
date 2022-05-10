@@ -1,4 +1,4 @@
-@charset "UTF-8";
+@import url('https://fonts.googleapis.com/css2?family=Gowun+Dodum&family=IBM+Plex+Sans+KR:wght@200;400;500;600&family=IBM+Plex+Sans:wght@100;200;300;400;500&display=swap');
 
 *{
 	margin: 0px;
@@ -9,95 +9,88 @@
     position: relative;
   }
   
-.nav__menu{
-    width: 700px;
-    margin: 0 auto;
-    overflow: hidden;
-}
  
-
-.nav__list {
-  list-style: none;
-
+.top__nav{
+	position: relative;
+    left: 0;
+    right: 0;
+    top: 0;
+    padding-top: -23px;
+    z-index: 100;
+    box-shadow: 1px 2px 6px 0px rgb(0 0 0 / 15%);
 }
 
-.nav__link {
-    color: #67493B;
-    font-weight: 700;
-    font-size: 23px;
+.top__box{
+    position: relative;
+    border-bottom: 1px solid #f1f1f1;
 }
 
-.nav__link:hover {
- 	color:#F89A35;
+.t__loginSign{
+	position: relative;
+    color: #464646;
+    font-size: 15px;
+    font-family: 'IBM Plex Sans', sans-serif;
+    font-family: 'IBM Plex Sans KR', sans-serif;
+    padding: 10px 20px;	
+    text-align: right;
 }
 
-.nav__link__r{
-	margin-left: 232px;
+.t__loginSign > div{
+	display: inline;
 }
 
-.nav__item{
-    float: left;
-    padding: 10px 20px;
-    height: 50px;
-    line-height: 50px;
+.t__loginSign  a{
+	padding: 0px 10px; 
+	color: #242424;
+}
+
+
+.top__nav ul{
+	display: flex;
+	justify-content: center;
+	list-style: none;
+    align-items: center;	
+}
+
+
+ul.t__myMenu > li { 
+	display: inline-block;
+    width: 280px;
+    padding: 0px 10px;
     text-align: center;
-    margin-top: 32px;
-	
+    position: relative;
+   
 }
 
 
-/* dropdouwn menu */
-.dropdown-content {
-  position: absolute;
-  background-color: #f9f9f9;
-  min-width: 160px;
-  box-shadow: 0px 8px 16px 0px rgba(0,0,0,0.2);
+ul.t__myMenu > li ul.t__submenu { 
+	display:none; 
+	position:absolute;
+	top:35px; 
+	left:0; 
 }
 
-.dropdown-content a {
-  color: #525252;
-  padding: 12px 16px;
-  text-decoration: none;
-  display: block;
+ul.t__myMenu > li:hover ul.t__submenu { 
+	display:block;
+	background:rgba(255, 255, 255, .8);
+	box-shadow: 1px 2px 6px 0px rgb(0 0 0 / 20%);
 }
 
-.dropdown-content {
-  display: none;
+ul.t__myMenu > li ul.t__submenu > li { 
+	display:inline-block; 
+	width:280px; 
+	padding:5px 10px; 
+	text-align:center;
 }
 
-.nav__item:hover .dropdown-content {
-  display: block;
+ul.t__myMenu > li ul.t__submenu > li:hover { 
+	background: #f58243;
 }
 
-.dropdown-content a:hover {
-  background-color: #F89A35;
-  color: white;
+.t__myMenu a {
+	color: #464646;
+    font-size: 23px;
+    font-weight: 500;
+    font-family: 'IBM Plex Sans', sans-serif;
 }
 
-
-/* 데스크탑에서 사용될 스타일*/ 
-@media screen and (min-width: 769px) { 
-
- .nav {
-	background-color: white;
-    height: 145px;
-    width: 100%;
-    box-shadow: 0px 2px 4px rgb(151 149 149 / 32%);
-    padding: 10px;
-    overflow: hidden;
-}
-
-
-
-
-
-}
-
-
-
-/* 모바일에 사용될 스트일 시트를 여기에 작성합니다. */ 
-@media screen and (max-width: 768px) { 
-
-
-
-}

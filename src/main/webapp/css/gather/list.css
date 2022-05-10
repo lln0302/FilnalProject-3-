@@ -5,6 +5,17 @@
  	border-right: 2px solid gray;
 }
 
+.write{
+	text-align:right;
+	width:91%;
+}
+
+.writeBtn{
+	color:rgb(245, 130, 67);
+	border-bottom : 5px solid;
+   	padding: 5px;
+}
+
 /*리스트 박스*/
 #camperTitle{
 	font-size:2.0em;
@@ -16,9 +27,11 @@
 	font-size:1.2em;
 	line-height:45px;
 }
+#camperTitle{
+	color:black;
+}
 
 #list img{
-	background:yellow;
 	float:right;
 	height:190px;
 	width:300px;
@@ -28,8 +41,8 @@
 	margin:20px;
 }
 
-/*등록 버튼*/
-.writeBtn{
-	border-bottom : 5px solid;
-	padding: 5px;
+.listBox{
+    box-shadow: 5px 13px 10px 1px rgb(0 0 0 / 20%);
+    transition: all 250ms linear;
+	width:80%;
 }

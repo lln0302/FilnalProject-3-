@@ -12,4 +12,5 @@ public interface MemberDAO {
     public MemberVO checkId(MemberVO vo);
     public MemberVO checkNick(MemberVO vo);
     public MemberVO checkTel(MemberVO vo);
+    public MemberVO findUserid(MemberVO vo);
 }

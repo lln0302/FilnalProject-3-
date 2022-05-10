@@ -40,7 +40,7 @@ public class MemberController {
             session.setAttribute("isadmin", rVO.getIsadmin());
             String msg = "";
             if (rVO.getIsadmin().equals("1")) {
-                msg = "<script>location.href='/admin/adminMain';<script>";
+                msg = "<script>location.href='/admin/adminMain';</script>";
             } else if (rVO.getIsadmin().equals("0")) {
                 String dest = (String) session.getAttribute("dest");
                 String redirect = (dest == null) ? "/" : dest;
@@ -97,4 +97,21 @@ public class MemberController {
     public MemberVO checkTel (@RequestBody MemberVO vo) {
         return memberservice.checkTel(vo);
     }
+
+    @GetMapping("myPageMain")
+    public String myPageMain() {
+        return "member/myPageMain";
+    }
+
+    @GetMapping("memberFind")
+    public String memberFind() {
+        return "member/memberFind";
+    }
+
+    @PostMapping("/findUserid")
+    @ResponseBody
+    public MemberVO findUserid(@RequestBody MemberVO vo) {
+        return memberservice.findUserid(vo);
+    }
+
 }

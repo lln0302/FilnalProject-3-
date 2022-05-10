@@ -1,29 +1,26 @@
 @charset "UTF-8";
 
 #gatherWrite{
-	border:2px solid orange;
 	padding:10px;
+	background:rgba(245, 130, 67, .1);
 }
 
 .writeMark{
-	font-size:2.0em;
-	margin-top:20px;
-}
-
-.writeTitle, .writeCamper, .writeDate{
-	background:#E6BA95;
-	padding:10px;
-	border-radius: 3px;
-	margin-left:20px;
-}
-
-.writeTitle>span, .writeCamper>span, .writeDate>span{
+	font-size:1.8em;
 	margin:20px;
 }
 
-.writeTitle>input, .writeCamper>input, .writeDate>input{
-	border-radius: 5px;
-	border: solid #E6BA95;
+.writeTitle, .writeCamper, .writeDate, .writePlace{
+	padding:10px;
+	border-radius:3px;
+	margin-left:30px;
+}
+
+
+.writeTitle>input, .writeCamper>input, .writeDate>input, .writePlace>input{
+	border: solid rgba(245, 130, 67, .2);
+	padding:10px;
+	border-radius:5px;
 }
 
 #datepicker1, #datepicker2{
@@ -32,14 +29,18 @@
 
 .btns>input{
 	margin-top:20px;
-	background:#E6BA95;
+	background:rgb(245, 130, 67);
+	color:white;
+	padding:10px;
 }
 
 #resetBtn{
-	background:gray;
+	background:#67493B;
 	color:white;
+	padding:10px;
 }
 
 #showList{
 	float:right;
 }
+

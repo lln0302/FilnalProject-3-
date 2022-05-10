@@ -5,13 +5,12 @@ public class GatherVO {
 	private int gatherno;
 	private String title;
 	private String place;
-	private String date;
+	private String startdate;
 	private String enddate;
 	private int views; 
 	private String createdate;
 	private String nickname;
 	private String thumbnail;
-	private String img;
 	private String content; 
 	private int gmemberno;
 	private int gnewno;
@@ -34,11 +33,11 @@ public class GatherVO {
 	public void setPlace(String place) {
 		this.place = place;
 	}
-	public String getDate() {
-		return date;
+	public String getStartdate() {
+		return startdate;
 	}
-	public void setDate(String date) {
-		this.date = date;
+	public void setStartdate(String startdate) {
+		this.startdate = startdate;
 	}
 	public String getEnddate() {
 		return enddate;
@@ -69,12 +68,6 @@ public class GatherVO {
 	}
 	public void setThumbnail(String thumbnail) {
 		this.thumbnail = thumbnail;
-	}
-	public String getImg() {
-		return img;
-	}
-	public void setImg(String img) {
-		this.img = img;
 	}
 	public String getContent() {
 		return content;

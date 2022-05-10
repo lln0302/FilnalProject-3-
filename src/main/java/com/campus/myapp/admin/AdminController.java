@@ -8,73 +8,141 @@ import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Controller;
 import org.springframework.web.bind.annotation.GetMapping;
 import org.springframework.web.bind.annotation.RequestMapping;
+import org.springframework.web.bind.annotation.RestController;
 import org.springframework.web.servlet.ModelAndView;
+
+import com.fasterxml.jackson.annotation.JsonCreator.Mode;
 
 
 @Controller
+//@RestController
 @RequestMapping("/admin/*")
 public class AdminController {
 
-	/*
-	@Inject
+	
+	@Autowired
 	AdminService service;
-	*/
 	
+	
+	//관리자페이지 메인페이지
 	@GetMapping("adminMain")
-	public String adminMain() {
-		return "/admin/adminMain";	//어드민메인
-	}
-	
-	/*@GetMapping("adminSignIn")
-	public String adminSignIn() {
-		return "/admin/adminSignIn";	//로그인 (임시)
-	}*/
-	
-	@GetMapping("adminMembers")
-	public String adminMembers() {
-		return "/admin/adminMembers"; //회원목록 임시
-	}
-	/*
-	@GetMapping("adminMembers")
-	public ModelAndView adminMembers() {
+	public ModelAndView adminMain() {
 		ModelAndView mav = new ModelAndView();
-		//mav.addObject("lst", adsv.adminMembers());
-		mav.setViewName("admin/adminMembers");
-		return mav;	//회원목록
-	}*/
-	/*
-	@GetMapping("")
-	public List<MemberVO> adminMembers(){ //메소드명 jsp명과 동일
-		
+		mav.setViewName("/admin/adminMain");
+		return mav;
 	}
-	*/
+	
+	//관리자페이지 회원목록
+	@GetMapping("adminMembers")
+	public ModelAndView adminMembers(AdminPagingVO apvo) {
+		ModelAndView mav = new ModelAndView();
+		//totalRecord numbers
+		apvo.setTotalRecord(service.totalRecord(apvo));
+				
+		//DB connect
+		mav.addObject("list", service.adminMembers(apvo));
+		mav.addObject("apvo", apvo);
+		mav.setViewName("/admin/adminMembers");
+		return mav;
+	}
+	
+	//관리자페이지 캠핑장목록
 	@GetMapping("adminCampList")
-	public String adminCampList() {
-		return "/admin/adminCampList";	//캠핑장목록
+	public ModelAndView adminCampList(AdminPagingVO apvo) {
+		ModelAndView mav = new ModelAndView();
+		//totalRecord numbers
+		apvo.setTotalRecord(service.totalRecord(apvo));
+				
+		//DB connect
+		mav.addObject("list", service.adminMembers(apvo));
+		mav.addObject("apvo", apvo);
+		mav.setViewName("/admin/adminCampList");
+		return mav;
 	}
 	
+	//관리자페이지 캠퍼모집목록
 	@GetMapping("adminAddCamperList")
-	public String adminAddCamperList() {
-		return "/admin/adminAddCamperList";	//캠퍼모집목록
+	public ModelAndView adminAddCamperList(AdminPagingVO apvo) {
+		ModelAndView mav = new ModelAndView();
+		//totalRecord numbers
+		apvo.setTotalRecord(service.totalRecord(apvo));
+				
+		//DB connect
+		mav.addObject("list", service.adminMembers(apvo));
+		mav.addObject("apvo", apvo);
+		mav.setViewName("/admin/adminAddCamperList");
+		return mav;
 	}
 	
+	//관리자페이지 차박지공유목록
 	@GetMapping("adminAutoCampList")
-	public String adminAutoCampList() {
-		return "/admin/adminAutoCampList";	//차박지공유목록
+	public ModelAndView adminAutoCampList(AdminPagingVO apvo) {
+		ModelAndView mav = new ModelAndView();
+		//totalRecord numbers
+		apvo.setTotalRecord(service.totalRecord(apvo));
+				
+		//DB connect
+		mav.addObject("list", service.adminMembers(apvo));
+		mav.addObject("apvo", apvo);
+		mav.setViewName("/admin/adminAutoCampList");
+		return mav;
 	}
 	
+	//관리자페이지 캠핑용품나눔목록
 	@GetMapping("adminShareList")
-	public String adminShareList() {
-		return "/admin/adminShareList";	//캠핑용품나눔목록
+	public ModelAndView adminShareList(AdminPagingVO apvo) {
+		ModelAndView mav = new ModelAndView();
+		//totalRecord numbers
+		apvo.setTotalRecord(service.totalRecord(apvo));
+				
+		//DB connect
+		mav.addObject("list", service.adminMembers(apvo));
+		mav.addObject("apvo", apvo);
+		mav.setViewName("/admin/adminShareList");
+		return mav;
 	}
 	
+	//관리자페이지 후기목록
 	@GetMapping("adminReviewList")
-	public String adminReviewList() {
-		return "/admin/adminReviewList";	//후기목록
+	public ModelAndView adminReviewList(AdminPagingVO apvo) {
+		ModelAndView mav = new ModelAndView();
+		//totalRecord numbers
+		apvo.setTotalRecord(service.totalRecord(apvo));
+				
+		//DB connect
+		mav.addObject("list", service.adminMembers(apvo));
+		mav.addObject("apvo", apvo);
+		mav.setViewName("/admin/adminReviewList");
+		return mav;
 	}
 	
+	//관리자페이지 댓글목록
 	@GetMapping("adminCommentList")
-	public String adminCommentList() {
-		return "/admin/adminCommentList";	//댓글목록
+	public ModelAndView adminCommentList(AdminPagingVO apvo) {
+		ModelAndView mav = new ModelAndView();
+		//totalRecord numbers
+		apvo.setTotalRecord(service.totalRecord(apvo));
+				
+		//DB connect
+		mav.addObject("list", service.adminMembers(apvo));
+		mav.addObject("apvo", apvo);
+		mav.setViewName("/admin/adminCommentList");
+		return mav;
 	}
+	
+	//관리자페이지 테스트
+	@GetMapping("adminTestList")
+	public ModelAndView testList(AdminPagingVO apvo) {
+		ModelAndView mav = new ModelAndView();
+		
+		//totalRecord numbers
+		apvo.setTotalRecord(service.totalRecord(apvo));
+				
+		//DB connect
+		mav.addObject("list", service.allList(apvo));
+		mav.addObject("apvo", apvo);
+		mav.setViewName("/admin/test");
+		return mav;
+	}
+	
 }
