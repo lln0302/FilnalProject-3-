@@ -21,7 +21,7 @@
 	}
 	#adminPage #adminTop .adminTopMenu {
 		float:left;
-		width:238px;
+		width:200px;/*238*/
 		text-align: center;
 		font-size: 21px;
 	}
@@ -37,29 +37,35 @@
 			</div>
 			<div class="adminTopMenu">　</div>
 			<div class="adminTopMenu">　</div>
-			<!--<c:if test="${logId==null }">-->
-				<div class="adminTopMenu" id="signInPart">
-					<a href="#">
-					<span style="background:rgba(210, 210, 210, 0.7); border-radius: 8px;">
-						<span style="color:orange;font-weight: bold;">관리자</span>
-						<span>님</span>
-					</span>
-					</a>
-				</div>
-				<div class="adminTopMenu" id="signUpPart">
+			<div class="adminTopMenu">　</div>
+				<c:if test="${logStatus == 'Y'}">
+					<div class="adminTopMenu" id="signInPart">
+						<a href="#">
+						<span style="background:rgba(210, 210, 210, 0.7); border-radius: 8px;">
+							<span style="color:orange;font-weight: bold;">관리자</span>
+							<span>님</span>
+						</span>
+						</a>
+					</div>
+				</c:if>
+				<c:if test="${logStatus != 'Y'}">
+					<div class="adminTopMenu">　</div>
+				</c:if>
+				<!-- <div class="adminTopMenu" id="signUpPart">
 					<a href="/">
 						<span style="background:rgba(210, 210, 210, 0.7); border-radius: 8px;">메인페이지</span>
 						</a>
-				</div>
-			<!--</c:if>-->
-			<!--<c:if test="${logId==!null }">
-				<div class="adminTopMenu">
-					<b style="font-size:12px;color:orange;">관리자( ${username } )</b>님
-				</div>
-				<div class="adminTopMenu" id="signUpPart">
-					<a href="/admin/adminSignOut">로그아웃</a>
-				</div>
-			</c:if>-->
+				</div> -->
+				<c:if test="${logStatus == 'Y'}">
+					<div class="adminTopMenu" id="logoutPart">
+						<input type="button" value="logout" onclick="location.href='${url}/member/logout'"/>
+					</div>
+				</c:if>
+				<c:if test="${logStatus != 'Y'}">
+					<div class="adminTopMenu" id="loginPart">
+						<input type="button" value="login" onclick="location.href='${url}/member/loginForm'"/>
+					</div>
+				</c:if>
 		</div>
 </body>
 </html>

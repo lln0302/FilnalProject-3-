@@ -1,0 +1,25 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE mapper
+        PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN"
+        "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+<mapper namespace="com.campus.myapp.admin.AdminTwoDAO">
+
+    <select id="adminCampList" resultType="com.campus.myapp.admin.AdminTwoCampListVO">
+    	select contentId, facltNm, addr1, addr2, tel, homepage, resveCl, resveUrl from campinglist
+    	<if test="searchWord != null">
+		where 				${searchKey}
+		like 				'%${searchWord}%'
+		</if>
+    	order by contentId desc
+    	limit		 		${onePageRecord}
+		offset				${offsetIndex}
+    </select>
+    
+    <select id="totalRecord" resultType="int">
+    	select count(contentId) cnt from campinglist
+    	<if test="searchWord != null">
+			where 			${searchKey}
+			like 			'%${searchWord}%'
+		</if>
+    </select>
+</mapper>

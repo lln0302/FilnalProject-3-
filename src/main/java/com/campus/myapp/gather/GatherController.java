@@ -7,6 +7,7 @@ import java.io.OutputStream;
 import java.io.PrintWriter;
 import java.text.SimpleDateFormat;
 import java.util.Date;
+import java.util.List;
 import java.util.UUID;
 import java.util.regex.Matcher;
 import java.util.regex.Pattern;
@@ -166,9 +167,7 @@ public class GatherController {
 	public ModelAndView GatherWriteOk(GatherVO vo, MultipartFile file, HttpSession session) throws Exception {
 		// 현재 session에 있는 nickname
 		vo.setNickname((String) session.getAttribute("nickname"));
-
 		String path = (String) session.getServletContext().getRealPath("/ckupload");
-
 		System.out.println(path);
 
 		try {
@@ -177,7 +176,6 @@ public class GatherController {
 		} catch (Exception e) {
 			e.printStackTrace();
 		}
-
 		mav.setViewName("gather/writeOK");
 		return mav;
 	}
@@ -185,7 +183,6 @@ public class GatherController {
 	// 캠퍼 모임 상세페이지
 	@GetMapping("/gatherView")
 	public ModelAndView GatherView(int gatherno, HttpSession session) {
-
 		// 조회수 증가
 		service.updateViews(gatherno);
 		
@@ -193,5 +190,35 @@ public class GatherController {
 		mav.addObject("view", service.gatherView(gatherno));
 		mav.setViewName("gather/gatherView");
 		return mav;
+	}
+	
+	// gather 댓글 등록하기
+	@PostMapping("/replyWrite")
+	public int ReplyWrite(ReplyVO vo, HttpSession session) {
+		vo.setNickname((String)session.getAttribute("nickname"));
+		return service.replyWrite(vo);
+	}
+	
+	// gather 댓글 리스트 
+	@GetMapping("/replyList")
+	public List<ReplyVO> ReplyList(int gatherno){
+		return service.replyList(gatherno);
+	}
+	
+	// gather 댓글 수정
+	@PostMapping("/replyEdit")
+	public int ReplyEdit(ReplyVO vo) {
+		return service.replyEdit(vo);
+	}
+	
+	// gather 댓글 삭제
+	@GetMapping("/replyDel")
+	public int ReplyDel(int replyno) {
+		return service.replyDel(replyno);
+	}
+	
+	@GetMapping("/joinCamper")
+	public int joinCamper(int gatherno) {
+		return service.joinGatherCamper(gatherno);
 	}
 }
