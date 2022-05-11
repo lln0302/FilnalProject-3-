@@ -66,6 +66,12 @@ public class GatherServiceImpl implements GatherService {
 		return dao.replyDel(replyno);
 	}
 
+	// 캠퍼 참여
+	@Override
+	public int joinGatherCamper(int gatherno) {
+		return dao.joinGatherCamper(gatherno);
+	}
+
 	
 
 	

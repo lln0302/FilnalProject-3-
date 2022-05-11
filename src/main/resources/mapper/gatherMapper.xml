@@ -31,6 +31,9 @@
 	<update id="updateViews">
 		UPDATE gather SET views=views+1 WHERE gatherno=#{param1}
 	</update>
+	<update id="joinGatherCamper">
+		UPDATE gather SET gnewno=gnewno+1 WHERE gatherno=#{param1}
+	</update>
 	<insert id="replyWrite">
 		INSERT INTO gatherreply(content, nickname, gatherno)
 		VALUES(#{content}, #{nickname}, ${gatherno})

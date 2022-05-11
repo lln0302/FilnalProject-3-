@@ -4,6 +4,7 @@
 <link rel="stylesheet" href="/css/gather/reply.css" type="text/css"/>
 <script src="https://kit.fontawesome.com/76aefe2b67.js"></script>
 <script src="/js/gather/reply.js"></script>
+<script src="/js/gather/view.js"></script>
 <script>
 	let nickname = "${nickname}";
 	$(function(){
@@ -15,6 +16,7 @@
 	})
 </script>
 <div class="container gatherView">
+	<input type="hidden" id="gatherno" value="${view.gatherno}"/>
 	<h1>${view.title}</h1>
 	<div class="col-12 camperTitle"></div>
 	<hr/>
@@ -24,7 +26,7 @@
 		<li>${view.nickname} 님</li>
 		<c:if test="${nickname==view.nickname}">
 			<li>
-				<a href="/gather/gatherEdit?no=${view.gatherno}" class="btn" id="gatherEdit">수정</a>
+				<a href="/gather/gatherEdit?gatherno=${view.gatherno}" class="btn" id="gatherEdit">수정</a>
 				<input type="button" class="btn" id="gatherDel" value="삭제"/>
 			</li>
 		</c:if>
@@ -47,7 +49,7 @@
 					<span id="gmemberno">${view.gmemberno}</span>
 				</span>
 				<c:if test="${nickname!=view.nickname}">
-					<input type="button" class="btn gnewnoBtn1" id="gnewnoBtn1" value="캠핑 참여">
+					<input type="button" class="btn gnewnoBtn1" id="gnewnoBtn1" name="gnewno" value="캠핑 참여">
 				</c:if>
 			</div>
 			<p id="joinWarn">🛑 캠핑 일주일 전 캠핑 취소를 하시면 매너온도가 내려가게 됩니다.</p>

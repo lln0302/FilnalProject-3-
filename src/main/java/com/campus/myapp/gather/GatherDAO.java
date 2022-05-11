@@ -35,4 +35,7 @@ public interface GatherDAO {
 	
 	// 댓글 삭제
 	public int replyDel(int replyno);
+	
+	// 캠퍼 참여
+	public int joinGatherCamper(int gatherno);
 }

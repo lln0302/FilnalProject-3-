@@ -217,4 +217,8 @@ public class GatherController {
 		return service.replyDel(replyno);
 	}
 	
+	@GetMapping("/joinCamper")
+	public int joinCamper(int gatherno) {
+		return service.joinGatherCamper(gatherno);
+	}
 }
