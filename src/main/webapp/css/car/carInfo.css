@@ -4,6 +4,9 @@
 	height: auto;
 	text-align: center;
 }
+h1, .container *{
+	font-family: 'IBM Plex Sans KR', sans-serif; 
+}
 #ciBody {
 	/*background-color: #FFD4AE;*/
 	padding: 30px;
@@ -11,6 +14,23 @@
 	border: 2px solid orange;
 	
 }
+
+#ciEdit, #ciDel {
+	width: 5%;
+ 	background-color: #f58243;
+ 	margin-left: 5px;
+ 	margin-top:-5px;
+ 	padding: 6px;
+ 	border: 0px;
+ 	border-radius: 5px;
+}
+
+#ciDel {
+	background-color: #67493B;
+}
+
+#ciEdit:hover { background-color: #e57233; }
+#ciDel:hover { background-color: #57392B; }
 
 #ciHead, #ciFoot {
 	width: 100%;
@@ -41,11 +61,11 @@
 }
 #ciReplyButton {
  	width: 10%;
- 	background-color: #E6BA95;
+ 	background-color: #f58243;
  	padding: 6px 12px;
  	border: 0px;
  	border-radius: 5px;
 }
 #ciReplyButton:hover {
-	background-color: #D6AA85;
+	background-color: #e57233;
 }
