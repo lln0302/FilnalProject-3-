@@ -1,27 +1,37 @@
 <%@ page language="java" contentType="text/html; charset=UTF-8" pageEncoding="UTF-8"%>
 <%@ taglib uri="http://java.sun.com/jsp/jstl/core" prefix="c" %>
 <script src="https://kit.fontawesome.com/76aefe2b67.js"></script>
+
 <style>
+@import url('https://fonts.googleapis.com/css2?family=Gowun+Dodum&family=IBM+Plex+Sans+KR:wght@200;400;500;600&family=IBM+Plex+Sans:wght@100;200;300;400;500&display=swap');
+</style>
+
+
+<style>
+
 	.container{
-		border-left: 2px solid gray;
- 		border-right: 2px solid gray;
+		border-left: 2px solid #dddddd;
+ 		border-right: 2px solid #dddddd;
  	 	font-family: 'Gowun Dodum', sans-serif;  /*메인페이지 타이틀 폰트*/
 		font-family: 'IBM Plex Sans', sans-serif; /* 본문 영문 폰트*/
 		font-family: 'IBM Plex Sans KR', sans-serif; /* 본문 한글폰트 */
 	}
 		
 	.searchbox {
-		border : rgb(245, 130, 67) solid 2px ;		
 		padding:10px;
 		margin: 33px auto;
 		text-align: center;
 		position: relative;		
-		width:70%;
 		height:auto;
+/* 		background-color: rgb(245, 130, 67); */
+		background-color:#ffbf70;
+		color: white;
+		box-shadow: 0px 3px 6px 0px #c1c0c0;
+		border-radius: 5px;
 	}
 	
 	#searchBoxunderline{
-		background-color: #eff0f4;
+		background-color: #eeeeee;
 		width:100%;
 		height:auto;
 		padding:9px 0;
@@ -40,8 +50,65 @@
 		height:230px;
 	}
 	
+	.C_SearchBtnWrap{
+		padding: 20px 0px;
+ 	    border-bottom: 1.5px solid #ffffff;
+ 	 	width: 90%;
+ 	 	margin: 10px auto;
+	}
+	
 	.detail, .tag_search{
-		width: 30%;		
+		width: 45%;
+	    height: 52px;
+	    border: none;
+	    background-color: white;
+	    margin: 5px 12px;
+	    border-radius: 5px;
+	    font-size: 17px;
+	    font-weight: 500;
+	    color: #4a4a4a;
+	}
+	
+	.detail:hover, .tag_search:hover{
+	    background-color: #67493B;
+	    color: white;
+		
+	}
+	
+	.C_select{
+		position: relative;
+		text-align: center;
+		border: 1px solid black;
+		width: 90%;
+		padding: 10px;
+		margin: 20px auto;
+		background-color: #67493B;
+		border-radius: 5px;
+	}
+	
+	.C_detail{
+		border: none;
+	    background-color: #ff823f;
+	    color: white;
+	    padding: 6px;
+	    margin-left: 5px;
+	    margin-top: 10px;
+	    border-radius: 8px;
+	}
+	
+	.C_search{
+		border: none;
+	    background-color: #ff823f;
+	    color: white;
+	    padding: 12px;
+	    width: 90%;
+	    border-radius: 5px;
+	    margin-bottom: 20px;
+	    font-size: 18px;
+	}
+	
+	.C_search:hover{
+		background-color: #67493B;
 	}
 	
 	#imageBox{
@@ -179,23 +246,24 @@
 		<div class="searchbox">	
 			<form id="serachForm" action="/camping/campingSearch" method="get">			
 			<div>
-				<div>
-					<button class="btn detail" type="button">상세검색</button>			
-					<button class="btn tag_search" type="button">
+				<div class="C_SearchBtnWrap">
+					<button class=" detail" type="button">상세검색</button>			
+					<button class=" tag_search" type="button">
 						<span>태그로 검색</span>
 					</button>					
 				</div>
-				<div>
+				<div class="C_select">
+				<div>				
 					<ul>
-						<li>	
-							<strong>지역</strong>							
+						<li >	
+							<strong style="margin-right:5px; font-size:18px; ">지역</strong>							
 							<select id="sido" name="doNm" onchange="changeSido()"></select>							
 							<select id="gungu" name="sigunguNm" onchange="changeGungu()"></select>								
-							<button class= "btn" type="button" onclick="Displaydetail()">상세 조건</button>
+							<button class="C_detail" type="button" onclick="Displaydetail()">상세 조건 +</button>
 						</li>
 					</ul>
 				</div>
-				<div id="search_detail" style="display:none;">
+				<div id="search_detail" style="display:none; margin-top: 10px;">
 					<ul>					
 						<li>
 							<strong>주요 시설</strong>
@@ -214,8 +282,9 @@
 						</li>												
 					</ul>
 				</div>
+				</div>
 				<div>
-					<button id="searchCampinginfo" class="btn" type="submit">캠핑장 검색</button>
+					<button id="searchCampinginfo" class="C_search" type="submit">캠핑장 검색</button>
 				</div>				
 			</div>	
 			</form>
