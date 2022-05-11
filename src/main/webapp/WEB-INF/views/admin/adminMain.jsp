@@ -6,7 +6,21 @@
 <meta charset="UTF-8">
 <title>Insert title here</title>
 </head>
+
+<!-- Latest compiled and minified CSS -->
+<link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap@4.6.1/dist/css/bootstrap.min.css">
+
+<!-- jQuery library -->
+<script src="https://cdn.jsdelivr.net/npm/jquery@3.6.0/dist/jquery.slim.min.js"></script>
+
+<!-- Popper JS -->
+<script src="https://cdn.jsdelivr.net/npm/popper.js@1.16.1/dist/umd/popper.min.js"></script>
+
+<!-- Latest compiled JavaScript -->
+<script src="https://cdn.jsdelivr.net/npm/bootstrap@4.6.1/dist/js/bootstrap.bundle.min.js"></script>
+
 <link rel="stylesheet" href="/css/admin/adminMain.css" type="text/css" />
+<link rel="stylesheet" href="/css/base.css" type="text/css" />
 <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/css/bootstrap.min.css">
 
 <script type="text/javascript" src="https://cdnjs.cloudflare.com/ajax/libs/Chart.js/2.8.0/Chart.bundle.min.js"></script>
@@ -40,7 +54,8 @@
 </style>
 
 <body>
-	<div id="adminPage">
+	<div>
+	<div id="adminPage" class="container-fluid">
 		<%@ include file="/WEB-INF/views/admin/adminTop.jsp" %>
 		<div id="adminMainContent">
 			
@@ -95,10 +110,11 @@
 				</li>
 			</ul>
 			<div id="adminMainContentTop">
-				<hr id="hr2px_red">
+				<!-- <hr id="hr2px_red">-->
 				대시보드
 			</div>
 			<hr id="hr2px">
+			<div id="chartJScontents">
 				<div class="containerPie">
 					<h4>캠핑장 태그별 사용 통계</h4>
 					<canvas id="myChartPie1" width="450" height="450"></canvas>
@@ -111,6 +127,7 @@
 					<h4>차박지 지역별 순위 통계</h4>
 					<canvas id="myChartBar1" width="950" height="950"></canvas>
 				</div>
+			</div>
 		</div>
 	</div>
 	<script>
@@ -229,5 +246,6 @@
 		}
 	});
 </script>
+</div>
 </body>
 </html>

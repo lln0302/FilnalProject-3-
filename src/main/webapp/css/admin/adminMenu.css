@@ -2,11 +2,16 @@
 
 .containerList {
 	float:left;
-	width: 1000px;
+	/*width: 1000px;*/
+	width:50%;
+	position:relative;
+	left:20%;
+	right:30%;
 	height: 690px;
 	border: 1px solid #ddd;
 	padding: 10px;
 	border-radius: 4px;
+	text-align: center;
 }
 #header, footer {
 	display: none;
@@ -46,7 +51,7 @@ list-style-type: none;
 }
 /*페이징*/
 .paging{
-	margin: 10px 36%;
+	margin: 10px 38% 0px 38%;
 	height: 30px;
 	overflow: auto;
 }
