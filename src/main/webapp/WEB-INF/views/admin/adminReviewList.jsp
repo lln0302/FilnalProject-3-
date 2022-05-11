@@ -90,7 +90,7 @@
 				</li>
 			</ul>
 			<div id="adminMainContentTop">
-				<hr id="hr2px_red">
+				<!-- <hr id="hr2px_red"> -->
 				리뷰목록
 			</div>
 			<hr id="hr2px">
