@@ -13,6 +13,11 @@
 		<span id="ciNick">[닉네임]</span> | <i class="fa fa-clock clock"></i> <span id="ciDate">[등록일]</span>
 	</div>
 	<hr>
+	<!-- 본인 게시물인 경우에만 나타나도록 설정해줘야 함 -->
+	<c:if test="${logStatus=='Y' }">
+		<div style="text-align: right;"> <button id="ciEdit">수정</button><button id="ciDel">삭제</button></div>
+	</c:if>
+	
 	<div class="map_wrap">
 		<div id="map" style="width:100%;height:100%;position:relative;overflow:hidden;"></div>
 	    <div class="hAddr">
@@ -21,7 +26,9 @@
 	    </div>
 	</div>
 	
-	<div id="ciContent">[글 내용이 들어갈 부분입니다]<br>
+	<div id="ciContent">
+	<img src="/img/supply/cat.jpg"/><br>
+	[글 내용이 들어갈 부분입니다]<br>
 	[글 내용이 들어갈 부분입니다]<br>
 	[글 내용이 들어갈 부분입니다]<br>
 	[글 내용이 들어갈 부분입니다]<br>

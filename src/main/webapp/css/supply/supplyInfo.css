@@ -4,10 +4,34 @@ h5 {
 	text-align: center;
 	padding: 10px;
 }
+h1, .container *{
+	font-family: 'IBM Plex Sans KR', sans-serif; 
+}
 
 .container {
 	height: auto;
 	text-align: center;
+}
+
+#ciEdit, #ciDel {
+	width: 5%;
+ 	background-color: #f58243;
+ 	margin-left: 5px;
+ 	margin-top:-5px;
+ 	padding: 6px;
+ 	border: 0px;
+ 	border-radius: 5px;
+}
+
+#ciDel {
+ 	background-color: #67493B;
+}
+
+#ciEdit:hover {
+	background-color: #e57233;
+}
+#ciDel:hover {
+	background-color: #57392B;
 }
 
 #spBody {
@@ -70,22 +94,22 @@ h5 {
 }
 #spReplyButton {
  	width: 100%;
- 	background-color: #E6BA95;
+ 	background-color: #f58243;
  	padding: 6px 12px;
  	border: 0px;
  	border-radius: 5px;
 }
 #spReplyButton:hover {
-	background-color: #D6AA85;
+	background-color: #e57233;
 }
 
 .goChat {
 	border: 0px;
 	border-radius: 5px;
 	padding: 6px 12px;
-	background-color: #E6BA95;
+	background-color: #f58243;
 }
 
 .goChat:hover {
-	background-color: #D6AA85;
+	background-color: #e57233;
 }

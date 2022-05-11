@@ -49,3 +49,7 @@
     transition: all 250ms linear;
 	width:80%;
 }
+
+.listBox:hover {
+	background-color: rgba(245, 130, 67, 1);
+}

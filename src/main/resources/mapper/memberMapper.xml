@@ -27,4 +27,16 @@
         SELECT userid from member
         WHERE username=#{username} and usertel=#{usertelP}
     </select>
+    <update id="memberUpdate">
+        UPDATE member SET nickname=#{nickname}, email=#{email}, userpwd=#{userpwd}, birth=#{birth}, username=#{username}
+        WHERE userid=#{userid}
+    </update>
+    <delete id="memberDelete">
+        DELETE FROM member
+        WHERE userid=#{userid} AND userpwd=#{userpwd}
+    </delete>
+    <select id="memberSelect" resultType="com.campus.myapp.member.MemberVO">
+        SELECT * FROM member
+        WHERE userid=#{param1}
+    </select>
 </mapper>

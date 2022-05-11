@@ -5,12 +5,16 @@
 <link rel="stylesheet" href="/css/supply/supplyList.css" type="text/css">
 <link rel="stylesheet" href="https://use.fontawesome.com/releases/v5.7.0/css/all.css" integrity="sha384-lZN37f5QGtY3VHgisS14W3ExzMWZxybE1SJSEsQp9S+oqd12jhcu+A56Ebc1zFSJ" crossorigin="anonymous">
 
+
+
+
+
 <h1>상태는 괜찮은데 쓰지 않게 된 캠핑용품들...</h1>
 <h5>이곳에서 다른 사람들과 나눠보세요</h5>
 
 <div class="container">
 	<div class="col-12" style="text-align: right">
-		<a href="/supply/supplyWrite"><i class="fa fa-pen writeBtn"></i></a>
+		<a href="/supply/supplyWrite"><i class="fa fa-pen writeBtn fa-lg"></i></a>
     </div>
     <ul id="spList">
     	<li>

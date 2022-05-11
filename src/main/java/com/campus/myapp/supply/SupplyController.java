@@ -29,4 +29,11 @@ public class SupplyController {
 		mav.setViewName("supply/supplyWrite");
 		return mav;
 	}
+	
+	@GetMapping("supplyChat")
+	public ModelAndView supplyChat() {
+		ModelAndView mav = new ModelAndView();
+		mav.setViewName("supply/supplyChat");
+		return mav;
+	}
 }
