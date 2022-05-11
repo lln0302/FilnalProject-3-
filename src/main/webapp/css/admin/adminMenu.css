@@ -2,11 +2,16 @@
 
 .containerList {
 	float:left;
-	width: 1000px;
+	/*width: 1000px;*/
+	width:50%;
+	position:relative;
+	left:20%;
+	right:30%;
 	height: 690px;
 	border: 1px solid #ddd;
 	padding: 10px;
 	border-radius: 4px;
+	text-align: center;
 }
 #header, footer {
 	display: none;
@@ -21,7 +26,7 @@
 	line-height: 50px;
 	width:10%;
 	border-bottom:solid 3px gray;
-	text-align: left;
+	text-align: center;/*left*/
 	background-color: rgba(205, 188, 171, 0.5);
 	font-weight: bold;
 	white-space: nowrap;
@@ -36,7 +41,7 @@ list-style-type: none;
 	line-height: 50px;
 	width:10%;
 	border-bottom:solid 3px gray;
-	text-align: left;
+	text-align: center;/*left*/
 	background-color:white;
 	font-weight:normal;
 	white-space: nowrap;
@@ -46,7 +51,7 @@ list-style-type: none;
 }
 /*페이징*/
 .paging{
-	margin: 10px 35%;
+	margin: 10px 38% 0px 38%;
 	height: 30px;
 	overflow: auto;
 }

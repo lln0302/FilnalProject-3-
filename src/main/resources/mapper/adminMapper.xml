@@ -3,31 +3,53 @@
         PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN"
         "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
 <mapper namespace="com.campus.myapp.admin.AdminDAO">
-    <select id="adminMembers" resultType="com.campus.myapp.admin.AdminMemberVO">
-        SELECT userid, username, nickname, email, case isadmin when 0 then '관리자' else '사용자'end AS isadmin, userscore, usertel, joindate from member
-        <if test="searchWord != null">
-		where 				${searchKey}
-		like 				'%${searchWord}%'
-		</if>
-        order by joindate desc
-        limit		 		${onePageRecord}
-		offset				${offsetIndex}
-    </select>
-    <select id="allList" resultType="com.campus.myapp.admin.AdminMemberVO">
-        SELECT userid, username, nickname, email, case isadmin when 0 then '관리자' else '사용자'end AS isadmin, userscore, usertel, joindate from member
-        <if test="searchWord != null">
-		where 				${searchKey}
-		like 				'%${searchWord}%'
-		</if>
-        order by joindate desc
-        limit		 		${onePageRecord}
-		offset				${offsetIndex}
-    </select>
-    <select id="totalRecord" resultType="int">
+    <select id="totalRecordMembers" resultType="int">
     	select count(nickname) cnt from member
     	<if test="searchWord != null">
 			where 			${searchKey}
 			like 			'%${searchWord}%'
 		</if>
+    </select>
+    <select id="totalRecordGather" resultType="int">
+    	select count(gatherno) cnt from gather
+    	<if test="searchWord != null">
+			where 			${searchKey}
+			like 			'%${searchWord}%'
+		</if>
+    </select>
+    
+    
+    
+    <select id="adminMembers" resultType="com.campus.myapp.member.MemberVO">
+        SELECT userid, username, nickname, email, case isadmin when 0 then '사용자' else '관리자'end AS isadmin, userscore, usertel, joindate from member
+        <if test="searchWord != null">
+		where 				${searchKey}
+		like 				'%${searchWord}%'
+		</if>
+        order by joindate desc
+        limit		 		${onePageRecord}
+		offset				${offsetIndex}
+    </select>
+    
+    <select id="adminAddCamperList" resultType="com.campus.myapp.gather.GatherVO">
+    	select gatherno, title, place, nickname, startdate, enddate, createdate from gather
+    	<if test="searchWord != null">
+		where 				${searchKey}
+		like 				'%${searchWord}%'
+		</if>
+    	order by createdate desc
+    	limit		 		${onePageRecord}
+		offset				${offsetIndex}
+    </select>
+    
+    <select id="allList" resultType="com.campus.myapp.member.MemberVO">
+        SELECT userid, username, nickname, email, case isadmin when 0 then '관리자' else '사용자'end AS isadmin, userscore, usertel, joindate from member
+        <if test="searchWord != null">
+		where 				${searchKey}
+		like 				'%${searchWord}%'
+		</if>
+        order by joindate desc
+        limit		 		${onePageRecord}
+		offset				${offsetIndex}
     </select>
 </mapper>

@@ -1,6 +1,6 @@
 package com.campus.myapp.admin;
 
-public class AdminPagingVO {
+public class AdminTwoPagingVO {
 	//페이징
 	private int onePageRecord = 10;  //한 페이지당 출력할 레코드 수
 	private int pageNum = 1; 		//현재 페이지번호
