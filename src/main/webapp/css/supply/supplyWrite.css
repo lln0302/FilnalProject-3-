@@ -4,6 +4,9 @@ h5 {
 	text-align: center;
 	padding: 10px;
 }
+h1, .container *{
+	font-family: 'IBM Plex Sans KR', sans-serif; 
+}
 
 #swFrm {
 	border: 2px solid orange;

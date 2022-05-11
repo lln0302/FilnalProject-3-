@@ -11,9 +11,12 @@
 	$("#sellerId").css('width', selNickLen +'em');
 	$("#buyerId").css('width', buyNickLen +'em');
 	
+	
 	//이후 생성되는 모든 말풍선의 작성자 닉네임칸 너비 통일
-	$(".sellerId").css('width', $("#sellerId").css('width'));
-	$(".buyerId").css('width', $("#buyerId").css('width'));
+	var selWid = $("#sellerId").css('width');
+	var buyWid = $("#buyerId").css('width');
+	$(".sellerId").css('width', selWid);
+	$(".buyerId").css('width', buyWid);
 	
 	
 	//채팅방 영역 너비값 구하기 + 'px'단위제거 정수화
@@ -28,15 +31,15 @@
 		buyText = $("#buyerText"+i).text().length;
 
 		//말풍선의 너비를 글자수 length에 맞게 설정
-		$("#chatSeller"+i).css('width', selText+1+ 'em');
-		$("#chatBuyer"+i).css('width', buyText+1+ 'em');
+		$("#chatSeller"+i).css('width', selText+ 'em');
+		$("#chatBuyer"+i).css('width', buyText+ 'em');
 
 		//작성자(오른쪽) 말풍선의 너비값을 변수에 저장
 		var selWid = parseInt($("#chatSeller"+i).css('width'), 10);
-		alert($("#chatSeller"+i).css('width'));
+		//alert($("#chatSeller"+i).css('width'));
 		//말풍선의 너비에 따라 오른쪽으로 땡김
 		right = selWid*1.11 - winWid;
-		if(right < -271) right = -271;
+		if(right < -290) right = -290;
 		$("#chatSeller"+i).css('right', right);
 		
 	}

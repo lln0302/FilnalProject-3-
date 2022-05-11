@@ -3,6 +3,9 @@
 .container>* {
 	margin:1%;
 }
+h1, .container *{
+	font-family: 'IBM Plex Sans KR', sans-serif; 
+}
 
 #cwFrm {
 	border: 2px solid orange;

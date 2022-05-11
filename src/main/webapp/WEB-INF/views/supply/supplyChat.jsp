@@ -12,46 +12,49 @@
 		방 생성 : [댓글 작성자]님
 	</div>
 	<div id="chatting">
-		<fieldset class="chatSeller" id="chatSeller1">
-			<legend id="sellerId">[글작성자]</legend>
-			<span id="sellerText1">안녕하세요ㅎㅎㅎㅎㅎㅎㅎㅎㅎㅎㅎㅎㅎ</span>
-		</fieldset>
-		<fieldset class="chatBuyer" id="chatBuyer1">
-			<legend id="buyerId">[방생성자]</legend>
-			<span id="buyerText1">얼마정도 하나요??</span>
-		</fieldset>
+		<div class="chatSeller">
+			<div id="sellerId">[글작성자]</div>
+			<div class="sellerText">안녕하세요ㅎㅎㅎㅎㅎㅎㅎㅎㅎㅎㅎㅎㅎ</div>
+		</div>
+		<div class="chatBuyer">
+			<div id="buyerId">[방생성자]</div>
+			<div class="buyerText">얼마정도 하나요??</div>
+		</div>
 		
-		<fieldset class="chatSeller" id="chatSeller2">
-			<legend class="sellerId">[글작성자]</legend>
-			<span id="sellerText2">안팔아요</span>
-		</fieldset>
-		<fieldset class="chatBuyer" id="chatBuyer2">
-			<legend class="buyerId">[방생성자]</legend>
-			<span id="buyerText2">뭐예요</span>
-		</fieldset>
+		<div class="chatSeller">
+			<div class="sellerId">[글작성자]</div>
+			<div class="sellerText">gㅎㅎㅎ</div>
+		</div>
+		<div class="chatBuyer">
+			<div class="buyerId">[방생성자]</div>
+			<div class="buyerText">얼마정도 하나요 아니 대답을 하시라니깐여</div>
+		</div>
 		
-		<fieldset class="chatSeller" id="chatSeller1">
-			<legend id="sellerId">[글작성자]</legend>
-			<span id="sellerText3">안녕하세요ㅎㅎㅎㅎㅎㅎㅎㅎㅎㅎㅎㅎㅎ</span>
-		</fieldset>
-		<fieldset class="chatBuyer" id="chatBuyer1">
-			<legend id="buyerId">[방생성자]</legend>
-			<span id="buyerText3">얼마정도 하나요??</span>
-		</fieldset>
+		<div class="chatSeller">
+			<div class="sellerId">[글작성자]</div>
+			<div class="sellerText">안녕하세요ㅎㅎㅎㅎㅎㅎㅎㅎㅎㅎㅎㅎㅎ</div>
+		</div>
+		<div class="chatBuyer">
+			<div class="buyerId">[방생성자]</div>
+			<div class="buyerText">얼마정도 하나요??</div>
+		</div>
 		
-		<fieldset class="chatSeller" id="chatSeller2">
-			<legend class="sellerId">[글작성자]</legend>
-			<span id="sellerText4">안팔아요</span>
-		</fieldset>
-		<fieldset class="chatBuyer" id="chatBuyer2">
-			<legend class="buyerId">[방생성자]</legend>
-			<span id="buyerText4">뭐예요</span>
-		</fieldset>
+		<div class="chatSeller">
+			<div class="sellerId">[글작성자]</div>
+			<div class="sellerText">gㅎㅎㅎ</div>
+		</div>
+		<div class="chatBuyer">
+			<div class="buyerId">[방생성자]</div>
+			<div class="buyerText">얼마정도 하나요 아니 대답을 하시라니깐여</div>
+		</div>
 		
-		<!-- 
-		<p class="chatBuyer">얼마정도 하나요??</p>
-		<p class="chatSeller">안녕하세요ㅎㅎㅎㅎㅎㅎㅎㅎㅎㅎㅎㅎㅎ</p>
-		 -->
+		
+	</div> <!-- 채팅창 부분 div -->
+	
+	<div id="chatDiv">
+		<textarea id="chat" name="chat" placeholder="대화 입력..."></textarea>
+		<input type="submit" id="send" name="send" value="전송">
 	</div>
+	
 </div>
 <script src="/js/supply/supplyChat.js"></script>

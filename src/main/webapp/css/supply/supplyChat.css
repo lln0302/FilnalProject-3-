@@ -2,7 +2,11 @@
 
 .container {
 	background-color: #f58243;
-	height: 650px;
+	height: 718px;
+	
+	/*font-family: 'Gowun Dodum', sans-serif;
+	font-family: 'IBM Plex Sans', sans-serif; */
+	font-family: 'IBM Plex Sans KR', sans-serif; 
 }
 #scBody {
 	padding: 3%;
@@ -14,7 +18,7 @@
 	width: 100%;
 	height: 500px;
 	margin-top: 10px;
-	background-color: #67493B;
+	background-color: rgba(103, 73, 59, .5);
 	padding: 1%;
 	overflow-y: scroll;
 	border-radius: 5px;
@@ -25,45 +29,90 @@
 }
 #chatting::-webkit-scrollbar-thumb {
 	background-color: #f58243;
-	border-radius: 5px;
+	border-radius: 3px;
+	border: 1px solid #67493B;
 }
 #chatting::-webkit-scrollbar-track {
-	background-color: #67493B;
-	border-radius: 5px;
+	background-color: rgba(103, 73, 59, .3);
+	border-radius: 3px;
 }
 
-
-legend {
-	background-color: red;
+#sellerId, #buyerId {
+	background-color: black;
+	color: white;
 	border-radius: 15px;
 	padding: 5px;
-	padding-left: 10px;
-	padding-right: 10px;
+}
+.sellerId, .buyerId {
+	position: relative;
+	background-color: black;
+	color: white;
+	border-radius: 15px;
+	padding: 5px;
+	padding-left: 14px;
+	padding-right: 14px;
 	font-size: 1em;
 	margin-bottom: 0px;
+	text-align: center;
 }
 /*말풍선 - 판매자(오른쪽)*/
-.chatSeller {
+.chatSeller, .chatBuyer {
 	position: relative;
-	padding: 5px;
+	width: 200px;
+}
+.chatSeller {
+	left: 210px;
+}
+.sellerId, #sellerId {
+	position: relative;
+	left: 100px;
+}
+
+.sellerText {
+	
+	padding: 10px;
 	text-align: right;
 	background-color: #fFF243;
 	margin: 5px;
 	max-width: 180px;
 	min-width: 120px;
-	border: 3px solid black;
+	border: 1px solid black;
 	border-radius: 10px;
 }
 
 /*말풍선 - 구매자(왼쪽)*/
-.chatBuyer {
-	position: relative;
+.buyerText {
+	
 	text-align: left;
-	padding: 5px;
+	padding: 10px;
 	background-color: white;
 	margin: 5px;
 	max-width: 180px;
-	min-width: 120px;
-	border: 3px solid black;
+	min-width: 150px;
+	border: 1px solid black;
 	border-radius: 10px;
+}
+
+#chatDiv {
+	width: 100%;
+	margin-top: 5px;
+}
+
+#chat {
+	width:85%;
+	height: 70px;
+	float:left;
+	padding: 5px;
+	border:none;
+    resize: none;
+}
+#send {
+	width: 15%;
+	height: 70px;
+	float:left;
+	background-color: rgba(103, 73, 59, .3);
+	border: none;
+}
+#send:hover {
+	background-color: rgba(103, 73, 59, .8);
 }

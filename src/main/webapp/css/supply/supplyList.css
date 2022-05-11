@@ -6,6 +6,10 @@ h5 {
 }
 
 
+h1, .container *{
+	font-family: 'IBM Plex Sans KR', sans-serif; 
+}
+
 .container {
 	width:100%;
 }

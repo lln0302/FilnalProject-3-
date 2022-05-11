@@ -26,7 +26,9 @@
 	    </div>
 	</div>
 	
-	<div id="ciContent">[글 내용이 들어갈 부분입니다]<br>
+	<div id="ciContent">
+	<img src="/img/supply/cat.jpg"/><br>
+	[글 내용이 들어갈 부분입니다]<br>
 	[글 내용이 들어갈 부분입니다]<br>
 	[글 내용이 들어갈 부분입니다]<br>
 	[글 내용이 들어갈 부분입니다]<br>
