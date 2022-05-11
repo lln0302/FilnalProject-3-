@@ -23,4 +23,19 @@ public interface GatherDAO {
 	
 	// 조회수 증가
 	public int updateViews(int gatherno);
+	
+	// 댓글 등록
+	public int replyWrite(ReplyVO vo);
+	
+	// 댓글 리스트
+	public List<ReplyVO> replyList(int gatherno);
+	
+	// 댓글 수정
+	public int replyEdit(ReplyVO vo);
+	
+	// 댓글 삭제
+	public int replyDel(int replyno);
+	
+	// 캠퍼 참여
+	public int joinGatherCamper(int gatherno);
 }

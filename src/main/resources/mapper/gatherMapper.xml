@@ -10,9 +10,9 @@
 	</insert>
 	<select id="gatherList" resultType="GatherVO">
 		SELECT gatherno, title, place, views, nickname,
-		date_format(startdate, "%Y-%m-%d") startdate,
-		date_format(enddate, "%Y-%m-%d") enddate,
-		date_format(createdate, "%y-%m-%d %H:%i") createdate,
+		DATE_FORMAT(startdate, "%Y-%m-%d") startdate,
+		DATE_FORMAT(enddate, "%Y-%m-%d") enddate,
+		DATE_FORMAT(createdate, "%y-%m-%d %H:%i") createdate,
 		content, gmemberno, gnewno 
 		FROM gather ORDER BY gatherno DESC
 		LIMIT ${param1.postsPerPage} OFFSET ${param1.offset}
@@ -22,13 +22,32 @@
 	</select>
 	<select id="gatherView" resultType="GatherVO">
 		SELECT gatherno, title, place, views, nickname,
-		date_format(startdate, "%Y-%m-%d") startdate,
-		date_format(enddate, "%Y-%m-%d") enddate,
-		date_format(createdate, "%y-%m-%d %H:%i") createdate,
+		DATE_FORMAT(startdate, "%Y-%m-%d") startdate,
+		DATE_FORMAT(enddate, "%Y-%m-%d") enddate,
+		DATE_FORMAT(createdate, "%y-%m-%d %H:%i") createdate,
 		content, gmemberno, gnewno
 		FROM gather WHERE gatherno=#{param1}
 	</select>
 	<update id="updateViews">
-		update gather set views=views+1 where gatherno=#{param1}
+		UPDATE gather SET views=views+1 WHERE gatherno=#{param1}
 	</update>
+	<update id="joinGatherCamper">
+		UPDATE gather SET gnewno=gnewno+1 WHERE gatherno=#{param1}
+	</update>
+	<insert id="replyWrite">
+		INSERT INTO gatherreply(content, nickname, gatherno)
+		VALUES(#{content}, #{nickname}, ${gatherno})
+	</insert>
+	<select id="replyList" resultType="ReplyVO">
+		SELECT replyno, content, nickname, gatherno,
+		DATE_FORMAT(writedate, "%y-%m-%d %H:%i")writedate
+		FROM gatherreply WHERE gatherno=#{param1}
+		ORDER BY replyno DESC
+	</select>
+	<update id="replyEdit">
+		UPDATE gatherreply SET content=#{content} WHERE replyno=${replyno}
+	</update>
+	<delete id="replyDel">
+		DELETE FROM gatherreply WHERE replyno=#{param1} 
+	</delete>
 </mapper>
