@@ -1,5 +1,7 @@
 package com.campus.myapp.camping;
 
+import java.util.List;
+
 public class Paging10VO {
 	// 
 		private int onePageRecord=10; // 한 페이지 당 출력할 레코드 수 
@@ -10,7 +12,37 @@ public class Paging10VO {
 		private int onePageCount=10; // 한 번에 표시할 페이지 수
 		private int startPage = 1;
 		
-	   public int getOnePageRecord() {
+		private String doNm;
+		private String sigunguNm;
+		
+		private List<String> induty;
+		private List<String> sbrsCl;
+		
+	   public String getDoNm() {
+			return doNm;
+		}
+		public void setDoNm(String doNm) {
+			this.doNm = doNm;
+		}
+		public String getSigunguNm() {
+			return sigunguNm;
+		}
+		public void setSigunguNm(String sigunguNm) {
+			this.sigunguNm = sigunguNm;
+		}
+		public List<String> getInduty() {
+			return induty;
+		}
+		public void setInduty(List<String> induty) {
+			this.induty = induty;
+		}
+		public List<String> getSbrsCl() {
+			return sbrsCl;
+		}
+		public void setSbrsCl(List<String> sbrsCl) {
+			this.sbrsCl = sbrsCl;
+		}
+	public int getOnePageRecord() {
 	      return onePageRecord;
 	   }
 	   public void setOnePageRecord(int onePageRecord) {

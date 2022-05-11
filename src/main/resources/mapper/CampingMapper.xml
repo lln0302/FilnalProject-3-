@@ -13,7 +13,18 @@
 		select count(contentId) from campinglist
 	</select>
 	
-	<select id="campingSearch" resultType="CampingVO">
-		select firstImageUrl, sigunguNm, doNm, facltNm, addr2, addr1, tel from campinglist	
+	<select id="campingSearch" resultType="com.campus.myapp.camping.CampingVO">
+		select firstImageUrl, sigunguNm, doNm, facltNm, addr2, addr1, tel from campinglist
+		where 1=1
+		<if test='doNm != null'>
+			and doNm   like '%${doNm}%'
+		</if>
+		<if test='sigunguNm != null'>
+			and sigunguNm   like '%${sigunguNm}%'
+		</if>
+		order by contentid desc limit ${onePageRecord} offset ${offsetIndex}
+		<!-- <if test='doNm != null || sigunguNm != null || induty != null || sbrsCl != null'>
+			where ${} like '%${doNm}%' and  ${} like '${sigunguNm}' and ${} like '${induty}' and ${} like '${sbrsCl}'
+		</if>	 -->
 	</select>
 </mapper>
