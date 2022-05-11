@@ -51,27 +51,29 @@
 	</div><!-- list-->
 	</c:forEach>
 	<ul class="pagination justify-content-center">
-		<li class="page-item prevBtn">
-			<a class="page-link" href="javascript:void(0);" onclick="prevBtn(${pvo.currentPage})">
-				<i class="fa fa-angle-left"></i>
-			</a>
-		</li>
-		<c:forEach var="p" begin="${pvo.startPage}" end="${pvo.totalPages}">
-				<c:choose>
-					<c:when test="${p!=pvo.currentPage}">
-						<li class="page-item">
-							<a class="page-link"href="javascript:void(0);" onclick="currentPage(${p})">${p}</a>
-						</li>
-					</c:when>
-					<c:otherwise>
-						<li class="page-item disabled"><a class="page-link">${p}</a></li>
-					</c:otherwise>
-				</c:choose>
-		</c:forEach>
-		<li class="page-item nextBtn">
-			<a class="page-link" href="javascript:void(0);" onclick="nextBtn(${pvo.currentPage})">
-				<i class="fa fa-angle-right"></i>
-			</a>
-		</li>
+		<c:if test="${pvo.totalPages>0}">
+			<li class="page-item prevBtn">
+				<a class="page-link" href="javascript:void(0);" onclick="prevBtn(${pvo.currentPage})">
+					<i class="fa fa-angle-left"></i>
+				</a>
+			</li>
+			<c:forEach var="p" begin="${pvo.startPage}" end="${pvo.totalPages}">
+					<c:choose>
+						<c:when test="${p!=pvo.currentPage}">
+							<li class="page-item">
+								<a class="page-link"href="javascript:void(0);" onclick="currentPage(${p})">${p}</a>
+							</li>
+						</c:when>
+						<c:otherwise>
+							<li class="page-item disabled"><a class="page-link">${p}</a></li>
+						</c:otherwise>
+					</c:choose>
+			</c:forEach>
+			<li class="page-item nextBtn">
+				<a class="page-link" href="javascript:void(0);" onclick="nextBtn(${pvo.currentPage})">
+					<i class="fa fa-angle-right"></i>
+				</a>
+			</li>
+		</c:if>
 	</ul>
 </div>

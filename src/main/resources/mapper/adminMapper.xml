@@ -21,7 +21,7 @@
     
     
     <select id="adminMembers" resultType="com.campus.myapp.member.MemberVO">
-        SELECT userid, username, nickname, email, case isadmin when 0 then '사용자관리자' else '관리자'end AS isadmin, userscore, usertel, joindate from member
+        SELECT userid, username, nickname, email, case isadmin when 0 then '사용자' else '관리자'end AS isadmin, userscore, usertel, joindate from member
         <if test="searchWord != null">
 		where 				${searchKey}
 		like 				'%${searchWord}%'
