@@ -22,10 +22,19 @@ public class CampingVO {
     private String posblFcltyCl;
     private String firstImageUrl ;
     private String operPdCl;
-    private String operDeCl;   
+    private String operDeCl;
+    private String modifiedtime;
     
     private List<Integer> contentIdList;
     
+	public String getModifiedtime() {
+		return modifiedtime;
+	}
+
+	public void setModifiedtime(String modifiedtime) {
+		this.modifiedtime = modifiedtime;
+	}
+
 	@Override
 	public String toString() {
 		return "CampingVO [contentId=" + contentId + ", facltNm=" + facltNm + ", lineIntro=" + lineIntro + ", intro=" + intro + ", featureNm=" + featureNm + ", induty="+induty+", lctCl="+lctCl+

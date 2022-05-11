@@ -178,10 +178,10 @@
 	<div class="campingSearch" style="overflow:auto;">	
 		<div class="searchbox">	
 			<form id="serachForm" action="/camping/campingSearch" method="get">			
-			<div>
+			<div id="detail_Search">
 				<div>
-					<button class="btn detail" type="button">상세검색</button>			
-					<button class="btn tag_search" type="button">
+					<button class="btn detail" type="button" onclick="detail_Search()">상세검색</button>			
+					<button class="btn tag_search" type="button" onclick="tag_Search()">
 						<span>태그로 검색</span>
 					</button>					
 				</div>
@@ -230,7 +230,7 @@
 					<div class="container p-3 my-3 border listBox">
 						<div class="row">
 							<div id="campingSite">						
-								<a href='camping/campingView'>
+								<a href='/camping/campingView?contentId=${vo.contentId }'>
 									<div id="imageBox" class="col-4">			
 										<c:if test="${vo.firstImageUrl == null }">
 											<img src="/img/camping/autumn-season-5580627__340.webp" style="width:250px; height:183.33px;">
@@ -244,9 +244,9 @@
 							<div class="col-8">
 								<h2>
 									<c:if test="${vo.sigunguNm == '' }">
-										<a href="camping/campingView">[${vo.doNm}]  ${vo.facltNm }</a>
+										<a href="/camping/campingView?contentId=${vo.contentId}">[${vo.doNm}]  ${vo.facltNm }</a>
 									</c:if>
-										<a href="camping/campingView">[${vo.doNm }  ${vo.sigunguNm }] ${vo.facltNm }</a>							
+										<a href="/camping/campingView?contentId=${vo.contentId}">[${vo.doNm }  ${vo.sigunguNm }] ${vo.facltNm }</a>							
 								</h2>
 								<ul>
 									<c:if test="${vo.addr2 =='' }">
@@ -260,75 +260,41 @@
 							</div>
 						</div>
 					</div>		
-				</c:forEach>				
+				</c:forEach>
+				<c:if test="${vo.totalRecord }">
+					검색결과가 없습니다
+				</c:if>				
 			</ul>			
 		</div>
 		<ul class="pagination justify-content-center">
-		<li class="page-item prevBtn">
-			<a class="page-link" href="javascript:void(0);" onclick="prevBtn(${pVO.pageNum})">
-				<i class="fa fa-angle-left"></i>
-			</a>
-		</li>
-		<c:forEach var="p" begin="${pVO.startPage}" end="${pVO.startPage+pVO.onePageCount-1}">
-				<c:choose>
-					<c:when test="${p!=pVO.pageNum}">
-						<li class="page-item">
-							<a class="page-link"href="javascript:void(0);" onclick="pageNum(${p})">${p}</a>
-						</li>
-					</c:when>
-					<c:otherwise>
-						<li class="page-item disabled"><a class="page-link">${p}</a></li>
-					</c:otherwise>
-				</c:choose>
-		</c:forEach>
-		<li class="page-item nextBtn">
-			<a class="page-link" href="javascript:void(0);" onclick="nextBtn(${pVO.pageNum})">
-				<i class="fa fa-angle-right"></i>
-			</a>
-		</li>
-	</ul>
-		<%--<div class="List-paging">
-			<ul class="paging">
-				<!-- 이전페이지  -->
-				<c:if test="${pVO.pageNum==1 }">
-					<li>prev</li>
-				</c:if>
-				<c:if test="${pVO.pageNum>1 }">
-					<li><a href="camping/campingSearch?pageNum="${pVO.pageNum-1}>		 		
-			 		prev</a></li>
-				</c:if>
-				<!-- 페이지 번호 -->
-				<c:forEach var="p" begin="${pVO.startPage }" end="${pVO.startPage+pVO.onePageCount-1 }">
-					<!-- 총페이지수 보다 출력할 페이지번호가 작을때-->
-					<c:if test="${p<=pVO.totalPage }">
-						<c:if test="${p==pVO.pageNum }">
-							<li style="background-color: red">
-						</c:if>
-						<c:if test="${p!=pVO.pageNum }">
-							<li>
-						</c:if>
-						<a href="/camping/campingSearch?pageNum=${p}">${p }</a>
-					</c:if>
+			<c:if test="${pVO.totalRecord > 0 }">
+				<li class="page-item prevBtn">
+					<a class="page-link" href="javascript:void(0);" onclick="prevBtn(${pVO.pageNum})">
+						<i class="fa fa-angle-left"></i>
+					</a>
+				</li>
+				
+				<c:forEach var="p" begin="${pVO.startPage}" end="${pVO.startPage+pVO.onePageCount-1}">
+				<c:if test="${p<=pVO.totalPage }">
+						<c:choose>
+							<c:when test="${p!=pVO.pageNum}">
+								<li class="page-item">
+									<a class="page-link"href="javascript:void(0);" onclick="pageNum(${p})">${p}</a>
+								</li>
+							</c:when>
+							<c:otherwise>
+								<li class="page-item disabled"><a class="page-link">${p}</a></li>
+							</c:otherwise>
+						</c:choose>
+				</c:if>				
 				</c:forEach>
-				<!-- 다음페이지 -->		
-				<c:if test="${pVO.pageNum==pVo.totalPage }">
-					<li>next</li>	
-				</c:if>
-				<c:if test="${pVO.pageNum<pVO.totalPage }">
-					<li><a href="/camping/campingSearch?pageNum=${pVO.pageNum+1 } ">next</a></li>
-				</c:if>											
-			</ul>
-		</div>
+				
+				<li class="page-item nextBtn">
+					<a class="page-link" href="javascript:void(0);" onclick="nextBtn(${pVO.pageNum})">
+						<i class="fa fa-angle-right"></i>
+					</a>
+				</li>
+			</c:if>
+		</ul>
 	</div>
-	 --%>
 </div>
-</div>
-<style>
-/*페이징*/
-	.paging{
-		margin:30px 0px; height: 30px; overflow: auto;
-	}
-	.paging>li{
-		float:left; padding-right:30px;
-	}
-</style>

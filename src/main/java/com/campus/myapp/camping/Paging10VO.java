@@ -70,6 +70,7 @@ public class Paging10VO {
 	      }else { // 나머지 레코드가 있을 때
 	         totalPage = totalRecord/onePageRecord+1;
 	      }
+	      System.out.println("totalPage="+totalPage);
 	   }
 	   
 	   
