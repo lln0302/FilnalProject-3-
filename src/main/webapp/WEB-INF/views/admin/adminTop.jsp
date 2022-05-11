@@ -21,7 +21,7 @@
 	}
 	#adminPage #adminTop .adminTopMenu {
 		float:left;
-		width:200px;/*238*/
+		width:16%;/*238, 200*/
 		text-align: center;
 		font-size: 21px;
 	}
@@ -31,7 +31,7 @@
 </style>
 <body>
 	
-		<div id="adminTop" style="width:1200px;height:90px;background:rgba(170, 170, 170, 0.7);">
+		<div id="adminTop" style="width:100%;height:90px;background:rgba(170, 170, 170, 0.7);">
 			<div class="adminTopMenu" id="logoPart">
 				<a href="/admin/adminMain"><img id="adminMainHomeLogo" src="/img/logo/mulcamping_logo-05.png" /></a>
 			</div>
