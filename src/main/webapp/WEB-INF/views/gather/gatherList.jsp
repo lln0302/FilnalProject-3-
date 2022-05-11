@@ -28,7 +28,7 @@
 		  	<ul>
 		  		<li>
 		  			<a href="/gather/gatherView?gatherno=${list.gatherno}"><span id="camperTitle">${list.title}</span></a>
-		  			<span id="camperName">${list.nickname}</span>
+		  			<span id="camperName">${list.nickname} 님</span>
 		  		</li>
 			  	<li id="listBody">
 			  		<div class="row">

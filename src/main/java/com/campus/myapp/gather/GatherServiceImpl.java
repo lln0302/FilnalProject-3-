@@ -36,9 +36,40 @@ public class GatherServiceImpl implements GatherService {
 		return dao.gatherView(gatherno);
 	}
 
+	// 조회수 증가
 	@Override
 	public int updateViews(int gatherno) {
 		return dao.updateViews(gatherno);
+	}
+
+	// 댓글 등록
+	@Override
+	public int replyWrite(ReplyVO vo) {
+		return dao.replyWrite(vo);
+	}
+
+	// 댓글 리스트
+	@Override
+	public List<ReplyVO> replyList(int gatherno) {
+		return dao.replyList(gatherno);
+	}
+
+	// 댓글 수정
+	@Override
+	public int replyEdit(ReplyVO vo) {
+		return dao.replyEdit(vo);
+	}
+
+	// 댓글 삭제
+	@Override
+	public int replyDel(int replyno) {
+		return dao.replyDel(replyno);
+	}
+
+	// 캠퍼 참여
+	@Override
+	public int joinGatherCamper(int gatherno) {
+		return dao.joinGatherCamper(gatherno);
 	}
 
 	
