@@ -5,15 +5,22 @@ import java.util.List;
 import org.apache.ibatis.annotations.Mapper;
 import org.springframework.stereotype.Repository;
 
+import com.campus.myapp.gather.GatherVO;
+import com.campus.myapp.member.MemberVO;
+
 @Mapper
 @Repository
 public interface AdminDAO {
-	//adminMembers (admins and users)
-	public List<AdminMemberVO> adminMembers(AdminPagingVO apvo);
+	//adminMembers (Admins and Users)
+	public List<MemberVO> adminMembers(AdminPagingVO apvo);
+	
+	//adminAddCamperList (Together Camper Finding)
+	public List<GatherVO> adminAddCamperList(AdminPagingVO apvo);
 	
 	//adminPage List Test
-	public List<AdminMemberVO> allList(AdminPagingVO apvo);
+	public List<MemberVO> allList(AdminPagingVO apvo);
 	
 	//adminPaging total record
-	public int totalRecord(AdminPagingVO apvo);
+	public int totalRecordMembers(AdminPagingVO apvo);
+	public int totalRecordGather(AdminPagingVO apvo);
 }

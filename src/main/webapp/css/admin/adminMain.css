@@ -16,9 +16,9 @@
 	}
 	#adminMainContentTop {
 		width:1050px;
-		height: 72px;
+		height: 100px; /*72px*/
 		font-size: 48px;
-		line-height:72px;
+		line-height:100px; /*72px*/
 		text-align: center;
 	}
 	#hr2px {
@@ -30,8 +30,8 @@
 		width:1198px;
 		height:8px;
 		margin: 0px;
-		background:red;
-		border:1px solid red;
+		background:rgba(233, 119, 107, 1);
+		border:1px solid rgba(233, 119, 107, 1);
 	}
 	.menuATag{
 		text-decoration:none;
@@ -78,7 +78,7 @@
 		float: left;
 		width:100px;
 		height:765px;
-		background:rgba(100, 100, 100, 1);
+		background:rgba(255, 255, 255, 1);
 		cursor:pointer;
 		text-align:center;
 	}

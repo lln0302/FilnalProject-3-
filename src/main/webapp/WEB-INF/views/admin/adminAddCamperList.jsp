@@ -19,15 +19,15 @@
 <script type="text/javascript" src="/js/admin/adminSideTab.js"></script>
 <style>
 
-#listMenu>li:nth-child(8n+1), #listMenu>li:nth-child(8n+4),
-#listMenu>li:nth-child(8n+7), #listMenu>li:nth-child(8n+8)
+#listMenu>li:nth-child(7n+2), #listMenu>li:nth-child(7n+5),
+#listMenu>li:nth-child(7n+6), #listMenu>li:nth-child(7n+7)
 {
-	width:15%;
+	width:17.5%;
 }
-#listMenu>#listMenuFE>li:nth-child(8n+1), #listMenu>#listMenuFE>li:nth-child(8n+4),
-#listMenu>#listMenuFE>li:nth-child(8n+7), #listMenu>#listMenuFE>li:nth-child(8n+8)
+#listMenu>#listMenuFE>li:nth-child(7n+2), #listMenu>#listMenuFE>li:nth-child(7n+5),
+#listMenu>#listMenuFE>li:nth-child(7n+6), #listMenu>#listMenuFE>li:nth-child(7n+7)
 {
-	width:15%;
+	width:17.5%;
 }
 
 </style>
@@ -60,7 +60,7 @@
 							</a><img src="/img/admin/adminLeftTap1/dash.PNG" class="menu2left" id="menu_img_dashBoard" />
 							
 							<a class="menuATag" href="/admin/adminMembers">
-								<img src="/img/admin/adminLeftTap2/members_bold.PNG" class="menu2right" id="members_img"/>
+								<img src="/img/admin/adminLeftTap2/members_none.PNG" class="menu2right" id="members_img"/>
 							</a><img src="/img/admin/adminLeftTap1/members.PNG" class="menu2left" id="menu_img_members" />
 							
 							<a class="menuATag" href="/admin/adminCampList">
@@ -95,41 +95,39 @@
 			</div>
 			<hr id="hr2px">
 				<div class="containerList">
-					<!-- <div>
+					<div>
 						총 레코드 수 : ${apvo.totalRecord} / 총 페이지 개수 : ${apvo.totalPage} / 현재 페이지 번호 : ${apvo.pageNum}
-					</div> -->
+					</div>
 					<!-- 검색 -->
 						<div>
-							<form method="get" action="/admin/adminMembers" id="searchFrm">
+							<form method="get" action="/admin/adminAddCamperList" id="searchFrm">
 								<select name="searchKey">
-									<option value="username">이름</option>
-									<option value="email">이메일</option>
-									<option value="usertel">연락처</option>
+									<option value="title">제목</option>
+									<option value="nickname">작성자</option>
+									<option value="place">위치</option>
 								</select>
 								<input type="text" name="searchWord" id="searchWord" />
 								<input type="submit" value="Search" />
 							</form>
 						</div>
 						<ul id="listMenu">
-							<li>아이디</li>
-							<li>이름</li>
-							<li>닉네임</li>
-							<li>이메일</li>
-							<li>등급</li>
-							<li>매너온도</li>
-							<li>연락처</li>
-							<li>가입일</li>
+							<li>번호</li>
+							<li>제목</li>
+							<li>위치</li>
+							<li>작성자</li>
+							<li>시작일</li>
+							<li>마감일</li>
+							<li>작성일</li>
 						
 							<div id="listMenuFE">
 							<c:forEach var="vo" items="${list}">
-								<li>${vo.userid}</li> <!-- <a href="/admin/adminMembersInfo?nickname=${vo.nickname}"></a> -->
-								<li>${vo.username}</li>
+								<li>${vo.gatherno}</li>
+								<li><a href="/gather/gatherView?gatherno=${vo.gatherno}">${vo.title}</a></li>
+								<li>${vo.place}</li>
 								<li>${vo.nickname}</li>
-								<li>${vo.email}</li>
-								<li>${vo.isadmin}</li>
-								<li>${vo.userscore}</li>
-								<li>${vo.usertel}</li>
-								<li>${vo.joindate}</li>
+								<li>${vo.startdate}</li>
+								<li>${vo.enddate}</li>
+								<li>${vo.createdate}</li>
 							</c:forEach>
 							</div>
 						</ul>
@@ -140,7 +138,7 @@
 								<li style="visibility: hidden;">◀</li>
 							</c:if>
 							<c:if test="${apvo.pageNum>1}">
-								<li><a href="/admin/adminMembers?pageNum=${apvo.pageNum-1}
+								<li><a href="/admin/adminAddCamperList?pageNum=${apvo.pageNum-1}
 											<c:if test='${apvo.searchWord!=null}'>
 											&searchKey=${apvo.searchKey}
 											&searchWord=${apvo.searchWord}
@@ -159,7 +157,7 @@
 					            	<c:if test="${p!=apvo.pageNum}">
 					            		<li>
 					            	</c:if>
-									<a href="/admin/adminMembers?pageNum=${p}
+									<a href="/admin/adminAddCamperList?pageNum=${p}
 											<c:if test='${apvo.searchWord!=null}'>
 											&searchKey=${apvo.searchKey}
 											&searchWord=${apvo.searchWord}
@@ -174,7 +172,7 @@
 								<li style="visibility: hidden;">▶</li>
 							</c:if>
 							<c:if test="${apvo.pageNum < apvo.totalPage}">
-								<li><a href="/admin/adminMembers?pageNum=${apvo.pageNum+1}
+								<li><a href="/admin/adminAddCamperList?pageNum=${apvo.pageNum+1}
 											<c:if test='${apvo.searchWord!=null}'>
 											&searchKey=${apvo.searchKey}
 											&searchWord=${apvo.searchWord}
@@ -182,6 +180,7 @@
 								▶</a></li>
 							</c:if>
 						</ul>
+						
 						
 				</div>
 		</div>

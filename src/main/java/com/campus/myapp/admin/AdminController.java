@@ -23,6 +23,8 @@ public class AdminController {
 	@Autowired
 	AdminService service;
 	
+	@Autowired
+	AdminTwoService serviceTwo;
 	
 	//관리자페이지 메인페이지
 	@GetMapping("adminMain")
@@ -37,7 +39,7 @@ public class AdminController {
 	public ModelAndView adminMembers(AdminPagingVO apvo) {
 		ModelAndView mav = new ModelAndView();
 		//totalRecord numbers
-		apvo.setTotalRecord(service.totalRecord(apvo));
+		apvo.setTotalRecord(service.totalRecordMembers(apvo));
 				
 		//DB connect
 		mav.addObject("list", service.adminMembers(apvo));
@@ -45,16 +47,15 @@ public class AdminController {
 		mav.setViewName("/admin/adminMembers");
 		return mav;
 	}
-	
 	//관리자페이지 캠핑장목록
 	@GetMapping("adminCampList")
-	public ModelAndView adminCampList(AdminPagingVO apvo) {
+	public ModelAndView adminCampList(AdminTwoPagingVO apvo) {
 		ModelAndView mav = new ModelAndView();
 		//totalRecord numbers
-		apvo.setTotalRecord(service.totalRecord(apvo));
+		apvo.setTotalRecord(serviceTwo.totalRecord(apvo));
 				
 		//DB connect
-		mav.addObject("list", service.adminMembers(apvo));
+		mav.addObject("list", serviceTwo.adminCampList(apvo));
 		mav.addObject("apvo", apvo);
 		mav.setViewName("/admin/adminCampList");
 		return mav;
@@ -65,10 +66,10 @@ public class AdminController {
 	public ModelAndView adminAddCamperList(AdminPagingVO apvo) {
 		ModelAndView mav = new ModelAndView();
 		//totalRecord numbers
-		apvo.setTotalRecord(service.totalRecord(apvo));
+		apvo.setTotalRecord(service.totalRecordGather(apvo));
 				
 		//DB connect
-		mav.addObject("list", service.adminMembers(apvo));
+		mav.addObject("list", service.adminAddCamperList(apvo));
 		mav.addObject("apvo", apvo);
 		mav.setViewName("/admin/adminAddCamperList");
 		return mav;
@@ -79,10 +80,10 @@ public class AdminController {
 	public ModelAndView adminAutoCampList(AdminPagingVO apvo) {
 		ModelAndView mav = new ModelAndView();
 		//totalRecord numbers
-		apvo.setTotalRecord(service.totalRecord(apvo));
+		apvo.setTotalRecord(service.totalRecordMembers(apvo));
 				
 		//DB connect
-		mav.addObject("list", service.adminMembers(apvo));
+		//mav.addObject("list", service.adminMembers(apvo));
 		mav.addObject("apvo", apvo);
 		mav.setViewName("/admin/adminAutoCampList");
 		return mav;
@@ -93,10 +94,10 @@ public class AdminController {
 	public ModelAndView adminShareList(AdminPagingVO apvo) {
 		ModelAndView mav = new ModelAndView();
 		//totalRecord numbers
-		apvo.setTotalRecord(service.totalRecord(apvo));
+		apvo.setTotalRecord(service.totalRecordMembers(apvo));
 				
 		//DB connect
-		mav.addObject("list", service.adminMembers(apvo));
+		//mav.addObject("list", service.adminMembers(apvo));
 		mav.addObject("apvo", apvo);
 		mav.setViewName("/admin/adminShareList");
 		return mav;
@@ -107,10 +108,10 @@ public class AdminController {
 	public ModelAndView adminReviewList(AdminPagingVO apvo) {
 		ModelAndView mav = new ModelAndView();
 		//totalRecord numbers
-		apvo.setTotalRecord(service.totalRecord(apvo));
+		apvo.setTotalRecord(service.totalRecordMembers(apvo));
 				
 		//DB connect
-		mav.addObject("list", service.adminMembers(apvo));
+		//mav.addObject("list", service.adminMembers(apvo));
 		mav.addObject("apvo", apvo);
 		mav.setViewName("/admin/adminReviewList");
 		return mav;
@@ -121,10 +122,10 @@ public class AdminController {
 	public ModelAndView adminCommentList(AdminPagingVO apvo) {
 		ModelAndView mav = new ModelAndView();
 		//totalRecord numbers
-		apvo.setTotalRecord(service.totalRecord(apvo));
+		apvo.setTotalRecord(service.totalRecordMembers(apvo));
 				
 		//DB connect
-		mav.addObject("list", service.adminMembers(apvo));
+		//mav.addObject("list", service.adminMembers(apvo));
 		mav.addObject("apvo", apvo);
 		mav.setViewName("/admin/adminCommentList");
 		return mav;
@@ -136,8 +137,8 @@ public class AdminController {
 		ModelAndView mav = new ModelAndView();
 		
 		//totalRecord numbers
-		apvo.setTotalRecord(service.totalRecord(apvo));
-				
+		apvo.setTotalRecord(service.totalRecordMembers(apvo));
+		
 		//DB connect
 		mav.addObject("list", service.allList(apvo));
 		mav.addObject("apvo", apvo);

@@ -19,15 +19,15 @@
 <script type="text/javascript" src="/js/admin/adminSideTab.js"></script>
 <style>
 
-#listMenu>li:nth-child(8n+1), #listMenu>li:nth-child(8n+4),
-#listMenu>li:nth-child(8n+7), #listMenu>li:nth-child(8n+8)
+#listMenu>li:nth-child(7n+2), #listMenu>li:nth-child(7n+3),
+#listMenu>li:nth-child(7n+6), #listMenu>li:nth-child(7n+7)
 {
-	width:15%;
+	width:17.5%;
 }
-#listMenu>#listMenuFE>li:nth-child(8n+1), #listMenu>#listMenuFE>li:nth-child(8n+4),
-#listMenu>#listMenuFE>li:nth-child(8n+7), #listMenu>#listMenuFE>li:nth-child(8n+8)
+#listMenu>#listMenuFE>li:nth-child(7n+2), #listMenu>#listMenuFE>li:nth-child(7n+3),
+#listMenu>#listMenuFE>li:nth-child(7n+6), #listMenu>#listMenuFE>li:nth-child(7n+7)
 {
-	width:15%;
+	width:17.5%;
 }
 
 </style>
@@ -95,41 +95,39 @@
 			</div>
 			<hr id="hr2px">
 				<div class="containerList">
-					<!-- <div>
+					<div>
 						총 레코드 수 : ${apvo.totalRecord} / 총 페이지 개수 : ${apvo.totalPage} / 현재 페이지 번호 : ${apvo.pageNum}
-					</div> -->
+					</div>
 					<!-- 검색 -->
 						<div>
-							<form method="get" action="/admin/adminMembers" id="searchFrm">
+							<form method="get" action="/admin/adminCampList" id="searchFrm">
 								<select name="searchKey">
-									<option value="username">이름</option>
-									<option value="email">이메일</option>
-									<option value="usertel">연락처</option>
+									<option value="facltNm">업체명</option>
+									<option value="tel">전화번호</option>
+									<option value="resveCl">예약방식</option>
 								</select>
 								<input type="text" name="searchWord" id="searchWord" />
 								<input type="submit" value="Search" />
 							</form>
 						</div>
 						<ul id="listMenu">
-							<li>아이디</li>
-							<li>이름</li>
-							<li>닉네임</li>
-							<li>이메일</li>
-							<li>등급</li>
-							<li>매너온도</li>
-							<li>연락처</li>
-							<li>가입일</li>
+							<li>번호</li>
+							<li>업체명</li>
+							<li>주소</li>
+							<li>전화번호</li>
+							<li>예약방식</li>
+							<li>예약주소</li>
+							<li>홈페이지주소</li>
 						
 							<div id="listMenuFE">
 							<c:forEach var="vo" items="${list}">
-								<li>${vo.userid}</li> <!-- <a href="/admin/adminMembersInfo?nickname=${vo.nickname}"></a> -->
-								<li>${vo.username}</li>
-								<li>${vo.nickname}</li>
-								<li>${vo.email}</li>
-								<li>${vo.isadmin}</li>
-								<li>${vo.userscore}</li>
-								<li>${vo.usertel}</li>
-								<li>${vo.joindate}</li>
+								<li>${vo.contentId}</li> <!-- <a href="/admin/adminMembersInfo?nickname=${vo.nickname}"></a> -->
+								<li>${vo.facltNm}</li>
+								<li>${vo.addr1} / ${vo.addr2}</li>
+								<li>${vo.tel}</li>
+								<li>${vo.resveCl}</li>
+								<li>${vo.resveUrl}</li>
+								<li>${vo.homepage}</li>
 							</c:forEach>
 							</div>
 						</ul>
@@ -140,7 +138,7 @@
 								<li style="visibility: hidden;">◀</li>
 							</c:if>
 							<c:if test="${apvo.pageNum>1}">
-								<li><a href="/admin/adminMembers?pageNum=${apvo.pageNum-1}
+								<li><a href="/admin/adminCampList?pageNum=${apvo.pageNum-1}
 											<c:if test='${apvo.searchWord!=null}'>
 											&searchKey=${apvo.searchKey}
 											&searchWord=${apvo.searchWord}
@@ -159,7 +157,7 @@
 					            	<c:if test="${p!=apvo.pageNum}">
 					            		<li>
 					            	</c:if>
-									<a href="/admin/adminMembers?pageNum=${p}
+									<a href="/admin/adminCampList?pageNum=${p}
 											<c:if test='${apvo.searchWord!=null}'>
 											&searchKey=${apvo.searchKey}
 											&searchWord=${apvo.searchWord}
@@ -174,7 +172,7 @@
 								<li style="visibility: hidden;">▶</li>
 							</c:if>
 							<c:if test="${apvo.pageNum < apvo.totalPage}">
-								<li><a href="/admin/adminMembers?pageNum=${apvo.pageNum+1}
+								<li><a href="/admin/adminCampList?pageNum=${apvo.pageNum+1}
 											<c:if test='${apvo.searchWord!=null}'>
 											&searchKey=${apvo.searchKey}
 											&searchWord=${apvo.searchWord}
