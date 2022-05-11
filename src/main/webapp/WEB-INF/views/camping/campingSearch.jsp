@@ -1,10 +1,18 @@
 <%@ page language="java" contentType="text/html; charset=UTF-8" pageEncoding="UTF-8"%>
 <%@ taglib uri="http://java.sun.com/jsp/jstl/core" prefix="c" %>
-<script>
-</script>
+<script src="https://kit.fontawesome.com/76aefe2b67.js"></script>
 <style>
+	.container{
+		border-left: 2px solid gray;
+ 		border-right: 2px solid gray;
+ 	 	font-family: 'Gowun Dodum', sans-serif;  /*메인페이지 타이틀 폰트*/
+		font-family: 'IBM Plex Sans', sans-serif; /* 본문 영문 폰트*/
+		font-family: 'IBM Plex Sans KR', sans-serif; /* 본문 한글폰트 */
+	}
+		
 	.searchbox {
-		background-color: #808080;
+		border : rgb(245, 130, 67) solid 2px ;		
+		padding:10px;
 		margin: 33px auto;
 		text-align: center;
 		position: relative;		
@@ -12,9 +20,38 @@
 		height:auto;
 	}
 	
+	#searchBoxunderline{
+		background-color: #eff0f4;
+		width:100%;
+		height:auto;
+		padding:9px 0;
+		position:relative;
+		border-bottom:2px solid black;
+	}
+	
+	.campingListShow{
+		overflow:auto;
+	}
+	
+	#capmingSite{
+		border-bottom:1px solid gray;
+		padding:25px 20px;
+		width: 100%;
+		height:230px;
+	}
+	
 	.detail, .tag_search{
 		width: 30%;		
 	}
+	
+	#imageBox{
+		float:left; width:30%;
+	}
+	
+	#campingInfo{
+		float:left; width:70%; 
+	}
+	
 </style>
 <script>
 
@@ -110,8 +147,31 @@
 				console.log(result);
 				addplaces(result.response.body.items.item);
 			}
-		});		
+		});
 	}	
+		
+	function prevBtn(pb){
+		var prev = pb-1;
+		location.href="/camping/campingSearch?pageNum="+prev+"";
+	}
+	function pageNum(p){
+		location.href="/camping/campingSearch?pageNum="+p+"";
+	}
+	function nextBtn(nb){
+		var next = nb+1;
+		location.href="/camping/campingSearch?pageNum="+next+"";
+	}
+	
+	$(function(){
+		// 페이징
+		if('${pVO.pageNum}'==1){
+			$('.prevBtn').addClass('prevBtn disabled');
+		}
+		
+		if('${pVO.pageNum}'=='${pVO.totalPage}'){
+			$('.nextBtn').addClass('disabled');
+		}		
+	});
 </script>
 
 <div class="container">
@@ -160,45 +220,74 @@
 			</div>	
 			</form>
 		</div>
-		<div style="background-color: #eff0f4; width:100%; height:auto; padding:9px 0; position:relative; border-bottom:2px solid black;">
-		</div>
+		<div id ="searchBoxunderline"></div>
 		<div class = "campingListShow" id="camping">		
 			<ul class="campingSearch">
 				<script>
 					ListUpcampinginfo();
 				</script>
 				<c:forEach var="vo" items="${list }">
-					<div style="border-bottom:1px solid gray; position:relative; padding:25px 20px; height:230px;">
-						<a href='camping/campingView'>
-						<div style="float:left; width:30%; box-sizing:border-box;">
-							<c:if test="${vo.firstImageUrl == '' }">
-								<img src="/img/camping/autumn-season-5580627__340.webp" style="width:250px; height:183.33px;">
-							</c:if>
-								<img src="${vo.firstImageUrl}" style=width:275px; height:195px;">						
-						</div>
-						</a>
-						<div style="float:left; width:70%; box-sizing: border-box;">
-							<h2>
-								<c:if test="${vo.sigunguNm == '' }">
-									<a href="camping/campingView">[${vo.doNm}]  ${vo.facltNm }</a>
-								</c:if>
-									<a href="camping/campingView">[${vo.doNm }  ${vo.sigunguNm }] ${vo.facltNm }</a>							
-							</h2>
-							<ul>
-								<c:if test="${vo.addr2 =='' }">
-									<li>${vo.addr1 }</li>
-								</c:if>
-									<li>${vo.addr1 } ${vo.addr2 }</li>
-								<c:if test="${vo.tel != ''}">
-									<li>${vo.tel }</li>
-								</c:if>
-							</ul>
+					<div class="container p-3 my-3 border listBox">
+						<div class="row">
+							<div id="campingSite">						
+								<a href='camping/campingView'>
+									<div id="imageBox" class="col-4">			
+										<c:if test="${vo.firstImageUrl == null }">
+											<img src="/img/camping/autumn-season-5580627__340.webp" style="width:250px; height:183.33px;">
+										</c:if>
+										<c:if test="${vo.firstImageUrl != null}">
+											<img src="${vo.firstImageUrl}" style="width:275px; height:195px;">
+										</c:if>
+									</div>
+								</a>
+							</div>
+							<div class="col-8">
+								<h2>
+									<c:if test="${vo.sigunguNm == '' }">
+										<a href="camping/campingView">[${vo.doNm}]  ${vo.facltNm }</a>
+									</c:if>
+										<a href="camping/campingView">[${vo.doNm }  ${vo.sigunguNm }] ${vo.facltNm }</a>							
+								</h2>
+								<ul>
+									<c:if test="${vo.addr2 =='' }">
+										<li>${vo.addr1 }</li>
+									</c:if>
+										<li>${vo.addr1 } ${vo.addr2 }</li>
+									<c:if test="${vo.tel != ''}">
+										<li>${vo.tel }</li>
+									</c:if>
+								</ul>	
+							</div>
 						</div>
 					</div>		
 				</c:forEach>				
 			</ul>			
 		</div>
-		<div class="List-paging"><h1>Page</h1>
+		<ul class="pagination justify-content-center">
+		<li class="page-item prevBtn">
+			<a class="page-link" href="javascript:void(0);" onclick="prevBtn(${pVO.pageNum})">
+				<i class="fa fa-angle-left"></i>
+			</a>
+		</li>
+		<c:forEach var="p" begin="${pVO.startPage}" end="${pVO.startPage+pVO.onePageCount-1}">
+				<c:choose>
+					<c:when test="${p!=pVO.pageNum}">
+						<li class="page-item">
+							<a class="page-link"href="javascript:void(0);" onclick="pageNum(${p})">${p}</a>
+						</li>
+					</c:when>
+					<c:otherwise>
+						<li class="page-item disabled"><a class="page-link">${p}</a></li>
+					</c:otherwise>
+				</c:choose>
+		</c:forEach>
+		<li class="page-item nextBtn">
+			<a class="page-link" href="javascript:void(0);" onclick="nextBtn(${pVO.pageNum})">
+				<i class="fa fa-angle-right"></i>
+			</a>
+		</li>
+	</ul>
+		<%--<div class="List-paging">
 			<ul class="paging">
 				<!-- 이전페이지  -->
 				<c:if test="${pVO.pageNum==1 }">
@@ -231,6 +320,8 @@
 			</ul>
 		</div>
 	</div>
+	 --%>
+</div>
 </div>
 <style>
 /*페이징*/
