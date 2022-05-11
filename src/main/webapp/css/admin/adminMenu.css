@@ -3,9 +3,9 @@
 .containerList {
 	float:left;
 	/*width: 1000px;*/
-	width:50%;
+	width:51%;
 	position:relative;
-	left:20%;
+	left:19%;
 	right:30%;
 	height: 690px;
 	border: 1px solid #ddd;
