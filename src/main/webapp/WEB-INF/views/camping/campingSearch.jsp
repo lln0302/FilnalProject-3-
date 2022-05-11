@@ -244,9 +244,7 @@
 <div class="container">
 	<div class="campingSearch" style="overflow:auto;">	
 		<div class="searchbox">	
-			<form id="serachForm" action="/camping/campingSearch" method="get">			
-					<button class="btn detail" type="button" onclick="detail_Search()">상세검색</button>			
-					<button class="btn tag_search" type="button" onclick="tag_Search()"></button>
+			<form id="serachForm" action="/camping/campingSearch" method="get">
 			<div>
 				<div class="C_SearchBtnWrap">
 					<button class=" detail" type="button">상세검색</button>			
