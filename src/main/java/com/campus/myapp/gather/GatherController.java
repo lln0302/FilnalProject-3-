@@ -184,23 +184,33 @@ public class GatherController {
 	public ModelAndView GatherView(int gatherno, HttpSession session) {
 		// 조회수 증가
 		service.updateViews(gatherno);
-		
 		// 상세페이지 보이기
 		mav.addObject("view", service.gatherView(gatherno));
 		mav.setViewName("gather/gatherView");
+		
+		// 캠퍼 참여한 유저 표시
+		mav.addObject("alreadyJoin", service.selectJoinCamper(gatherno, 
+				(String)session.getAttribute("nickname")));
+		
 		return mav;
 	}
 	
 	// 캠퍼 참여 
 	@GetMapping("/plusGatherCamper")
-	public int PlusGatherCamper(int gmemberno, int gatherno, 
-								GatherMemberVO vo, HttpSession session) {
+	public GatherMemberVO PlusGatherCamper(int gmemberno, int gatherno, GatherMemberVO vo, HttpSession session) {
 		
-		vo.setNickname((String)session.getAttribute("nickname"));
+		String nickname = (String)session.getAttribute("nickname");
+		vo.setNickname(nickname);
 		vo.setGender((String)session.getAttribute("gender"));
 		
 		service.plusGatherCamper(gatherno);
-		return service.gathermemberInsert(gmemberno, gatherno, vo.getNickname(), vo.getGender());
+		service.gathermemberInsert(gmemberno, gatherno, vo.getNickname(), vo.getGender());
+		return service.selectJoinCamper(gatherno, nickname);
+	}
+	// 캠퍼 유저 수
+	@GetMapping("/gnewnoCount")
+	public int gnewnoCount(int gatherno) {
+		return service.gnewnoCountSelect(gatherno);
 	}
 	
 	@GetMapping("/minusGatherCamper")

@@ -4,14 +4,22 @@
 <script src="/js/gather/reply.js"></script>
 <script src="/js/gather/view.js"></script>
 <script>
-	let nickname = "${nickname}";
+	let nickname = "${nickname}"; // 세션에 있는 닉네임 사용
 	$(function(){
-		$("#gatherDel").on('click', function(){
+		$("#gatherDel").on('click', function(){ // 삭제 버튼을 누르면 뷰 페이지 삭제
 			if(confirm("삭제하시겠어요?")){
 				location.href="/gather/gatherDel?gatherno=${view.gatherno}";
 			}
 		});
-	})
+		
+		// 이미 캠핑에 참여한 유저 구하기
+		if("${alreadyJoin}"!=''){
+			$("#gnewnoBtn1").css("display","none");
+			let body = "<input type='button' class='btn' id='gnewnoBtn2' value='캠핑 취소'>";
+			$("#btnDiv").html(body);
+		}
+		
+	});
 </script>
 <div class="container gatherView">
 	<h1>${view.title}</h1>
@@ -21,7 +29,7 @@
 		<li><i class="fa fa-eye fa-lg"></i> ${view.views}</li>
 		<li><i class="fa fa-clock fa-lg"></i> ${view.createdate}</li>
 		<li>${view.nickname} 님</li>
-		<c:if test="${nickname==view.nickname}">
+		<c:if test="${nickname==view.nickname}"><!-- 작성자가 로그인한 유저일때만 -->
 			<li>
 				<a href="/gather/gatherEdit?gatherno=${view.gatherno}" class="btn" id="gatherEdit">수정</a>
 				<input type="button" class="btn" id="gatherDel" value="삭제"/>
@@ -43,13 +51,15 @@
 			<div id="joinCamper">
 				<form method="get" id="joinCamperForm">
 					<input type="hidden" id="gatherno" name="gatherno" value="${view.gatherno}"/>
-					<span id="gnewno">현재 참여 신청 인원: ${view.gnewno}</span> / 
+					<span id="gnewno">현재 참여 신청 인원: <span>${view.gnewno}</span></span> / 
 					<span id="gmemberno">
 						<input type="hidden" name="gmemberno" value="${view.gmemberno}"/>${view.gmemberno}
 					</span>
-					<c:if test="${nickname!=view.nickname}">
-						<c:if test="${view.gmemberno>view.gnewno}">
-							<input type="submit" class="btn gnewnoBtn1" id="gnewnoBtn1" value="캠핑 참여">
+					<c:if test="${nickname!=view.nickname}"><!-- 작성자가 로그인한 유저가 아닐 때만 -->
+						<c:if test="${view.gmemberno>view.gnewno}"><!-- 캠퍼모집 인원이 참여인원이 더 클 때만 -->
+							<span id="btnDiv">
+								<input type="submit" class="btn" id="gnewnoBtn1" value="캠핑 참여">
+							</span>
 						</c:if>
 					</c:if>
 				</form>
