@@ -78,14 +78,14 @@
 			<i class="fa fa-comment replyMark"> 3</i>
 		</div>
 		<div class="col-12">
-			<form method="post" id="replyLine">
+			<form method="post" id="replyLine" class="form-group">
 				<input type="hidden" name="gatherno" id="gatherno" value="${view.gatherno}">
-				<textarea name="content" id="content" placeholder="댓글을 입력해주세요"></textarea>
+				<textarea name="content" id="content" class="form-control" placeholder="댓글을 입력해주세요" ></textarea>
 				<input type="submit" class="btn replyBtn" value="작성" >
 			</form>
 		</div>
 		<!-- 댓글 목록 표시 -->
-		<div id="replyList" class="col-12">
+		<div id="replyList" class="col-12 form-group">
 		</div>
 	</div>
 </div>
