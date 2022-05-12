@@ -18,7 +18,7 @@
 		LIMIT ${param1.postsPerPage} OFFSET ${param1.offset}
 	</select>
 	<select id="selectTotalPosts" resultType="int">
-		SELECT count(gatherno)count FROM gather
+		SELECT COUNT(gatherno)count FROM gather
 	</select>
 	<select id="gatherView" resultType="GatherVO">
 		SELECT gatherno, title, place, views, nickname,
@@ -42,6 +42,9 @@
 		UPDATE gather SET gnewno=gnewno-1 WHERE gatherno=#{param1} 
 	</update>
 	
+	<select id="replyCountSelect" resultType="int">
+		SELECT COUNT(gatherno)count FROM gatherreply WHERE gatherno=#{param1}
+	</select>
 	<insert id="replyWrite">
 		INSERT INTO gatherreply(content, nickname, gatherno)
 		VALUES(#{content}, #{nickname}, ${gatherno})
@@ -58,6 +61,7 @@
 	<delete id="replyDel">
 		DELETE FROM gatherreply WHERE replyno=#{param1} 
 	</delete>
+	
 	<select id="gatherMadeList" resultType="com.campus.myapp.gather.GatherVO">
 		SELECT DISTINCT A.gaterno, A.title, A.nickname,
 		DATE_FORMAT(startdate, '%Y-%m,-%d') AS startdate , DATE_FORMAT(enddate, '%Y-%m-%d') as enddate

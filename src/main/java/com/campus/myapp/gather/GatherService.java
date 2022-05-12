@@ -29,15 +29,14 @@ public interface GatherService {
 	
 	// 댓글 등록
 	public int replyWrite(ReplyVO vo);
-	
 	// 댓글 리스트
 	public List<ReplyVO> replyList(int gatherno);
-	
 	// 댓글 수정
 	public int replyEdit(ReplyVO vo);
-	
 	// 댓글 삭제
 	public int replyDel(int replyno);
+	// 뷰페이지 댓글 개수
+	public int replyCountSelect(int gatherno);
 	
 
 }

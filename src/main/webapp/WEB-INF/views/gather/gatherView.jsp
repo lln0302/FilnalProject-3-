@@ -75,7 +75,7 @@
 		
 		<div class="col-12">
 			<hr/>
-			<i class="fa fa-comment replyMark"> 3</i>
+			<i class="fa fa-comment replyMark">&nbsp;<span id="replyCount"></span></i>
 		</div>
 		<div class="col-12">
 			<form method="post" id="replyLine" class="form-group">

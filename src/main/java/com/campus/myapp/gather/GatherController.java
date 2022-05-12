@@ -215,6 +215,11 @@ public class GatherController {
 		return service.replyWrite(vo);
 	}
 	
+	@GetMapping("/replyCountSelect")
+	public int replyCountSelect(int gatherno) {
+		return service.replyCountSelect(gatherno);
+	}
+	
 	// gather 댓글 리스트 
 	@GetMapping("/replyList")
 	public List<ReplyVO> ReplyList(int gatherno){
