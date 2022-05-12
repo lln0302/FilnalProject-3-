@@ -1,7 +1,6 @@
 <%@ page language="java" contentType="text/html; charset=UTF-8" pageEncoding="UTF-8"%>
 <%@ taglib uri="http://java.sun.com/jsp/jstl/core" prefix="c"%>
 <link rel="stylesheet" href="/css/gather/view.css" type="text/css"/>
-<link rel="stylesheet" href="/css/gather/reply.css" type="text/css"/>
 <script src="/js/gather/reply.js"></script>
 <script src="/js/gather/view.js"></script>
 <script>
@@ -15,7 +14,6 @@
 	})
 </script>
 <div class="container gatherView">
-	<input type="hidden" id="gatherno" value="${view.gatherno}"/>
 	<h1>${view.title}</h1>
 	<div class="col-12 camperTitle"></div>
 	<hr/>
@@ -43,13 +41,20 @@
 		</div>
 		<div class="col-6">
 			<div id="joinCamper">
-				<span>
-					<span id="gnewno">현재 참여 신청 인원: ${view.gnewno}</span> / 
-					<span id="gmemberno">${view.gmemberno}</span>
-				</span>
-				<c:if test="${nickname!=view.nickname}">
-					<input type="button" class="btn gnewnoBtn1" id="gnewnoBtn1" name="gnewno" value="캠핑 참여">
-				</c:if>
+				<form method="get" id="joinCamperForm">
+					<input type="hidden" id="gatherno" name="gatherno" value="${view.gatherno}"/>
+					<span id="gnewno">
+						<input type="hidden" name="gnewno" value="${view.gnewno}"/>현재 참여 신청 인원: ${view.gnewno}
+					</span> / 
+					<span id="gmemberno">
+						<input type="hidden" name="gmemberno" value="${view.gmemberno}"/>${view.gmemberno}
+					</span>
+					<c:if test="${nickname!=view.nickname}">
+						<c:if test="${view.gmemberno>view.gnewno}">
+							<input type="submit" class="btn gnewnoBtn1" id="gnewnoBtn1" value="캠핑 참여">
+						</c:if>
+					</c:if>
+				</form>
 			</div>
 			<p id="joinWarn">🛑 캠핑 일주일 전 캠핑 취소를 하시면 매너온도가 내려가게 됩니다.</p>
 			<table class="table table-striped">
