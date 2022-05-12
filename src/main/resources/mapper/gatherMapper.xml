@@ -35,12 +35,13 @@
 		UPDATE gather SET gnewno=gnewno+1 WHERE gatherno=#{param1}
 	</update>
 	<insert id="gathermemberInsert">
-		INSERT INTO gathermember(gmemberno, nickname, gatherno, gender, gnewno)
-		VALUES(#{param1}, #{nickname}, #{param2}, #{gender}, #{param3})
+		INSERT INTO gathermember(gmemberno, gatherno, gnewno, nickname, gender)
+		VALUES(#{param1}, #{param2}, #{param3}, #{nickname}, #{gender})
 	</insert>
 	<update id="minusGatherCamper">
 		UPDATE gather SET gnewno=gnewno-1 WHERE gatherno=#{param1} 
 	</update>
+	
 	<insert id="replyWrite">
 		INSERT INTO gatherreply(content, nickname, gatherno)
 		VALUES(#{content}, #{nickname}, ${gatherno})

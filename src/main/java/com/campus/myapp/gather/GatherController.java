@@ -46,7 +46,7 @@ public class GatherController {
 	 public ModelAndView GatherList(PagingVO pvo, GatherVO vo, HttpSession session) {
 	  
 		vo.setNickname((String)session.getAttribute("nickname"));
-	  
+
 		// 게시판 글 페이징처리 
 		pvo.setTotalPosts(service.selectTotalPosts(pvo, vo));
 		mav.addObject("pvo", pvo);
@@ -193,14 +193,17 @@ public class GatherController {
 	
 	// 캠퍼 참여 
 	@GetMapping("/plusGatherCamper")
-	public void PlusGatherCamper(int gmemberno, int gatherno, int gnewno,
+	public int PlusGatherCamper(int gmemberno, int gatherno, int gnewno,
 								GatherMemberVO vo, HttpSession session) {
 		
-		vo.setNickname(((String)session.getAttribute("nickname")));
+		vo.setNickname((String)session.getAttribute("nickname"));
 		vo.setGender((String)session.getAttribute("gender"));
+		System.out.println(vo.getGmemberno());
+		System.out.println(vo.getGatherno());
+		System.out.println(vo.getGender());
+		System.out.println(vo.getNickname());
 		service.plusGatherCamper(gatherno);
-		service.gathermemberInsert(gmemberno, gatherno, gnewno);
-		
+		return service.gathermemberInsert(gmemberno, gatherno, gnewno);
 	}
 	
 	@GetMapping("/minusGatherCamper")
