@@ -193,17 +193,14 @@ public class GatherController {
 	
 	// 캠퍼 참여 
 	@GetMapping("/plusGatherCamper")
-	public int PlusGatherCamper(int gmemberno, int gatherno, int gnewno,
+	public int PlusGatherCamper(int gmemberno, int gatherno, 
 								GatherMemberVO vo, HttpSession session) {
 		
 		vo.setNickname((String)session.getAttribute("nickname"));
 		vo.setGender((String)session.getAttribute("gender"));
-		System.out.println(vo.getGmemberno());
-		System.out.println(vo.getGatherno());
-		System.out.println(vo.getGender());
-		System.out.println(vo.getNickname());
+		
 		service.plusGatherCamper(gatherno);
-		return service.gathermemberInsert(gmemberno, gatherno, gnewno);
+		return service.gathermemberInsert(gmemberno, gatherno, vo.getNickname(), vo.getGender());
 	}
 	
 	@GetMapping("/minusGatherCamper")

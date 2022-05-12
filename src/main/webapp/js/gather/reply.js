@@ -20,10 +20,10 @@ $(function(){
 					}
 					body += "<br/><br/>" + item.content + "</span></div>"
 					if(nickname == item.nickname){
-						body += "<div class='editForm'><form method='post'>";
-						body += "<textarea name='content'>"+item.content+"</textarea>"
+						body += "<div class='editForm'><form method='post' class='form-inline'}>";
+						body += "<textarea name='content' class='col-11 form-control'>"+item.content+"</textarea>"
 						body += "<input type='hidden' name='replyno' value="+item.replyno+">";
-						body += "<input type='submit' class='btn' value='수정'></form></div>";	
+						body += "<input type='submit' class='btn' value='수정' style='margin-left:10px; height:100%'></form></div>";	
 					}
 					body += "</li><hr/>";
 				});
