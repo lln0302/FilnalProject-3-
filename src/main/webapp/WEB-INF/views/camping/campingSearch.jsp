@@ -118,7 +118,6 @@
 	#campingInfo{
 		float:left; width:70%; 
 	}
-	
 </style>
 <script>
 

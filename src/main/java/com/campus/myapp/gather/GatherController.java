@@ -130,7 +130,6 @@ public class GatherController {
 			}
 			return;
 		}
-
 	}
 
 	// Ckeditor 서버로 전송된 이미지 뿌려주기
@@ -163,7 +162,7 @@ public class GatherController {
 	}
 
 	// 캠퍼 모임 글등록 DB연결
-	@PostMapping("gatherWriteOK")
+	@PostMapping("/gatherWriteOK")
 	public ModelAndView GatherWriteOk(GatherVO vo, MultipartFile file, HttpSession session) throws Exception {
 		// 현재 session에 있는 nickname
 		vo.setNickname((String) session.getAttribute("nickname"));
@@ -192,6 +191,23 @@ public class GatherController {
 		return mav;
 	}
 	
+	// 캠퍼 참여 
+	@GetMapping("/plusGatherCamper")
+	public void PlusGatherCamper(int gmemberno, int gatherno, int gnewno,
+								GatherMemberVO vo, HttpSession session) {
+		
+		vo.setNickname(((String)session.getAttribute("nickname")));
+		vo.setGender((String)session.getAttribute("gender"));
+		service.plusGatherCamper(gatherno);
+		service.gathermemberInsert(gmemberno, gatherno, gnewno);
+		
+	}
+	
+	@GetMapping("/minusGatherCamper")
+	public int MinusGatherCamper(int gatherno) {
+		return service.minusGatherCamper(gatherno);
+	}
+	
 	// gather 댓글 등록하기
 	@PostMapping("/replyWrite")
 	public int ReplyWrite(ReplyVO vo, HttpSession session) {
@@ -217,8 +233,5 @@ public class GatherController {
 		return service.replyDel(replyno);
 	}
 	
-	@GetMapping("/joinCamper")
-	public int joinCamper(int gatherno) {
-		return service.joinGatherCamper(gatherno);
-	}
+
 }

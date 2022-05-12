@@ -39,6 +39,7 @@ public class MemberController {
             session.setAttribute("nickname", rVO.getNickname());
             session.setAttribute("logStatus", "Y");
             session.setAttribute("isadmin", rVO.getIsadmin());
+            session.setAttribute("gender", rVO.getGender());
             String msg = "";
             if (rVO.getIsadmin().equals("1")) {
                 msg = "<script>location.href='/admin/adminMain';</script>";
