@@ -26,7 +26,7 @@
 			<ul class="h__menu1__s h__submenu">
 				<li data-menuanchor="section2"><a href="camping/campingSearch">camping list</a></li>
 				<li data-menuanchor="section3"><a href="#section3">hash tag</a></li>
-				<li data-menuanchor="section4"><a href="#section4">recommend</a></li>
+				<li data-menuanchor="section4"><a href="camping/campingSuggestion">recommend</a></li>
 			</ul>
 		</li>
 		<li data-menuanchor="section1" class="menu2"><a href="#section1">CAMPING TOGETHER</a>

@@ -16,42 +16,43 @@
 					</button>					
 				</div>
 				<div class="C_select">
-				<div>				
-					<ul>
-						<li >	
-							<strong style="margin-right:5px; font-size:18px; ">지역</strong>							
-							<select id="sido" name="doNm" onchange="changeSido()"></select>							
-							<select id="gungu" name="sigunguNm" onchange="changeGungu()"></select>								
-							<button class="C_detail" type="button" onclick="Displaydetail()">상세 조건 +</button>
-						</li>
-					</ul>
-				</div>
-				<div id="search_detail" style="display:none; margin-top: 10px;">
-					<ul>					
-						<li>
-							<strong>주요 시설</strong>
-							<label><input type="checkbox" name="induty" value="일반야영장">일반야영장</label>
-							<label><input type="checkbox" name="induty" value="자동차야영장">자동차야영장</label>
-							<label><input type="checkbox" name="induty" value="카라반">카라반</label>
-							<label><input type="checkbox" name="induty" value="글램핑">글램핑</label>
-						</li>						
-						<li>
-							<strong>부대시설</strong>
-							<label><input type="checkbox" name="sbrsCl" value="전기">전기</label>
-							<label><input type="checkbox" name="sbrsCl" value="무선인터넷">무선인터넷</label>
-							<label><input type="checkbox" name="sbrsCl" value="장작판매">장작판매</label>
-							<label><input type="checkbox" name="sbrsCl" value="온수">온수</label>
-							<label><input type="checkbox" name="sbrsCl" value="마트.편의점">마트.편의점</label>						
-						</li>												
-					</ul>
-				</div>
-				</div>
+					<div>				
+						<ul>
+							<li >	
+								<strong style="margin-right:5px; font-size:18px; ">지역</strong>							
+								<select id="sido" name="doNm" onchange="changeSido()"></select>							
+								<select id="gungu" name="sigunguNm" onchange="changeGungu()"></select>								
+								<button id="C_detail" class="C_detail" type="button" onclick="Displaydetail()">상세 조건 +</button>
+							</li>
+						</ul>
+					</div>
+					<div id="search_detail" style="display:none; margin-top: 10px;">
+						<ul>					
+							<li>
+								<strong>주요 시설</strong>
+								<label><input type="checkbox" name="induty" value="일반야영장">일반야영장</label>
+								<label><input type="checkbox" name="induty" value="자동차야영장">자동차야영장</label>
+								<label><input type="checkbox" name="induty" value="카라반">카라반</label>
+								<label><input type="checkbox" name="induty" value="글램핑">글램핑</label>
+							</li>						
+							<li>
+								<strong>부대시설</strong>
+								<label><input type="checkbox" name="sbrsCl" value="전기">전기</label>
+								<label><input type="checkbox" name="sbrsCl" value="무선인터넷">무선인터넷</label>
+								<label><input type="checkbox" name="sbrsCl" value="장작판매">장작판매</label>
+								<label><input type="checkbox" name="sbrsCl" value="온수">온수</label>
+								<label><input type="checkbox" name="sbrsCl" value="마트.편의점">마트.편의점</label>						
+							</li>												
+						</ul>
+					</div>
+				</div>				
 				<div>
 					<button id="searchCampinginfo" class="C_search" type="submit">캠핑장 검색</button>
 				</div>				
 			</div>	
 			</form>
 		</div>
+		
 		<div id="tagSearch" class="tagSearch" style="display:none;">
 			<form id="serachForm" action="/camping/campingSearch" method="get">
 				<div>
@@ -61,19 +62,19 @@
 						<span>태그로 검색</span>
 					</button>					
 				</div>
-				<div id="tag_detail" style="margin-top: 10px;">
-					<ul>					
+				<div class="btn-group-toggle" data-toggle="buttons" style="margin-top: 10px;">
+					<ul>				
 						<li>
-							<button class="tagBtn" type="submit" name="animalCmgCl" value="반려견">#반려견동반</button>
-							<button class="tagBtn" type="submit" name="sbrsCl" value="온수">#온수</button>
-							<button class="tagBtn" type="submit" name="sbrsCl" value="전기">#전기</button>
-							<button class="tagBtn" type="submit" name="sbrsCl" value="물놀이장">#물놀이장</button>
-							<button class="tagBtn" type="submit" name="sbrsCl" value="무선인터넷">#무선인터넷</button>
-							<button class="tagBtn" type="submit" name="operPdCl" value="봄">#봄</button>
-							<button class="tagBtn" type="submit" name="operPdCl" value="여름">#여름</button>
-							<button class="tagBtn" type="submit" name="operPdCl" value="가을">#가을</button>
-							<button class="tagBtn" type="submit" name="operPdCl" value="겨울">#겨울</button>																				
-						</li>												
+							<label class="btn btn-dark"><input class="tagBtn" type="checkbox" name="animalCmgCl" value="반려견동반">#반려견동반</label>							
+							<label class="btn btn-dark"><input class="tagBtn" type="checkbox" name="sbrsCl" value="온수">#온수</label>
+							<label class="btn btn-dark"><input class="tagBtn" type="checkbox" name="sbrsCl" value="전기">#전기</label>
+							<label class="btn btn-dark"><input class="tagBtn" type="checkbox" name="sbrsCl" value="물놀이장">#물놀이장</label>
+							<label class="btn btn-dark"><input class="tagBtn" type="checkbox" name="sbrsCl" value="무선인터넷">#무선인터넷</label>
+							<label class="btn btn-dark"><input class="tagBtn" type="checkbox" name="operPdCl" value="봄">#봄</label>
+							<label class="btn btn-dark"><input class="tagBtn" type="checkbox" name="operPdCl" value="여름">#여름</label>
+							<label class="btn btn-dark"><input class="tagBtn" type="checkbox" name="operPdCl" value="가을">#가을</label>
+							<label class="btn btn-dark"><input class="tagBtn" type="checkbox" name="operPdCl" value="겨울">#겨울</label>																				
+						</li>																		
 					</ul>
 				</div>				
 				<div>

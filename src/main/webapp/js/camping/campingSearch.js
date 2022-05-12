@@ -1,6 +1,6 @@
 	//지역 검색
 	$('document').ready(function(){
-		var area0 = ["시/도 선택", "서울시", "부산시", "대구시", "인천시", "광주시", "대전시", "울산시", "세종시", "경기도", "강원도", "충청북도", "충청남도", "전라북도", "전라남도", "경상북도", "경상남도", "제주도"];
+		var area0 = ["서울시", "부산시", "대구시", "인천시", "광주시", "대전시", "울산시", "세종시", "경기도", "강원도", "충청북도", "충청남도", "전라북도", "전라남도", "경상북도", "경상남도", "제주도"];
 		var area1 = ["강남구","강동구","강북구","강서구","관악구","광진구","구로구","금천구","노원구","도봉구","동대문구","동작구","마포구","서대문구","서초구","성동구","성북구","송파구","양천구","영등포구","용산구","은평구","종로구","중구","중랑구"];
 		var area2 = ["강서구", "금정구", "기장군", "남구", "동구", "동래구", "부산진구", "북구", "사상구", "사하구", "서구", "수영구", "연제구", "영도구", "중구", "해운대구"];
 		var area3 = ["남구", "달서구", "달성군", "동구", "북구", "상주", "서구", "수성구", "중구"];
@@ -19,8 +19,9 @@
 		var area16 = ["거제시", "거창군", "고성군", "김해시", "남해군", "밀양시", "사천시", "산청군", "양산시", "의령군", "진주시", "창녕군", "창원시", "통영시", "하동군", "함안군", "함양군", "합천군"];
 		var area17 = ["서귀포시", "제주시"];	
 	
-		$("select[name^=doNm]").each(function(){
+		$("select[name^=doNm]").each(function(){			
 			$selsido = $(this);
+			$selsido.append("<option value=''>시/도 선택</option>");
 			$.each(eval(area0), function(){
 				$selsido.append("<option value='"+this+"'>"+this+"</option>");
 			})
@@ -45,7 +46,7 @@
 	//상세조건 on, off
 	function Displaydetail(){
 		if($('#search_detail').css('display') == 'none'){
-			$('#search_detail').show();
+			$('#search_detail').show();									
 		}
 		else{
 			$('#search_detail').hide();
@@ -56,7 +57,7 @@
 	function detailSearch(){
 		if($('#searchbox').css('display') != 'none'){
 			$('#searchbox').hide();
-			$('#tagSearch').show();
+			$('#tagSearch').show();			
 		}
 		else{
 			$('#tagSearch').hide();
@@ -115,7 +116,10 @@
 			}
 		});
 	}	
-		
+	
+	//태그버튼 누름 효과	
+	
+	//페이징
 	function prevBtn(pb){
 		var prev = pb-1;
 		location.href="/camping/campingSearch?pageNum="+prev+"";
