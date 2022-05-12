@@ -3,6 +3,7 @@
    border-bottom : 5px solid;
    padding: 5px;
    color: #E6BA95;
+   font-family: 'IBM Plex Sans KR', sans-serif;
 }
 .writeBtn:hover {
 	color: #D6AA85;
