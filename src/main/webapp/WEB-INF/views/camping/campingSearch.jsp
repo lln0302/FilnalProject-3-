@@ -62,18 +62,18 @@
 						<span>태그로 검색</span>
 					</button>					
 				</div>
-				<div class="tag_detail" style="margin-top: 10px;">
+				<div class="btn-group-toggle" data-toggle="buttons" style="margin-top: 10px;">
 					<ul>				
 						<li>
-							<label><input class="tagBtn" type="checkbox" name="animalCmgCl" value="반려견동반">#반려견동반</label>							
-							<label><input class="tagBtn" type="checkbox" name="sbrsCl" value="온수">#온수</label>
-							<label><input class="tagBtn" type="checkbox" name="sbrsCl" value="전기">#전기</label>
-							<label><input class="tagBtn" type="checkbox" name="sbrsCl" value="물놀이장">#물놀이장</label>
-							<label><input class="tagBtn" type="checkbox" name="sbrsCl" value="무선인터넷">#무선인터넷</label>
-							<label><input class="tagBtn" type="checkbox" name="operPdCl" value="봄">#봄</label>
-							<label><input class="tagBtn" type="checkbox" name="operPdCl" value="여름">#여름</label>
-							<label><input class="tagBtn" type="checkbox" name="operPdCl" value="가을">#가을</label>
-							<label><input class="tagBtn" type="checkbox" name="operPdCl" value="겨울">#겨울</label>																				
+							<label class="btn btn-dark"><input class="tagBtn" type="checkbox" name="animalCmgCl" value="반려견동반">#반려견동반</label>							
+							<label class="btn btn-dark"><input class="tagBtn" type="checkbox" name="sbrsCl" value="온수">#온수</label>
+							<label class="btn btn-dark"><input class="tagBtn" type="checkbox" name="sbrsCl" value="전기">#전기</label>
+							<label class="btn btn-dark"><input class="tagBtn" type="checkbox" name="sbrsCl" value="물놀이장">#물놀이장</label>
+							<label class="btn btn-dark"><input class="tagBtn" type="checkbox" name="sbrsCl" value="무선인터넷">#무선인터넷</label>
+							<label class="btn btn-dark"><input class="tagBtn" type="checkbox" name="operPdCl" value="봄">#봄</label>
+							<label class="btn btn-dark"><input class="tagBtn" type="checkbox" name="operPdCl" value="여름">#여름</label>
+							<label class="btn btn-dark"><input class="tagBtn" type="checkbox" name="operPdCl" value="가을">#가을</label>
+							<label class="btn btn-dark"><input class="tagBtn" type="checkbox" name="operPdCl" value="겨울">#겨울</label>																				
 						</li>																		
 					</ul>
 				</div>				
