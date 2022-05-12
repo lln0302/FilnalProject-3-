@@ -48,8 +48,8 @@ public class GatherServiceImpl implements GatherService {
 		return dao.plusGatherCamper(gatherno);  // gathermemberDB
 	}
 	@Override
-	public int gathermemberInsert(int gmemberno, int gatherno, int gnewno) {
-		return dao.gathermemberInsert(gmemberno, gatherno, gnewno);
+	public int gathermemberInsert(int gmemberno, int gatherno, String nickname, String gender) {
+		return dao.gathermemberInsert(gmemberno, gatherno, nickname, gender);
 	}
 	
 	// 캠퍼 참여 취소

@@ -16,21 +16,27 @@
 	margin:10px;
 }
 
-.writeTitle, .writeCamper, .writeDate, .writePlace{
+.writeTitle{
 	padding:10px;
-	border-radius:3px;
 	margin-left:30px;
 }
 
-
-.writeTitle>input, .writeCamper>input, .writeDate>input, .writePlace>input{
+.writeTitle>input{
 	border: solid rgba(245, 130, 67, .2);
 	padding:10px;
 	border-radius:5px;
 }
 
+.writeTitle>span {
+	margin:10px;	
+}
+
 #datepicker1, #datepicker2{
 	padding-left:10px;
+}
+
+#startdate, #enddate{
+	background:white;
 }
 
 .btns>input{
