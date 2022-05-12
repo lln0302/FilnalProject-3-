@@ -14,7 +14,6 @@
 		text-align: center;
 		position: relative;		
 		height:auto;
-/* 		background-color: rgb(245, 130, 67); */
 		background-color:#ffbf70;
 		color: white;
 		box-shadow: 0px 3px 6px 0px #c1c0c0;
@@ -71,11 +70,23 @@
 		text-align: center;
 		border: 1px solid black;
 		width: 90%;
-		padding: 10px;
+		padding: 10px 0px;
 		margin: 20px auto;		
 		background-color: #67493B;
-		border-radius: 5px;		
+		border-radius: 5px;
 	}
+	
+	#sido, #gungu{
+      text-align:center;
+      width: 150px;
+      height:30px;
+      line-height: 30px;
+      border:none;
+      border-radius:5px;
+      padding-top:3px;
+      color:rgb(72, 97, 86);
+      margin:10px;
+   }
 	
 	.C_detail{
 		border: none;
@@ -84,11 +95,10 @@
 	    padding: 6px;
 	    margin-left: 5px;
 	    margin-top: 10px;
-	    border-radius: 8px;
+	    border-radius: 8px;	    
 	}
-	
-	.C_search{
-		border-top: 1.5px solid #ffffff;
+
+	.C_search{		
 		border: none;
 	    background-color: #ff823f;
 	    color: white;
@@ -115,7 +125,7 @@
 		border-radius: 5px;
 	}
 	
-	.tagBtn{
+	.tag_detail{		
 		width: 15%;
 	    height: 52px;
 	    border: none;
@@ -124,9 +134,9 @@
 	    border-radius: 5px;
 	    font-size: 17px;
 	    font-weight: 500;
-	    color: white;
+	    color: white;	    
 	}
-	
+				
 	#imageBox{
 		float:left; width:30%;
 	}
