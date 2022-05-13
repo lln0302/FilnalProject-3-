@@ -26,7 +26,8 @@ public interface GatherDAO {
 	
 	// 캠퍼 참여
 	public int plusGatherCamper(int gatherno); // gatherDB
-	public int gathermemberInsert(int gmemberno, int gatherno, int gnewno); // gathermemberDB
+	public int gathermemberInsert(int gmemberno, int gatherno, String nickname, 
+			String gender); // gathermemberDB
 	
 	// 켐퍼 참여 취소 
 	public int minusGatherCamper(int gatherno);
