@@ -15,8 +15,11 @@ public interface CampingDAO {
 	//총 레코드 수
 	public int totalRecord(Paging10VO pvo);
 
-	//캠핑장 목록
+	//캠핑장 목록(search)
 	public List<CampingVO> campingSearch(Paging10VO pVO);
+	
+	//캠핑장 목록(suggestion)
+	public List<CampingVO> campingSuggestion(Paging10VO pVO);	
 	
 	//캠핑장 선택
 	public CampingVO campingSelect(String contentId);

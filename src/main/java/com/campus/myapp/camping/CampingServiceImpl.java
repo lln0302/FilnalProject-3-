@@ -30,5 +30,10 @@ public class CampingServiceImpl implements CampingService {
 	@Override
 	public CampingVO campingSelect(String contentId) {
 		return dao.campingSelect(contentId);
+	}
+
+	@Override
+	public List<CampingVO> campingSuggestion(Paging10VO pVO) {
+		return dao.campingSuggestion(pVO);
 	}	
 }

@@ -47,6 +47,12 @@
  	 	margin: 10px auto; 	 	
 	}	
 	
+	input {
+      -webkit-appearance: none;
+        -moz-appearance: none;
+        appearance: none;
+   }
+	
 	.detail, .tag_search{
 		width: 45%;
 	    height: 52px;
@@ -66,12 +72,12 @@
 	
 	.C_select{
 		position: relative;
-		text-align: center;
-		border: 1px solid black;
+		text-align: center;		
 		width: 90%;
 		padding: 10px 0px;
 		margin: 20px auto;		
 		background-color: #67493B;
+		opacity:0.8;
 		border-radius: 5px;
 	}
 	

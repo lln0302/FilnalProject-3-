@@ -55,9 +55,11 @@ public class CampingController {
 	
 	@GetMapping("campingSuggestion")
 	public ModelAndView CampingSuggestion(Paging10VO pVO) {
-		ModelAndView mav = new ModelAndView();
+		ModelAndView mav = new ModelAndView();		
+				
+		mav.addObject("list", service.campingSuggestion(pVO));
+		mav.addObject("pVO", pVO);
 		
-		mav.addObject("list", service.campingSearch(pVO));
 		mav.setViewName("camping/campingSuggestion");
 		return mav;
 	}

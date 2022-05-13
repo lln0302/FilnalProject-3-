@@ -33,7 +33,7 @@
 	</select>
 	
 	<select id="campingSearch" resultType="com.campus.myapp.camping.CampingVO">
-		select modifiedtime, contentId, firstImageUrl, sigunguNm, doNm, facltNm, addr2, addr1, tel, induty, sbrsCl 
+		select modifiedtime, contentId, firstImageUrl, sigunguNm, doNm, facltNm, addr2, addr1, tel, induty, sbrsCl, intro, lineIntro 
 		from campinglist
 		where 1=1
 		<if test='doNm != null'>
@@ -73,6 +73,6 @@
   	
   	<select id="campingSuggestion" resultType="com.campus.myapp.camping.CampingVO">
   		select modifiedtime, contentId, firstImageUrl, sigunguNm, doNm, facltNm, addr2, addr1, tel, induty, sbrsCl 
-		from campinglist order by rand() limit 10
+		from campinglist order by rand(), modifiedtime desc limit 10
   	</select>
 </mapper>

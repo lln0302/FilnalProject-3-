@@ -3,11 +3,11 @@
 <link rel="stylesheet" href="/css/camping/campingSuggestion.css" type="text/css"/>
 
 <div id="campingSuggetion">
-	<h3 class="h3">[이달의 추천 캠핑장] 리스트</h3> 
+	<h3 class="h3">[추천 캠핑장] 리스트</h3> 
 	<div id ="searchBoxunderline"></div>
 		<div class = "campingListShow" id="camping">		
 			<ul class="campingSearch">				
-				<c:forEach var="vo" items="${list }">
+				<c:forEach var="vo" items="${list }">					
 					<div class="container p-3 my-3 border listBox">
 						<div class="row">
 							<div id="campingSite">						
@@ -17,7 +17,7 @@
 											<img src="/img/camping/autumn-season-5580627__340.webp" style="width:250px; height:183.33px;">
 										</c:if>
 										<c:if test="${vo.firstImageUrl != null}">
-											<img src="${vo.firstImageUrl}" style="width:275px; height:195px;">
+											<img src="${vo.firstImageUrl}" style="width:250px; height:183.33px;">
 										</c:if>
 									</div>
 								</a>
@@ -41,10 +41,7 @@
 							</div>
 						</div>
 					</div>		
-				</c:forEach>
-				<c:if test="${vo.totalRecord }">
-					검색결과가 없습니다
-				</c:if>				
+				</c:forEach>							
 			</ul>			
 		</div>
 	</div>
