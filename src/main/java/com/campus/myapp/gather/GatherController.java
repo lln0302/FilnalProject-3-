@@ -207,15 +207,18 @@ public class GatherController {
 		service.gathermemberInsert(gmemberno, gatherno, vo.getNickname(), vo.getGender());
 		return service.selectJoinCamper(gatherno, nickname);
 	}
-	// 캠퍼 유저 수
+	// 캠퍼 유저 수 표시
 	@GetMapping("/gnewnoCount")
 	public int gnewnoCount(int gatherno) {
 		return service.gnewnoCountSelect(gatherno);
 	}
-	
+	// 캠퍼 참여 취소
 	@GetMapping("/minusGatherCamper")
-	public int MinusGatherCamper(int gatherno) {
-		return service.minusGatherCamper(gatherno);
+	public GatherMemberVO MinusGatherCamper(int gatherno, String nickname, HttpSession session) {
+		nickname = (String)session.getAttribute("nickname");
+		service.minusGatherCamper(gatherno);
+		service.gathermemberDel(gatherno, nickname);
+		return service.selectJoinCamper(gatherno, nickname);
 	}
 	
 	// gather 댓글 등록하기
@@ -224,24 +227,20 @@ public class GatherController {
 		vo.setNickname((String)session.getAttribute("nickname"));
 		return service.replyWrite(vo);
 	}
-	
 	@GetMapping("/replyCountSelect")
 	public int replyCountSelect(int gatherno) {
 		return service.replyCountSelect(gatherno);
 	}
-	
 	// gather 댓글 리스트 
 	@GetMapping("/replyList")
 	public List<ReplyVO> ReplyList(int gatherno){
 		return service.replyList(gatherno);
 	}
-	
 	// gather 댓글 수정
 	@PostMapping("/replyEdit")
 	public int ReplyEdit(ReplyVO vo) {
 		return service.replyEdit(vo);
 	}
-	
 	// gather 댓글 삭제
 	@GetMapping("/replyDel")
 	public int ReplyDel(int replyno) {

@@ -42,22 +42,23 @@
 		INSERT INTO gathermember(gmemberno, gatherno, nickname, gender)
 		VALUES(#{param1}, #{param2}, #{param3}, #{param4})
 	</insert>
-	<update id="minusGatherCamper">
-		UPDATE gather SET gnewno=gnewno-1 
-		WHERE gatherno=#{param1} 
-	</update>
-	<delete id="gathermemberDel">
-		DELTE FROM gathermember 
-		WHERE gatherno=${gatherno} AND nickname=#{nickname}
-	</delete>
 	<select id="selectJoinCamper" resultType="GatherMemberVO">
 		SELECT gatherno, nickname FROM gathermember 
 		WHERE gatherno=#{param1} AND nickname=#{param2}
 	</select>
 	<select id="gnewnoCountSelect" resultType="int">
-		SELECT COUNT(gnewno)count FROM gather
-		WHERE gatherno=#{param1}
+		SELECT gnewno FROM gather 
+		GROUP BY gatherno 
+		HAVING gatherno=#{param1}
 	</select>
+	<update id="minusGatherCamper">
+		UPDATE gather SET gnewno=gnewno-1 
+		WHERE gatherno=#{param1} 
+	</update>
+	<delete id="gathermemberDel">
+		DELETE FROM gathermember 
+		WHERE gatherno=${param1} AND nickname=#{param2}
+	</delete>
 	
 	<!-- 댓글 -->
 	<select id="replyCountSelect" resultType="int">

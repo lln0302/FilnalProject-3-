@@ -14,9 +14,11 @@
 		
 		// 이미 캠핑에 참여한 유저 구하기
 		if("${alreadyJoin}"!=''){
-			$("#gnewnoBtn1").css("display","none");
-			let body = "<input type='button' class='btn' id='gnewnoBtn2' value='캠핑 취소'>";
-			$("#btnDiv").html(body);
+			$("#gnewnoBtn1").addClass("separate");
+			$("#gnewnoBtn1").val("캠핑 취소");
+		}else{
+			$("#gnewnoBtn1").removeClass("separate");
+			$("#gnewnoBtn1").val("캠핑 참여");
 		}
 		
 	});

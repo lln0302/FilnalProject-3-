@@ -32,7 +32,6 @@ public class GatherServiceImpl implements GatherService {
 	public GatherVO gatherView(int gatherno) {
 		return dao.gatherView(gatherno);
 	}
-	
 	// 조회수 증가
 	@Override
 	public int updateViews(int gatherno) {
@@ -55,17 +54,22 @@ public class GatherServiceImpl implements GatherService {
 	public GatherMemberVO selectJoinCamper(int gatherno, String nickname) {
 		return dao.selectJoinCamper(gatherno, nickname);
 	}
-	// 캠퍼 참여 취소
-	@Override
-	public int minusGatherCamper(int gatherno) {
-		return dao.minusGatherCamper(gatherno);
-	}
 	// 캠퍼 참여한 유저 명수
 	@Override
 	public int gnewnoCountSelect(int gatherno) {
 		return dao.gnewnoCountSelect(gatherno);
 	}
-	
+	// 캠퍼 참여 취소
+	//gatherDB
+	@Override
+	public int minusGatherCamper(int gatherno) {
+		return dao.minusGatherCamper(gatherno);
+	}
+	// gathermemberDB
+	@Override
+	public int gathermemberDel(int gatherno, String nickname) {
+		return dao.gathermemberDel(gatherno, nickname);
+	}
 	
 	// 댓글 등록
 	@Override
@@ -92,6 +96,5 @@ public class GatherServiceImpl implements GatherService {
 	public int replyCountSelect(int gatherno) {
 		return dao.replyCountSelect(gatherno);
 	}
-
-
+	
 }
