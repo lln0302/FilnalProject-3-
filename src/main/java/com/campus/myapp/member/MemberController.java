@@ -21,13 +21,13 @@ public class MemberController {
     @Autowired
     MemberService memberservice;
 
-    //로그인 페이지 이동
+    //濡쒓렇�씤 �럹�씠吏� �씠�룞
     @GetMapping("loginForm")
     public String loginForm() {
         return "member/loginForm";
     }
 
-    //로그인 및 홈페이지 섹션 표시
+    //濡쒓렇�씤 諛� �솃�럹�씠吏� �꽮�뀡 �몴�떆
     @PostMapping("loginOk")
     public ResponseEntity<String> loginOk(MemberVO vo, HttpSession session, HttpServletRequest request, RedirectAttributes redirectAttributes) throws ParseException {
         ResponseEntity<String> entity = null;
@@ -57,7 +57,7 @@ public class MemberController {
         }
         return entity;
     }
-    //로그아웃
+    //濡쒓렇�븘�썐
     @GetMapping("logout")
     public ModelAndView logout(HttpSession session) {
         session.invalidate();
@@ -65,7 +65,7 @@ public class MemberController {
         mav.setViewName("redirect:/");
         return mav;
     }
-    //회원가입 페이지
+    //�쉶�썝媛��엯 �럹�씠吏�
     @GetMapping("memberForm")
     public String memberForm() {
         return "member/memberForm";

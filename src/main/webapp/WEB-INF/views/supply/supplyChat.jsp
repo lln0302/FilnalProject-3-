@@ -14,38 +14,38 @@
 	<div id="chatting">
 		<div class="chatSeller">
 			<div id="sellerId">[글작성자]</div>
-			<div class="sellerText">안녕하세요ㅎㅎㅎㅎㅎㅎㅎㅎㅎㅎㅎㅎㅎ</div>
+			<div class="sellerText" id="sellerText1">안녕하세요ㅎㅎㅎㅎㅎㅎㅎㅎㅎㅎㅎㅎㅎ</div>
 		</div>
 		<div class="chatBuyer">
 			<div id="buyerId">[방생성자]</div>
-			<div class="buyerText">얼마정도 하나요??</div>
+			<div class="buyerText" id="buyerText1">얼마정도 하나요??</div>
 		</div>
 		
 		<div class="chatSeller">
 			<div class="sellerId">[글작성자]</div>
-			<div class="sellerText">gㅎㅎㅎ</div>
+			<div class="sellerText" id="sellerText2">gㅎㅎㅎ</div>
 		</div>
 		<div class="chatBuyer">
 			<div class="buyerId">[방생성자]</div>
-			<div class="buyerText">얼마정도 하나요 아니 대답을 하시라니깐여</div>
+			<div class="buyerText" id="buyerText2">얼마정도 하나요 아니 대답을 하시라니깐여</div>
 		</div>
 		
 		<div class="chatSeller">
 			<div class="sellerId">[글작성자]</div>
-			<div class="sellerText">안녕하세요ㅎㅎㅎㅎㅎㅎㅎㅎㅎㅎㅎㅎㅎ</div>
+			<div class="sellerText" id="sellerText3">안녕하세요ㅎㅎㅎㅎㅎㅎㅎㅎㅎㅎㅎㅎㅎ</div>
 		</div>
 		<div class="chatBuyer">
 			<div class="buyerId">[방생성자]</div>
-			<div class="buyerText">얼마정도 하나요??</div>
+			<div class="buyerText" id="buyerText3">얼마정도 하나요??</div>
 		</div>
 		
 		<div class="chatSeller">
 			<div class="sellerId">[글작성자]</div>
-			<div class="sellerText">gㅎㅎㅎ</div>
+			<div class="sellerText" id="sellerText4">gㅎㅎㅎ</div>
 		</div>
 		<div class="chatBuyer">
 			<div class="buyerId">[방생성자]</div>
-			<div class="buyerText">얼마정도 하나요 아니 대답을 하시라니깐여</div>
+			<div class="buyerText" id="buyerText4">얼마정도 하나요 아니 대답을 하시라니깐여</div>
 		</div>
 		
 		
