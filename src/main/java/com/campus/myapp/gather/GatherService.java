@@ -12,6 +12,8 @@ public interface GatherService {
 	public int selectTotalPosts(PagingVO pvo, GatherVO vo);
 	// 게시판 상세페이지
 	public GatherVO gatherView(int gatherno);
+	// 게시판 글 삭제
+	public int gatherDelete(int gatherno);
 	// 조회수 증가
 	public int updateViews(int gatherno);
 	

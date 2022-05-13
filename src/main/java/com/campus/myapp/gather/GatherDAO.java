@@ -17,13 +17,14 @@ public interface GatherDAO {
 	public int selectTotalPosts(PagingVO pvo, GatherVO vo);
 	// 게시판 상세페이지
 	public GatherVO gatherView(int gatherno);
+	// 게시판 글 삭제
+	public int gatherDelete(int gatherno);
 	// 조회수 증가
 	public int updateViews(int gatherno);
 	
 	// 캠퍼 참여 (gatherDB, gathermemberDB)
 	public int plusGatherCamper(int gatherno); 
-	public int gathermemberInsert(int gmemberno, int gatherno, 
-			String nickname, String gender);
+	public int gathermemberInsert(int gmemberno, int gatherno, String nickname, String gender);
 	// 이미 캠핑 참여한 유저 
 	public GatherMemberVO selectJoinCamper(int gatherno, String nickname);
 	// 캠퍼 참여 유저 명수 

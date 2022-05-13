@@ -35,8 +35,6 @@ $(function(){
 						gnewnoCount();
 						$("#gnewnoBtn1").removeClass("separate");
 						$("#gnewnoBtn1").val("캠핑 참여");
-					},error:function(){
-						console.log("캠핑 취소 에러")
 					}
 				});
 			}

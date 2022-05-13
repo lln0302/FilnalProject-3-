@@ -28,6 +28,9 @@
 		content, gmemberno, gnewno
 		FROM gather WHERE gatherno=#{param1}
 	</select>
+	<delete id="gatherDelete">
+		DELETE FROM gather WHERE gatherno=#{param1}
+	</delete>
 	<update id="updateViews">
 		UPDATE gather SET views=views+1 
 		WHERE gatherno=#{param1}
