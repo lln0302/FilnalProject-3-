@@ -15,10 +15,17 @@ public class Paging10VO {
 		private String animalCmgCl;		 
 		private String doNm;
 		private String sigunguNm;	
+		private List<String >posblFcltyCl;
 		private List<String> operPdCl;
 		private List<String> induty;
 		private List<String> sbrsCl;	
-		
+					
+		public List<String> getPosblFcltyCl() {
+			return posblFcltyCl;
+		}
+		public void setPosblFcltyCl(List<String> posblFcltyCl) {
+			this.posblFcltyCl = posblFcltyCl;
+		}
 		public List<String> getOperPdCl() {
 			return operPdCl;
 		}

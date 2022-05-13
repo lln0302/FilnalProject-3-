@@ -49,7 +49,7 @@
 					</span>
 					<c:if test="${nickname!=view.nickname}">
 						<c:if test="${view.gmemberno>view.gnewno}">
-							<input type="submit" class="btn gnewnoBtn1" id="gnewnoBtn1" value="캠핑 참여">
+							<input type="submit" class="btn gnewnoBtn1" id="gnewnoBtn1" value="캠핑 참여">						
 						</c:if>
 					</c:if>
 				</form>

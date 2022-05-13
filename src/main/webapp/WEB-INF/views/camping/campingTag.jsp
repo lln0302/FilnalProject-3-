@@ -6,7 +6,7 @@
 
 <div class="container">
 	<div class="campingSearch" style="overflow:auto;">	
-		<div id ="searchbox" class="searchbox" style="display:block;">	
+		<div id ="searchbox" class="searchbox" style="display:none;">	
 			<form id="serachForm" action="/camping/campingSearch" method="get">
 			<div>
 				<div class="C_SearchBtnWrap">
@@ -45,15 +45,15 @@
 							</li>												
 						</ul>
 					</div>
-				</div>				
+				</div>											
 				<div>
 					<button id="searchCampinginfo" class="C_search" type="submit">캠핑장 검색</button>
 				</div>				
 			</div>	
 			</form>
-		</div>
+		</div>		
 		
-		<div id="tagSearch" class="tagSearch" style="display:none;">
+		<div id="tagSearch" class="tagSearch" style="display:block;">
 			<form id="serachForm" action="/camping/campingTag" method="get">
 				<div>
 					<div class="C_SearchBtnWrap">
@@ -81,7 +81,7 @@
 							<label class="btn btn-dark"><input class="tagBtn" type="checkbox" name="operPdCl" value="여름">#여름</label>
 							<label class="btn btn-dark"><input class="tagBtn" type="checkbox" name="operPdCl" value="가을">#가을</label>
 							<label class="btn btn-dark"><input class="tagBtn" type="checkbox" name="operPdCl" value="겨울">#겨울</label>																				
-						</li>																		
+						</li>													
 					</ul>
 				</div>				
 				<div>
@@ -112,21 +112,19 @@
 								</a>
 							</div>
 							<div class="col-8">
-								<a id="campinglink" href="/camping/campingView?contentId=${vo.contentId }">
-									<h2>
-										<p>
-											<c:if test="${vo.sigunguNm == '' }">
-												<a id="campinglink" href="/camping/campingView?contentId=${vo.contentId}">[${vo.doNm}]  ${vo.facltNm }</a>
-											</c:if>
-												<a id="campinglink" href="/camping/campingView?contentId=${vo.contentId}">[${vo.doNm }  ${vo.sigunguNm }] ${vo.facltNm }</a>
-										</p>							
-									</h2>
-								</a>
+								<h2>
+									<p>
+										<c:if test="${vo.sigunguNm == '' }">
+											<a id="campinglink" href="/camping/campingView?contentId=${vo.contentId}">[${vo.doNm}]  ${vo.facltNm }</a>
+										</c:if>
+											<a id="campinglink" href="/camping/campingView?contentId=${vo.contentId}">[${vo.doNm }  ${vo.sigunguNm }] ${vo.facltNm }</a>
+									</p>							
+								</h2>								
 								<span>
 									<c:if test="${vo.lineIntro != null}">
 										<strong>${vo.lineIntro }</strong>
-									</c:if>		
-									</br>															
+									</c:if>
+									</br>																	
 								</span>								
 								<span style="width:700px; height:50px;">
 									<a id ="campinglink" href="/camping/campingView?contentId=${vo.contentId }">									
@@ -141,10 +139,9 @@
 									</c:if>
 										<li><img src="/img/camping/주소아이콘.png" style="height:28px"> ${vo.addr1 } ${vo.addr2 }</li>									
 								</p>
-									<c:if test="${vo.tel != ''}">
+									<c:if test="${vo.tel != null}">
 										<li><img src="/img/camping/전화.png" style="height:20px">  ${vo.tel }</li>
-									</c:if>
-								</ul>	
+									</c:if>									
 							</div>
 						</div>
 					</div>				

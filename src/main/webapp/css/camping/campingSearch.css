@@ -137,3 +137,27 @@
 	#campingInfo{
 		float:left; width:70%; 
 	}
+
+	.col-8{
+		width:700px;
+	     padding:0 5px;
+	     overflow:hidden;
+	     text-overflow:ellipsis;
+	     white-space:nowrap;
+	}
+	
+	#campinglink{
+		color : black;		
+	}
+	
+	#campinglink:visited {
+		 color:black; 
+	}	
+	
+	#campinglink:active { 
+		color:black; 
+	}
+	
+	#campinglink:hover {
+		text-decoration-line: underline;
+	}

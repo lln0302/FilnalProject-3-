@@ -22,8 +22,7 @@ public class CampingServiceImpl implements CampingService {
 	}
 
 	@Override
-	public List<CampingVO> campingSearch(Paging10VO pVO) {
-		//System.out.println(dao.campingSearch(pVO));
+	public List<CampingVO> campingSearch(Paging10VO pVO) {		
 		return dao.campingSearch(pVO);
 	}
 
@@ -35,5 +34,10 @@ public class CampingServiceImpl implements CampingService {
 	@Override
 	public List<CampingVO> campingSuggestion(Paging10VO pVO) {
 		return dao.campingSuggestion(pVO);
+	}
+
+	@Override
+	public List<CampingVO> campingTag(Paging10VO pVO) {
+		return dao.campingTag(pVO);
 	}	
 }

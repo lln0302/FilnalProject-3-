@@ -11,7 +11,7 @@
 					<div class="container p-3 my-3 border listBox">
 						<div class="row">
 							<div id="campingSite">						
-								<a href='/camping/campingView?contentId=${vo.contentId }'>
+								<a id="campingSuggestion" href='/camping/campingView?contentId=${vo.contentId }'>
 									<div id="imageBox" class="col-4">			
 										<c:if test="${vo.firstImageUrl == null }">
 											<img src="/img/camping/autumn-season-5580627__340.webp" style="width:250px; height:183.33px;">
@@ -24,20 +24,35 @@
 							</div>
 							<div class="col-8">
 								<h2>
+									<p>
 									<c:if test="${vo.sigunguNm == '' }">
-										<a href="/camping/campingView?contentId=${vo.contentId}">[${vo.doNm}]  ${vo.facltNm }</a>
+										<a id="campingSuggestion" href="/camping/campingView?contentId=${vo.contentId}">[${vo.doNm}]  ${vo.facltNm }</a>
 									</c:if>
-										<a href="/camping/campingView?contentId=${vo.contentId}">[${vo.doNm }  ${vo.sigunguNm }] ${vo.facltNm }</a>							
+										<a id="campingSuggestion" href="/camping/campingView?contentId=${vo.contentId}">[${vo.doNm }  ${vo.sigunguNm }] ${vo.facltNm }</a>
+									</p>							
 								</h2>
-								<ul>
+									<span>
+									<c:if test="${vo.lineIntro != null}">
+										<strong>${vo.lineIntro }</strong>
+									</c:if>
+									</br>																	
+								</span>	
+								<span style="width:700px; height:50px;">
+									<a id ="campinglink" href="/camping/campingView?contentId=${vo.contentId }">									
+										<c:if test="${vo.intro != null }">
+											${vo.intro }
+										</c:if>
+								</a>	
+								</span>
+								<p>									
 									<c:if test="${vo.addr2 =='' }">
-										<li>${vo.addr1 }</li>
+										<li><img src="/img/camping/주소아이콘.png" style="height:28px"> ${vo.addr1 }</li>
 									</c:if>
-										<li>${vo.addr1 } ${vo.addr2 }</li>
+										<li><img src="/img/camping/주소아이콘.png" style="height:28px"> ${vo.addr1 } ${vo.addr2 }</li>									
+								</p>
 									<c:if test="${vo.tel != ''}">
-										<li>${vo.tel }</li>
-									</c:if>
-								</ul>	
+										<li><img src="/img/camping/전화.png" style="height:20px">  ${vo.tel }</li>
+									</c:if>	
 							</div>
 						</div>
 					</div>		

@@ -30,6 +30,21 @@ public class CampingController {
 		return mav;
 	}
 	
+	@GetMapping("/campingTag")
+	public ModelAndView campingTag(Paging10VO pVO) {
+		ModelAndView mav = new ModelAndView();
+		
+		//레코드수
+		pVO.setTotalRecord(service.totalRecord(pVO));
+		
+		//DB에서 캠핑장 리스트 가져오기		
+		mav.addObject("list", service.campingTag(pVO));
+		mav.addObject("pVO", pVO);
+		
+		mav.setViewName("camping/campingTag");
+		return mav;
+	}
+	
 	@PostMapping("addplace")
 	public int addplace(@RequestBody CampingVO[] result) {
 		int n=0;
@@ -43,7 +58,7 @@ public class CampingController {
 		return n;
 	}
 	
-	@GetMapping("campingView")
+	@GetMapping("/campingView")
 	public ModelAndView campingView(String contentId) {
 		ModelAndView mav = new ModelAndView();
 		
@@ -53,7 +68,7 @@ public class CampingController {
 		return mav;
 	}
 	
-	@GetMapping("campingSuggestion")
+	@GetMapping("/campingSuggestion")
 	public ModelAndView CampingSuggestion(Paging10VO pVO) {
 		ModelAndView mav = new ModelAndView();		
 				
