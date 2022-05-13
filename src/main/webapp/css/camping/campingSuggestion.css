@@ -36,3 +36,19 @@
 	    word-break: break-all;
 	    font-weight: normal;
 	}
+
+	#campingSuggestion{
+		color : black;		
+	}
+	
+	#campingSuggestion:visited {
+		 color:black; 
+	}	
+	
+	#campingSuggestion:active { 
+		color:black; 
+	}
+	
+	#campingSuggestion:hover {
+		text-decoration-line: underline;
+	}
