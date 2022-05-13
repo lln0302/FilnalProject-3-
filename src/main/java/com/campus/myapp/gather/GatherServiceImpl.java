@@ -32,6 +32,11 @@ public class GatherServiceImpl implements GatherService {
 	public GatherVO gatherView(int gatherno) {
 		return dao.gatherView(gatherno);
 	}
+	// 게시판 글 삭제
+	@Override
+	public int gatherDelete(int gatherno) {
+		return dao.gatherDelete(gatherno);
+	}
 	// 조회수 증가
 	@Override
 	public int updateViews(int gatherno) {
@@ -96,5 +101,6 @@ public class GatherServiceImpl implements GatherService {
 	public int replyCountSelect(int gatherno) {
 		return dao.replyCountSelect(gatherno);
 	}
+
 	
 }
