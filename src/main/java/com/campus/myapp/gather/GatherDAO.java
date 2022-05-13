@@ -24,6 +24,14 @@ public interface GatherDAO {
 	// 조회수 증가
 	public int updateViews(int gatherno);
 	
+	// 캠퍼 참여
+	public int plusGatherCamper(int gatherno); // gatherDB
+	public int gathermemberInsert(int gmemberno, int gatherno, String nickname, 
+			String gender); // gathermemberDB
+	
+	// 켐퍼 참여 취소 
+	public int minusGatherCamper(int gatherno);
+	
 	// 댓글 등록
 	public int replyWrite(ReplyVO vo);
 	
@@ -35,7 +43,5 @@ public interface GatherDAO {
 	
 	// 댓글 삭제
 	public int replyDel(int replyno);
-	
-	// 캠퍼 참여
-	public int joinGatherCamper(int gatherno);
+
 }

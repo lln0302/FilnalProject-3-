@@ -12,12 +12,33 @@ public class Paging10VO {
 		private int onePageCount=10; // 한 번에 표시할 페이지 수
 		private int startPage = 1;
 		
+		private String animalCmgCl;		 
 		private String doNm;
-		private String sigunguNm;
-		
+		private String sigunguNm;	
+		private List<String >posblFcltyCl;
+		private List<String> operPdCl;
 		private List<String> induty;
-		private List<String> sbrsCl;
-		
+		private List<String> sbrsCl;	
+					
+		public List<String> getPosblFcltyCl() {
+			return posblFcltyCl;
+		}
+		public void setPosblFcltyCl(List<String> posblFcltyCl) {
+			this.posblFcltyCl = posblFcltyCl;
+		}
+		public List<String> getOperPdCl() {
+			return operPdCl;
+		}
+		public void setOperPdCl(List<String> operPdCl) {
+			this.operPdCl = operPdCl;
+		}
+		public String getAnimalCmgCl() {
+			return animalCmgCl;
+		}
+		public void setAnimalCmgCl(String animalCmgCl) {
+			this.animalCmgCl = animalCmgCl;
+		}
+	
 	   public String getDoNm() {
 			return doNm;
 		}
@@ -34,6 +55,7 @@ public class Paging10VO {
 			return induty;
 		}
 		public void setInduty(List<String> induty) {
+			System.out.println(induty);
 			this.induty = induty;
 		}
 		public List<String> getSbrsCl() {

@@ -42,6 +42,22 @@ public class GatherServiceImpl implements GatherService {
 		return dao.updateViews(gatherno);
 	}
 
+	// 캠퍼 참여
+	@Override
+	public int plusGatherCamper(int gatherno) { // gatherDB
+		return dao.plusGatherCamper(gatherno);  // gathermemberDB
+	}
+	@Override
+	public int gathermemberInsert(int gmemberno, int gatherno, String nickname, String gender) {
+		return dao.gathermemberInsert(gmemberno, gatherno, nickname, gender);
+	}
+	
+	// 캠퍼 참여 취소
+	@Override
+	public int minusGatherCamper(int gatherno) {
+		return dao.minusGatherCamper(gatherno);
+	}
+
 	// 댓글 등록
 	@Override
 	public int replyWrite(ReplyVO vo) {
@@ -66,13 +82,4 @@ public class GatherServiceImpl implements GatherService {
 		return dao.replyDel(replyno);
 	}
 
-	// 캠퍼 참여
-	@Override
-	public int joinGatherCamper(int gatherno) {
-		return dao.joinGatherCamper(gatherno);
-	}
-
-	
-
-	
 }

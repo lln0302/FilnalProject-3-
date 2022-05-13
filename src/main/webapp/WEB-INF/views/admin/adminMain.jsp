@@ -55,7 +55,7 @@
 
 <body>
 	<div>
-	<div id="adminPage" class="container-fluid">
+	<div id="adminPage">
 		<%@ include file="/WEB-INF/views/admin/adminTop.jsp" %>
 		<div id="adminMainContent">
 			

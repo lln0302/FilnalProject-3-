@@ -17,3 +17,8 @@ function LogFormCheck(){
     }
     document.getElementById("logFrm").submit();
 }
+function enterLogin() {
+	if(window.event.keyCode == 13) {
+		LogFormCheck();
+	}
+}
