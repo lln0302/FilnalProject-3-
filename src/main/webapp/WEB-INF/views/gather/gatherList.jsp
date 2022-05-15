@@ -6,7 +6,7 @@
 <script>
 	$(function(){
 		
-		// 페이징 하기
+		// 페이징 
 		if('${pvo.currentPage}'==1){
 			$('.prevBtn').addClass('prevBtn disabled');
 		}
