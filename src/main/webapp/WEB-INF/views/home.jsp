@@ -66,7 +66,7 @@
 <!-- 			<h1>캠핑장소를 찾아보세요</h1> -->
 
 		<div class='h__card'>
-		<a href="camping/campingSearch">
+		<a href="${url}/camping/campingSearch">
 			<div class="h__card1">
 				<h3 class="h__card1__title">
 	              <strong>캠핑장 둘러보기</strong><br/>
@@ -77,7 +77,7 @@
 			</div>
 		</a>
 
-		<a href="#">
+		<a href="${url}/camping/campingTag">
 			<div class="h__card1">
 				<h3 class="h__card1__title">
 	              <strong>해쉬태그로 캠핑장 찾기</strong><br/>
@@ -88,7 +88,7 @@
 			</div>
 		</a>
 				
-		<a href="camping/campingSuggestion">
+		<a href="${url}/camping/campingSuggestion">
 			<div class="h__card1">
 				<h3 class="h__card1__title">
 	              <strong>멀캠핑이 추천하는</strong><br/>
