@@ -1,57 +1,19 @@
 <%@ page language="java" contentType="text/html; charset=UTF-8" pageEncoding="UTF-8"%>
-<%@ taglib uri="http://java.sun.com/jsp/jstl/core" prefix="c"%>
+<c:set var="url" value="<%=request.getContextPath()%>"/>
 <link rel="stylesheet" href="/css/gather/write.css" type="text/css"/>
+<script src="/js/gather/write.js"></script>
 <script>
 	$(function(){
-		
-		$("#startdate, #enddate").datepicker({
-			dateFormat: 'yy-mm-dd',  // Input Display Format 변경
-			changeMonth: true,       // select 문으로 월 선택 가능  
-			changeYear: true, 		 // select 문으로 년 선택 가능
-			prevText: '이전 달',       // datepicker 한글로
-		    nextText: '다음 달',
-		    monthNames: ['1월','2월','3월','4월','5월','6월','7월','8월','9월','10월','11월','12월'],
-		    monthNamesShort: ['1월','2월','3월','4월','5월','6월','7월','8월','9월','10월','11월','12월'],
-		    dayNames: ['일','월','화','수','목','금','토'],
-		    dayNamesShort: ['일','월','화','수','목','금','토'],
-		    dayNamesMin: ['일','월','화','수','목','금','토'],
-		    yearSuffix: '년',
-
-		});
-		
-		
+		// ckeditor 설정
 		CKEDITOR.replace("content", {
 			height:'500px',
-			filebrowserUploadUrl:'/gather/ckUpload',
+			filebrowserUploadUrl:'/gather/imageUpload',
+			//filebrowserUploadMethod:'form',
+			extraPlugin:'autograw',
 		});
 		
-		$("#writeForm").submit(function(){
-			if($("#gatherTitle").val()==''){
-				alert("제목을 입력해주세요");
-				return false;
-			}
-			if($("#number").val()=='' || $("#number").val()==0){
-				alert("모집인원을 입력해주세요");
-				return false;
-			}
-			if($("#datepicker1, #datepicker2").val()==''){
-				alert("일정을 입력해주세요");
-				return false;
-			}
-			if(CKEDITOR.instances.content.getData()==''){
-				alert("내용을 입력해주세요");
-				return false;
-			}
-		});
+		window.parent.CKEDITOR.tools.callFunction(1, "${url}", "전송완료");
 		
-		$("#resetBtn").on('click', function(){
-			CKEDITOR.instances.content.setData("");
-		})
-		
-		$("#showList").click(function(){
-			location.href="/gather/gatherList";
-		});
-
 	});
 </script>
 <div class="container">

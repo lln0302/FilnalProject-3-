@@ -1,5 +1,4 @@
 <%@ page language="java" contentType="text/html; charset=UTF-8" pageEncoding="UTF-8"%>
-<%@ taglib uri="http://java.sun.com/jsp/jstl/core" prefix="c"%>
 <link rel="stylesheet" href="/css/gather/view.css" type="text/css"/>
 <script src="/js/gather/reply.js"></script>
 <script src="/js/gather/view.js"></script>
