@@ -8,6 +8,7 @@ import org.springframework.stereotype.Controller;
 import org.springframework.ui.Model;
 import org.springframework.web.bind.annotation.*;
 import org.springframework.web.servlet.ModelAndView;
+import org.springframework.web.servlet.mvc.support.RedirectAttributes;
 
 import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpSession;
@@ -28,7 +29,7 @@ public class MemberController {
 
     //로그인 및 홈페이지 섹션 표시
     @PostMapping("loginOk")
-    public ResponseEntity<String> loginOk(MemberVO vo, HttpSession session, HttpServletRequest request) throws ParseException {
+    public ResponseEntity<String> loginOk(MemberVO vo, HttpSession session, HttpServletRequest request, RedirectAttributes redirectAttributes) throws ParseException {
         ResponseEntity<String> entity = null;
         HttpHeaders headers = new HttpHeaders();
         headers.add("Content-Type", "text/html; charset=utf-8");
@@ -38,6 +39,7 @@ public class MemberController {
             session.setAttribute("nickname", rVO.getNickname());
             session.setAttribute("logStatus", "Y");
             session.setAttribute("isadmin", rVO.getIsadmin());
+            session.setAttribute("gender", rVO.getGender());
             String msg = "";
             if (rVO.getIsadmin().equals("1")) {
                 msg = "<script>location.href='/admin/adminMain';</script>";
@@ -114,4 +116,28 @@ public class MemberController {
         return memberservice.findUserid(vo);
     }
 
+    @GetMapping("/myPageEdit")
+    public ModelAndView myPageEdit(HttpSession session) {
+        String userid = (String)session.getAttribute("userid");
+        MemberVO vo = memberservice.memberSelect(userid);
+        ModelAndView mav = new ModelAndView();
+        mav.addObject("vo", vo);
+        mav.setViewName("member/myPageEdit");
+        return mav;
+    }
+
+    @PostMapping("memberEditOk")
+    public ModelAndView memberEditOk(MemberVO vo, HttpSession session) {
+        vo.setUserid((String) session.getAttribute("userid"));
+        memberservice.memberUpdate(vo);
+        ModelAndView mav = new ModelAndView();
+        mav.setViewName("redirect:myPageEdit");
+        return mav;
+    }
+
+    @PostMapping("MemberDelete")
+    @ResponseBody
+    public int memberDelete(@RequestBody MemberVO vo) {
+        return memberservice.memberDelete(vo);
+    }
 }

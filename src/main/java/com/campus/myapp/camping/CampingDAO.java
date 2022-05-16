@@ -17,5 +17,8 @@ public interface CampingDAO {
 
 	//캠핑장 목록
 	public List<CampingVO> campingSearch(Paging10VO pVO);
+	
+	//캠핑장 선택
+	public CampingVO campingSelect(String contentId);
 			
 }

@@ -18,7 +18,7 @@ public class CampingController {
 	@GetMapping("/campingSearch")
 	public ModelAndView CampingSearch(Paging10VO pVO) {
 		ModelAndView mav = new ModelAndView();
-		
+		System.out.println(service.totalRecord(pVO));
 		//레코드수
 		pVO.setTotalRecord(service.totalRecord(pVO));
 		
@@ -41,5 +41,24 @@ public class CampingController {
 			
 		}
 		return n;
+	}
+	
+	@GetMapping("campingView")
+	public ModelAndView campingView(String contentId) {
+		ModelAndView mav = new ModelAndView();
+		
+		mav.addObject("vo", service.campingSelect(contentId));
+		mav.setViewName("camping/campingView");
+		
+		return mav;
+	}
+	
+	@GetMapping("campingSuggestion")
+	public ModelAndView CampingSuggestion(Paging10VO pVO) {
+		ModelAndView mav = new ModelAndView();
+		
+		mav.addObject("list", service.campingSearch(pVO));
+		mav.setViewName("camping/campingSuggestion");
+		return mav;
 	}
 }	

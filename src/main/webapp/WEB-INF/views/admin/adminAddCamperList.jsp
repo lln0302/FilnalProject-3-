@@ -90,7 +90,7 @@
 				</li>
 			</ul>
 			<div id="adminMainContentTop">
-				<hr id="hr2px_red">
+				<!-- <hr id="hr2px_red"> -->
 				캠퍼모집목록
 			</div>
 			<hr id="hr2px">

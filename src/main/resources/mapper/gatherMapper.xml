@@ -31,9 +31,17 @@
 	<update id="updateViews">
 		UPDATE gather SET views=views+1 WHERE gatherno=#{param1}
 	</update>
-	<update id="joinGatherCamper">
+	<update id="plusGatherCamper">
 		UPDATE gather SET gnewno=gnewno+1 WHERE gatherno=#{param1}
 	</update>
+	<insert id="gathermemberInsert">
+		INSERT INTO gathermember(gmemberno, gatherno, gnewno, nickname, gender)
+		VALUES(#{param1}, #{param2}, #{param3}, #{nickname}, #{gender})
+	</insert>
+	<update id="minusGatherCamper">
+		UPDATE gather SET gnewno=gnewno-1 WHERE gatherno=#{param1} 
+	</update>
+	
 	<insert id="replyWrite">
 		INSERT INTO gatherreply(content, nickname, gatherno)
 		VALUES(#{content}, #{nickname}, ${gatherno})
@@ -50,4 +58,16 @@
 	<delete id="replyDel">
 		DELETE FROM gatherreply WHERE replyno=#{param1} 
 	</delete>
+	<select id="gatherMadeList" resultType="com.campus.myapp.gather.GatherVO">
+		SELECT DISTINCT A.gaterno, A.title, A.nickname,
+		DATE_FORMAT(startdate, '%Y-%m,-%d') AS startdate , DATE_FORMAT(enddate, '%Y-%m-%d') as enddate
+		FROM gather A
+		INNER JOIN gathermember B
+		ON B.nickname=A.nickname WHERE B.ninkname=#{param1.nickname}
+		<if test='param2.searchWord != null'>
+			AND ${param2.searchKey} LIKE '%{param2.searchWord}%'
+		</if>
+		ORDER BY gatherno DESC
+		limit ${param2.onePageRecord} OFFSET ${param2.offsetIndex}
+	</select>
 </mapper>
