@@ -137,12 +137,12 @@
 								</span>
 								<p>									
 									<c:if test="${vo.addr2 =='' }">
-										<li><img src="/img/camping/주소아이콘.png" style="height:28px"> ${vo.addr1 }</li>
+										<li><img src="/img/camping/location.png" style="height:23px; margin-right: 2px;"> ${vo.addr1 }</li>
 									</c:if>
-										<li><img src="/img/camping/주소아이콘.png" style="height:28px"> ${vo.addr1 } ${vo.addr2 }</li>									
+										<li><img src="/img/camping/location.png" style="height:23px; margin-right: 2px;"> ${vo.addr1 } ${vo.addr2 }</li>									
 								</p>
 									<c:if test="${vo.tel != ''}">
-										<li><img src="/img/camping/전화.png" style="height:20px">  ${vo.tel }</li>
+										<li><img src="/img/camping/smartphone-call.png" style="height:24px; margin-right: 3px;">  ${vo.tel }</li>
 									</c:if>
 								</ul>	
 							</div>
