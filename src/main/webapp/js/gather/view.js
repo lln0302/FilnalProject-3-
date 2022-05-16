@@ -1,4 +1,5 @@
 $(function(){
+	
 	// 캠퍼 참여 인원 표시 함수
 	function gnewnoCount(){
 		$.ajax({
