@@ -4,6 +4,7 @@ import java.util.List;
 
 import javax.inject.Inject;
 
+import com.campus.myapp.myPagePagingVO;
 import org.springframework.stereotype.Service;
 
 @Service
@@ -82,4 +83,19 @@ public class GatherServiceImpl implements GatherService {
 		return dao.replyDel(replyno);
 	}
 
+	//마이페이지
+	@Override
+	public List<GatherVO> myPageOpenedCamping(myPagePagingVO pVO) {
+		return dao.myPageOpenedCamping(pVO);
+	}
+
+	@Override
+	public List<GatherVO> myPageCamping(GatherVO vo, myPagePagingVO pVO) {
+		return dao.myPageCamping(vo, pVO);
+	}
+
+	@Override
+	public int totalRecord(myPagePagingVO pVO) {
+		return dao.totalRecord(pVO);
+	}
 }

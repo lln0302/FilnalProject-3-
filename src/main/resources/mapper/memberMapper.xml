@@ -39,4 +39,12 @@
         SELECT * FROM member
         WHERE userid=#{param1}
     </select>
+    <select id="isValidEmail" resultType="com.campus.myapp.member.MemberVO">
+        SELECT userid FROM member
+        WHERE userid=#{userid} AND email=#{email}
+    </select>
+    <update id="findUserPwd">
+        UPDATE member SET userpwd=#{userpwd}
+        WHERE userid=#{userid} AND email=#{email}
+    </update>
 </mapper>
