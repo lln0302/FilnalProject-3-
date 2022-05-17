@@ -27,8 +27,6 @@ public class ServerConfigure implements WebMvcConfigurer{
 				.addResourceLocations("/ckUpload/");
 	}
 	
-
-	
 	@Bean
 	public CommonsMultipartResolver multipartResolver() {
 		CommonsMultipartResolver commonsMultipartResolver = new CommonsMultipartResolver();
