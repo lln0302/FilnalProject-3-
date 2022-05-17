@@ -35,6 +35,20 @@ $(function(){
 		});
 	}
 	
+	// 댓글 개수 보이기
+	function replyCount(){
+		$.ajax({
+				url:'/gather/replyCountSelect',
+				data:"gatherno="+$("#gatherno").val(),
+				type:'GET',
+				success:function(result){
+					$("#replyCount").html(result);
+					},error:function(){
+					alert("댓글 표시 에러")
+				}
+			});
+	}
+	
 	// 댓글 등록
 	$("#replyLine").on('submit', function(event){
 		event.preventDefault();
@@ -49,10 +63,12 @@ $(function(){
 				success:function(){
 					$("#content").val(""); // 댓글창 비우기
 					replyList();           // 댓글 리스트 보이기
+					replyCount();
 				},error:function(){
 					alert("로그인 후 이용해주세요!!");
 				}
 			});
+			
 		}
 	})
 	
@@ -72,6 +88,7 @@ $(function(){
 			success:function(){
 				alert('댓글이 수정되었습니다.');
 				replyList();
+				replyCount();
 			},error:function(){
 				console.log("Edit error")
 			}
@@ -88,9 +105,11 @@ $(function(){
 				success:function(){
 					alert('댓글이 삭제되었습니다.');
 					replyList();
+					replyCount();
 				}
 			});	
 		}
 	});
 	replyList();
+	replyCount();
 });
