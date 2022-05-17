@@ -7,6 +7,7 @@ import org.springframework.context.annotation.Bean;
 import org.springframework.context.annotation.Configuration;
 import org.springframework.web.multipart.commons.CommonsMultipartResolver;
 import org.springframework.web.servlet.config.annotation.InterceptorRegistry;
+import org.springframework.web.servlet.config.annotation.ResourceHandlerRegistry;
 import org.springframework.web.servlet.config.annotation.WebMvcConfigurer;
 
 @Configuration
@@ -20,6 +21,11 @@ public class ServerConfigure implements WebMvcConfigurer{
 	public void addInterceptors(InterceptorRegistry registry) {
 		registry.addInterceptor(new LoginInterceptor()).addPathPatterns(URL_PATERRNS);
 	}
+
+	public void addResourceHandlers(ResourceHandlerRegistry registry) {
+		registry.addResourceHandler("/ckUpload/**")
+				.addResourceLocations("/ckUpload/");
+	}
 	
 	@Bean
 	public CommonsMultipartResolver multipartResolver() {
@@ -27,4 +33,6 @@ public class ServerConfigure implements WebMvcConfigurer{
 		commonsMultipartResolver.setDefaultEncoding("UTF-8");
 		return commonsMultipartResolver;
 	}
+	
+
 }

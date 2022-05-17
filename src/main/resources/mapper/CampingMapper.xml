@@ -8,6 +8,10 @@
         insert into campinglist(modifiedtime, contentId, facltNm, lineIntro, intro, featureNm, induty, lctCl, doNm, sigunguNm, addr1, addr2, tel, homepage, resveUrl, resveCl, sbrsCl, posblFcltyCl, firstImageUrl, operPdCl, operDeCl)
         values(#{modifiedtime}, #{contentId}, #{facltNm}, #{lineIntro}, #{intro}, #{featureNm}, #{induty}, #{lctCl}, #{doNm}, #{sigunguNm}, #{addr1}, #{addr2}, #{tel}, #{homepage}, #{resveUrl}, #{resveCl}, #{sbrsCl}, #{posblFcltyCl},#{firstImageUrl}, #{operPdCl}, #{operDeCl})
     </insert>
+    
+    <insert id="addimages">
+    	insert into campinglist(imageUrl) values (#{imageUrl})
+    </insert>
 	
 	<select id="totalRecord" resultType="int">
 		select count(contentId), sigunguNm, doNm from campinglist
@@ -119,9 +123,13 @@
 	</select>
 	
 	<select id="campingSelect" resultType="com.campus.myapp.camping.CampingVO">
-  		select firstImageUrl, addr1, addr2, tel, lctCl, induty, operPdcl, operDecl, homepage, resveCl, posblFcltyCl 
+  		select facltNm, firstImageUrl, addr1, addr2, tel, lctCl, induty, operPdcl, operDecl, homepage, resveCl, posblFcltyCl 
   		from campinglist where contentId = #{params}
   	</select> 
+  	
+  	<select id="campingViewReview" resultType="com.campus.myapp.camping.CampingVO">
+  		
+  	</select>
   	
   	<select id="campingSuggestion" resultType="com.campus.myapp.camping.CampingVO">
   		select posblFcltyCl, modifiedtime, contentId, firstImageUrl, sigunguNm, doNm, facltNm, addr2, addr1, tel, induty, sbrsCl 

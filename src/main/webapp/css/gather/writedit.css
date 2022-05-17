@@ -1,12 +1,12 @@
 @charset "UTF-8";
 
-#gatherWrite, .container{
+#gatherWrite, #gatherEdit, .container{
 	font-family: 'Gowun Dodum', sans-serif;  /*메인페이지 타이틀 폰트*/
 	font-family: 'IBM Plex Sans', sans-serif; /* 본문 영문 폰트*/
 	font-family: 'IBM Plex Sans KR', sans-serif; /* 본문 한글폰트 */
 }
 
-#gatherWrite{
+#gatherWrite, #gatherEdit{
 	padding:10px;
 	background:rgba(245, 130, 67, .1);
 }
