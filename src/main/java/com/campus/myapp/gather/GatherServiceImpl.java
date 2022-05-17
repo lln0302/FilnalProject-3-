@@ -126,8 +126,8 @@ public class GatherServiceImpl implements GatherService {
 	}
 
 	@Override
-	public List<GatherVO> myPageCamping(GatherVO vo, myPagePagingVO pVO) {
-		return dao.myPageCamping(vo, pVO);
+	public List<GatherMemberVO> myPageCamping(myPagePagingVO pVO) {
+		return dao.myPageCamping(pVO);
 	}
 
 	@Override

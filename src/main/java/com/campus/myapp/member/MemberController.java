@@ -170,10 +170,6 @@ public class MemberController {
         return mav;
     }
 
-    @GetMapping("myPageCamping")
-    public String myPageCamping() {
-        return "member/myPageCamping";
-    }
 
     @GetMapping("myPageLikeList")
     public String myPageLikeList() {
@@ -229,5 +225,17 @@ public class MemberController {
         return result;
     }
 
+    @GetMapping("myPageCamping")
+    public ModelAndView myPageCamping(myPagePagingVO pVO) {
+        ModelAndView mav = new ModelAndView();
+
+        pVO.setTotalRecord(gatherService.totalRecord(pVO));
+
+        mav.addObject("myPageCamping", gatherService.myPageCamping(pVO));
+        mav.addObject("pVO", pVO);
+
+        mav.setViewName("member/myPageCamping");
+        return mav;
+    }
 
 }
