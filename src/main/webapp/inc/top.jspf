@@ -28,8 +28,8 @@
 
 <!-- axios 라이브러리 추가 -->
 <script src="https://cdn.jsdelivr.net/npm/axios/dist/axios.min.js"></script>
-<script src="//cdn.ckeditor.com/4.17.2/full/ckeditor.js"></script>
-
+<!-- ckeditor -->
+<script src="${url}/ckeditor/ckeditor.js"></script>
 <script src="https://kit.fontawesome.com/76aefe2b67.js"></script>
 </head>
 
@@ -66,8 +66,8 @@
 				<li data-menuanchor="section1" class="menu1"><a href="#section1">SEARCH</a>
 					<ul class="t__menu1__s t__submenu">
 						<li data-menuanchor="section2"><a href="/camping/campingSearch">camping list</a></li>
-						<li data-menuanchor="section3"><a href="#section3">hash tag</a></li>
-						<li data-menuanchor="section4"><a href="#section4">recommend</a></li>
+						<li data-menuanchor="section3"><a href="/camping/campingTag">hash tag</a></li>
+						<li data-menuanchor="section4"><a href="/camping/campingSuggestion">recommend</a></li>
 					</ul>
 				</li>
 				<li class="logo">

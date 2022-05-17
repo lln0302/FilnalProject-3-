@@ -8,6 +8,10 @@
         insert into campinglist(modifiedtime, contentId, facltNm, lineIntro, intro, featureNm, induty, lctCl, doNm, sigunguNm, addr1, addr2, tel, homepage, resveUrl, resveCl, sbrsCl, posblFcltyCl, firstImageUrl, operPdCl, operDeCl)
         values(#{modifiedtime}, #{contentId}, #{facltNm}, #{lineIntro}, #{intro}, #{featureNm}, #{induty}, #{lctCl}, #{doNm}, #{sigunguNm}, #{addr1}, #{addr2}, #{tel}, #{homepage}, #{resveUrl}, #{resveCl}, #{sbrsCl}, #{posblFcltyCl},#{firstImageUrl}, #{operPdCl}, #{operDeCl})
     </insert>
+    
+    <insert id="addimages">
+    	insert into campinglist(imageUrl) values (#{imageUrl})
+    </insert>
 	
 	<select id="totalRecord" resultType="int">
 		select count(contentId), sigunguNm, doNm from campinglist
@@ -18,25 +22,117 @@
 		<if test='sigunguNm != null'>
 			and sigunguNm   like '%${sigunguNm}%'
 		</if>
+		<if test='induty != null'>
+			and
+			<foreach item="item" collection="induty" separator="and">
+			 	induty like '%${item}%'
+			 </foreach>
+		</if>
+		<if test='sbrsCl != null'>
+			and 
+			<foreach item="item" collection="sbrsCl" separator="and">
+				sbrsCl like '%${item}%'
+			</foreach>
+		</if>
+		<if test='posblFcltyCl != null'>
+			and 
+			<foreach item="item" collection="posblFcltyCl" separator="and">
+				sbrsCl like '%${item}%'
+			</foreach>
+		</if>
 	</select>
 	
 	<select id="campingSearch" resultType="com.campus.myapp.camping.CampingVO">
-		select modifiedtime, contentId, firstImageUrl, sigunguNm, doNm, facltNm, addr2, addr1, tel from campinglist
+		select posblFcltyCl,modifiedtime, contentId, firstImageUrl, sigunguNm, doNm, facltNm, addr2, addr1, tel, induty, sbrsCl, intro, lineIntro 
+		from campinglist
 		where 1=1
 		<if test='doNm != null'>
-			and doNm   like '%${doNm}%'
+			and doNm like '%${doNm}%'
 		</if>
 		<if test='sigunguNm != null'>
-			and sigunguNm   like '%${sigunguNm}%'
+			and sigunguNm like '%${sigunguNm}%'
 		</if>
-		<!--
-			 and ${} like '${induty}' and ${} like '${sbrsCl}'
-		 -->
+		<if test='induty != null'>
+			and
+			<foreach item="item" collection="induty" separator="and">
+			 	induty like '%${item}%'
+			 </foreach>
+		</if>
+		<if test='sbrsCl != null'>
+			and 
+			<foreach item="item" collection="sbrsCl" separator="and">
+				sbrsCl like '%${item}%'
+			</foreach>
+		</if>
+		<if test='posblFcltyCl != null'>
+			and 
+			<foreach item="item" collection="posblFcltyCl" separator="and">
+				posblFcltyCl like '%${item}%'
+			</foreach>
+		</if>
+		<if test='animalCmgCl != null'>
+			and	animalCmgCl like '%${animalCmgCl}%'			
+		</if>	
+		<if test='operPdCl != null'>
+			and 
+			<foreach item="item" collection="operPdCl" separator="and">
+				operPdCl like '%${item}%'
+			</foreach>
+		</if>	
+		order by modifiedtime desc limit ${onePageRecord} offset ${offsetIndex}		
+	</select>
+	
+	<select id="campingTag" resultType="com.campus.myapp.camping.CampingVO">
+		select posblFcltyCl, modifiedtime, contentId, firstImageUrl, sigunguNm, doNm, facltNm, addr2, addr1, tel, induty, sbrsCl, intro, lineIntro 
+		from campinglist
+		where 1=1
+		<if test='doNm != null'>
+			and doNm like '%${doNm}%'
+		</if>
+		<if test='sigunguNm != null'>
+			and sigunguNm like '%${sigunguNm}%'
+		</if>
+		<if test='induty != null'>
+			and
+			<foreach item="item" collection="induty" separator="and">
+			 	induty like '%${item}%'
+			 </foreach>
+		</if>
+		<if test='sbrsCl != null'>
+			and 
+			<foreach item="item" collection="sbrsCl" separator="and">
+				sbrsCl like '%${item}%'
+			</foreach>
+		</if>
+		<if test='animalCmgCl != null'>
+			and	animalCmgCl like '%${animalCmgCl}%'			
+		</if>	
+		<if test='operPdCl != null'>
+			and 
+			<foreach item="item" collection="operPdCl" separator="and">
+				operPdCl like '%${item}%'
+			</foreach>
+		</if>	
+		<if test='posblFcltyCl != null'>
+			and 
+			<foreach item="item" collection="posblFcltyCl" separator="and">
+				posblFcltyCl like '%${item}%'
+			</foreach>
+		</if>
 		order by modifiedtime desc limit ${onePageRecord} offset ${offsetIndex}		
 	</select>
 	
 	<select id="campingSelect" resultType="com.campus.myapp.camping.CampingVO">
-  		select firstImageUrl, addr1, addr2, tel, lctCl, induty, operPdcl, operDecl, homepage, resveCl, posblFcltyCl 
+  		select facltNm, firstImageUrl, addr1, addr2, tel, lctCl, induty, operPdcl, operDecl, homepage, resveCl, posblFcltyCl 
   		from campinglist where contentId = #{params}
   	</select> 
+  	
+  	<select id="campingViewReview" resultType="com.campus.myapp.camping.CampingVO">
+  		
+  	</select>
+  	
+  	<select id="campingSuggestion" resultType="com.campus.myapp.camping.CampingVO">
+  		select posblFcltyCl, modifiedtime, contentId, firstImageUrl, sigunguNm, doNm, facltNm, addr2, addr1, tel, induty, sbrsCl 
+		from campinglist order by rand(), modifiedtime desc limit 10
+  	</select>
 </mapper>

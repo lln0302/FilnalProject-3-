@@ -1,5 +1,7 @@
 package com.campus.myapp.member;
 
+import java.util.List;
+
 public class MemberVO {
     private String userid;
     private String username;
@@ -17,7 +19,18 @@ public class MemberVO {
     private String userscore;
     private String zzim_zzimno;
 
-    public String getUsertel1() {
+    
+    private List<Integer> telList;
+
+	public List<Integer> getTelList() {
+		return telList;
+	}
+
+	public void setTelList(List<Integer> telList) {
+		this.telList = telList;
+	}
+
+	public String getUsertel1() {
         return usertel1;
     }
 

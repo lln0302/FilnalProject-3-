@@ -13,7 +13,7 @@
 	font-size:2.0em;
 }
 
-#gatherEdit, #gnewnoBtn1, #edit, .editForm input[value=수정] {
+#gatherEdit, #gnewnoBtn1, #gnewnoBtn2, #edit, .editForm input[value=수정] {
 	background:rgb(245, 130, 67);
 	color:white;
 }
@@ -52,11 +52,14 @@
 
 #gatherContent{
 	padding:20px;
-	/*background:beige;*/
+}
+
+#contentDiv img{
+	width:100% !important;
+	height:300px !important;
 }
 
 #joinCamper{
-	/*background:pink;*/
 	padding:10px;
 	margin:20px;
 	display:flex;
@@ -68,7 +71,7 @@
 	line-height:50px;
 }
 
-#gnewnoBtn1{
+#gnewnoBtn1, #gnewnoBtn2{
 	font-size:1.2em;
 	margin:20px;
 }

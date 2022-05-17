@@ -19,11 +19,16 @@
 }
 #adminMainContentTop {
 	/*width:1050px;*/
-	width:93%;
-	height: 100px; /*72px*/
-	font-size: 48px;
-	line-height:100px; /*72px*/
-	text-align: center;
+	/*width:100%;*/
+	float: left;
+    padding: 10px;
+    position: relative;
+    width: 51%;
+    left: 19%;
+    right: 30%;
+    font-size: 48px;
+    line-height: 100px;
+    text-align: center;
 }
 #hr2px {
 	height:2px;
@@ -44,6 +49,9 @@
 }
 #adminMainContent>ul{
 	list-style-type:none;
+}
+#adminMainContent #sideTapFirst {
+	z-index:2
 }
 #adminMainContentTop>ul{
 	background-color: #fff;

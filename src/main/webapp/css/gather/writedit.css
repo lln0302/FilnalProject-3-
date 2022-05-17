@@ -1,0 +1,58 @@
+@charset "UTF-8";
+
+#gatherWrite, #gatherEdit, .container{
+	font-family: 'Gowun Dodum', sans-serif;  /*메인페이지 타이틀 폰트*/
+	font-family: 'IBM Plex Sans', sans-serif; /* 본문 영문 폰트*/
+	font-family: 'IBM Plex Sans KR', sans-serif; /* 본문 한글폰트 */
+}
+
+#gatherWrite, #gatherEdit{
+	padding:10px;
+	background:rgba(245, 130, 67, .1);
+}
+
+.writeMark{
+	font-size:1.8em;
+	margin:10px;
+}
+
+.writeTitle{
+	padding:10px;
+	margin-left:30px;
+}
+
+.writeTitle>input{
+	border: solid rgba(245, 130, 67, .2);
+	padding:10px;
+	border-radius:5px;
+}
+
+.writeTitle>span {
+	margin:10px;	
+}
+
+#datepicker1, #datepicker2{
+	padding-left:10px;
+}
+
+#startdate, #enddate{
+	background:white;
+}
+
+.btns>input{
+	margin-top:20px;
+	background:rgb(245, 130, 67);
+	color:white;
+	padding:10px;
+}
+
+#resetBtn{
+	background:#67493B;
+	color:white;
+	padding:10px;
+}
+
+#showList{
+	float:right;
+}
+

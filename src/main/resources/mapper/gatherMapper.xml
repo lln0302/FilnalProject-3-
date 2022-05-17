@@ -18,7 +18,7 @@
 		LIMIT ${param1.postsPerPage} OFFSET ${param1.offset}
 	</select>
 	<select id="selectTotalPosts" resultType="int">
-		SELECT count(gatherno)count FROM gather
+		SELECT COUNT(gatherno)count FROM gather
 	</select>
 	<select id="gatherView" resultType="GatherVO">
 		SELECT gatherno, title, place, views, nickname,
@@ -28,20 +28,65 @@
 		content, gmemberno, gnewno
 		FROM gather WHERE gatherno=#{param1}
 	</select>
+	<select id="selectEditView" resultType="GatherVO">
+		SELECT gatherno, title, place, 
+		DATE_FORMAT(startdate, "%Y-%m-%d") startdate,
+		DATE_FORMAT(enddate, "%Y-%m-%d") enddate,
+		content, gmemberno
+		FROM gather WHERE gatherno=#{param1}
+	</select>
+	<update id="updateEditView">
+		UPDATE gather SET title=#{title}, place=#{place}, 
+		gmemberno=${gmemberno}, content=#{content},
+		startdate=STR_TO_DATE(#{startdate}, '%Y-%m-%d'),  
+		enddate=STR_TO_DATE(#{enddate}, '%Y-%m-%d')
+		WHERE gatherno=${gatherno}
+	</update>
+	<delete id="gatherDelete">
+		DELETE FROM gather WHERE gatherno=#{param1}
+	</delete>
 	<update id="updateViews">
-		UPDATE gather SET views=views+1 WHERE gatherno=#{param1}
-	</update>
-	<update id="plusGatherCamper">
-		UPDATE gather SET gnewno=gnewno+1 WHERE gatherno=#{param1}
-	</update>
-	<insert id="gathermemberInsert">
-		INSERT INTO gathermember(gmemberno, gatherno, gnewno, nickname, gender)
-		VALUES(#{param1}, #{param2}, #{param3}, #{nickname}, #{gender})
-	</insert>
-	<update id="minusGatherCamper">
-		UPDATE gather SET gnewno=gnewno-1 WHERE gatherno=#{param1} 
+		UPDATE gather SET views=views+1 
+		WHERE gatherno=#{param1}
 	</update>
 	
+	<!-- 캠퍼 모집 -->
+	<update id="plusGatherCamper">
+		UPDATE gather SET gnewno=gnewno+1 
+		WHERE gatherno=#{param1}
+	</update>
+	<insert id="gathermemberInsert">
+		INSERT INTO gathermember(gmemberno, gatherno, nickname, gender)
+		VALUES(#{param1}, #{param2}, #{param3}, #{param4})
+	</insert>
+	<select id="selectJoinCamper" resultType="GatherMemberVO">
+		SELECT gatherno, nickname FROM gathermember 
+		WHERE gatherno=#{param1} AND nickname=#{param2}
+	</select>
+	<select id="selectCamperList" resultType="GatherMemberVO">
+		SELECT gatherno, nickname, gender FROM gathermember 
+		WHERE gatherno=${gatherno}
+	</select>
+	<select id="gnewnoCountSelect" resultType="int">
+		SELECT gnewno FROM gather 
+		GROUP BY gatherno 
+		HAVING gatherno=#{param1}
+	</select>
+	<update id="minusGatherCamper">
+		UPDATE gather SET gnewno=gnewno-1 
+		WHERE gatherno=#{param1} 
+	</update>
+	<delete id="gathermemberDel">
+		DELETE FROM gathermember 
+		WHERE gatherno=${param1} AND nickname=#{param2}
+	</delete>
+	
+	
+	<!-- 댓글 -->
+	<select id="replyCountSelect" resultType="int">
+		SELECT COUNT(gatherno)count FROM gatherreply 
+		WHERE gatherno=#{param1}
+	</select>
 	<insert id="replyWrite">
 		INSERT INTO gatherreply(content, nickname, gatherno)
 		VALUES(#{content}, #{nickname}, ${gatherno})
@@ -53,11 +98,13 @@
 		ORDER BY replyno DESC
 	</select>
 	<update id="replyEdit">
-		UPDATE gatherreply SET content=#{content} WHERE replyno=${replyno}
+		UPDATE gatherreply SET content=#{content} 
+		WHERE replyno=${replyno}
 	</update>
 	<delete id="replyDel">
 		DELETE FROM gatherreply WHERE replyno=#{param1} 
 	</delete>
+
 	<!-- 개설한 캠핑 리스트 -->
 	<select id="myPageOpenedCamping" resultType="com.campus.myapp.gather.GatherVO">
 		SELECT  gatherno, title, nickname, place, views, date_format(createdate, '%m-%d %H:%i') createdate

@@ -1,22 +1,29 @@
 package com.campus.myapp.gather;
 
+import java.io.ByteArrayOutputStream;
 import java.io.File;
+import java.io.FileInputStream;
 import java.io.FileOutputStream;
 import java.io.IOException;
 import java.io.OutputStream;
 import java.io.PrintWriter;
-import java.text.SimpleDateFormat;
-import java.util.Date;
+import java.nio.charset.Charset;
 import java.util.List;
 import java.util.UUID;
 import java.util.regex.Matcher;
 import java.util.regex.Pattern;
 
 import javax.inject.Inject;
+import javax.servlet.ServletException;
+import javax.servlet.ServletOutputStream;
 import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
 import javax.servlet.http.HttpSession;
 
+import org.springframework.beans.factory.annotation.Value;
+import org.springframework.http.HttpHeaders;
+import org.springframework.http.HttpStatus;
+import org.springframework.http.MediaType;
 import org.springframework.http.ResponseEntity;
 import org.springframework.web.bind.annotation.GetMapping;
 import org.springframework.web.bind.annotation.PostMapping;
@@ -30,15 +37,18 @@ import org.springframework.web.servlet.ModelAndView;
 @RequestMapping("/gather/")
 @RestController
 public class GatherController {
+	
+	/* 지향: 맵핑 순서
+	  1. 캠퍼 커뮤니티 리스트, 뷰, 등록, 수정, 삭제 
+	  2. 캠퍼 참여, 참여 취소
+	  3. 댓글 등록, 리스트, 수정, 삭제 
+	*/ 
 
 	@Inject
 	GatherService service;
 
 	ModelAndView mav = new ModelAndView();
 	ResponseEntity<String> entity = null;
-	HttpSession session = null;
-	HttpServletRequest request = null;
-	HttpServletResponse response = null;
 
 	// 캠퍼 모임 커뮤니티 리스트
 	@GetMapping("/gatherList")
@@ -59,29 +69,25 @@ public class GatherController {
 
 	// 캠퍼 모임 커뮤니티 글등록 폼
 	@GetMapping("/gatherWrite")
-	public ModelAndView GatherWrite() {
+	public ModelAndView GatherWrite(HttpSession session, HttpServletRequest request) {
 		mav.setViewName("gather/gatherWrite");
-
 		return mav;
 	}
 
-	// CKeditor 업로드
-	@SuppressWarnings("finally")
-	@RequestMapping(value = "/ckUpload", method = RequestMethod.POST)
-	public void imageUpload(@RequestParam MultipartFile upload) throws Exception {
-
-		SimpleDateFormat dateFormat = new SimpleDateFormat("yy-MM-dd");
-		Date today = new Date();
-		String dateForFile = dateFormat.format(today);
+	
+	// CKeditor 서버로 이미지 전송하기
+	@RequestMapping(value = "/imageUpload", method = RequestMethod.POST)
+	public void imageUpload(HttpServletRequest request, HttpServletResponse response, 
+			@RequestParam MultipartFile upload) throws Exception {
 
 		// 랜덤 문자 생성 : 파일이름 중복 방지
 		UUID uid = UUID.randomUUID();
 		OutputStream out = null;
 		PrintWriter printWriter = null;
-
+		
 		// 인코딩
 		response.setCharacterEncoding("utf-8");
-		response.setContentType("text/html; charset=utf-8");
+		response.setContentType("text/html;charset=utf-8");
 
 		try {
 
@@ -89,11 +95,9 @@ public class GatherController {
 			String fileName = upload.getOriginalFilename();
 			byte[] bytes = upload.getBytes();
 
-			// 이미지 경로 생성
-			String path = session.getServletContext().getRealPath("/ckupload") + dateForFile;
+			// 업로드 경로
+			String path = request.getServletContext().getRealPath("/ckUpload/");
 			String ckUploadPath = path + uid + "_" + fileName;
-
-			System.out.println(path);
 			File folder = new File(path);
 
 			// 해당 디렉토리 확인
@@ -108,42 +112,73 @@ public class GatherController {
 			out.write(bytes);
 			out.flush(); // outputStream에 저장된 데이터를 전송하고 초기화
 
+			
 			printWriter = response.getWriter();
-			String fileUrl = "/gather/ckImgSubmit7?uid=" + uid + "&fileName" + fileName; // 글 작성 폼에 보여주기
+			//String callback = request.getParameter("CKEditorFuncNum");
+			String fileUrl = "/gather/imageSubmit?uid=" + uid 
+					+ "&fileName=" + fileName; // 작성화면
 
 			// 업로드 시 메시지 출력
-			printWriter.println("fileUrl: " + fileUrl);
+			printWriter.println("{\"filename\" : \""+fileName+"\", \"uploaded\" : 1, \"url\":\""+fileUrl+"\"}");
 			printWriter.flush();
 
-		} catch (Exception e) {
+		}catch (Exception e) {
 			e.printStackTrace();
-		} finally {
+		}finally {
 			try {
-				if (out != null) {
-					out.close();
+				if (out != null) {out.close();}
+				if (printWriter != null) {printWriter.close();}
+			} catch (IOException e) {e.printStackTrace();}
+		}
+		return;
+	}
+
+	// CKEditor 서버로 전송된 이미지 뿌려주기
+	@RequestMapping(value="/imageSubmit", method=RequestMethod.GET)
+	public void ckSubmit(@RequestParam(value="uid") String uid, 
+			@RequestParam(value="fileName") String fileName,
+			HttpServletRequest request, HttpServletResponse response)
+					throws ServletException, IOException{
+		
+		// 서버에 저장된 이미지 경로
+		String path = request.getServletContext().getRealPath("/ckUpload/");
+		String sDirPath = path + uid + "_" + fileName; 
+		File imgFile = new File(sDirPath);
+
+		// 사진 이미지를 못 찾을 때 예외처리로 빈 이미지 파일 설정
+		if(imgFile.isFile()) {
+			byte[] buf = new byte[1024];
+			int readByte = 0;
+			int length = 0;
+			byte[] imgBuf = null;
+			
+			FileInputStream fileInputStream = null;
+			ByteArrayOutputStream outputStream = null;
+			ServletOutputStream out = null;
+			
+			try {
+				fileInputStream = new FileInputStream(imgFile);
+				outputStream = new ByteArrayOutputStream();
+				out = response.getOutputStream();
+				
+				while((readByte = fileInputStream.read(buf))!= -1) {
+					outputStream.write(buf, 0, readByte);
 				}
-				if (printWriter != null) {
-					printWriter.close();
-				}
-			} catch (final IOException e) {
-				e.printStackTrace();
+				
+				imgBuf = outputStream.toByteArray();
+				length = imgBuf.length;
+				out.write(imgBuf, 0, length);
+				out.flush();
+				
+			}catch(IOException e) {
+			}finally {
+				outputStream.close();
+				fileInputStream.close();
+				out.close();
 			}
-			return;
 		}
 	}
-
-	// Ckeditor 서버로 전송된 이미지 뿌려주기
-	@RequestMapping(value = "ckImgSubmit")
-	public void ckImgSubmit(@RequestParam(value = "uid") String uid, @RequestParam(value = "fileName") String fileName,
-			@RequestParam(value = "dateForFile") String dateForFile) throws Exception {
-
-		// 서버에 저장된 이미지 경로
-		String path = session.getServletContext().getRealPath("/upload");
-		System.out.println("path: " + path);
-
-		// 파일 업로드
-	}
-
+	
 	// CK에디터로 올린 이미지에서 썸네일 뽑아내기
 	// 리뷰 중 첫번째 사진 썸네일로 지정
 	public String getImgSrc(String content) {
@@ -166,8 +201,6 @@ public class GatherController {
 	public ModelAndView GatherWriteOk(GatherVO vo, MultipartFile file, HttpSession session) throws Exception {
 		// 현재 session에 있는 nickname
 		vo.setNickname((String) session.getAttribute("nickname"));
-		String path = (String) session.getServletContext().getRealPath("/ckupload");
-		System.out.println(path);
 
 		try {
 			int cnt = service.gatherInsert(vo);
@@ -179,36 +212,114 @@ public class GatherController {
 		return mav;
 	}
 
-	// 캠퍼 모임 상세페이지
+	// 캠퍼 모임 상세페이지(뷰)
 	@GetMapping("/gatherView")
-	public ModelAndView GatherView(int gatherno, HttpSession session) {
+	public ModelAndView GatherView(int gatherno, GatherMemberVO vo, HttpSession session) {
 		// 조회수 증가
 		service.updateViews(gatherno);
-		
 		// 상세페이지 보이기
 		mav.addObject("view", service.gatherView(gatherno));
+		
+		// 캠퍼 참여한 유저 표시
+		mav.addObject("alreadyJoin", service.selectJoinCamper(gatherno, 
+				(String)session.getAttribute("nickname")));
+		// 캠핑 참여한 유저 리스트
+		mav.addObject("list", service.selectCamperList(vo));
 		mav.setViewName("gather/gatherView");
 		return mav;
 	}
 	
-	// 캠퍼 참여 
-	@GetMapping("/plusGatherCamper")
-	public int PlusGatherCamper(int gmemberno, int gatherno, int gnewno,
-								GatherMemberVO vo, HttpSession session) {
-		
-		vo.setNickname((String)session.getAttribute("nickname"));
-		vo.setGender((String)session.getAttribute("gender"));
-		System.out.println(vo.getGmemberno());
-		System.out.println(vo.getGatherno());
-		System.out.println(vo.getGender());
-		System.out.println(vo.getNickname());
-		service.plusGatherCamper(gatherno);
-		return service.gathermemberInsert(gmemberno, gatherno, gnewno);
+	// 캠퍼 모임 수정페이지
+	@GetMapping("/gatherEdit")
+	public ModelAndView GatherEdit(int gatherno, HttpSession session) {
+		// 상세페이지 보이기
+		mav.addObject("edit", service.selectEditView(gatherno));
+		mav.setViewName("gather/gatherEdit");
+		return mav; 
 	}
 	
+	// 캠퍼 모임 글 수정
+	@PostMapping("/gatherUpdate")
+	public ModelAndView GatherUpdate(GatherVO vo, MultipartFile file, 
+			HttpSession session) throws Exception {
+		
+		vo.setNickname((String)session.getAttribute("nickname"));
+		System.out.println(vo.getGatherno());
+		System.out.println(vo.getPlace());
+		System.out.println(vo.getGmemberno());
+		int cnt = service.updateEditView(vo);
+		
+		if(cnt>0) {
+			
+			mav.addObject("cnt", cnt);
+			mav.addObject("vo", vo);
+			mav.setViewName("gather/gatherEditSuc");
+		}
+		
+		
+		return mav;
+	}
+	
+	
+	// 캠퍼 모임 글 삭제
+	@GetMapping("/gatherDel")
+	public ResponseEntity<String> gatherDel(int gatherno, HttpServletRequest request) {
+		
+		// upload 폴더 경로(삭제를 위해서)
+		String path = request.getServletContext().getRealPath("/ckUpload/");
+		
+		// 인코딩
+		HttpHeaders headers = new HttpHeaders();
+		headers.setContentType(new MediaType("text", "html", Charset.forName("UTF-8")));
+		
+		try {
+			// 삭제
+			int result = service.gatherDelete(gatherno);
+			
+			// 글 삭제 성공시 ckUpload 폴더에 있는 이미지 삭제
+			if(result>0) {
+				
+				String body = "<script>alert('글이 성공적으로 삭제되었습니다.');";
+				body += "location.href='/gather/gatherList';</script>";
+				entity = new ResponseEntity<String>(body, headers, HttpStatus.OK);
+			}else{
+				entity = new ResponseEntity<String>("<script>history.go(-1);</script>",
+						headers, HttpStatus.BAD_REQUEST);
+			}
+		} catch(Exception e) {
+			e.printStackTrace();
+			String body = "<script>alert('글이 삭제되지 않았습니다.);";
+			body += "history.go(-1);</script>";
+			entity = new ResponseEntity<String>(body, headers, HttpStatus.BAD_REQUEST);
+		}
+		
+		return entity;
+	}
+	
+	// 캠퍼 참여 
+	@GetMapping("/plusGatherCamper")
+	public GatherMemberVO PlusGatherCamper(int gmemberno, int gatherno, GatherMemberVO vo, HttpSession session) {
+		
+		String nickname = (String)session.getAttribute("nickname");
+		vo.setNickname(nickname);
+		vo.setGender((String)session.getAttribute("gender"));
+		
+		service.plusGatherCamper(gatherno);
+		service.gathermemberInsert(gmemberno, gatherno, vo.getNickname(), vo.getGender());
+		return service.selectJoinCamper(gatherno, nickname);
+	}
+	// 캠퍼 유저 수 표시
+	@GetMapping("/gnewnoCount")
+	public int gnewnoCount(int gatherno) {
+		return service.gnewnoCountSelect(gatherno);
+	}
+	// 캠퍼 참여 취소
 	@GetMapping("/minusGatherCamper")
-	public int MinusGatherCamper(int gatherno) {
-		return service.minusGatherCamper(gatherno);
+	public GatherMemberVO MinusGatherCamper(int gatherno, String nickname, HttpSession session) {
+		nickname = (String)session.getAttribute("nickname");
+		service.minusGatherCamper(gatherno);
+		service.gathermemberDel(gatherno, nickname);
+		return service.selectJoinCamper(gatherno, nickname);
 	}
 	
 	// gather 댓글 등록하기
@@ -217,19 +328,20 @@ public class GatherController {
 		vo.setNickname((String)session.getAttribute("nickname"));
 		return service.replyWrite(vo);
 	}
-	
+	@GetMapping("/replyCountSelect")
+	public int replyCountSelect(int gatherno) {
+		return service.replyCountSelect(gatherno);
+	}
 	// gather 댓글 리스트 
 	@GetMapping("/replyList")
 	public List<ReplyVO> ReplyList(int gatherno){
 		return service.replyList(gatherno);
 	}
-	
 	// gather 댓글 수정
 	@PostMapping("/replyEdit")
 	public int ReplyEdit(ReplyVO vo) {
 		return service.replyEdit(vo);
 	}
-	
 	// gather 댓글 삭제
 	@GetMapping("/replyDel")
 	public int ReplyDel(int replyno) {
