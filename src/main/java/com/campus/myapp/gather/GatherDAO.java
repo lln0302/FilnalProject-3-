@@ -2,6 +2,7 @@ package com.campus.myapp.gather;
 
 import java.util.List;
 
+import com.campus.myapp.myPagePagingVO;
 import org.apache.ibatis.annotations.Mapper;
 import org.springframework.stereotype.Repository;
 
@@ -51,4 +52,8 @@ public interface GatherDAO {
 	// 뷰페이지 댓글 개수
 	public int replyCountSelect(int gatherno);
 
+	//마이페이지
+	public List<GatherVO> myPageOpenedCamping(myPagePagingVO pVO);
+	public List<GatherVO> myPageCamping(GatherVO vo, myPagePagingVO pvo);
+	public int totalRecord(myPagePagingVO pVO);
 }

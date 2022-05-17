@@ -1,5 +1,7 @@
 package com.campus.myapp.gather;
 
+import com.campus.myapp.myPagePagingVO;
+
 import java.util.List;
 
 public interface GatherService {
@@ -43,8 +45,13 @@ public interface GatherService {
 	public int replyEdit(ReplyVO vo);
 	// 댓글 삭제
 	public int replyDel(int replyno);
+
 	// 뷰페이지 댓글 개수
 	public int replyCountSelect(int gatherno);
 	
 
+	//마이페이지
+	public List<GatherVO> myPageOpenedCamping(myPagePagingVO pVO);
+	public List<GatherVO> myPageCamping(GatherVO vo, myPagePagingVO pVO);
+	public int totalRecord(myPagePagingVO pVO);
 }

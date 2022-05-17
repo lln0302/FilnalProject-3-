@@ -42,19 +42,19 @@ function findUserid() {
 }
 
 function IsValidEmail() {
-    const userId = document.getElementById("userId");
-    const userEmail = document.getElementById("userEmail");
-    if(!userId.value) {
+    const userid = document.getElementById("userid");
+    const email = document.getElementById("email");
+    if(!userid.value) {
         alert("아이디를 입력해주세요");
         return false;
     }
-    if(!userEmail.value) {
+    if(!email.value) {
         alert("이메일을 입력해주세요");
         return false;
     }
     const body = {
-        userId : userId.value,
-        userEmail : userEmail.value
+        userid : userid.value,
+        email : email.value
     }
     axios.post("/member/isValidEmail", body)
         .then((res) =>{
@@ -72,11 +72,11 @@ function IsValidEmail() {
         })
 }
 function FindUserPwd() {
-    const userId = document.getElementById("userId");
-    const userEmail = document.getElementById("userEmail")
+    const userid = document.getElementById("userid");
+    const email = document.getElementById("email")
     const body = {
-        userId : userId.value,
-        userEmail : userEmail.value
+        userid : userid.value,
+        email : email.value
     }
     axios.post("/member/findUserPwd", body)
         .then((res) => {
