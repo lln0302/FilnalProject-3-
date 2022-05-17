@@ -25,6 +25,15 @@ public class CampingVO {
     private String operDeCl;
     private String modifiedtime;
     
+    private String nickname;		//아니 이거 안넣으면 이상하게 캠핑장 리스트 안나옴;;
+    
+    public String getNickname() {
+		return nickname;
+	}
+	public void setNickname(String nickname) {
+		this.nickname = nickname;
+	}
+    
     private List<Integer> contentIdList;
     
 	public String getModifiedtime() {

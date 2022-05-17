@@ -1,5 +1,7 @@
 package com.campus.myapp.gather;
 
+import java.util.List;
+
 public class GatherVO {
 
 	private int gatherno;
@@ -15,6 +17,15 @@ public class GatherVO {
 	private int gmemberno;
 	private int gnewno;
 	
+	private List<Integer> gathernoList;
+	
+	
+	public List<Integer> getGathernoList() {
+		return gathernoList;
+	}
+	public void setGathernoList(List<Integer> gathernoList) {
+		this.gathernoList = gathernoList;
+	}
 	public int getGatherno() {
 		return gatherno;
 	}

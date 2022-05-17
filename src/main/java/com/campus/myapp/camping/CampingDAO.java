@@ -9,22 +9,22 @@ import org.springframework.stereotype.Repository;
 @Mapper
 public interface CampingDAO {
 		
-	//°¡°ÔÁ¤º¸ µî·Ï
+	//ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ ï¿½ï¿½ï¿½
 	public int addplace(CampingVO vo);	
 	
-	//ÃÑ ·¹ÄÚµå ¼ö
+	//ï¿½ï¿½ ï¿½ï¿½ï¿½Úµï¿½ ï¿½ï¿½
 	public int totalRecord(Paging10VO pvo);
 
-	//Ä·ÇÎÀå ¸ñ·Ï(search)
+	//Ä·ï¿½ï¿½ï¿½ï¿½ ï¿½ï¿½ï¿½(search)
 	public List<CampingVO> campingSearch(Paging10VO pVO);
 	
-	//Ä·ÇÎÀå ¸ñ·Ï(tag)
+	//Ä·ï¿½ï¿½ï¿½ï¿½ ï¿½ï¿½ï¿½(tag)
 	public List<CampingVO> campingTag(Paging10VO pVO);
 	
-	//Ä·ÇÎÀå ¸ñ·Ï(suggestion)
+	//Ä·ï¿½ï¿½ï¿½ï¿½ ï¿½ï¿½ï¿½(suggestion)
 	public List<CampingVO> campingSuggestion(Paging10VO pVO);	
 	
-	//Ä·ÇÎÀå ¼±ÅÃ
+	//Ä·ï¿½ï¿½ï¿½ï¿½ ï¿½ï¿½ï¿½ï¿½
 	public CampingVO campingSelect(String contentId);
 			
 }
