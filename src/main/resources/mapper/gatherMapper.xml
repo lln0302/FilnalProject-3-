@@ -28,6 +28,20 @@
 		content, gmemberno, gnewno
 		FROM gather WHERE gatherno=#{param1}
 	</select>
+	<select id="selectEditView" resultType="GatherVO">
+		SELECT gatherno, title, place, 
+		DATE_FORMAT(startdate, "%Y-%m-%d") startdate,
+		DATE_FORMAT(enddate, "%Y-%m-%d") enddate,
+		content, gmemberno
+		FROM gather WHERE gatherno=#{param1}
+	</select>
+	<update id="updateEditView">
+		UPDATE gather SET title=#{title}, place=#{place}, 
+		gmemberno=${gmemberno}, content=#{content},
+		startdate=STR_TO_DATE(#{startdate}, '%Y-%m-%d'),  
+		enddate=STR_TO_DATE(#{enddate}, '%Y-%m-%d')
+		WHERE gatherno=${gatherno}
+	</update>
 	<delete id="gatherDelete">
 		DELETE FROM gather WHERE gatherno=#{param1}
 	</delete>
@@ -49,6 +63,10 @@
 		SELECT gatherno, nickname FROM gathermember 
 		WHERE gatherno=#{param1} AND nickname=#{param2}
 	</select>
+	<select id="selectCamperList" resultType="GatherMemberVO">
+		SELECT gatherno, nickname, gender FROM gathermember 
+		WHERE gatherno=${gatherno}
+	</select>
 	<select id="gnewnoCountSelect" resultType="int">
 		SELECT gnewno FROM gather 
 		GROUP BY gatherno 
@@ -62,6 +80,7 @@
 		DELETE FROM gathermember 
 		WHERE gatherno=${param1} AND nickname=#{param2}
 	</delete>
+	
 	
 	<!-- 댓글 -->
 	<select id="replyCountSelect" resultType="int">

@@ -39,5 +39,15 @@ public class CampingServiceImpl implements CampingService {
 	@Override
 	public List<CampingVO> campingTag(Paging10VO pVO) {
 		return dao.campingTag(pVO);
+	}
+
+	@Override
+	public CampingVO campingViewReview(String contentId) {
+		return dao.campingViewReview(contentId);
+	}
+
+	@Override
+	public int addimages(CampingVO vo) {
+		return dao.addimages(vo);
 	}	
 }

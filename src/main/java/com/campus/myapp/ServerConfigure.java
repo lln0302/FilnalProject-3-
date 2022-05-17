@@ -30,8 +30,6 @@ public class ServerConfigure implements WebMvcConfigurer, WebServerFactoryCustom
 				.addResourceLocations("/ckUpload/");
 	}
 	
-
-	
 	@Bean
 	public CommonsMultipartResolver multipartResolver() {
 		CommonsMultipartResolver commonsMultipartResolver = new CommonsMultipartResolver();

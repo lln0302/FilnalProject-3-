@@ -12,6 +12,10 @@ public interface GatherService {
 	public int selectTotalPosts(PagingVO pvo, GatherVO vo);
 	// 게시판 상세페이지
 	public GatherVO gatherView(int gatherno);
+	// 게시판 수정페이지
+	public GatherVO selectEditView(int gatherno);
+	// 게시판 글 수정
+	public int updateEditView(GatherVO vo);
 	// 게시판 글 삭제
 	public int gatherDelete(int gatherno);
 	// 조회수 증가
@@ -23,6 +27,8 @@ public interface GatherService {
 			String nickname, String gender);
 	// 이미 캠핑 참여한 유저 
 	public GatherMemberVO selectJoinCamper(int gatherno, String nickname);
+	// 특정 캠핑 캠퍼 리스트 
+	public List<GatherVO> selectCamperList(GatherMemberVO vo);
 	// 캠퍼 참여 유저 명수 
 	public int gnewnoCountSelect(int gatherno);
 	// 켐퍼 참여 취소 

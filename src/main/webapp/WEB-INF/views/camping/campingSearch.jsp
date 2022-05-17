@@ -94,9 +94,12 @@
 		<div class = "campingListShow" id="camping">		
 			<ul class="campingSearch">
 				<script>
-					ListUpcampinginfo();
+					ListUpcampinginfo();					
 				</script>				
 				<c:forEach var="vo" items="${list }">
+					<script>
+						Listupcampingimages(${vo.contentId});
+					</script>					
 					<div class="container p-3 my-3 border listBox">
 						<div class="row">
 							<div id="campingSite">						
