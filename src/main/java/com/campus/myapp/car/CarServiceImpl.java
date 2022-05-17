@@ -1,5 +1,7 @@
 package com.campus.myapp.car;
 
+import java.util.List;
+
 import javax.inject.Inject;
 
 import org.springframework.stereotype.Service;
@@ -10,9 +12,15 @@ public class CarServiceImpl implements CarService {
 	@Inject
 	CarDAO dao;
 
+	
 	@Override
-	public int carWriteOk(CarVO vo) {
-		return dao.carWriteOk(vo);
+	public List<CarVO> carSelect() {
+		return dao.carSelect();
 	}
-
+	
+	@Override
+	public int carInsert(CarVO vo) {
+		return dao.carInsert(vo);
+	}
+	
 }

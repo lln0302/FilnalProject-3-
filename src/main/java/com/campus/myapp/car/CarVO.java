@@ -3,15 +3,17 @@ package com.campus.myapp.car;
 public class CarVO {
 	private int carno;
 	private String nickname;
+	private String title;
 	private int views;
 	private String writedate;
 	private String photo1;
 	private String photo2;
 	private String photo3;
 	private String region;
-	private float locx;
-	private float locy;
+	private float locX;
+	private float locY;
 	private String content;
+	
 	public int getCarno() {
 		return carno;
 	}
@@ -60,23 +62,29 @@ public class CarVO {
 	public void setRegion(String region) {
 		this.region = region;
 	}
-	public float getLocx() {
-		return locx;
+	public float getLocX() {
+		return locX;
 	}
-	public void setLocx(float locx) {
-		this.locx = locx;
+	public void setLocX(float locX) {
+		this.locX = locX;
 	}
-	public float getLocy() {
-		return locy;
+	public float getLocY() {
+		return locY;
 	}
-	public void setLocy(float locy) {
-		this.locy = locy;
+	public void setLocY(float locY) {
+		this.locY = locY;
 	}
 	public String getContent() {
 		return content;
 	}
 	public void setContent(String content) {
 		this.content = content;
+	}
+	public String getTitle() {
+		return title;
+	}
+	public void setTitle(String title) {
+		this.title = title;
 	}
 	
 	

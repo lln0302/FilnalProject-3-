@@ -1,5 +1,8 @@
 package com.campus.myapp.car;
 
+import java.util.List;
+
 public interface CarService {
-	public int carWriteOk(CarVO vo);
+	public List<CarVO> carSelect();
+	public int carInsert(CarVO vo);
 }

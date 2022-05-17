@@ -47,21 +47,32 @@ kakao.maps.event.addListener(map, 'idle', function() {
     searchAddrFromCoords(map.getCenter(), displayCenterInfo);
 });
 
+var marker = new kakao.maps.Marker({
+	position: map.getCenter()
+});
 // 지도 위치를 드래그하여 이동하면 발생하는 이벤트 - 하단에 좌표값 출력/표기
 kakao.maps.event.addListener(map, 'center_changed', function() {
-
+	//기존에 출력된 마커 삭제
+	marker.setMap(null);
+	
     // 지도의 중심좌표를 얻어옵니다 
     var latlng = map.getCenter(); 
 	//Math.round()
-    var message = '<p>현재 지도의 중앙 좌표 >> 위도: ' 
+    var message = '현재 지도의 중앙 좌표 >> 위도: ' 
     				+ Math.round(latlng.getLat()*100000)/100000 
-    				+ ', 경도: ' + Math.round(latlng.getLng()*100000)/100000 + '</p>';
+    				+ ', 경도: ' + Math.round(latlng.getLng()*100000)/100000;
 
     var resultDiv = document.getElementById('cwLabel');
     resultDiv.innerHTML = message;
     
     $("#locX").val(Math.round(latlng.getLat()*100000)/100000);
     $("#locY").val(Math.round(latlng.getLng()*100000)/100000);
+    
+    //현재 지도의 중심좌표 정보로 마커 생성
+    marker = new kakao.maps.Marker({
+		position: latlng
+	});
+	marker.setMap(map);
 
 });
 
