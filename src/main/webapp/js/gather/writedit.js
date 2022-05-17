@@ -45,5 +45,30 @@ $(function(){
 	$("#showList").click(function(){
 		location.href="/gather/gatherList";
 	});
+	
+	// CKEditor 이미지
+	CKEDITOR.replace("content", {
+		height:'500px',
+		filebrowserUploadUrl:'/gather/imageUpload', // 이미지 업로드
+		//filebrowserUploadMethod:'form',
+		extraPlugin:'autograw',
+	});
+	
+	// CKEditor 이미지 탭 설정
+	CKEDITOR.on('dialogDefinition', function(ev){
+		let dialogName = ev.data.name;
+		let dialog = ev.data.definition.dialog;
+		let dialogDefinition = ev.data.definition;
+		
+		if(dialogName=='image'){
+			dialog.on('show', function(){
+				this.selectPage('Upload'); // 이미지 클릭시 업로드탭으로 시작
+			});
+			dialogDefinition.removeContents('advanced'); // 자세히 탭 제거
+			dialogDefinition.removeContents('Link'); // 링크탭 제거 
+		}
+	});
+	
+	//window.parent.CKEDITOR.tools.callFunction(1, "${url}", "전송완료");
 
 });

@@ -52,11 +52,14 @@
 
 #gatherContent{
 	padding:20px;
-	/*background:beige;*/
+}
+
+#contentDiv img{
+	width:100% !important;
+	height:300px !important;
 }
 
 #joinCamper{
-	/*background:pink;*/
 	padding:10px;
 	margin:20px;
 	display:flex;
