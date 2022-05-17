@@ -1,5 +1,7 @@
 package com.campus.myapp.gather;
 
+import java.util.List;
+
 public class ReplyVO {
 
 	private int replyno;
@@ -8,6 +10,14 @@ public class ReplyVO {
 	private String nickname;
 	private int gatherno;
 	
+	private List<Integer> replyNoList;
+	
+	public List<Integer> getReplyNoList() {
+		return replyNoList;
+	}
+	public void setReplyNoList(List<Integer> replyNoList) {
+		this.replyNoList = replyNoList;
+	}
 	public int getReplyno() {
 		return replyno;
 	}

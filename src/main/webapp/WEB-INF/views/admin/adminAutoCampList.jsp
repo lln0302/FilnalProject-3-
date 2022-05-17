@@ -17,6 +17,8 @@
 <script src="https://cdnjs.cloudflare.com/ajax/libs/jquery/3.6.0/jquery.min.js"></script>
 <script async src='/cdn-cgi/bm/cv/669835187/api.js'></script>
 <script type="text/javascript" src="/js/admin/adminSideTab.js"></script>
+<script type="text/javascript" src="/js/admin/adminCheckBox.js"></script>
+
 <style>
 
 #listMenu>li:nth-child(8n+1), #listMenu>li:nth-child(8n+4),
@@ -39,7 +41,7 @@
 		<%@ include file="/WEB-INF/views/admin/adminTop.jsp" %>
 		<div id="adminMainContent">
 		
-			<ul style="z-index:2;">
+			<ul id="sideTapFirst">
 				<li>
 					<div class='menu_img' id="menu1">
 						<img src="/img/admin/adminLeftTap1/dash.PNG" class="menu_imgs" id="menu_img_dashBoard" />
