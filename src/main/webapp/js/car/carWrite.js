@@ -13,12 +13,15 @@ var map = new kakao.maps.Map(mapContainer, mapOption);
 // 주소-좌표 변환 객체를 생성합니다
 var geocoder = new kakao.maps.services.Geocoder();
 
-var marker = new kakao.maps.Marker(), // 클릭한 위치를 표시할 마커입니다
-    infowindow = new kakao.maps.InfoWindow({zindex:1}); // 클릭한 위치에 대한 주소를 표시할 인포윈도우입니다
+//var marker = new kakao.maps.Marker(), // 클릭한 위치를 표시할 마커입니다
+var infowindow = new kakao.maps.InfoWindow({zindex:1}); // 클릭한 위치에 대한 주소를 표시할 인포윈도우입니다
 
 // 현재 지도 중심좌표로 주소를 검색해서 지도 좌측 상단에 표시합니다
 searchAddrFromCoords(map.getCenter(), displayCenterInfo);
 
+var marker = new kakao.maps.Marker({
+	position: map.getCenter()
+});
 // 지도를 클릭했을 때 클릭 위치 좌표에 대한 주소정보를 표시하도록 이벤트를 등록합니다
 kakao.maps.event.addListener(map, 'click', function(mouseEvent) {
     searchDetailAddrFromCoords(mouseEvent.latLng, function(result, status) {
@@ -46,6 +49,34 @@ kakao.maps.event.addListener(map, 'click', function(mouseEvent) {
 kakao.maps.event.addListener(map, 'idle', function() {
     searchAddrFromCoords(map.getCenter(), displayCenterInfo);
 });
+
+
+// 지도 위치를 드래그하여 이동하면 발생하는 이벤트 - 하단에 좌표값 출력/표기
+kakao.maps.event.addListener(map, 'center_changed', function() {
+	//기존에 출력된 마커 삭제
+	marker.setMap(null);
+	
+    // 지도의 중심좌표를 얻어옵니다 
+    var latlng = map.getCenter(); 
+	//Math.round()
+    var message = '현재 지도의 중앙 좌표 >> 위도: ' 
+    				+ Math.round(latlng.getLat()*100000)/100000 
+    				+ ', 경도: ' + Math.round(latlng.getLng()*100000)/100000;
+
+    var resultDiv = document.getElementById('cwLabel');
+    resultDiv.innerHTML = message;
+    
+    $("#locX").val(Math.round(latlng.getLat()*100000)/100000);
+    $("#locY").val(Math.round(latlng.getLng()*100000)/100000);
+    
+    //현재 지도의 중심좌표 정보로 마커 생성
+    marker = new kakao.maps.Marker({
+		position: latlng
+	});
+	marker.setMap(map);
+
+});
+
 
 function searchAddrFromCoords(coords, callback) {
     // 좌표로 행정동 주소 정보를 요청합니다

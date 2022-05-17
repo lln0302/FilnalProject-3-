@@ -1,9 +1,13 @@
+/**
+ * 
+ */
+
 $(function(){
 	
 	// 댓글 리스트
 	function replyList(){
-		let url = "/gather/replyList"
-		let data = "gatherno="+$('#gatherno').val();
+		let url = "/car/replyList"
+		let data = "carno="+parseInt($("#carno").val());
 		$.ajax({
 			url:url,
 			data:data,
@@ -15,15 +19,15 @@ $(function(){
 					body += "<li class='col-12'><div><span>"
 					+item.nickname+ " | " + item.writedate + "</span>";
 					if(nickname == item.nickname){
-						body += "<span><button class='btn' id='edit'>수정</button>";
-						body += "<input type='button' class='btn' id='del' value='삭제'></button>";	
+						body += "<span><button class='btn' id='ciReplyEdit'>수정</button>";
+						body += "<button class='btn' id='ciReplyDel' >삭제</button>";	
 					}
 					body += "<br/><br/>" + item.content + "</span></div>"
 					if(nickname == item.nickname){
 						body += "<div class='editForm'><form method='post' class='form-inline'}>";
 						body += "<textarea name='content' class='col-11 form-control'>"+item.content+"</textarea>"
 						body += "<input type='hidden' name='replyno' value="+item.replyno+">";
-						body += "<input type='submit' class='btn' value='수정' style='margin-left:10px; height:100%'></form></div>";	
+						body += "<input type='submit' id='ciReplyButton' value='수정' style='margin-left:10px; height:100%'></form></div>";	
 					}
 					body += "</li><hr/>";
 				});
@@ -38,8 +42,8 @@ $(function(){
 	// 댓글 개수 보이기
 	function replyCount(){
 		$.ajax({
-				url:'/gather/replyCountSelect',
-				data:"gatherno="+$("#gatherno").val(),
+				url:'/car/replyCountSelect',
+				data:"carno="+parseInt($("#carno").val()),
 				type:'GET',
 				success:function(result){
 					$("#replyCount").html(result);
@@ -50,18 +54,18 @@ $(function(){
 	}
 	
 	// 댓글 등록
-	$("#replyLine").on('submit', function(event){
+	$("#ciFrm").on('submit', function(event){
 		event.preventDefault();
 		
-		if($("#content").val()==""){ // 댓글을 입력안했을 때
+		if($("#ciReply").val()==""){ // 댓글을 입력안했을 때
 			alert("댓글을 작성 후 등록해주세요");
 		}else{
 			$.ajax({
-				url:'/gather/replyWrite',
-				data:$("#replyLine").serialize(),
+				url:'/car/replyWrite',
+				data:$("#ciFrm").serialize(),
 				type:'POST',
 				success:function(){
-					$("#content").val(""); // 댓글창 비우기
+					$("#ciReply").val(""); // 댓글창 비우기
 					replyList();           // 댓글 리스트 보이기
 					replyCount();
 				},error:function(){
@@ -73,7 +77,7 @@ $(function(){
 	})
 	
 	// 댓글 수정 버튼을 누르면 댓글 폼 보이기
-	$(document).on('click', '#ciEdit', function(){
+	$(document).on('click', '#ciReplyEdit', function(){
 		$(this).parent().css("display", "none");  // 댓글 내용 안보이게 하기
 		$(this).parent().parent().siblings().css("display", "block"); // 댓글 수정 내용 보이게 하기
 	})
@@ -82,7 +86,7 @@ $(function(){
 	$(document).on('submit', '.editForm form', function(event){
 		event.preventDefault();
 		$.ajax({
-			url:'/gather/replyEdit',
+			url:'/car/replyEdit',
 			data: $(this).serialize(),
 			type:'POST',
 			success:function(){
@@ -96,10 +100,10 @@ $(function(){
 	});
 	
 	// 댓글 삭제
-	$(document).on('click', '#del', function(){
+	$(document).on('click', '#ciReplyDel', function(){
 		if(confirm('댓글을 삭제하시겠어요?')){
 			$.ajax({
-				url:'/gather/replyDel',
+				url:'/car/replyDel',
 				data:"replyno="+$('.editForm input[name=replyno]').val(),
 				type:'GET',
 				success:function(){
@@ -113,3 +117,37 @@ $(function(){
 	replyList();
 	replyCount();
 });
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+// 이미지 지도에서 마커가 표시될 위치입니다 
+var markerPosition = new kakao.maps.LatLng(33.450701, 126.570667);
+
+// 이미지 지도에 표시할 마커입니다
+// 이미지 지도에 표시할 마커는 Object 형태입니다
+var marker = {
+	position: markerPosition
+};
+
+var staticMapContainer = document.getElementById('staticMap'), // 이미지 지도를 표시할 div  
+	staticMapOption = {
+		center: new kakao.maps.LatLng(33.450701, 126.570667), // 이미지 지도의 중심좌표
+		level: 3, // 이미지 지도의 확대 레벨
+		marker: marker // 이미지 지도에 표시할 마커 
+	};
+
+// 이미지 지도를 생성합니다
+var staticMap = new kakao.maps.StaticMap(staticMapContainer, staticMapOption);

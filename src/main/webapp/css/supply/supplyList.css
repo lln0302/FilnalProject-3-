@@ -60,7 +60,11 @@ h1, .container *{
 	margin-top: 35px;
 }
 
-a, a:hover {
+a {
  	text-decoration: none;
  	color: black;
+ 	transition: all 200ms linear;
+}
+a:hover {
+	color:white;
 }
