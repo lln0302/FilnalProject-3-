@@ -109,18 +109,27 @@
 	<select id="myPageOpenedCamping" resultType="com.campus.myapp.gather.GatherVO">
 		SELECT  gatherno, title, nickname, place, views, date_format(createdate, '%m-%d %H:%i') createdate
 		FROM gather
-
 		<if test='searchWord != null'>
 			WHERE ${searchKey} LIKE '%${searchWord}%'
 		</if>
 		ORDER BY gatherno DESC
 		LIMIT ${onePageRecord} OFFSET ${offsetIndex}
 	</select>
-
+	<!-- 페이징 토탈 레코드 member -->
 	<select id="totalRecord" resultType="int">
 		SELECT count(gatherno) AS cnt FROM gather
 		<if test='searchWord != null'>
 			WHERE ${searchKey} LIKE '%${searchWord}%'
 		</if>
+	</select>
+	<!-- 참여한 캠핑 리스트 -->
+	<select id="myPageCamping" resultType="com.campus.myapp.gather.GatherMemberVO">
+		SELECT gmemberno, nickname, gatherno
+		FROM  gathermember
+		<if test='searchWord != null'>
+			WHERE ${searchKey} LIKE '%${searchWord}%'
+		</if>
+		ORDER BY gatherno DESC
+		LIMIT ${onePageRecord} OFFSET ${offsetIndex}
 	</select>
 </mapper>

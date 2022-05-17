@@ -54,6 +54,6 @@ public interface GatherDAO {
 
 	//마이페이지
 	public List<GatherVO> myPageOpenedCamping(myPagePagingVO pVO);
-	public List<GatherVO> myPageCamping(GatherVO vo, myPagePagingVO pvo);
 	public int totalRecord(myPagePagingVO pVO);
+	public List<GatherMemberVO> myPageCamping(myPagePagingVO pVO);
 }

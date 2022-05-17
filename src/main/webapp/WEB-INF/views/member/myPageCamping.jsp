@@ -6,6 +6,81 @@
 
 <main>
     <section class="myPageMain">
+        <div class="container">
+            <h2>참여한 캠핑</h2>
+            <hr style="position: relative; bottom: 5px;"/>
+        </div>
+        <div class="table">
+            <table class="table table-bordered"  width="100%" cellspacing="0">
+                <thead>
+                <tr>
+                    <th>번호</th>
+                    <th>닉네임</th>
+                    <th>참여인원</th>
+                </tr>
+                </thead>
+
+                <c:forEach var="cm" items="${myPageCamping }">
+                    <c:if test="${nickname == cm.nickname}">
+                        <tr>
+                            <td><a href="/gather/gatherView?gatherno=${cm.gatherno}">${cm.gatherno}</a></td>
+                            <td>${cm.nickname }</td>
+                            <td>${cm.gmemberno }</td>
+                        </tr>
+                    </c:if>
+                </c:forEach>
+
+            </table>
+            <nav aria-label="Page navigation example">
+                <ul class="pagination">
+                    <li class="page-item">
+                        <c:if test="${pVO.pageNum==1}">
+                        <a class="page-link" href="#" aria-label="Previous">
+                            <span aria-hidden="true">&laquo;</span>
+                        </a>
+                        </c:if>
+                        <c:if test="${pVO.pageNum>1}">
+                    <li>
+                        <a class="page-link" aria-label="Previous" href="${url}/member/myPageCamping?pageNum=${pVO.pageNum-1}<c:if test='${pVO.searchWord != null}'>&searchKey=${pVO.searchKey }&searchWord=${pVO.searchWord }</c:if>">
+                            <span aria-hidden="true">&laquo;</span>
+                        </a>
+                    </li>
+                    </c:if>
+                    </li>
+                    <!--  페이지 번호                 1,5      6,10         11,15-->
+                    <c:forEach var="p" begin="${pVO.startPage}"
+                               end="${pVO.startPage+pVO.onePageCount-1}">
+                        <!--  총 페이지수보다 출력할 페이지번호가 작을때 -->
+                        <c:if test="${p <= pVO.totalPage}">
+                            <c:if test="${p == pVO.pageNum}">
+                                <li class="page-item">
+                            </c:if>
+                            <c:if test="${p != pVO.pageNum}">
+                                <li class="page-item">
+                            </c:if>
+                            <a class="page-link" href="${url}/member/myPageCamping?pageNum=${p}<c:if test='${pVO.searchWord != null}'>&searchKey=${pVO.searchKey }&searchWord=${pVO.searchWord }</c:if>">
+                                    ${p}
+                            </a>
+                            </li>
+                        </c:if>
+                    </c:forEach>
+                    <c:if test="${pVO.pageNum==pVO.totalPage}">
+                        <li class="page-item">
+                            <a class="page-link" aria-label="Next" href="#">
+                                <span aria-hidden="true">&raquo;</span>
+                            </a>
+                        </li>
+                    </c:if>
+                    <c:if test="${pVO.pageNum<pVO.totalPage}">
+                        <li class="page-item">
+                            <a class="page-link" aria-label="Next" href="${url}/member/myPageCamping?pageNum=${pVO.pageNum+1}<c:if test='${pVO.searchWord != null}'>&searchKey=${pVO.searchKey }&searchWord=${pVO.searchWord }</c:if>">
+                                <span aria-hidden="true">&raquo;</span>
+                            </a>
+                        </li>
+                    </c:if>
+                </ul>
+            </nav>
+        </div>
         <nav class="main-menu">
             <ul>
                 <li>

@@ -52,6 +52,6 @@ public interface GatherService {
 
 	//마이페이지
 	public List<GatherVO> myPageOpenedCamping(myPagePagingVO pVO);
-	public List<GatherVO> myPageCamping(GatherVO vo, myPagePagingVO pVO);
+	public List<GatherMemberVO> myPageCamping(myPagePagingVO pVO);
 	public int totalRecord(myPagePagingVO pVO);
 }
