@@ -9,27 +9,30 @@ import org.springframework.stereotype.Repository;
 @Mapper
 public interface CampingDAO {
 		
-	//Ä·ÇÎÀåÁ¤º¸ µî·Ï
-	public int addplace(CampingVO vo);
+	   // ìº í•‘ì¥ì •ë³´ ë“±ë¡
+	   public int addplace(CampingVO vo);
+	   
+	   // ìº í•‘ì¥ ì´ë¯¸ì§€ ë“±ë¡
+	   public int addimages(CampingVO vo);
+	   
+	   // ì´ ë ˆì½”ë“œ ìˆ˜
+	   public int totalRecord(Paging10VO pvo);
 	
-	//Ä·ÇÎÀå ÀÌ¹ÌÁö µî·Ï
-	public int addimages(CampingVO vo);
-	
-	//ÃÑ ·¹ÄÚµå ¼ö
-	public int totalRecord(Paging10VO pvo);
-
-	//Ä·ÇÎÀå ¸ñ·Ï(search)
-	public List<CampingVO> campingSearch(Paging10VO pVO);
-	
-	//Ä·ÇÎÀå ¸ñ·Ï(tag)
-	public List<CampingVO> campingTag(Paging10VO pVO);
-			
-	//Ä·ÇÎÀå ¼±ÅÃ
-	public CampingVO campingSelect(String contentId);
-	
-	//Ä·ÇÎÀå ¼±ÅÃ(¸®ºä)
-	public CampingVO campingViewReview(String contentId);
-	
-	//Ä·ÇÎÀå ¸ñ·Ï(suggestion)
-	public List<CampingVO> campingSuggestion(Paging10VO pVO);			
+	   // ìº í•‘ì¥ ëª©ë¡(search)
+	   public List<CampingVO> campingSearch(Paging10VO pVO);
+	   
+	   // ìº í•‘ì¥ ëª©ë¡(tag)
+	   public List<CampingVO> campingTag(Paging10VO pVO);
+	         
+	   // ìº í•‘ì¥ ì„ íƒ
+	   public CampingVO campingSelect(String contentId);
+	   
+	   // ìº í•‘ì¥ ì„ íƒ(ë¦¬ë·°)
+	   public CampingVO campingReview(String contentId);
+	   
+	   // ìº í•‘ì¥ ëª©ë¡(suggestion)
+	   public List<CampingVO> campingSuggestion(Paging10VO pVO);
+	   
+	   // í›„ê¸°ëª©ë¡
+	   public List<ReviewVO> reviewListSelect(ReviewVO vo);
 }

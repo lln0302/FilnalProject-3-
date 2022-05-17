@@ -79,26 +79,62 @@
 					</tbody>
 				</table>								
 				<div id="btn_zzim">										
-					<button type="button" class="btn_zzim" onclick="">찜하기</button>										
+					<button type="button" class="btn_zzim btn" onclick="">찜하기</button>										
 				</div>
 			</div>
 		</div>
 	</div>
+
 	<div id="contents">
 		<ul class="contents_Select">
-			<li class="contents_Select"><a href="/camping/campingViewIntro" class="camp_intro">캠핑장 소개</a></li>
-			<li class="contents_Select"><a href="/camping/campingViewGuide" class="camp_guide">이용안내</a></li>
-			<li class="contents_Select"><a href="/camping/campingViewMap" class="camp_map">위치/주변정보</a></li>
-			<li class="contents_Select"><a href="/camping/campingViewReview" class="camp_review">캠핑&amp;여행후기</a></li>					
+			<li class="contents_Select"><a href="/camping/campingViewIntro" class="campIntro">캠핑장 소개</a></li>
+			<li class="contents_Select"><a href="/camping/campingViewGuide" class="campGuide">이용안내</a></li>
+			<li class="contents_Select"><a href="/camping/campingViewMap" class="campMap">위치/주변정보</a></li>
+			<li class="contents_Select"><a href="javascript:void(0);" class="campReview">캠핑&amp;여행후기</a></li>					
 		</ul>
-		<div class="camp_intro">
-			<ul>
-				<li class="col_03 img_box">
-					
-				</li>
-				<li class="col_03 img_box"></li>
-				<li class="col_03 img_box"></li>				
-			</ul>
+	<script>
+	$(function(){
+
+		// 후기 작성 
+		$(".campReview").click(function(){
+			alert("후기를 작성하면 리스트가 보입니다.");
+			
+		});
+		
+	});
+	</script>
+		<div>
+		
+		</div>
+		<div>
+		
+		</div>
+		<div>
+		
+		</div>
+		<div class="review">
+			<h3 style="text-align:center">캠핑 후기</h3>
+			<div class="container p-3 my-3 border list">
+				 <table class="table table-striped text-center">
+					<thead>
+						<tr>
+							<th class="text-center">닉네임</th>
+							<th class="text-center">후기</th>
+							<th class="text-center">작성날짜</th>
+							<th class="text-center"><i class="fa fa-thumbs-up"></i> /
+													<i class="fa fa-thumbs-down"></i></th>
+						</tr>
+					</thead>
+					<tbody>
+						<tr>
+							<td>지향 리</td>
+							<td>깨끗하고 불멍하기 좋은 캠핑장ㄱ숑ㅅ곡소곳공ㄱ속솟ㅇ곡송공ㅅ</td>
+							<td>2022-04-15</td>
+							<td><i class="fa fa-thumbs-up"></i></td>
+						</tr>
+					</tbody>
+				</table>
+			</div>
 		</div>
 	</div>
 </div>

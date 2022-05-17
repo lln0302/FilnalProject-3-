@@ -85,7 +85,7 @@ public class CampingController {
 	public ModelAndView campingViewReview(String contentId) {
 		ModelAndView mav = new ModelAndView();
 		
-		mav.addObject("vo", service.campingViewReview(contentId));
+		mav.addObject("vo", service.campingSelect(contentId));
 		mav.setViewName("camping/campingViewReview");
 		
 		return mav;

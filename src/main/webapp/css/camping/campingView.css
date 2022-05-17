@@ -144,7 +144,7 @@ tbody tr:nth-child(1) td {
 }
 
 #contents a{
-	line-height: 53px;
+	line-height: 45px;
     font-size: 15px;
     letter-spacing: -0.08em;
     text-decoration: none;
@@ -152,13 +152,13 @@ tbody tr:nth-child(1) td {
     color: white;
 }
 
-.camp_intro{
+.campIntro{
 	width: 100%;
     position: relative;
     overflow: hidden;
 }
 
-.camp_intro > ul {
+.campIntro > ul {
     display: inline-block;
     overflow: hidden;
     width: 100%;

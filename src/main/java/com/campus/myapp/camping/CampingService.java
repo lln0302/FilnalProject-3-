@@ -3,12 +3,29 @@ package com.campus.myapp.camping;
 import java.util.List;
 
 public interface CampingService {
-	public int addplace(CampingVO vo);
-	public int addimages(CampingVO vo);
-	public int totalRecord(Paging10VO pvo);
-	public List<CampingVO> campingSearch(Paging10VO pVO);	
-	public CampingVO campingSelect(String contentId);
-	public List<CampingVO> campingSuggestion(Paging10VO pVO);
-	public List<CampingVO> campingTag(Paging10VO pVO);
-	public CampingVO campingViewReview(String contentId);	
+	
+	   // 캠핑장정보 등록
+	   public int addplace(CampingVO vo);
+	   
+	   // 캠핑장 이미지 등록
+	   public int addimages(CampingVO vo);
+	   
+	   // 총 레코드 수
+	   public int totalRecord(Paging10VO pvo);
+	
+	   // 캠핑장 목록(search)
+	   public List<CampingVO> campingSearch(Paging10VO pVO);
+	   
+	   // 캠핑장 목록(tag)
+	   public List<CampingVO> campingTag(Paging10VO pVO);
+	         
+	   // 캠핑장 선택
+	   public CampingVO campingSelect(String contentId);
+	   
+	   // 캠핑장 목록(suggestion)
+	   public List<CampingVO> campingSuggestion(Paging10VO pVO);	
+	   
+	   // 후기목록
+	   public List<ReviewVO> reviewListSelect(ReviewVO vo);
+
 }
