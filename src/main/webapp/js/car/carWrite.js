@@ -13,12 +13,15 @@ var map = new kakao.maps.Map(mapContainer, mapOption);
 // 주소-좌표 변환 객체를 생성합니다
 var geocoder = new kakao.maps.services.Geocoder();
 
-var marker = new kakao.maps.Marker(), // 클릭한 위치를 표시할 마커입니다
-    infowindow = new kakao.maps.InfoWindow({zindex:1}); // 클릭한 위치에 대한 주소를 표시할 인포윈도우입니다
+//var marker = new kakao.maps.Marker(), // 클릭한 위치를 표시할 마커입니다
+var infowindow = new kakao.maps.InfoWindow({zindex:1}); // 클릭한 위치에 대한 주소를 표시할 인포윈도우입니다
 
 // 현재 지도 중심좌표로 주소를 검색해서 지도 좌측 상단에 표시합니다
 searchAddrFromCoords(map.getCenter(), displayCenterInfo);
 
+var marker = new kakao.maps.Marker({
+	position: map.getCenter()
+});
 // 지도를 클릭했을 때 클릭 위치 좌표에 대한 주소정보를 표시하도록 이벤트를 등록합니다
 kakao.maps.event.addListener(map, 'click', function(mouseEvent) {
     searchDetailAddrFromCoords(mouseEvent.latLng, function(result, status) {
@@ -47,9 +50,7 @@ kakao.maps.event.addListener(map, 'idle', function() {
     searchAddrFromCoords(map.getCenter(), displayCenterInfo);
 });
 
-var marker = new kakao.maps.Marker({
-	position: map.getCenter()
-});
+
 // 지도 위치를 드래그하여 이동하면 발생하는 이벤트 - 하단에 좌표값 출력/표기
 kakao.maps.event.addListener(map, 'center_changed', function() {
 	//기존에 출력된 마커 삭제

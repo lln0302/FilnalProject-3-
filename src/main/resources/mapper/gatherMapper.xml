@@ -104,18 +104,32 @@
 	<delete id="replyDel">
 		DELETE FROM gatherreply WHERE replyno=#{param1} 
 	</delete>
-	
-	<select id="gatherMadeList" resultType="com.campus.myapp.gather.GatherVO">
-		SELECT DISTINCT A.gaterno, A.title, A.nickname,
-		DATE_FORMAT(startdate, '%Y-%m,-%d') AS startdate , 
-		DATE_FORMAT(enddate, '%Y-%m-%d') AS enddate
-		FROM gather A
-		INNER JOIN gathermember B
-		ON B.nickname=A.nickname WHERE B.ninkname=#{param1.nickname}
-		<if test='param2.searchWord != null'>
-			AND ${param2.searchKey} LIKE '%{param2.searchWord}%'
+
+	<!-- 개설한 캠핑 리스트 -->
+	<select id="myPageOpenedCamping" resultType="com.campus.myapp.gather.GatherVO">
+		SELECT  gatherno, title, nickname, place, views, date_format(createdate, '%m-%d %H:%i') createdate
+		FROM gather
+		<if test='searchWord != null'>
+			WHERE ${searchKey} LIKE '%${searchWord}%'
 		</if>
 		ORDER BY gatherno DESC
-		LIMIT ${param2.onePageRecord} OFFSET ${param2.offsetIndex}
+		LIMIT ${onePageRecord} OFFSET ${offsetIndex}
+	</select>
+	<!-- 페이징 토탈 레코드 member -->
+	<select id="totalRecord" resultType="int">
+		SELECT count(gatherno) AS cnt FROM gather
+		<if test='searchWord != null'>
+			WHERE ${searchKey} LIKE '%${searchWord}%'
+		</if>
+	</select>
+	<!-- 참여한 캠핑 리스트 -->
+	<select id="myPageCamping" resultType="com.campus.myapp.gather.GatherMemberVO">
+		SELECT gmemberno, nickname, gatherno
+		FROM  gathermember
+		<if test='searchWord != null'>
+			WHERE ${searchKey} LIKE '%${searchWord}%'
+		</if>
+		ORDER BY gatherno DESC
+		LIMIT ${onePageRecord} OFFSET ${offsetIndex}
 	</select>
 </mapper>

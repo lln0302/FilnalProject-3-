@@ -13,6 +13,7 @@ public class CarVO {
 	private float locX;
 	private float locY;
 	private String content;
+	private int replyno;
 	
 	public int getCarno() {
 		return carno;
@@ -85,6 +86,12 @@ public class CarVO {
 	}
 	public void setTitle(String title) {
 		this.title = title;
+	}
+	public int getReplyno() {
+		return replyno;
+	}
+	public void setReplyno(int replyno) {
+		this.replyno = replyno;
 	}
 	
 	

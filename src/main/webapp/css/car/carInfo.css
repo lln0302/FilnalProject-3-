@@ -15,6 +15,16 @@ h1, .container *{
 	
 }
 
+#ciMapWrap {
+	text-align: center;
+	margin-left: 20%;
+	width: 60%;
+}
+#ciContent img{
+	width: 500px;
+	height: 500px;
+}
+
 #ciEdit, #ciDel {
 	width: 5%;
  	background-color: #f58243;
@@ -26,12 +36,25 @@ h1, .container *{
  	color:white;
 }
 
-#ciDel {
+#ciReplyEdit, #ciReplyDel {
+	width: 5%;
+ 	background-color: #f58243;
+ 	margin-left: 5px;
+ 	padding: 6px;
+ 	border: 0px;
+ 	border-radius: 5px;
+ 	color:white;
+ 	text-align: center;
+}
+
+#ciDel, #ciReplyDel {
 	background-color: #67493B;
 }
 
-#ciEdit:hover { background-color: #e57233; }
-#ciDel:hover { background-color: #57392B; }
+
+
+#ciEdit:hover, #ciReplyEdit:hover { background-color: #e57233; }
+#ciDel:hover, #ciReplyDel:hover { background-color: #57392B; }
 
 #ciHead, #ciFoot {
 	width: 100%;
@@ -46,18 +69,21 @@ h1, .container *{
 #ciReply {
 	width: 89%;
 	padding: 4px;
-	margin-bottom: 10px;
+	/*margin-bottom: 10px;*/
+	resize: none;
+	height: 60px;
+	float:left;
 }
 
-#ciReplyList * {
+#replyList *:not(#ciReplyEdit, #ciReplyDel) {
 	text-align: left;
 }
 
-#ciReplyList li{
+#replyList li{
 	padding: 5px;
 }
 
-#ciReplyList hr {
+#replyList hr {
 	margin-bottom:5px;
 }
 #ciReplyButton {
@@ -67,7 +93,14 @@ h1, .container *{
  	border: 0px;
  	border-radius: 5px;
  	color:white;
+ 	height: 60px;
+ 	margin-bottom: 30px;
 }
 #ciReplyButton:hover {
 	background-color: #e57233;
+}
+
+.editForm{
+	display:none;
+	margin-top:10px;
 }

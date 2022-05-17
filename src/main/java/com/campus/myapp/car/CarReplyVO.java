@@ -1,23 +1,12 @@
-package com.campus.myapp.gather;
+package com.campus.myapp.car;
 
-import java.util.List;
-
-public class ReplyVO {
-
+public class CarReplyVO {
 	private int replyno;
 	private String content;
 	private String writedate;
 	private String nickname;
-	private int gatherno;
+	private int carno;
 	
-	private List<Integer> replyNoList;
-	
-	public List<Integer> getReplyNoList() {
-		return replyNoList;
-	}
-	public void setReplyNoList(List<Integer> replyNoList) {
-		this.replyNoList = replyNoList;
-	}
 	public int getReplyno() {
 		return replyno;
 	}
@@ -42,10 +31,11 @@ public class ReplyVO {
 	public void setNickname(String nickname) {
 		this.nickname = nickname;
 	}
-	public int getGatherno() {
-		return gatherno;
+	public int getCarno() {
+		return carno;
 	}
-	public void setGatherno(int gatherno) {
-		this.gatherno = gatherno;
+	public void setCarno(int carno) {
+		this.carno = carno;
 	}
+	
 }

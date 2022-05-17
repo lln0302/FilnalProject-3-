@@ -35,7 +35,7 @@
 .containerPie {
 	float:left;
 	width: 500px;
-	height: 500px;
+	height: 600px;
 	border: 1px solid #ddd;
 	padding: 10px;
 	border-radius: 4px;
@@ -59,7 +59,7 @@
 		<%@ include file="/WEB-INF/views/admin/adminTop.jsp" %>
 		<div id="adminMainContent">
 			
-			<ul style="z-index:2;">
+			<ul id="sideTapFirst">
 				<li>
 					<div class='menu_img' id="menu1">
 						<img src="/img/admin/adminLeftTap1/dash_red.PNG" class="menu_imgs" id="menu_img_dashBoard" />
@@ -117,11 +117,11 @@
 			<div id="chartJScontents">
 				<div class="containerPie">
 					<h4>캠핑장 태그별 사용 통계</h4>
-					<canvas id="myChartPie1" width="450" height="450"></canvas>
+					<canvas id="myChartPie1" width="450" height="550"></canvas>
 				</div>
 				<div class="containerPie">
 					<h4>캠퍼 모집 인원별 모집 통계</h4>
-					<canvas id="myChartPie2" width="450" height="450"></canvas>
+					<canvas id="myChartPie2" width="450" height="550"></canvas>
 				</div>
 				<div class="containerBar">
 					<h4>차박지 지역별 순위 통계</h4>
@@ -135,25 +135,49 @@
 	var myChartPie1 = new Chart(ctx, {
 		type: 'pie',
 		data: {
-			labels: ['Red', 'Blue', 'Yellow', 'Green', 'Purple', 'Orange'],
+			labels: ['반려견동반', '온수', '전기',
+					 '수영장', '무선인터넷', '마트',
+					 '놀이터', '운동장', '낚시',
+					 '해수욕', '봄', '여름',
+					 '가을', '겨울'],
 			datasets: [{
 				label: '# of Votes',
-				data: [12, 19, 3, 5, 2, 3],
+				data: [${atvo.tagAnimal}, ${atvo.tagHotwater}, ${atvo.tagElectric},
+					   ${atvo.tagPool}, ${atvo.tagWifi}, ${atvo.tagMart},
+					   ${atvo.tagPlayGround}, ${atvo.tagGym}, ${atvo.tagFishing},
+					   ${atvo.tagBeach}, ${atvo.tagSpring}, ${atvo.tagSummer},
+					   ${atvo.tagFall}, ${atvo.tagwinter}],
 				backgroundColor: [
-					'rgba(255, 99, 132, 0.2)',
-					'rgba(54, 162, 235, 0.2)',
-					'rgba(255, 206, 86, 0.2)',
-					'rgba(75, 192, 192, 0.2)',
-					'rgba(153, 102, 255, 0.2)',
-					'rgba(255, 159, 64, 0.2)'
+					'rgba(241, 95, 95, 0.2)',
+					'rgba(255, 0, 0, 0.2)',
+					'rgba(255, 94, 0, 0.2)',
+					'rgba(255, 187, 0, 0.2)',
+					'rgba(255, 228, 0, 0.2)',
+					'rgba(171, 242, 0, 0.2)',
+					'rgba(29, 219, 22, 0.2)',
+					'rgba(0, 216, 255, 0.2)',
+					'rgba(0, 84, 255, 0.2)',
+					'rgba(1, 0, 255, 0.2)',
+					'rgba(95, 0, 255, 0.2)',
+					'rgba(255, 0, 221, 0.2)',
+					'rgba(255, 0, 127, 0.2)',
+					'rgba(255, 178, 217, 0.2)'
 				],
 				borderColor: [
-					'rgba(255, 99, 132, 1)',
-					'rgba(54, 162, 235, 1)',
-					'rgba(255, 206, 86, 1)',
-					'rgba(75, 192, 192, 1)',
-					'rgba(153, 102, 255, 1)',
-					'rgba(255, 159, 64, 1)'
+					'rgba(241, 95, 95, 1)',
+					'rgba(255, 0, 0, 1)',
+					'rgba(255, 94, 0, 1)',
+					'rgba(255, 187, 0, 1)',
+					'rgba(255, 228, 0, 1)',
+					'rgba(171, 242, 0, 1)',
+					'rgba(29, 219, 22, 1)',
+					'rgba(0, 216, 255, 1)',
+					'rgba(0, 84, 255, 1)',
+					'rgba(1, 0, 255, 1)',
+					'rgba(95, 0, 255, 1)',
+					'rgba(255, 0, 221, 1)',
+					'rgba(255, 0, 127, 1)',
+					'rgba(255, 178, 217, 1)'
 				],
 				borderWidth: 1
 			}]
@@ -173,25 +197,31 @@
 	var myChartPie2 = new Chart(ctx, {
 		type: 'pie',
 		data: {
-			labels: ['Red', 'Blue', 'Yellow', 'Green', 'Purple', 'Orange'],
+			labels: ['1명', '2명', '3명',
+					 '4명', '5명', '6~9명',
+					 '10명 이상'],
 			datasets: [{
 				label: '# of Votes',
-				data: [12, 19, 3, 5, 2, 3],
+				data: [${atvo.tagOne}, ${atvo.tagTwo}, ${atvo.tagThree},
+					   ${atvo.tagFour}, ${atvo.tagFive}, ${atvo.tagSixMoreThan},
+					   ${atvo.tagTenMoreThan}],
 				backgroundColor: [
-					'rgba(255, 99, 132, 0.2)',
-					'rgba(54, 162, 235, 0.2)',
-					'rgba(255, 206, 86, 0.2)',
-					'rgba(75, 192, 192, 0.2)',
-					'rgba(153, 102, 255, 0.2)',
-					'rgba(255, 159, 64, 0.2)'
+					'rgba(255, 0, 0, 0.2)',
+					'rgba(255, 94, 0, 0.2)',
+					'rgba(255, 228, 0, 0.2)',
+					'rgba(29, 219, 22, 0.2)',
+					'rgba(0, 84, 255, 0.2)',
+					'rgba(1, 0, 255, 0.2)',
+					'rgba(95, 0, 255, 0.2)'
 				],
 				borderColor: [
-					'rgba(255, 99, 132, 1)',
-					'rgba(54, 162, 235, 1)',
-					'rgba(255, 206, 86, 1)',
-					'rgba(75, 192, 192, 1)',
-					'rgba(153, 102, 255, 1)',
-					'rgba(255, 159, 64, 1)'
+					'rgba(255, 0, 0, 1)',
+					'rgba(255, 94, 0, 1)',
+					'rgba(255, 228, 0, 1)',
+					'rgba(29, 219, 22, 1)',
+					'rgba(0, 84, 255, 1)',
+					'rgba(1, 0, 255, 1)',
+					'rgba(95, 0, 255, 1)'
 				],
 				borderWidth: 1
 			}]

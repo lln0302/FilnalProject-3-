@@ -159,7 +159,7 @@ function displayPlaces(places) {
 function getListItem(index) {
 
 	var el = document.createElement('li'),
-		itemStr = '<span class="marker_' + (index + 1) + '"><img src="/img/supply/cat.jpg"></span>' +
+		itemStr = '<a href="/car/carInfo?no='+$("#plCarno"+index).val()+'"><span class="marker_' + (index + 1) + '"><img src="/img/supply/cat.jpg"></span>' +
 			'<div class="info">' +
 			//'   <h5>' + places.place_name + '</h5>';
 			'<h5>' + $("#plTitle" + index).val() + '</h5>';
@@ -173,7 +173,7 @@ function getListItem(index) {
 		'<i class="fas fa-comment"></i> [댓글수]&nbsp;&nbsp;&nbsp;' +
 		'<i class="fa fa-clock clock"></i> ' + $("#plWritedate" + index).val() +
 		'</span>' +
-		'</div>';
+		'</div></a>';
 
 	el.innerHTML = itemStr;
 	el.className = 'item';

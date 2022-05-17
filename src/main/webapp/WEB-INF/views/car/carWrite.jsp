@@ -49,10 +49,7 @@
 			
 			<div class="map_wrap">
 			    <div id="map" style="width:100%;height:100%;position:relative;overflow:hidden;"></div>
-			    <div class="hAddr">
-			        <span class="title">지도중심기준 행정동 주소정보</span>
-			        <span id="centerAddr"></span>
-			    </div>
+			    
 			    <label id="cwLabel">현재 지도의 중앙 좌표 >> </label>
 			</div>	
 			
