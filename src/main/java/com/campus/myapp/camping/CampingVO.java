@@ -24,9 +24,18 @@ public class CampingVO {
     private String operPdCl;
     private String operDeCl;
     private String modifiedtime;
+    private String imageUrl;
     
-    private List<Integer> contentIdList;
+    private List<Integer> contentIdList;       
     
+	public String getImageUrl() {
+		return imageUrl;
+	}
+
+	public void setImageUrl(String imageUrl) {
+		this.imageUrl = imageUrl;
+	}
+
 	public String getModifiedtime() {
 		return modifiedtime;
 	}

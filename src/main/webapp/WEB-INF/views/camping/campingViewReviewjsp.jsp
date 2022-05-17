@@ -85,20 +85,14 @@
 		</div>
 	</div>
 	<div id="contents">
-		<ul class="contents_Select">
-			<li class="contents_Select"><a href="/camping/campingViewIntro" class="camp_intro">캠핑장 소개</a></li>
-			<li class="contents_Select"><a href="/camping/campingViewGuide" class="camp_guide">이용안내</a></li>
-			<li class="contents_Select"><a href="/camping/campingViewMap" class="camp_map">위치/주변정보</a></li>
-			<li class="contents_Select"><a href="/camping/campingViewReview" class="camp_review">캠핑&amp;여행후기</a></li>					
+		<ul>
+			<li><a href="/camping/campingViewIntro" class="camp_intro">캠핑장 소개</a></li>
+			<li><a href="/camping/campingViewGuide" class="camp_guide">이용안내</a></li>
+			<li><a href="/camping/campingViewMap" class="camp_map">위치/주변정보</a></li>
+			<li><a href="/camping/campingViewReview" class="camp_review">캠핑&amp;여행후기</a></li>					
 		</ul>
-		<div class="camp_intro">
-			<ul>
-				<li class="col_03 img_box">
-					
-				</li>
-				<li class="col_03 img_box"></li>
-				<li class="col_03 img_box"></li>				
-			</ul>
+		<div class="camp_review">
+		
 		</div>
 	</div>
 </div>

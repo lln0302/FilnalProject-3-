@@ -58,12 +58,35 @@ public class CampingController {
 		return n;
 	}
 	
+	@PostMapping("addimages")
+	public int addimages(@RequestBody CampingVO[] result) {
+		int n=0;
+		try {
+			for(CampingVO vo:result) {
+				n += service.addimages(vo);
+			}
+		}catch(Exception e) {
+			
+		}
+		return n;
+	}
+	
 	@GetMapping("/campingView")
 	public ModelAndView campingView(String contentId) {
 		ModelAndView mav = new ModelAndView();
 		
 		mav.addObject("vo", service.campingSelect(contentId));
 		mav.setViewName("camping/campingView");
+		
+		return mav;
+	}
+	
+	@GetMapping("/campingViewReview")
+	public ModelAndView campingViewReview(String contentId) {
+		ModelAndView mav = new ModelAndView();
+		
+		mav.addObject("vo", service.campingViewReview(contentId));
+		mav.setViewName("camping/campingViewReview");
 		
 		return mav;
 	}
