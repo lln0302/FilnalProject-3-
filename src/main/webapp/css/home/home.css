@@ -35,7 +35,7 @@ a:hover {
 
 ul.h__myMenu > li { 
 	display: inline-block;
-    width: 350px;
+    width: 280px;
     padding: 56px 10px;
     text-align: center;
     position: relative;
@@ -55,7 +55,7 @@ ul.h__myMenu > li:hover ul.h__submenu {
 
 ul.h__myMenu > li ul.h__submenu > li { 
 	display:inline-block; 
-	width:350px; 
+	width:280px; 
 	padding:5px 10px; 
 	background:rgba(255, 255, 255, .25);  
 	text-align:center; 

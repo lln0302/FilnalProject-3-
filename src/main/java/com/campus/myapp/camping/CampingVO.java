@@ -24,6 +24,7 @@ public class CampingVO {
     private String operPdCl;
     private String operDeCl;
     private String modifiedtime;
+    private String imageUrl;
     
     private String nickname;		//아니 이거 안넣으면 이상하게 캠핑장 리스트 안나옴;;
     
@@ -34,8 +35,19 @@ public class CampingVO {
 		this.nickname = nickname;
 	}
     
-    private List<Integer> contentIdList;
     
+    private List<Integer> contentIdList;
+
+
+    
+	public String getImageUrl() {
+		return imageUrl;
+	}
+
+	public void setImageUrl(String imageUrl) {
+		this.imageUrl = imageUrl;
+	}
+
 	public String getModifiedtime() {
 		return modifiedtime;
 	}

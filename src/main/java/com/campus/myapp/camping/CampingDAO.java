@@ -9,22 +9,27 @@ import org.springframework.stereotype.Repository;
 @Mapper
 public interface CampingDAO {
 		
-	//�������� ���
-	public int addplace(CampingVO vo);	
+	//캠핑장정보 등록
+	public int addplace(CampingVO vo);
 	
-	//�� ���ڵ� ��
+	//캠핑장 이미지 등록
+	public int addimages(CampingVO vo);
+	
+	//총 레코드 수
 	public int totalRecord(Paging10VO pvo);
 
-	//ķ���� ���(search)
+	//캠핑장 목록(search)
 	public List<CampingVO> campingSearch(Paging10VO pVO);
 	
-	//ķ���� ���(tag)
+	//캠핑장 목록(tag)
 	public List<CampingVO> campingTag(Paging10VO pVO);
-	
-	//ķ���� ���(suggestion)
-	public List<CampingVO> campingSuggestion(Paging10VO pVO);	
-	
-	//ķ���� ����
-	public CampingVO campingSelect(String contentId);
 			
+	//캠핑장 선택
+	public CampingVO campingSelect(String contentId);
+	
+	//캠핑장 선택(리뷰)
+	public CampingVO campingViewReview(String contentId);
+	
+	//캠핑장 목록(suggestion)
+	public List<CampingVO> campingSuggestion(Paging10VO pVO);			
 }
