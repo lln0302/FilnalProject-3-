@@ -205,6 +205,5 @@
 			</div>
 		</div><!-- modal-content -->
 	</div><!-- modal-dialog -->
->>>>>>> branch 'master' of https://github.com/lln0302/FilnalProject-3-.git
 </div>
 <script src="/js/camping/campingView.js"></script>
