@@ -2,7 +2,6 @@
 <!DOCTYPE mapper
   PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN"
   "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
-
 <mapper namespace="com.campus.myapp.camping.CampingDAO">
     <insert id="addplace">
         insert into campinglist(modifiedtime, contentId, facltNm, lineIntro, intro, featureNm, induty, lctCl, doNm, sigunguNm, addr1, addr2, tel, homepage, resveUrl, resveCl, sbrsCl, posblFcltyCl, firstImageUrl, operPdCl, operDeCl)
@@ -135,10 +134,26 @@
 		from campinglist order by rand(), modifiedtime desc limit 10
   	</select>
   	
-  	<!-- 후기 -->
+  	<!-- 캠핑 후기 -->
 	<select id="reviewListSelect" resultType="ReviewVO">
-		select reviewno, nickname, contentId, content, recommend,
-		date_format(createdate, '%Y-%m-%d')createdate
-		from review where contentId=#{contentId}
+		SELECT reviewno, nickname, contentId, content, recommend,
+		DATE_FORMAT(createdate, '%Y-%m-%d')createdate
+		FROM review WHERE contentId=#{contentId}
 	</select>
+	<insert id="reviewInsert">
+		INSERT INTO review(nickname, content, contentId, recommend)
+		VALUES(#{nickname}, #{content}, #{contentId}, #{recommend})
+	</insert>
+	<select id="reviewModalSelect" resultType="ReviewVO">
+		SELECT reviewno, nickname, contentId, content, recommend,
+		DATE_FORMAT(createdate, '%Y-%m-%d')createdate
+		FROM review WHERE reviewno=#{param1}
+	</select>
+	<update id="reviewUpdate">
+		UPDATE review set content=#{content}, recommend=#{recommend}
+		WHERE reviewno=${reviewno}
+	</update>
+	<delete id="reviewDelete">
+		DELETE FROM review WHERE reviewno=#{param1}
+	</delete>
 </mapper>

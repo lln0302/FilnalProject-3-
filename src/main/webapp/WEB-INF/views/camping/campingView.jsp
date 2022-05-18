@@ -3,6 +3,9 @@
 <script type="text/javascript" src="//dapi.kakao.com/v2/maps/sdk.js?appkey=b0f683cf3769f84d841b883357269e47&libraries=services"></script>
 <link rel="stylesheet" href="/css/camping/campingView.css" type="text/css"/>
 <link rel="stylesheet" href="/css/camping/review.css" type="text/css"/>
+<script>
+	let nickname = "${nickname}";
+</script>
 <c:set value="${vo[0]}" var="cmmvo"/>
 <div id="wrap">	
 	<div id="campingTitle">
@@ -91,7 +94,7 @@
 		<ul class="contents_Select">
 			<li class="contents_SelectBtn"><a href="#" class="campIntro" onclick=clickIntro()>캠핑장 소개</a></li>			
 			<li class="contents_SelectBtn"><a href="#" class="campMap" onclick=clickMap()>위치/주변정보</a></li>
-			<li class="contents_SelectBtn"><a href="#" class="campReview" onclick=clickReview()>캠핑&amp;여행후기</a></li>					
+			<li class="contents_SelectBtn"><a href="#" class="campReview" onclick=clickReview()>캠핑 & 여행후기</a></li>					
 		</ul>
 		<!-- 캠핑장 소개 -->
 		<div class="campIntro" id="campIntro" style="display:block;">
@@ -140,45 +143,12 @@
 			<div id="staticMap" style="width:600px;height:350px;"></div>	
 		</div>
 		<!-- 캠핑후기 -->
-		<div id="campReview" style="display:none;"></div><!-- review -->
+		<div id="campReview"></div><!-- review -->
 	</div><!-- contents -->
 </div><!-- wrap -->	
-<!-- modal -->
-<div class="modal fade" id="myModal">
-	<div class="modal-dialog modal-dialog-centered">
-		<!-- Modal content -->
-		<div class="modal-content">
-			<div class="modal-header">
-				<h3 id="modal-title" class="modal-title">후기 글</h3>
-				<button data-dismiss="modal" class="modalClose btn">&times;</button>
-			</div>
-			
-			<form class="modal-body">
-				<input type="hidden" id="contentId" name="contentId" value="${cmmvo.contentId}"/>
-				<div>
-					<h5>추천</h5><hr/>
-					<input type="radio" id="recommend" name="recommend" value="추천">
-     				<label for="추천"><i class='fa fa-thumbs-up'></i>&nbsp;추천</label>
-     				<input type="radio" id="recommend" name="recommend" value="비추천">
-     				<label for="비추천"><i class='fa fa-thumbs-down'></i>&nbsp;비추천</label>
-				</div>
-				<br/>
-				<div>
-					<h5>후기</h5><hr/>
-					<textarea class="form-control" id="modalContent" name="content" rows="5" 
-						placeholder="캠핑장의 장단점과 솔직한 후기를 남겨주세요"></textarea>
-				</div>
-			</form>
-			
-			<div class="modal-footer">
-				<button id="modalSubmit" class="btn">등록</button>
-				<button data-dismiss="modal" class="modalClose btn">닫기</button>
-			</div>
-		</div><!-- modal-content -->
-	</div><!-- modal-dialog -->
-</div>
-<script src="/js/camping/campingView.js"></script>
+<%@ include file="/WEB-INF/views/camping/modal.jsp" %>
 <script>
 	Listupcampingimages(${cmmvo.contentId});		
 </script>
+<script src="/js/camping/campingView.js"></script>
 <script src="/js/camping/campingMap.js"></script>

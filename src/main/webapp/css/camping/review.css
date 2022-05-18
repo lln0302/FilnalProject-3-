@@ -1,18 +1,24 @@
 @charset "UTF-8";
+#campReview{
+	display:none;	
+}
 
-#myModal{
+#myModal, #modalModify, #viewModal{
 	font-family: 'Gowun Dodum', sans-serif;  /*메인페이지 타이틀 폰트*/
 	font-family: 'IBM Plex Sans', sans-serif; /* 본문 영문 폰트*/
 	font-family: 'IBM Plex Sans KR', sans-serif; /* 본문 한글폰트 */
 }
+
 #titleText{
 	text-align:center;
 }
+
 table .reviewTitle{
 	position: relative;
-	min-width: 600px;
+	min-width:500px;
 	width:400px
 }
+
 table .reviewTitle>a>span{
 	white-space: nowrap;
  	overflow: hidden;
@@ -20,27 +26,34 @@ table .reviewTitle>a>span{
  	position:absolute;
  	left: 9px;
  	right: 9px;
- 	color: black;
+ 	color: black !important;
  	line-height:28px;
 }
+
 #writeBtn{
 	background:rgb(245, 130, 67);
 	color:white;
 	margin-bottom: 10px;
 	float: right;
 }
-#modalContent{
+#modalContent, #modalModify{
 	border-radius:10px;
 	outline:none;
 	resize:none;
 	padding: 15px;
 	border: none;
 }
-#modalSubmit{
+#modalSubmit, #modalUpdate, #modalLike, .updateBtn{
 	background:rgb(245, 130, 67);
 	color:white;
 }
-.modalClose{
+
+.modalClose, #modalDislike, .delBtn{
 	background:#67493B;
 	color:white;
 }
+.updateBtn, .delBtn{
+	height:31px;
+	line-height:15px;
+}
+
