@@ -35,5 +35,13 @@ public interface CampingDAO {
 	  
 	   // 지향 - 후기목록
 	   public List<ReviewVO> reviewListSelect(int contentId);
+	   // 지향 - 후기등록
+	   public int reviewInsert(ReviewVO vo);
+	   // 지향 - 후기
+	   public ReviewVO reviewModalSelect(int reviewno);
+	   // 지향 - 후기수정
+	   public int reviewUpdate(ReviewVO vo);
+	   // 지향 - 후기삭제
+	   public int reviewDelete(int reviewno);
 
 }
