@@ -62,7 +62,7 @@ h2{
 	display:block;
 }
 
-table{
+#infotable{
 	border-color: grey;
 	border-collapse: collapse;
 	box-sizing: border-box;
