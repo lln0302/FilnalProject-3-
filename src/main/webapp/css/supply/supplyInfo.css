@@ -4,7 +4,7 @@ h5 {
 	text-align: center;
 	padding: 10px;
 }
-h1, .container *{
+h1, h5, .container *{
 	font-family: 'IBM Plex Sans KR', sans-serif; 
 }
 
@@ -21,6 +21,7 @@ h1, .container *{
  	padding: 6px;
  	border: 0px;
  	border-radius: 5px;
+ 	color:white;
 }
 
 #ciDel {
@@ -98,6 +99,7 @@ h1, .container *{
  	padding: 6px 12px;
  	border: 0px;
  	border-radius: 5px;
+ 	color:white;
 }
 #spReplyButton:hover {
 	background-color: #e57233;
@@ -108,6 +110,7 @@ h1, .container *{
 	border-radius: 5px;
 	padding: 6px 12px;
 	background-color: #f58243;
+	color:white;
 }
 
 .goChat:hover {

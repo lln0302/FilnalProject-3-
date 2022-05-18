@@ -3,7 +3,6 @@ function LogFormCheck(){
     var id = document.getElementById("userid");
     var pwd= document.getElementById("userpwd");
 
-
     //입력 공백시 return false
     if(id.value==""){
         alert("아이디를 입력하세요");
@@ -22,3 +21,4 @@ function enterLogin() {
 		LogFormCheck();
 	}
 }
+

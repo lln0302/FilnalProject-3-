@@ -46,7 +46,7 @@
 	                <c:if test="${logStatus == 'Y'}">
 	                    <div id="login">
 	                        <b style="color: #67493B; padding-right: 10px;"> ${nickname} 님 환영합니다:)</b>
-							<a href="${url}/member/myPage">My-page</a>
+							<a href="${url}/member/myPageMain">My-page</a>
 	                    </div>
 	                    <div id="logout">
 	                        <a href="${url}/member/logout">Log-out</a>

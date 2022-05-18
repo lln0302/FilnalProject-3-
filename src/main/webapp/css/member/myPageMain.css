@@ -16,7 +16,7 @@ main {
     align-items: center;
     margin-top: 13.5vh;
     position: relative;
-    bottom: 7vh;
+    bottom: 6.8vh;
     backdrop-filter: blur(7px);
     padding-left: 40vw;
 }
@@ -210,3 +210,34 @@ h1 {
     color: black;
 }
 
+.table table {
+    background-color: white;
+    position: relative;
+    bottom: 72vh;
+    right: 17.5vw;
+    width: 55vw;
+}
+
+.container {
+    background-color: white;
+    position: relative;
+    top: 4vh;
+    right: 20vw;
+    height: 90vh;
+    width: 100vw;
+    text-align: center;
+}
+
+h2 {
+    margin-top: 20px;
+}
+
+.pagination li {
+    position: relative;
+    bottom: 72vh;
+    left: 6vw;
+}
+
+a {
+    color: darkorange;
+}

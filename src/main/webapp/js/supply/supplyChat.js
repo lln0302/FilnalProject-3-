@@ -36,7 +36,7 @@
 
 		//작성자(오른쪽) 말풍선의 너비값을 변수에 저장
 		var selWid = parseInt($("#chatSeller"+i).css('width'), 10);
-		//alert($("#chatSeller"+i).css('width'));
+		alert($("#chatSeller"+i).css('width'));
 		//말풍선의 너비에 따라 오른쪽으로 땡김
 		right = selWid*1.11 - winWid;
 		if(right < -290) right = -290;
