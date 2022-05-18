@@ -12,6 +12,9 @@ import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RestController;
 import org.springframework.web.servlet.ModelAndView;
 
+import ch.qos.logback.core.net.SyslogOutputStream;
+import ch.qos.logback.core.recovery.ResilientSyslogOutputStream;
+
 @RequestMapping("/camping/")
 @RestController
 public class CampingController {
@@ -76,9 +79,12 @@ public class CampingController {
 	
 	@GetMapping("/campingView")
 	public ModelAndView campingView(String contentId) {
+		 
 		ModelAndView mav = new ModelAndView();
+		 List<CampingVO> list=service.campingSelect(contentId);
 		
-		mav.addObject("vo", service.campingSelect(contentId));
+		mav.addObject("vo",list); 
+		
 		mav.setViewName("camping/campingView");
 		
 		return mav;
