@@ -1,9 +1,6 @@
 @charset "UTF-8";
-
 .container{
-	border-left: 2px solid #dddddd;
-		border-right: 2px solid #dddddd;
-	 	font-family: 'Gowun Dodum', sans-serif; /*메인페이지 타이틀 폰트*/
+	font-family: 'Gowun Dodum', sans-serif; /*메인페이지 타이틀 폰트*/
 	font-family: 'IBM Plex Sans', sans-serif; /* 본문 영문 폰트*/
 	font-family: 'IBM Plex Sans KR', sans-serif; /* 본문 한글폰트 */
 }
@@ -42,16 +39,16 @@
 
 .C_SearchBtnWrap{
 	padding: 20px 0px;
-	    border-bottom: 1.5px solid #ffffff;
-	 	width: 90%;
-	 	margin: 10px auto; 	 	
+	border-bottom: 1.5px solid #ffffff;
+	width: 90%;
+	margin: 10px auto; 	 	
 }	
 
 input {
      -webkit-appearance: none;
        -moz-appearance: none;
-       appearance: none;
-  }
+       appearance: none;       
+}
 
 .detail, .tag_search{
 	width: 45%;
@@ -140,22 +137,16 @@ input {
 
 .col-8{
 	width:700px;
-     padding:0 5px;
-     overflow:hidden;
-     text-overflow:ellipsis;
-     white-space:nowrap;
+    padding:0 5px;
+    overflow:hidden;
+    text-overflow:ellipsis;
+    white-space:nowrap;
 }
 
-#campinglink{
+#campinglink,
+#campinglink:visited,
+#campinglink:active{
 	color : black;		
-}
-
-#campinglink:visited {
-	 color:black; 
-}	
-
-#campinglink:active { 
-	color:black; 
 }
 
 #campinglink:hover {
