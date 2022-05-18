@@ -79,18 +79,8 @@ public class CampingController {
 		mav.setViewName("camping/campingView");
 		
 		return mav;
-	}
-	
-	@GetMapping("/campingViewReview")
-	public ModelAndView campingViewReview(String contentId) {
-		ModelAndView mav = new ModelAndView();
-		
-		mav.addObject("vo", service.campingViewReview(contentId));
-		mav.setViewName("camping/campingViewReview");
-		
-		return mav;
-	}
-	
+	}	
+
 	@GetMapping("/campingSuggestion")
 	public ModelAndView CampingSuggestion(Paging10VO pVO) {
 		ModelAndView mav = new ModelAndView();		

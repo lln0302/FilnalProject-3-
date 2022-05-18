@@ -25,8 +25,26 @@ public class CampingVO {
     private String operDeCl;
     private String modifiedtime;
     private String imageUrl;
-    
-    private List<Integer> contentIdList;       
+    private int imgno;
+    private String animalCmgCl;
+           
+    public String getAnimalCmgCl() {
+		return animalCmgCl;
+	}
+
+	public void setAnimalCmgCl(String animalCmgCl) {
+		this.animalCmgCl = animalCmgCl;
+	}
+
+	public int getImgno() {
+		return imgno;
+	}
+
+	public void setImgno(int imgno) {
+		this.imgno = imgno;
+	}
+
+	private List<Integer> contentIdList;       
     
 	public String getImageUrl() {
 		return imageUrl;

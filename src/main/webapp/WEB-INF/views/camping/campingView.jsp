@@ -1,12 +1,17 @@
 <%@ page language="java" contentType="text/html; charset=UTF-8" pageEncoding="UTF-8"%>
 <%@ taglib uri="http://java.sun.com/jsp/jstl/core" prefix="c" %>
 <link rel="stylesheet" href="/css/camping/campingView.css" type="text/css"/>
-
+<script src="/js/camping/campingView.js"></script>
+<script type="text/javascript" src="//dapi.kakao.com/v2/maps/sdk.js?appkey=b0f683cf3769f84d841b883357269e47&libraries=services"></script>
+<c:set value="${vo[0]}" var="cmmvo"/>
 <div id="wrap">
+	<script>
+		Listupcampingimages(${cmmvo.contentId});	
+	</script>
 	<div id="campingTitle">
 		<h2>
 			<span>
-				${vo.facltNm }
+				${cmmvo.facltNm }
 			</span>
 		</h2>
 	</div>
@@ -14,7 +19,7 @@
 	<div id="siteSection">
 		<div class="boxSection">
 			<div id="imagebox">
-				<img src="${vo.firstImageUrl }">
+				<img src="${cmmvo.firstImageUrl }">
 			</div>
 			<div id="infobox">
 				<table>
@@ -22,83 +27,119 @@
 						<col style="width:35%;">						
 					</colgroup>
 					<tbody>
-						<c:if test="${vo.addr1 != null || vo.addr2 != null }">
+						<c:if test="${cmmvo.addr1 != null || cmmvo.addr2 != null }">
 							<tr>
 								<th scope="col">주소</th>
-									<td>${vo.addr1}  ${vo.addr2 } </td>
+									<td>${cmmvo.addr1}  ${cmmvo.addr2 } </td>
 							</tr>
 						</c:if>
-						<c:if test="${vo.tel != null}">
+						<c:if test="${cmmvo.tel != null}">
 							<tr>
 								<th scope="col">문의처</th>
-								<td>${vo.tel }</td>
+								<td>${cmmvo.tel }</td>
 							</tr>
 						</c:if>
-						<c:if test="${vo.lctCl != null}">
+						<c:if test="${cmmvo.lctCl != null}">
 							<tr>
 								<th scope="col">캠핑장 환경</th>
-								<td>${vo.lctCl }</td>
+								<td>${cmmvo.lctCl }</td>
 							</tr>
 						</c:if>
-						<c:if test="${vo.induty != null}">
+						<c:if test="${cmmvo.induty != null}">
 							<tr>
 								<th scope="col">캠핑장 유형</th>
-								<td>${vo.induty }</td>
+								<td>${cmmvo.induty }</td>
 							</tr>
 						</c:if>
-						<c:if test="${vo.operPdCl != null}">
+						<c:if test="${cmmvo.operPdCl != null}">
 							<tr>
 								<th scope="col">운영기간</th>
-								<td>${vo.operPdCl }</td>
+								<td>${cmmvo.operPdCl }</td>
 							</tr>
 						</c:if>
-						<c:if test="${vo.operDeCl != null}">
+						<c:if test="${cmmvo.operDeCl != null}">
 							<tr>
 								<th scope="col">운영일</th>
-								<td>${vo.operDeCl }</td>
+								<td>${cmmvo.operDeCl }</td>
 							</tr>
 						</c:if>
-						<c:if test="${vo.homepage != null}">
+						<c:if test="${cmmvo.homepage != null}">
 							<tr>
 								<th scope="col">홈페이지</th>
-								<td><a href="${vo.homepage }">홈페이지 바로가기</a></td>
+								<td><a href="${cmmvo.homepage }">홈페이지 바로가기</a></td>
 							</tr>
 						</c:if>
-						<c:if test="${vo.resveCl != null}">
+						<c:if test="${cmmvo.resveCl != null}">
 							<tr>
 								<th scope="col">예약방법</th>
-								<td>${vo.resveCl }</td>								
+								<td>${cmmvo.resveCl }</td>								
 							</tr>
 						</c:if>
-						<c:if test="${vo.posblFcltyCl != null}">
+						<c:if test="${cmmvo.posblFcltyCl != null}">
 							<tr>
 								<th scope="col">주변이용가능시설</th>
-								<td>${vo.posblFcltyCl }</td>
+								<td>${cmmvo.posblFcltyCl }</td>
 							</tr>
 						</c:if>
 					</tbody>
 				</table>								
 				<div id="btn_zzim">										
-					<button type="button" class="btn_zzim" onclick="">찜하기</button>										
+					<button type="button" class="btn_zzim btn" onclick="">찜하기</button>										
 				</div>
 			</div>
 		</div>
 	</div>
 	<div id="contents">
 		<ul class="contents_Select">
-			<li class="contents_Select"><a href="/camping/campingViewIntro" class="camp_intro">캠핑장 소개</a></li>
-			<li class="contents_Select"><a href="/camping/campingViewGuide" class="camp_guide">이용안내</a></li>
-			<li class="contents_Select"><a href="/camping/campingViewMap" class="camp_map">위치/주변정보</a></li>
-			<li class="contents_Select"><a href="/camping/campingViewReview" class="camp_review">캠핑&amp;여행후기</a></li>					
+			<li class="contents_SelectBtn"><a href="#" class="campIntro" onclick=clickIntro()>캠핑장 소개</a></li>
+			<li class="contents_SelectBtn"><a href="#" class="campGuide"onclick=clickGuide()>이용안내</a></li>
+			<li class="contents_SelectBtn"><a href="#" class="campMap" onclick=clickMap()>위치/주변정보</a></li>
+			<li class="contents_SelectBtn"><a href="#" class="campReview" onclick=clickReview>캠핑&amp;여행후기</a></li>					
 		</ul>
-		<div class="camp_intro">
-			<ul>
-				<li class="col_03 img_box">
-					
-				</li>
-				<li class="col_03 img_box"></li>
-				<li class="col_03 img_box"></li>				
-			</ul>
+		
+		<div class="campIntro" id="campIntro" style="display:block;">
+			<h3 class="icon_h3 mt_50">전경 이미지</h3>
+				<div class="campIntro_image" id="campIntro_image">
+					<ul>
+						<c:forEach var="itmvo" items="${vo }">
+							<li class="img_box"><img src="${itmvo.imageUrl }" onclick="window.open(this.src)" style="width:100%; height:100%; object-fit:cover;"></li>
+						</c:forEach>
+					</ul>
+				</div>				
+			<p class="campIntro_txt">
+				<span>${cmmvo.intro }</span>
+			</p>			
+			<p class="campIntro_txt">
+				<span class="info_notice">
+					&nbsp;* 고캠핑에 등록된 정보는 현장상황과 다소 다를 수 있으니 <span class="info_f_red">반려동물 동반 여부, 부가 시설물, 추가차량</span> 등 원활한 캠핑을 위해 꼭 필요한 사항은 해당 캠핑장에 미리 확인하시기 바랍니다.
+				</span> 
+			</p>					
+		</div>
+		
+		<div class="campGuide" id="campGuide" style="display:none;">
+			<h3 class="h3">캠핑장 시설정보</h3>
+			<div class="campGuide_item">
+				<c:if test="${cmmvo.sbrsCl != ''}">									
+					<ul>
+						<li>${cmmvo.sbrsCl }</li>		
+						<li>${cmmvo.posblFcltyCl }</li>
+					</ul>
+				</c:if>
+				<c:if test="${cmmvo.posblFcltyCl != ''}">
+					<ul>
+						<li>${cmmvo.posblFcltyCl}</li>
+					</ul>
+				</c:if>
+				<c:if test="${cmmvo.animalCmgCl != ''}">
+					<ul>
+						<li>${cmmvo.animalCmgCl }</li>
+					</ul>
+				</c:if>	
+			</div>
+		</div>
+		
+		<div class="campMap" id="campMap" style="display:none;">
+			<div id="map" style="width:100%;height:350px;"></div>	
 		</div>
 	</div>
 </div>

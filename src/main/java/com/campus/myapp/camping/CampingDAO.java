@@ -25,10 +25,7 @@ public interface CampingDAO {
 	public List<CampingVO> campingTag(Paging10VO pVO);
 			
 	//캠핑장 선택
-	public CampingVO campingSelect(String contentId);
-	
-	//캠핑장 선택(리뷰)
-	public CampingVO campingViewReview(String contentId);
+	public List<CampingVO> campingSelect(String contentId);
 	
 	//캠핑장 목록(suggestion)
 	public List<CampingVO> campingSuggestion(Paging10VO pVO);			

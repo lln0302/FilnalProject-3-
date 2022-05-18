@@ -96,10 +96,7 @@
 				<script>
 					ListUpcampinginfo();					
 				</script>				
-				<c:forEach var="vo" items="${list }">
-					<script>
-						Listupcampingimages(${vo.contentId});
-					</script>					
+				<c:forEach var="vo" items="${list }">										
 					<div class="container p-3 my-3 border listBox">
 						<div class="row">
 							<div id="campingSite">						

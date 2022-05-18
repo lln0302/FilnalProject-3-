@@ -27,7 +27,7 @@ public class CampingServiceImpl implements CampingService {
 	}
 
 	@Override
-	public CampingVO campingSelect(String contentId) {
+	public List<CampingVO> campingSelect(String contentId) {
 		return dao.campingSelect(contentId);
 	}
 
@@ -42,12 +42,7 @@ public class CampingServiceImpl implements CampingService {
 	}
 
 	@Override
-	public CampingVO campingViewReview(String contentId) {
-		return dao.campingViewReview(contentId);
-	}
-
-	@Override
 	public int addimages(CampingVO vo) {
 		return dao.addimages(vo);
-	}	
+	}
 }
