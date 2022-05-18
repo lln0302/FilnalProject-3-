@@ -14,6 +14,7 @@ public class CarVO {
 	private float locY;
 	private String content;
 	private int replyno;
+	private int count;		//´ñ±Û¼ö
 	
 	public int getCarno() {
 		return carno;
@@ -92,6 +93,12 @@ public class CarVO {
 	}
 	public void setReplyno(int replyno) {
 		this.replyno = replyno;
+	}
+	public int getCount() {
+		return count;
+	}
+	public void setCount(int count) {
+		this.count = count;
 	}
 	
 	
