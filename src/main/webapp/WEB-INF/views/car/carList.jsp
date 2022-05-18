@@ -37,6 +37,14 @@
 		                    <select id="keyword" style="width:100px;">
 		                    	<option value="서울">서울</option>
 		                    	<option value="경기">경기</option>
+		                    	<option value="강원">강원</option>
+		                    	<option value="충북">충북</option>
+		                    	<option value="충남">충남</option>
+		                    	<option value="전북">전북</option>
+		                    	<option value="전남">전남</option>
+		                    	<option value="경북">경북</option>
+		                    	<option value="경남">경남</option>
+		                    	<option value="제주">제주</option>
 		                    </select>
 		                    <button type="submit">검색</button> 
 		                </form>
@@ -51,36 +59,14 @@
 		        	<input type="hidden" id="plRegion${status.index}" value="${vo.region }">
 		        	<input type="hidden" id="plNickname${status.index}" value="${vo.nickname }">
 		        	<input type="hidden" id="plViews${status.index}" value="${vo.views }">
-		        	<input type="hidden" id="plReply${status.index}" value="">
+		        	<input type="hidden" id="plCount${status.index}" value="${vo.count }">
 		        	<input type="hidden" id="plWritedate${status.index}" value="${vo.writedate }">
 		        	<input type="hidden" id="locx${status.index}" value="${vo.locX}">
 		        	<input type="hidden" id="locy${status.index}" value="${vo.locY}">
 		        </c:forEach>
 		        
 		        <ul id="placesList">
-			        <c:forEach var="vo" items="${list}" varStatus="status">
-			        	<input type="hidden" id="locx${status.index}" value="${vo.locX}">
-			        	<input type="hidden" id="locy${status.index}" value="${vo.locY}">
-			        	
-			        	
-			        	<li class="item">
-				        	<a href="/car/carInfo?no=${vo.carno }">
-				        		<span class="marker_${status.index}">
-				        			<img src="../img/supply/cat.jpg">
-				        		</span>
-				        		<div class="info">
-				        			<h5>${vo.title}</h5>
-				        			<span>[${vo.region}] ${vo.nickname}</span>
-				        			<br>
-				        			<span class="tel">
-				        				<i class="fas fa-eye"></i>${vo.views}&nbsp;&nbsp;&nbsp;
-				        				<i class="fas fa-comment"></i>[댓글수]&nbsp;&nbsp;&nbsp;
-				        				<i class="fa fa-clock clock"></i>${vo.writedate}
-				        			</span>
-				        		</div>
-				        	</a>
-			        	</li>
-			        </c:forEach>
+			        
 		        </ul>
 		        <!-- 
 		        <ul class="pagination justify-content-center">
@@ -96,7 +82,3 @@
 </div>
 
 <script src="/js/car/carList.js"></script>
-	
-<!--
-<div id="planCreate_map"></div>
--->

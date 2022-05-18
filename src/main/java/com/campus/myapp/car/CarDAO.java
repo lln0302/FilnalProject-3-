@@ -20,6 +20,12 @@ public interface CarDAO {
 	// 차박 게시판 게시물 조회수 증가
 	public int carInfoCount(int no);
 	
+	// 차박 게시판 게시물 수정 페이지 불러오기
+	public CarVO carEdit(int no);
+	
+	// 차박 게시판 게시물 수정 처리
+	public int carEditOk(CarVO vo);
+	
 	// 차박 게시판 게시물 삭제
 	public int carDelete(int no);
 	
