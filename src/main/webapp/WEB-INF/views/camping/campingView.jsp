@@ -145,28 +145,7 @@
 		</div>
 		<!-- 캠핑후기 -->
 		<div id="campReview" style="display:none;">
-			<h3 style="text-align:center">캠핑 후기</h3>
-			<div class="container p-3 my-3 border list">
-				 <table class="table table-striped text-center">
-					<thead>
-						<tr>
-							<th class="text-center">닉네임</th>
-							<th class="text-center">후기</th>
-							<th class="text-center">작성날짜</th>
-							<th class="text-center"><i class="fa fa-thumbs-up"></i> /
-													<i class="fa fa-thumbs-down"></i></th>
-						</tr>
-					</thead>
-					<tbody>
-						<tr>
-							<td>지향 리</td>
-							<td>깨끗하고 불멍하기 좋은 캠핑장ㄱ숑ㅅ곡소곳공ㄱ속솟ㅇ곡송공ㅅ</td>
-							<td>2022-04-15</td>
-							<td><i class="fa fa-thumbs-up"></i></td>
-						</tr>
-					</tbody>
-				</table>
-			</div>
+			
 		</div><!-- review -->
 	</div><!-- contents -->
 </div><!-- wrap -->
@@ -202,4 +181,5 @@
 		</div><!-- modal-content -->
 	</div><!-- modal-dialog -->
 </div>
+<script src="/js/camping/review.js"></script>
 <script src="/js/camping/campingView.js"></script>

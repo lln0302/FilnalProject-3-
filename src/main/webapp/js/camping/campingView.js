@@ -47,13 +47,6 @@
 		$("#campReview").hide();				
 	}
 	
-	function clickReview(){
-		$("#campIntro").hide();
-		$("#campGuide").hide();
-		$("#campMap").hide();	
-		$("#campReview").show();				
-	}
-	
 	//지도 api
 	var infowindow = new kakao.maps.InfoWindow({zIndex:1});
 			
