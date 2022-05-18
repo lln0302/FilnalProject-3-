@@ -1,6 +1,5 @@
 <%@ page language="java" contentType="text/html; charset=UTF-8" pageEncoding="UTF-8"%>
 <%@ taglib uri="http://java.sun.com/jsp/jstl/core" prefix="c" %>
-
 <script type="text/javascript" src="//dapi.kakao.com/v2/maps/sdk.js?appkey=b0f683cf3769f84d841b883357269e47&libraries=services"></script>
 <link rel="stylesheet" href="/css/camping/campingView.css" type="text/css"/>
 <link rel="stylesheet" href="/css/camping/review.css" type="text/css"/>
@@ -89,7 +88,6 @@
 	</div>
 
 	<div id="contents">
-		<input type="hidden" id="contentId" value="${cmmvo.contentId}"/>
 		<ul class="contents_Select">
 			<li class="contents_SelectBtn"><a href="#" class="campIntro" onclick=clickIntro()>캠핑장 소개</a></li>			
 			<li class="contents_SelectBtn"><a href="#" class="campMap" onclick=clickMap()>위치/주변정보</a></li>
@@ -101,13 +99,15 @@
 				<div class="campIntro_image" id="campIntro_image">
 					<ul>
 						<c:forEach var="itmvo" items="${vo }">
-							<li class="img_box"><img src="${itmvo.imageUrl }" onclick="window.open(this.src)" style="width:100%; height:100%; object-fit:cover; cursor:pointer;"></li>
+
+							<li class="img_box"><img src="${itmvo.imageUrl }" onclick="window.open(this.src)"
+								style="width:100%; height:100%; object-fit:cover; cursor:pointer;"></li>
 						</c:forEach>
 					</ul>
 				</div>				
 			<p class="campIntro_txt">
 				<span>${cmmvo.intro }</span>
-			</p>
+			</p>	
 			<h2>캠핑장 시설정보</h2>
 			<div class="campGuide_item">				
 				<c:if test="${cmmvo.sbrsCl != ''}">									
@@ -125,59 +125,60 @@
 						<li>${cmmvo.animalCmgCl }</li>
 					</ul>
 				</c:if>	
-			</div>			
+			</div>							
 			<p class="campIntro_txt">
 				<span class="info_notice">
-					&nbsp;* MULCAMPING에 등록된 정보는 현장상황과 다소 다를 수 있으니 <span class="info_f_red">반려동물 동반 여부, 부가 시설물, 추가차량</span> 등 원활한 캠핑을 위해 꼭 필요한 사항은 해당 캠핑장에 미리 확인하시기 바랍니다.
+					&nbsp;* 멀캠핑에 등록된 정보는 현장상황과 다소 다를 수 있으니 
+					<span class="info_f_red">반려동물 동반 여부, 부가 시설물, 추가차량</span> 
+					등 원활한 캠핑을 위해 꼭 필요한 사항은 해당 캠핑장에 미리 확인하시기 바랍니다.
 				</span> 
-			</p>					
-		</div>		
+			</p>	
+		</div>
 		<!-- 위치/주변정보 -->	
-		
 		<div class="campMap" id="campMap" style="display:none;">
 			<h2>위치/주변정보</h2>
 			<div id="staticMap" style="width:600px;height:350px;"></div>	
 		</div>
 		<!-- 캠핑후기 -->
-		<div id="campReview" style="display:none;">
-			<!-- modal -->
+		<div id="campReview" style="display:none;"></div><!-- review -->
+	</div><!-- contents -->
+</div><!-- wrap -->	
+<!-- modal -->
 <div class="modal fade" id="myModal">
 	<div class="modal-dialog modal-dialog-centered">
 		<!-- Modal content -->
 		<div class="modal-content">
 			<div class="modal-header">
 				<h3 id="modal-title" class="modal-title">후기 글</h3>
-				<button type="button" class="close" data-dismiss="modal">&times;</button>
+				<button data-dismiss="modal" class="modalClose btn">&times;</button>
 			</div>
 			
-			<div class="modal-body">
+			<form class="modal-body">
+				<input type="hidden" id="contentId" name="contentId" value="${cmmvo.contentId}"/>
 				<div>
 					<h5>추천</h5><hr/>
-					 <input type="radio" id="recommend" name="recommend" value="추천">
-     				 <label for="추천"><i class='fa fa-thumbs-up'></i>&nbsp;추천</label>
-     				 <input type="radio" id="recommend" name="recommend" value="비추천">
-     				 <label for="비추천"><i class='fa fa-thumbs-down'></i>&nbsp;비추천</label>
+					<input type="radio" id="recommend" name="recommend" value="추천">
+     				<label for="추천"><i class='fa fa-thumbs-up'></i>&nbsp;추천</label>
+     				<input type="radio" id="recommend" name="recommend" value="비추천">
+     				<label for="비추천"><i class='fa fa-thumbs-down'></i>&nbsp;비추천</label>
 				</div>
 				<br/>
 				<div>
 					<h5>후기</h5><hr/>
-					<textarea class="form-control" id="content" name="content" rows="5" placeholder="캠핑장의 장단점과 솔직한 후기를 남겨주세요"></textarea>
+					<textarea class="form-control" id="modalContent" name="content" rows="5" 
+						placeholder="캠핑장의 장단점과 솔직한 후기를 남겨주세요"></textarea>
 				</div>
-			</div>
+			</form>
 			
 			<div class="modal-footer">
-				<button type="button" id="modalSubmit" class="btn">등록</button>
-				<button type="button" data-dismiss="modal" id="modalClose" class="btn">닫기</button>
+				<button id="modalSubmit" class="btn">등록</button>
+				<button data-dismiss="modal" class="modalClose btn">닫기</button>
 			</div>
 		</div><!-- modal-content -->
 	</div><!-- modal-dialog -->
 </div>
-		</div><!-- review -->
-	</div><!-- contents -->
-</div><!-- wrap -->
 <script src="/js/camping/campingView.js"></script>
 <script>
 	Listupcampingimages(${cmmvo.contentId});		
 </script>
 <script src="/js/camping/campingMap.js"></script>
-

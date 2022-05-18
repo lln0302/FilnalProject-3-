@@ -5,9 +5,13 @@
 	font-family: 'IBM Plex Sans', sans-serif; /* 본문 영문 폰트*/
 	font-family: 'IBM Plex Sans KR', sans-serif; /* 본문 한글폰트 */
 }
+#titleText{
+	text-align:center;
+}
 table .reviewTitle{
 	position: relative;
 	min-width: 600px;
+	width:400px
 }
 table .reviewTitle>a>span{
 	white-space: nowrap;
@@ -25,16 +29,18 @@ table .reviewTitle>a>span{
 	margin-bottom: 10px;
 	float: right;
 }
-#content{
+#modalContent{
 	border-radius:10px;
 	outline:none;
 	resize:none;
+	padding: 15px;
+	border: none;
 }
 #modalSubmit{
 	background:rgb(245, 130, 67);
 	color:white;
 }
-#modalClose{
+.modalClose{
 	background:#67493B;
 	color:white;
 }
