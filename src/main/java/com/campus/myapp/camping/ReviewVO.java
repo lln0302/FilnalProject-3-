@@ -3,7 +3,7 @@ package com.campus.myapp.camping;
 public class ReviewVO {
 
 	private int reviewno;
-	private int contentID;
+	private int contentId;
 	private String nickname; 
 	private String content;
 	private String createdate;
@@ -15,11 +15,11 @@ public class ReviewVO {
 	public void setReviewno(int reviewno) {
 		this.reviewno = reviewno;
 	}
-	public int getContentID() {
-		return contentID;
+	public int getContentId() {
+		return contentId;
 	}
-	public void setContentID(int contentID) {
-		this.contentID = contentID;
+	public void setContentId(int contentId) {
+		this.contentId = contentId;
 	}
 	public String getNickname() {
 		return nickname;

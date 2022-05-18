@@ -1,6 +1,9 @@
 package com.campus.myapp.camping;
 
+import java.util.List;
+
 import javax.inject.Inject;
+import javax.servlet.http.HttpSession;
 
 import org.springframework.web.bind.annotation.GetMapping;
 import org.springframework.web.bind.annotation.PostMapping;
@@ -80,17 +83,7 @@ public class CampingController {
 		
 		return mav;
 	}
-	
-	@GetMapping("/campingViewReview")
-	public ModelAndView campingViewReview(String contentId) {
-		ModelAndView mav = new ModelAndView();
-		
-		mav.addObject("vo", service.campingSelect(contentId));
-		mav.setViewName("camping/campingViewReview");
-		
-		return mav;
-	}
-	
+
 	@GetMapping("/campingSuggestion")
 	public ModelAndView CampingSuggestion(Paging10VO pVO) {
 		ModelAndView mav = new ModelAndView();		
@@ -101,4 +94,11 @@ public class CampingController {
 		mav.setViewName("camping/campingSuggestion");
 		return mav;
 	}
+	
+	// 지향 - 캠핑 리뷰 리스트 
+	@GetMapping("/reviewList")
+	public List<ReviewVO> campingViewReview(int contentId, HttpSession session) {
+		return service.reviewListSelect(contentId);
+	}
+	
 }	

@@ -25,7 +25,6 @@ public interface CampingService {
 	   // 캠핑장 목록(suggestion)
 	   public List<CampingVO> campingSuggestion(Paging10VO pVO);	
 	   
-	   // 후기목록
-	   public List<ReviewVO> reviewListSelect(ReviewVO vo);
-
+	   // 지향 - 후기목록
+	   public List<ReviewVO> reviewListSelect(int ContentId);
 }

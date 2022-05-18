@@ -1,12 +1,13 @@
 <%@ page language="java" contentType="text/html; charset=UTF-8" pageEncoding="UTF-8"%>
 <%@ taglib uri="http://java.sun.com/jsp/jstl/core" prefix="c" %>
 <link rel="stylesheet" href="/css/camping/campingView.css" type="text/css"/>
-
+<link rel="stylesheet" href="/css/camping/review.css" type="text/css"/>
+<script src="/js/camping/review.js"></script>
 <div id="wrap">
 	<div id="campingTitle">
 		<h2>
 			<span>
-				${vo.facltNm }
+				${vo.facltNm}
 			</span>
 		</h2>
 	</div>
@@ -86,55 +87,45 @@
 	</div>
 
 	<div id="contents">
+		<input type="hidden" id="contentId" value="${vo.contentId}"/>
 		<ul class="contents_Select">
 			<li class="contents_Select"><a href="/camping/campingViewIntro" class="campIntro">캠핑장 소개</a></li>
 			<li class="contents_Select"><a href="/camping/campingViewGuide" class="campGuide">이용안내</a></li>
 			<li class="contents_Select"><a href="/camping/campingViewMap" class="campMap">위치/주변정보</a></li>
 			<li class="contents_Select"><a href="javascript:void(0);" class="campReview">캠핑&amp;여행후기</a></li>					
 		</ul>
-	<script>
-	$(function(){
-
-		// 후기 작성 
-		$(".campReview").click(function(){
-			alert("후기를 작성하면 리스트가 보입니다.");
+		<div id="review"><!-- 캠핑후기 --></div>
+	</div><!-- contents -->
+</div><!-- wrap -->
+<!-- modal -->
+<div class="modal fade" id="myModal">
+	<div class="modal-dialog modal-dialog-centered">
+		<!-- Modal content -->
+		<div class="modal-content">
+			<div class="modal-header">
+				<h3 id="modal-title" class="modal-title">후기 글</h3>
+				<button type="button" class="close" data-dismiss="modal">&times;</button>
+			</div>
 			
-		});
-		
-	});
-	</script>
-		<div>
-		
-		</div>
-		<div>
-		
-		</div>
-		<div>
-		
-		</div>
-		<div class="review">
-			<h3 style="text-align:center">캠핑 후기</h3>
-			<div class="container p-3 my-3 border list">
-				 <table class="table table-striped text-center">
-					<thead>
-						<tr>
-							<th class="text-center">닉네임</th>
-							<th class="text-center">후기</th>
-							<th class="text-center">작성날짜</th>
-							<th class="text-center"><i class="fa fa-thumbs-up"></i> /
-													<i class="fa fa-thumbs-down"></i></th>
-						</tr>
-					</thead>
-					<tbody>
-						<tr>
-							<td>지향 리</td>
-							<td>깨끗하고 불멍하기 좋은 캠핑장ㄱ숑ㅅ곡소곳공ㄱ속솟ㅇ곡송공ㅅ</td>
-							<td>2022-04-15</td>
-							<td><i class="fa fa-thumbs-up"></i></td>
-						</tr>
-					</tbody>
-				</table>
+			<div class="modal-body">
+				<div>
+					<h5>추천</h5><hr/>
+					 <input type="radio" id="recommend" name="recommend" value="추천">
+     				 <label for="추천"><i class='fa fa-thumbs-up'></i>&nbsp;추천</label>
+     				 <input type="radio" id="recommend" name="recommend" value="비추천">
+     				 <label for="비추천"><i class='fa fa-thumbs-down'></i>&nbsp;비추천</label>
+				</div>
+				<br/>
+				<div>
+					<h5>후기</h5><hr/>
+					<textarea class="form-control" id="content" name="content" rows="5" placeholder="캠핑장의 장단점과 솔직한 후기를 남겨주세요"></textarea>
+				</div>
+			</div>
+			
+			<div class="modal-footer">
+				<button type="button" id="modalSubmit" class="btn">등록</button>
+				<button type="button" data-dismiss="modal" id="modalClose" class="btn">닫기</button>
 			</div>
 		</div>
 	</div>
-</div>
+</div><!-- modal -->
