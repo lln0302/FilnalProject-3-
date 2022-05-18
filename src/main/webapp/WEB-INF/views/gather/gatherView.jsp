@@ -81,7 +81,6 @@
 							<td>${list.gender}</td>
 						</tr>
 					</c:forEach>
-
 				</tbody>
 			</table>
 		</div>	

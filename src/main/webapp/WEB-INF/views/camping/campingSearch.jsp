@@ -93,14 +93,11 @@
 		<div id ="searchBoxunderline"></div>
 		<div class = "campingListShow" id="camping">		
 			<ul class="campingSearch">
-				<script>
-					ListUpcampinginfo();					
-				</script>				
 				<c:forEach var="vo" items="${list }">										
 					<div class="container p-3 my-3 border listBox">
 						<div class="row">
 							<div id="campingSite">						
-								<a href='/camping/campingView?contentId=${vo.contentId }'>
+								<a href='/camping/campingView?contentId=${vo.contentId}'>
 									<div id="imageBox" class="col-4">
 										<c:if test="${vo.firstImageUrl == null }">
 											<img src="/img/camping/autumn-season-5580627__340.webp" style="width:250px; height:183.33px;">

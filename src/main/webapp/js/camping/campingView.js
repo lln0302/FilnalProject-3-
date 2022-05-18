@@ -29,19 +29,29 @@
 	function clickIntro(){
 		$("#campIntro").show();
 		$("#campGuide").hide();
-		$("#campMap").hide();		
+		$("#campMap").hide();	
+		$("#campReview").hide();	
 	}
 	
 	function clickGuide(){
 		$("#campIntro").hide();
 		$("#campGuide").show();
-		$("#campMap").hide();		
+		$("#campMap").hide();
+		$("#campReview").hide();		
 	}
 	
 	function clickMap(){
 		$("#campIntro").hide();
 		$("#campGuide").hide();
-		$("#campMap").show();				
+		$("#campMap").show();	
+		$("#campReview").hide();				
+	}
+	
+	function clickReview(){
+		$("#campIntro").hide();
+		$("#campGuide").hide();
+		$("#campMap").hide();	
+		$("#campReview").show();				
 	}
 	
 	//지도 api

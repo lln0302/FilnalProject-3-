@@ -45,4 +45,16 @@ public class CampingServiceImpl implements CampingService {
 	public int addimages(CampingVO vo) {
 		return dao.addimages(vo);
 	}
+
+	// 지향 - 리뷰리스트
+	@Override
+	public List<ReviewVO> reviewListSelect(int contentId) {
+		return dao.reviewListSelect(contentId);
+	}
+
+	@Override
+	public CampingVO campingReview(String contentId) {
+		return dao.campingReview(contentId);
+	}	
+
 }
