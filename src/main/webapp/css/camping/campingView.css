@@ -58,7 +58,7 @@ h2{
 	display:block;
 }
 
-table{
+#infotable{
 	border-color: grey;
 	border-collapse: collapse;
 	box-sizing: border-box;
@@ -140,7 +140,7 @@ tbody tr:nth-child(1) td {
     border-right-color: white;
 }
 
-a{
+#contents a{
 	line-height: 45px;
     font-size: 15px;
     letter-spacing: -0.08em;

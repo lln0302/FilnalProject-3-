@@ -1,8 +1,7 @@
 <%@ page language="java" contentType="text/html; charset=UTF-8" pageEncoding="UTF-8"%>
 <%@ taglib uri="http://java.sun.com/jsp/jstl/core" prefix="c" %>
 <link rel="stylesheet" href="/css/camping/campingView.css" type="text/css"/>
-<script src="/js/camping/campingView.js"></script>
-<script type="text/javascript" src="//dapi.kakao.com/v2/maps/sdk.js?appkey=b0f683cf3769f84d841b883357269e47&libraries=services"></script>
+<script type="text/javascript" src="//dapi.kakao.com/v2/maps/sdk.js?appkey=4d585c813236383f0e2a1a1c5480efe2&libraries=services"></script>
 <c:set value="${vo[0]}" var="cmmvo"/>
 <div id="wrap">
 	<script>
@@ -22,7 +21,7 @@
 				<img src="${cmmvo.firstImageUrl }">
 			</div>
 			<div id="infobox">
-				<table>
+				<table id="infotable">
 					<colgroup>
 						<col style="width:35%;">						
 					</colgroup>
@@ -102,7 +101,7 @@
 				<div class="campIntro_image" id="campIntro_image">
 					<ul>
 						<c:forEach var="itmvo" items="${vo }">
-							<li class="img_box"><img src="${itmvo.imageUrl }" onclick="window.open(this.src)" style="width:100%; height:100%; object-fit:cover;"></li>
+							<li class="img_box"><img src="${itmvo.imageUrl }" onclick="window.open(this.src)" style="cursor:pointer;width:100%; height:100%; object-fit:cover;"></li>
 						</c:forEach>
 					</ul>
 				</div>				
@@ -136,10 +135,10 @@
 					</ul>
 				</c:if>	
 			</div>
-		</div>
-		
+		</div>		
 		<div class="campMap" id="campMap" style="display:none;">
 			<div id="map" style="width:100%;height:350px;"></div>	
 		</div>
 	</div>
 </div>
+<script src="/js/camping/campingView.js"></script>
