@@ -194,14 +194,7 @@ tbody tr:nth-child(1) td {
     color: red;
 }
 
-.h3{
-	position: relative;
-    font-size: 20px;
-    color: #000;
-    padding-left: 29px;
-    line-height: 27px;
-    background: url(/img/2018/sub/icon_h3.gif) no-repeat left 6px;
-    letter-spacing: -0.08em;
-    word-break: break-all;
+.h2{
+	text-align : center;	
 }
 
