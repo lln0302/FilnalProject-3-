@@ -3,7 +3,6 @@
 <link rel="stylesheet" href="/css/camping/campingView.css" type="text/css"/>
 <link rel="stylesheet" href="/css/camping/review.css" type="text/css"/>
 <script type="text/javascript" src="//dapi.kakao.com/v2/maps/sdk.js?appkey=b0f683cf3769f84d841b883357269e47&libraries=services"></script>
->>>>>>> branch 'master' of https://github.com/lln0302/FilnalProject-3-.git
 <c:set value="${vo[0]}" var="cmmvo"/>
 <div id="wrap">
 	<script>
@@ -23,7 +22,7 @@
 				<img src="${cmmvo.firstImageUrl }">
 			</div>
 			<div id="infobox">
-				<table id="infotable">
+				<table>
 					<colgroup>
 						<col style="width:35%;">						
 					</colgroup>
@@ -105,7 +104,7 @@
 				<div class="campIntro_image" id="campIntro_image">
 					<ul>
 						<c:forEach var="itmvo" items="${vo }">
-							<li class="img_box"><img src="${itmvo.imageUrl }" onclick="window.open(this.src)" style="cursor:pointer;width:100%; height:100%; object-fit:cover;"></li>
+							<li class="img_box"><img src="${itmvo.imageUrl }" onclick="window.open(this.src)" style="width:100%; height:100%; object-fit:cover;"></li>
 						</c:forEach>
 					</ul>
 				</div>				
@@ -139,38 +138,13 @@
 					</ul>
 				</c:if>	
 			</div>
-		</div>		
 		</div>
 		<!-- 위치/주변정보 -->
 		<div class="campMap" id="campMap" style="display:none;">
 			<div id="map" style="width:100%;height:350px;"></div>	
 		</div>
-
-	</div>
 		<!-- 캠핑후기 -->
 		<div id="campReview" style="display:none;">
-			<h3 style="text-align:center">캠핑 후기</h3>
-			<div class="container p-3 my-3 border list">
-				 <table class="table table-striped text-center">
-					<thead>
-						<tr>
-							<th class="text-center">닉네임</th>
-							<th class="text-center">후기</th>
-							<th class="text-center">작성날짜</th>
-							<th class="text-center"><i class="fa fa-thumbs-up"></i> /
-													<i class="fa fa-thumbs-down"></i></th>
-						</tr>
-					</thead>
-					<tbody>
-						<tr>
-							<td>지향 리</td>
-							<td>깨끗하고 불멍하기 좋은 캠핑장ㄱ숑ㅅ곡소곳공ㄱ속솟ㅇ곡송공ㅅ</td>
-							<td>2022-04-15</td>
-							<td><i class="fa fa-thumbs-up"></i></td>
-						</tr>
-					</tbody>
-				</table>
-			</div>
 		</div><!-- review -->
 	</div><!-- contents -->
 </div><!-- wrap -->
@@ -206,4 +180,5 @@
 		</div><!-- modal-content -->
 	</div><!-- modal-dialog -->
 </div>
+<script src="/js/camping/review.js"></script>
 <script src="/js/camping/campingView.js"></script>

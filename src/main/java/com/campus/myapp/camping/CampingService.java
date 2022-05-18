@@ -22,9 +22,6 @@ public interface CampingService {
 	   // 캠핑장 선택
 	   public List<CampingVO> campingSelect(String contentId);
 	   
-	   // 캠핑장 선택(리뷰)
-	   public CampingVO campingReview(String contentId);
-	   
 	   // 캠핑장 목록(suggestion)
 	   public List<CampingVO> campingSuggestion(Paging10VO pVO);
 	  

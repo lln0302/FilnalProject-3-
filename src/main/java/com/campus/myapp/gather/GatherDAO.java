@@ -52,7 +52,7 @@ public interface GatherDAO {
 	// 뷰페이지 댓글 개수
 	public int replyCountSelect(int gatherno);
 
-	//마이페이지
+	// 마이페이지
 	public List<GatherVO> myPageOpenedCamping(myPagePagingVO pVO);
 	public int totalRecord(myPagePagingVO pVO);
 	public List<GatherMemberVO> myPageCamping(myPagePagingVO pVO);

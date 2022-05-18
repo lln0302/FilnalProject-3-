@@ -52,9 +52,4 @@ public class CampingServiceImpl implements CampingService {
 		return dao.reviewListSelect(contentId);
 	}
 
-	@Override
-	public CampingVO campingReview(String contentId) {
-		return dao.campingReview(contentId);
-	}	
-
 }
