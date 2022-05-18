@@ -29,13 +29,13 @@
                 <input class="input-text" type="text" name="username" id="username" placeholder="이름" required/>
             </div>
             <div class="gender">
-                <label style="position: relative; left: 0.7vw;">성별:</label>
+                <label style="position: relative; left: 0.7vw; color: ivory">성별:</label>b
                 <input type="radio" name="gender" value="남" id="gender" required/><label for="gender"> 남</label>
                 <input type="radio" name="gender" value="여" id="gender2" required/><label for="gender2"> 여</label>
             </div>
 
             <div class="tel">
-                <select class="selectpicker" id="usertel1" name="usertel1" style="height: 5vh; background-color: rgba(50, 50, 50, 40%); color: dimgray; border: 0; width: 3vw;">
+                <select class="selectpicker" id="usertel1" name="usertel1" style="height: 5vh; background-color: rgba(250, 250, 250, 40%); color: dimgray; border: 0; width: 3vw;">
                     <option value="010">010</option>
                     <option value="02">02</option>
                     <option value="031">031</option>
@@ -55,8 +55,8 @@
                 <button class="certification" id="certChk" class="certChk" type="button" onclick="CheckCode()">본인인증</button>
             </div>
             <div style="position: relative; bottom: 11vh;">
-                <label style="color: dimgray">생년월일: </label>
-                <input class="input-text4" type='date' name='birth' value='birth' required/>
+<%--                <label style="color: dimgray">생년월일: </label>--%>
+                <input class="input-text" type='date' name='birth' value='birth' required/>
             </div>
             <div style="position: relative; bottom: 11vh;">
                 <input class="input-text" type="text" name="email" id="email" placeholder="이메일" required/>

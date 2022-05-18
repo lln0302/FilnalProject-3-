@@ -4,6 +4,7 @@ import java.util.List;
 
 import javax.inject.Inject;
 
+import com.campus.myapp.myPagePagingVO;
 import org.springframework.stereotype.Service;
 
 @Service
@@ -32,6 +33,16 @@ public class GatherServiceImpl implements GatherService {
 	public GatherVO gatherView(int gatherno) {
 		return dao.gatherView(gatherno);
 	}
+	// 게시판 수정페이지
+	@Override
+	public GatherVO selectEditView(int gatherno) {
+		return dao.selectEditView(gatherno);
+	}
+	// 게시판 글 수정
+	@Override
+	public int updateEditView(GatherVO vo) {
+		return dao.updateEditView(vo);
+	}
 	// 게시판 글 삭제
 	@Override
 	public int gatherDelete(int gatherno) {
@@ -58,6 +69,11 @@ public class GatherServiceImpl implements GatherService {
 	@Override
 	public GatherMemberVO selectJoinCamper(int gatherno, String nickname) {
 		return dao.selectJoinCamper(gatherno, nickname);
+	}
+	// 특정 캠핑 캠퍼 리스트
+	@Override
+	public List<GatherVO> selectCamperList(GatherMemberVO vo) {
+		return dao.selectCamperList(vo);
 	}
 	// 캠퍼 참여한 유저 명수
 	@Override
@@ -102,5 +118,27 @@ public class GatherServiceImpl implements GatherService {
 		return dao.replyCountSelect(gatherno);
 	}
 
-	
+
+	//마이페이지
+	@Override
+	public List<GatherVO> myPageOpenedCamping(myPagePagingVO pVO) {
+		return dao.myPageOpenedCamping(pVO);
+	}
+
+	@Override
+	public List<GatherMemberVO> myPageCamping(myPagePagingVO pVO) {
+		return dao.myPageCamping(pVO);
+	}
+
+	@Override
+	public int totalRecord(myPagePagingVO pVO) {
+		return dao.totalRecord(pVO);
+	}
+  
 }
+
+
+
+	
+
+

@@ -53,14 +53,6 @@
 
         <nav class="main-menu">
             <ul>
-<%--                <li>--%>
-<%--                    <a href="#">--%>
-<%--                        <i class="fa fa-home fa-2x"><img class="icon" src="/img/member/iconMenu.png"/></i>--%>
-<%--                        <span class="nav-text">--%>
-<%--                        </span>--%>
-<%--                    </a>--%>
-
-<%--                </li>--%>
                 <li>
                     <a href="${url}/member/myPageMain">
                         <i class="fa fa-home fa-2x"></i>
@@ -81,7 +73,7 @@
                 </li>
                 <li class="has-subnav">
                     <a href="${url}/member/myPageCamping">
-                        <i class="fa fa-laptop fa-2x"></i>
+                        <i class="fa fa-campground fa-2x"></i>
                         <span class="nav-text">
                             참여한 캠핑
                         </span>
@@ -90,7 +82,7 @@
                 </li>
                 <li class="has-subnav">
                     <a href="${url}/member/myPageOpenedCamping">
-                        <i class="fa fa-list fa-2x"></i>
+                        <i class="fa fa-map fa-2x"></i>
                         <span class="nav-text">
                             개설한 캠핑
                         </span>
@@ -99,7 +91,7 @@
                 </li>
                 <li class="has-subnav">
                     <a href="${url}/member/myPageLikeList">
-                        <i class="fa fa-folder-open fa-2x"></i>
+                        <i class="fa fa-thumbs-up fa-2x"></i>
                         <span class="nav-text">
                             좋아요 목록
                         </span>

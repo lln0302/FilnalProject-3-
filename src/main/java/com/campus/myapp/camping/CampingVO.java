@@ -25,6 +25,7 @@ public class CampingVO {
     private String operDeCl;
     private String modifiedtime;
     private String imageUrl;
+
     private int imgno;
     private String animalCmgCl;
            
@@ -45,6 +46,15 @@ public class CampingVO {
 	}
 
 	private List<Integer> contentIdList;       
+    
+    private String nickname;		//�븘�땲 �씠嫄� �븞�꽔�쑝硫� �씠�긽�븯寃� 罹좏븨�옣 由ъ뒪�듃 �븞�굹�샂;;
+    
+    public String getNickname() {
+		return nickname;
+	}
+	public void setNickname(String nickname) {
+		this.nickname = nickname;
+	}
     
 	public String getImageUrl() {
 		return imageUrl;

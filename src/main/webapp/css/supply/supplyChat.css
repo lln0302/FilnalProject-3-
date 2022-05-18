@@ -112,6 +112,7 @@
 	float:left;
 	background-color: rgba(103, 73, 59, .3);
 	border: none;
+	color:white;
 }
 #send:hover {
 	background-color: rgba(103, 73, 59, .8);

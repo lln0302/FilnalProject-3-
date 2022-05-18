@@ -17,17 +17,36 @@
 <script src="https://cdnjs.cloudflare.com/ajax/libs/jquery/3.6.0/jquery.min.js"></script>
 <script async src='/cdn-cgi/bm/cv/669835187/api.js'></script>
 <script type="text/javascript" src="/js/admin/adminSideTab.js"></script>
+<script type="text/javascript" src="/js/admin/adminCheckBox.js"></script>
+
 <style>
 
-#listMenu>li:nth-child(7n+2), #listMenu>li:nth-child(7n+5),
-#listMenu>li:nth-child(7n+6), #listMenu>li:nth-child(7n+7)
-{
-	width:17.5%;
+#listMenu>li:nth-child(8n+1) {
+	width:5%;
 }
-#listMenu>#listMenuFE>li:nth-child(7n+2), #listMenu>#listMenuFE>li:nth-child(7n+5),
-#listMenu>#listMenuFE>li:nth-child(7n+6), #listMenu>#listMenuFE>li:nth-child(7n+7)
+#listMenu>li:nth-child(8n+3)
 {
-	width:17.5%;
+	width:20%;
+}
+#listMenu>li:nth-child(8n+6),
+#listMenu>li:nth-child(8n+7),
+#listMenu>li:nth-child(8n+8)
+{
+	width:15%;
+}
+
+#listMenu>#listMenuFE>li:nth-child(8n+1) {
+	width:5%;
+}
+#listMenu>#listMenuFE>li:nth-child(8n+3)
+{
+	width:20%;
+}
+#listMenu>#listMenuFE>li:nth-child(8n+6),
+#listMenu>#listMenuFE>li:nth-child(8n+7),
+#listMenu>#listMenuFE>li:nth-child(8n+8)
+{
+	width:15%;
 }
 
 </style>
@@ -39,7 +58,7 @@
 		<%@ include file="/WEB-INF/views/admin/adminTop.jsp" %>
 		<div id="adminMainContent">
 		
-			<ul style="z-index:2;">
+			<ul id="sideTapFirst">
 				<li>
 					<div class='menu_img' id="menu1">
 						<img src="/img/admin/adminLeftTap1/dash.PNG" class="menu_imgs" id="menu_img_dashBoard" />
@@ -110,32 +129,40 @@
 								<input type="submit" value="Search" />
 							</form>
 						</div>
-						<ul id="listMenu">
-							<li>번호</li>
-							<li>제목</li>
-							<li>위치</li>
-							<li>작성자</li>
-							<li>시작일</li>
-							<li>마감일</li>
-							<li>작성일</li>
-						
-							<div id="listMenuFE">
-							<c:forEach var="vo" items="${list}">
-								<li>${vo.gatherno}</li>
-								<li><a href="/gather/gatherView?gatherno=${vo.gatherno}">${vo.title}</a></li>
-								<li>${vo.place}</li>
-								<li>${vo.nickname}</li>
-								<li>${vo.startdate}</li>
-								<li>${vo.enddate}</li>
-								<li>${vo.createdate}</li>
-							</c:forEach>
-							</div>
-						</ul>
+						<div id="multiDeleteAllCheck">
+							&nbsp;<input type="checkbox" id="allCheck" />전체선택
+							<input type="button" value="선택삭제" id="multiDel"/>
+						</div>
+						<form method="post" action="/admin/adminAddCamperListDel" id="listMenuFrm">
+							<ul id="listMenu">
+								<li>&nbsp;</li>
+								<li>번호</li>
+								<li>제목</li>
+								<li>위치</li>
+								<li>작성자</li>
+								<li>시작일</li>
+								<li>마감일</li>
+								<li>작성일</li>
+							
+								<div id="listMenuFE">
+								<c:forEach var="vo" items="${list}">
+									<li><input type='checkbox' name='gathernoList' value='${vo.gatherno}' class="chk"/></li>
+									<li>${vo.gatherno}</li>
+									<li><a href="/gather/gatherView?gatherno=${vo.gatherno}">${vo.title}</a></li>
+									<li>${vo.place}</li>
+									<li>${vo.nickname}</li>
+									<li>${vo.startdate}</li>
+									<li>${vo.enddate}</li>
+									<li>${vo.createdate}</li>
+								</c:forEach>
+								</div>
+							</ul>
+						</form>
 									
 						<ul class="paging">
 							<!-- 이전페이지 -->
 							<c:if test="${apvo.pageNum==1}">
-								<li style="visibility: hidden;">◀</li>
+								<li id="prevBtn">◀</li>
 							</c:if>
 							<c:if test="${apvo.pageNum>1}">
 								<li><a href="/admin/adminAddCamperList?pageNum=${apvo.pageNum-1}
@@ -152,7 +179,7 @@
 								<!--  총 페이지수보다 출력할 페이지번호가 작을때 -->
 					            <c:if test="${p<=apvo.totalPage}">
 					            	<c:if test="${p==apvo.pageNum}">
-					            		<li style="background-color:white;font-weight:bold;font-size: 1.1em;">
+					            		<li id="pagingNumberStyle">
 					            	</c:if>
 					            	<c:if test="${p!=apvo.pageNum}">
 					            		<li>
@@ -169,7 +196,7 @@
 							<!-- 다음페이지 -->
 							
 							<c:if test="${apvo.pageNum == apvo.totalPage}">
-								<li style="visibility: hidden;">▶</li>
+								<li id="nextBtn">▶</li>
 							</c:if>
 							<c:if test="${apvo.pageNum < apvo.totalPage}">
 								<li><a href="/admin/adminAddCamperList?pageNum=${apvo.pageNum+1}

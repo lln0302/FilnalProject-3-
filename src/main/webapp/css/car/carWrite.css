@@ -28,28 +28,35 @@ h1, .container *{
 
 #cwTable {
 	margin: 1%;
-	margin-left: 20px;
 }
 
 #cwTable td:nth-child(2), #cwTable td:nth-child(3){
-	width:31%;
+	width:29%;
 	padding: 2px;
 }
 #cwTable td:nth-child(1), #cwTable td:nth-child(4){
 	width:15%;
 	padding: 2px;
 }
+#cwTable td:nth-child(1) {
+	width: 27%;
+}
 #cwTable td *{
 	width:100%;
 }
 #cwTable button {
-	border: 0px;
+	border: 2px solid #f58243;
 	border-radius : 2px;
 	background-color: #f58243;
 	padding: 2px 0;
+	color:white;
 }
 #cwTable button:hover {
 	background-color: #e57233;
+}
+
+#cwTable select, #cwTable input, #cwTable button, #carName {
+	padding: 3px;
 }
 
 #cwLabel {
@@ -76,6 +83,7 @@ h1, .container *{
 	background-color: #f58243;
 	margin-right: 17px;
 	margin-bottom: 17px;
+	color:white;
 }
 #carWriteSubmit:hover {
 	background-color: #e57233;

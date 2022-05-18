@@ -1,0 +1,48 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE mapper
+        PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN"
+        "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+        
+<mapper namespace="com.campus.myapp.car.CarDAO">
+	<select id="carList" resultType="CarVO">
+		SELECT carno, title, region, nickname, views, locx, locy, date_format(writedate, '%y-%m-%d %H:%i') writedate 
+		FROM car order by writedate desc
+	</select>
+	<insert id="carInsert">
+		INSERT INTO car(nickname, title, region, locx, locy, content)
+		VALUES(#{nickname}, #{title}, #{region}, #{locX}, #{locY}, #{content})
+	</insert>
+	<select id="carSelect" resultType="CarVO">
+		SELECT carno, title, nickname, date_format(writedate, '%y-%m-%d %H:%i') writedate, views, locx, locy, content 
+		FROM car WHERE carno=#{param1}
+	</select>
+	<update id="carInfoCount">
+		UPDATE car SET views = views+1 WHERE carno=#{param1}
+	</update>
+	<delete id="carDelete">
+		DELETE FROM car WHERE carno=#{param1}
+	</delete>
+	
+	<!-- 댓글 -->
+	<select id="replyCountSelect" resultType="int">
+		SELECT COUNT(carno)count FROM carreply 
+		WHERE carno=#{param1}
+	</select>
+	<insert id="replyWrite">
+		INSERT INTO carreply(content, nickname, carno)
+		VALUES(#{content}, #{nickname}, ${carno})
+	</insert>
+	<select id="replyList" resultType="CarVO">
+		SELECT replyno, content, nickname, carno,
+		DATE_FORMAT(writedate, "%y-%m-%d %H:%i")writedate
+		FROM carreply WHERE carno=#{param1}
+		ORDER BY replyno DESC
+	</select>
+	<update id="replyEdit">
+		UPDATE carreply SET content=#{content} 
+		WHERE replyno=${replyno}
+	</update>
+	<delete id="replyDel">
+		DELETE FROM carreply WHERE replyno=#{param1} 
+	</delete>
+</mapper>

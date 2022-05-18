@@ -22,6 +22,7 @@
 		
 	});
 </script>
+
 <div class="container gatherView">
 	<h1>${view.title}</h1>
 	<div class="col-12 camperTitle"></div>
@@ -45,7 +46,7 @@
 			</div>
 			<hr/>
 			<div id="gatherContent">
-				<div>${view.content}</div>
+				<div id="contentDiv">${view.content}</div>
 			</div>
 		</div>
 		<div class="col-6">
@@ -66,20 +67,21 @@
 				</form>
 			</div>
 			<p id="joinWarn">🛑 캠핑 일주일 전 캠핑 취소를 하시면 매너온도가 내려가게 됩니다.</p>
-			<table class="table table-striped">
+			<table class="table table-striped text-center">
 				<thead>
 					<tr>
-						<th>No.</th>
 						<th>Name</th>
 						<th>gender</th>
 					</tr>
 				</thead>
 				<tbody>
-					<tr>
-						<td>1</td>
-						<td>캠퍼</td>
-						<td>여</td>
-					</tr>
+					<c:forEach var="list" items="${list}">
+						<tr>
+							<td>${list.nickname}</td>
+							<td>${list.gender}</td>
+						</tr>
+					</c:forEach>
+
 				</tbody>
 			</table>
 		</div>	

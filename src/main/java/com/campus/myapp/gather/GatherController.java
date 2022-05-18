@@ -34,8 +34,6 @@ import org.springframework.web.bind.annotation.RestController;
 import org.springframework.web.multipart.MultipartFile;
 import org.springframework.web.servlet.ModelAndView;
 
-
-
 @RequestMapping("/gather/")
 @RestController
 public class GatherController {
@@ -73,9 +71,6 @@ public class GatherController {
 	@GetMapping("/gatherWrite")
 	public ModelAndView GatherWrite(HttpSession session, HttpServletRequest request) {
 		mav.setViewName("gather/gatherWrite");
-
-		//System.out.println(request.getServletContext().getRealPath("/ckUpload"));
-		//System.out.println(request.getSession().getServletContext().getRealPath("/ckUpload"));
 		return mav;
 	}
 
@@ -84,10 +79,6 @@ public class GatherController {
 	@RequestMapping(value = "/imageUpload", method = RequestMethod.POST)
 	public void imageUpload(HttpServletRequest request, HttpServletResponse response, 
 			@RequestParam MultipartFile upload) throws Exception {
-		
-		//SimpleDateFormat dateFormat = new SimpleDateFormat("yy-MM-dd");
-		//Date today = new Date();
-		//String dateForFile = dateFormat.format(today);
 
 		// 랜덤 문자 생성 : 파일이름 중복 방지
 		UUID uid = UUID.randomUUID();
@@ -123,7 +114,7 @@ public class GatherController {
 
 			
 			printWriter = response.getWriter();
-			String callback = request.getParameter("CKEditorFuncNum");
+			//String callback = request.getParameter("CKEditorFuncNum");
 			String fileUrl = "/gather/imageSubmit?uid=" + uid 
 					+ "&fileName=" + fileName; // 작성화면
 
@@ -185,9 +176,7 @@ public class GatherController {
 				fileInputStream.close();
 				out.close();
 			}
-			
 		}
-
 	}
 	
 	// CK에디터로 올린 이미지에서 썸네일 뽑아내기
@@ -212,8 +201,6 @@ public class GatherController {
 	public ModelAndView GatherWriteOk(GatherVO vo, MultipartFile file, HttpSession session) throws Exception {
 		// 현재 session에 있는 nickname
 		vo.setNickname((String) session.getAttribute("nickname"));
-		String path = (String) session.getServletContext().getRealPath("/ckupload");
-		System.out.println(path);
 
 		try {
 			int cnt = service.gatherInsert(vo);
@@ -227,30 +214,71 @@ public class GatherController {
 
 	// 캠퍼 모임 상세페이지(뷰)
 	@GetMapping("/gatherView")
-	public ModelAndView GatherView(int gatherno, HttpSession session) {
+	public ModelAndView GatherView(int gatherno, GatherMemberVO vo, HttpSession session) {
 		// 조회수 증가
 		service.updateViews(gatherno);
 		// 상세페이지 보이기
 		mav.addObject("view", service.gatherView(gatherno));
-		mav.setViewName("gather/gatherView");
 		
 		// 캠퍼 참여한 유저 표시
 		mav.addObject("alreadyJoin", service.selectJoinCamper(gatherno, 
 				(String)session.getAttribute("nickname")));
+		// 캠핑 참여한 유저 리스트
+		mav.addObject("list", service.selectCamperList(vo));
+		mav.setViewName("gather/gatherView");
+		return mav;
+	}
+	
+	// 캠퍼 모임 수정페이지
+	@GetMapping("/gatherEdit")
+	public ModelAndView GatherEdit(int gatherno, HttpSession session) {
+		// 상세페이지 보이기
+		mav.addObject("edit", service.selectEditView(gatherno));
+		mav.setViewName("gather/gatherEdit");
+		return mav; 
+	}
+	
+	// 캠퍼 모임 글 수정
+	@PostMapping("/gatherUpdate")
+	public ModelAndView GatherUpdate(GatherVO vo, MultipartFile file, 
+			HttpSession session) throws Exception {
+		
+		vo.setNickname((String)session.getAttribute("nickname"));
+		System.out.println(vo.getGatherno());
+		System.out.println(vo.getPlace());
+		System.out.println(vo.getGmemberno());
+		int cnt = service.updateEditView(vo);
+		
+		if(cnt>0) {
+			
+			mav.addObject("cnt", cnt);
+			mav.addObject("vo", vo);
+			mav.setViewName("gather/gatherEditSuc");
+		}
+		
 		
 		return mav;
 	}
 	
+	
 	// 캠퍼 모임 글 삭제
 	@GetMapping("/gatherDel")
-	public ResponseEntity<String> gatherDel(int gatherno) {
+	public ResponseEntity<String> gatherDel(int gatherno, HttpServletRequest request) {
+		
+		// upload 폴더 경로(삭제를 위해서)
+		String path = request.getServletContext().getRealPath("/ckUpload/");
+		
+		// 인코딩
 		HttpHeaders headers = new HttpHeaders();
 		headers.setContentType(new MediaType("text", "html", Charset.forName("UTF-8")));
 		
 		try {
-			
+			// 삭제
 			int result = service.gatherDelete(gatherno);
+			
+			// 글 삭제 성공시 ckUpload 폴더에 있는 이미지 삭제
 			if(result>0) {
+				
 				String body = "<script>alert('글이 성공적으로 삭제되었습니다.');";
 				body += "location.href='/gather/gatherList';</script>";
 				entity = new ResponseEntity<String>(body, headers, HttpStatus.OK);
@@ -267,8 +295,6 @@ public class GatherController {
 		
 		return entity;
 	}
-	
-	
 	
 	// 캠퍼 참여 
 	@GetMapping("/plusGatherCamper")

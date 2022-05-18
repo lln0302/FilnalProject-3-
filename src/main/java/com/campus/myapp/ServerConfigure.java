@@ -3,6 +3,9 @@ package com.campus.myapp;
 import java.util.Arrays;
 import java.util.List;
 
+import org.springframework.boot.web.embedded.tomcat.TomcatConnectorCustomizer;
+import org.springframework.boot.web.embedded.tomcat.TomcatServletWebServerFactory;
+import org.springframework.boot.web.server.WebServerFactoryCustomizer;
 import org.springframework.context.annotation.Bean;
 import org.springframework.context.annotation.Configuration;
 import org.springframework.web.multipart.commons.CommonsMultipartResolver;
@@ -11,7 +14,7 @@ import org.springframework.web.servlet.config.annotation.ResourceHandlerRegistry
 import org.springframework.web.servlet.config.annotation.WebMvcConfigurer;
 
 @Configuration
-public class ServerConfigure implements WebMvcConfigurer{
+public class ServerConfigure implements WebMvcConfigurer, WebServerFactoryCustomizer<TomcatServletWebServerFactory>{
 	
 	private static final List<String> URL_PATERRNS = Arrays.asList(
 				"/gather/gatherView","/gather/gatherWrite","/gather/writeOk", 
@@ -27,14 +30,17 @@ public class ServerConfigure implements WebMvcConfigurer{
 				.addResourceLocations("/ckUpload/");
 	}
 	
-
-	
 	@Bean
 	public CommonsMultipartResolver multipartResolver() {
 		CommonsMultipartResolver commonsMultipartResolver = new CommonsMultipartResolver();
 		commonsMultipartResolver.setDefaultEncoding("UTF-8");
 		return commonsMultipartResolver;
 	}
+	
+	public void customize(TomcatServletWebServerFactory factory) {
+	    factory.addConnectorCustomizers((TomcatConnectorCustomizer)
+	        connector -> connector.setAttribute("relaxedQueryChars", "<>[\\]^`{|}"));
+	  }
 	
 
 }
