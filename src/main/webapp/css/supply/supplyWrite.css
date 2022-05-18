@@ -1,38 +1,35 @@
 @charset "UTF-8";
 
 h5 {
-	text-align: center;
-	padding: 10px;
+   text-align: center;
+   padding: 10px;
 }
-h1, .container *{
-	font-family: 'IBM Plex Sans KR', sans-serif; 
+h1, h5, .container *{
+   font-family: 'IBM Plex Sans KR', sans-serif; 
 }
 
 #swFrm {
-	border: 2px solid orange;
-	padding: 30px;
-	padding-top: 40px;
+   padding: 30px;
+   padding-top: 40px;
+   background:rgba(245, 130, 67, .1);
 }
 
 #swName {
-	width: 100%;
-	padding: 10px;
+   width: 100%;
+   padding: 10px;
+   border: solid rgba(245, 130, 67, .2);
+   border-radius:5px;
 }
 
 #swWriteSubmitWrap{ 
-	margin-top: 10px;
-	text-align: right;
+   margin-top: 10px;
+   text-align: right;
 }
 
 #supplyWriteSubmit {
-	width: 90px;
-	padding: 6px 12px;
-	border: 0px;
-	border-radius: 5px;
-	background-color: #f58243;
-	margin-bottom: 17px;
-}
-
-#supplyWriteSubmit:hover {
-	background-color: #e57233;
+   margin-top:20px;
+   width: 90px;
+   background:rgb(245, 130, 67);
+   color:white;
+   padding:10px;
 }

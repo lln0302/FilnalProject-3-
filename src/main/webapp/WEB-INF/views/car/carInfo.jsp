@@ -46,11 +46,11 @@
 		<i class='fas fa-comment'></i> <span id="ciReplyCount">${vo.count }</span>
 	</div>
 	
-	<div id="ciRep">
+	<div id="ciRep" >
 		<form method="post" id="ciFrm">
 			<input type="hidden" name="carno" id="carno" value="${vo.carno}">
-			<textarea id="ciReply" name="content" placeholder="댓글 입력 ..."></textarea>
-			<input type="submit" id="ciReplyButton" value="댓글 등록">
+			<textarea id="content" class="col-11" rows="3" name="content" placeholder="댓글 입력 ..."></textarea>
+			<input type="submit" class="col-1 btn" id="ciReplyButton" value="댓글 등록">
 		</form>
 		
 		<!-- 댓글목록 -->
