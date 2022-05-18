@@ -11,7 +11,17 @@ spring:
     url: jdbc:mysql://mulcampingdb.canyejspavcg.us-east-1.rds.amazonaws.com/mulcamping?characterEncoding=UTF-8
     username: admin
     password: mulcam333
-    
+  mail:
+    host: smtp.gmail.com
+    port: 587
+    username: mulcamping.com@gmail.com
+    password: mulcam33@@
+    properties:
+      mail:
+        smtp:
+          auth: true
+          starttls:
+            enable: true
   devtools: # 코드 수정 시 서버 자동 자동실행
     livereload:
       enabled: true

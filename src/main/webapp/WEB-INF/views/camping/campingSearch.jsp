@@ -93,10 +93,7 @@
 		<div id ="searchBoxunderline"></div>
 		<div class = "campingListShow" id="camping">		
 			<ul class="campingSearch">
-				<script>
-					ListUpcampinginfo();					
-				</script>				
-				<c:forEach var="vo" items="${list }">				
+				<c:forEach var="vo" items="${list }">										
 					<div class="container p-3 my-3 border listBox">
 						<div class="row">
 							<div id="campingSite">						

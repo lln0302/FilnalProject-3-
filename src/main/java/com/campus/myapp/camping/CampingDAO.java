@@ -17,7 +17,7 @@ public interface CampingDAO {
 	   
 	   // 총 레코드 수
 	   public int totalRecord(Paging10VO pvo);
-	
+
 	   // 캠핑장 목록(search)
 	   public List<CampingVO> campingSearch(Paging10VO pVO);
 	   
@@ -25,7 +25,7 @@ public interface CampingDAO {
 	   public List<CampingVO> campingTag(Paging10VO pVO);
 	         
 	   // 캠핑장 선택
-	   public CampingVO campingSelect(String contentId);
+	   public List<CampingVO> campingSelect(String contentId);
 	   
 	   // 캠핑장 선택(리뷰)
 	   public CampingVO campingReview(String contentId);
@@ -35,4 +35,5 @@ public interface CampingDAO {
 	  
 	   // 지향 - 후기목록
 	   public List<ReviewVO> reviewListSelect(int contentId);
+
 }

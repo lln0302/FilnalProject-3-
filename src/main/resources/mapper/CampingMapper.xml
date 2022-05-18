@@ -10,7 +10,7 @@
     </insert>
     
     <insert id="addimages">
-    	insert into campinglist(imageUrl) values (#{imageUrl})
+    	insert into campingimages(contentId, imageUrl) values (#{contentId}, #{imageUrl})
     </insert>
 	
 	<select id="totalRecord" resultType="int">
@@ -121,15 +121,15 @@
 		</if>
 		order by modifiedtime desc limit ${onePageRecord} offset ${offsetIndex}		
 	</select>
-	
-	<select id="campingSelect" resultType="com.campus.myapp.camping.CampingVO">
-  		select facltNm, firstImageUrl, addr1, addr2, tel, lctCl, induty, operPdcl, operDecl, 
-  		homepage, resveCl, posblFcltyCl, contentId
-  		from campinglist where contentId = #{params}
-  	</select> 
-  	
+  	<select id="campingSelect" resultType="com.campus.myapp.camping.CampingVO">
+  		select campingimages.imageUrl, campingimages.imgno, animalCmgCl, campinglist.contentId, 
+  		facltNm, firstImageUrl, addr1, addr2, tel, lctCl, induty, operPdcl, operDecl, homepage, 
+  		resveCl, posblFcltyCl, intro, sbrsCl 
+  		from campingimages, campinglist where campinglist.contentId = #{params}
+  	</select>
   	<select id="campingSuggestion" resultType="com.campus.myapp.camping.CampingVO">
-  		select posblFcltyCl, modifiedtime, contentId, firstImageUrl, sigunguNm, doNm, facltNm, addr2, addr1, tel, induty, sbrsCl 
+  		select posblFcltyCl, modifiedtime, contentId, firstImageUrl, sigunguNm, doNm, facltNm, 
+  		addr2, addr1, tel, induty, sbrsCl 
 		from campinglist order by rand(), modifiedtime desc limit 10
   	</select>
   	<!-- 후기 -->

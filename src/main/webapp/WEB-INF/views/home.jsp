@@ -105,7 +105,7 @@
 		
 		<div class="slide" >
 		<div class='h__card'>
-			<a href="#">
+			<a href="${url}/car/carList">
 			<div class="h__card2"> 
 				<h3 class="h__card2__title">
 	              <strong>차박지 공유</strong><br/>
@@ -121,7 +121,7 @@
 		
 		<div class="slide">
 		<div class='h__card'>
-			<a href="#">
+			<a href="${url}/supply/supplyList">
 			<div class="h__card3">
 				<h3 class="h__card3__title">
 	              <strong>캠핑용품</strong><br/>

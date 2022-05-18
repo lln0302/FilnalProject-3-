@@ -61,6 +61,7 @@
 						<input type="button" value="logout" onclick="location.href='${url}/member/logout'"/>
 					</div>
 				</c:if>
+				<!-- 로그인 사실 있을 필욘 없는데, 일종의 테스트용도임 -->
 				<c:if test="${logStatus != 'Y'}">
 					<div class="adminTopMenu" id="loginPart">
 						<input type="button" value="login" onclick="location.href='${url}/member/loginForm'"/>

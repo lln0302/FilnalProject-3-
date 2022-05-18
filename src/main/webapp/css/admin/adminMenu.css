@@ -49,17 +49,27 @@ list-style-type: none;
 	text-overflow: ellipsis;
 	padding:0px 5px;
 }
+/*다중 딜리트 체크박스*/
+#multiDeleteAllCheck {
+	text-align: left;
+}
+
 /*페이징*/
 .paging{
-	margin: 10px 38% 0px 38%;
+	
+	text-align:center;
 	height: 30px;
 	overflow: auto;
 }
 .paging>li{
-	float:left;
 	width:30px;
-	text-align: center;
-	
+	display:inline-block;
+}
+.paging #prevBtn, .paging #nextBtn {
+	visibility: hidden;
+}
+.paging #pagingNumberStyle {
+	background-color:white;font-weight:bold;font-size: 1.1em;
 }
 /*검색*/
 #searchFrm{

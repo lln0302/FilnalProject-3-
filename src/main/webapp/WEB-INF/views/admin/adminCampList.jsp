@@ -17,17 +17,35 @@
 <script src="https://cdnjs.cloudflare.com/ajax/libs/jquery/3.6.0/jquery.min.js"></script>
 <script async src='/cdn-cgi/bm/cv/669835187/api.js'></script>
 <script type="text/javascript" src="/js/admin/adminSideTab.js"></script>
-<style>
+<script type="text/javascript" src="/js/admin/adminCheckBox.js"></script>
 
-#listMenu>li:nth-child(7n+2), #listMenu>li:nth-child(7n+3),
-#listMenu>li:nth-child(7n+6), #listMenu>li:nth-child(7n+7)
-{
-	width:17.5%;
+<style>
+#listMenu>li:nth-child(8n+1) {
+	width:5%;
 }
-#listMenu>#listMenuFE>li:nth-child(7n+2), #listMenu>#listMenuFE>li:nth-child(7n+3),
-#listMenu>#listMenuFE>li:nth-child(7n+6), #listMenu>#listMenuFE>li:nth-child(7n+7)
+#listMenu>li:nth-child(8n+3)
 {
-	width:17.5%;
+	width:20%;
+}
+#listMenu>li:nth-child(8n+4),
+#listMenu>li:nth-child(8n+7),
+#listMenu>li:nth-child(8n+8)
+{
+	width:15%;
+}
+
+#listMenu>#listMenuFE>li:nth-child(8n+1) {
+	width:5%;
+}
+#listMenu>#listMenuFE>li:nth-child(8n+3)
+{
+	width:20%;
+}
+#listMenu>#listMenuFE>li:nth-child(8n+4),
+#listMenu>#listMenuFE>li:nth-child(8n+7),
+#listMenu>#listMenuFE>li:nth-child(8n+8)
+{
+	width:15%;
 }
 
 </style>
@@ -39,7 +57,7 @@
 		<%@ include file="/WEB-INF/views/admin/adminTop.jsp" %>
 		<div id="adminMainContent">
 		
-			<ul style="z-index:2;">
+			<ul id="sideTapFirst">
 				<li>
 					<div class='menu_img' id="menu1">
 						<img src="/img/admin/adminLeftTap1/dash.PNG" class="menu_imgs" id="menu_img_dashBoard" />
@@ -110,32 +128,40 @@
 								<input type="submit" value="Search" />
 							</form>
 						</div>
-						<ul id="listMenu">
-							<li>번호</li>
-							<li>업체명</li>
-							<li>주소</li>
-							<li>전화번호</li>
-							<li>예약방식</li>
-							<li>예약주소</li>
-							<li>홈페이지주소</li>
-						
-							<div id="listMenuFE">
-							<c:forEach var="vo" items="${list}">
-								<li>${vo.contentId}</li> <!-- <a href="/admin/adminMembersInfo?nickname=${vo.nickname}"></a> -->
-								<li>${vo.facltNm}</li>
-								<li>${vo.addr1} / ${vo.addr2}</li>
-								<li>${vo.tel}</li>
-								<li>${vo.resveCl}</li>
-								<li>${vo.resveUrl}</li>
-								<li>${vo.homepage}</li>
-							</c:forEach>
-							</div>
-						</ul>
+						<div id="multiDeleteAllCheck">
+							&nbsp;<input type="checkbox" id="allCheck" />전체선택
+							<input type="button" value="선택삭제" id="multiDel"/>
+						</div>
+						<form method="post" action="/admin/adminCampListDel" id="listMenuFrm">
+							<ul id="listMenu">
+								<li>&nbsp;</li>
+								<li>번호</li>
+								<li>업체명</li>
+								<li>주소</li>
+								<li>전화번호</li>
+								<li>예약방식</li>
+								<li>예약주소</li>
+								<li>홈페이지주소</li>
+							
+								<div id="listMenuFE">
+								<c:forEach var="vo" items="${list}">
+									<li><input type='checkbox' name='contentIdList' value='${vo.contentId}' class="chk"/></li>
+									<li>${vo.contentId}</li>
+									<li><a href="/camping/campingView?contentId=${vo.contentId}">${vo.facltNm}</a></li>
+									<li>${vo.addr1} / ${vo.addr2}</li>
+									<li>${vo.tel}</li>
+									<li>${vo.resveCl}</li>
+									<li>${vo.resveUrl}</li>
+									<li>${vo.homepage}</li>
+								</c:forEach>
+								</div>
+							</ul>
+						</form>
 									
 						<ul class="paging">
 							<!-- 이전페이지 -->
 							<c:if test="${apvo.pageNum==1}">
-								<li style="visibility: hidden;">◀</li>
+								<li id="prevBtn">◀</li>
 							</c:if>
 							<c:if test="${apvo.pageNum>1}">
 								<li><a href="/admin/adminCampList?pageNum=${apvo.pageNum-1}
@@ -152,7 +178,7 @@
 								<!--  총 페이지수보다 출력할 페이지번호가 작을때 -->
 					            <c:if test="${p<=apvo.totalPage}">
 					            	<c:if test="${p==apvo.pageNum}">
-					            		<li style="background-color:white;font-weight:bold;font-size: 1.1em;">
+					            		<li id="pagingNumberStyle">
 					            	</c:if>
 					            	<c:if test="${p!=apvo.pageNum}">
 					            		<li>
@@ -169,7 +195,7 @@
 							<!-- 다음페이지 -->
 							
 							<c:if test="${apvo.pageNum == apvo.totalPage}">
-								<li style="visibility: hidden;">▶</li>
+								<li id="nextBtn">▶</li>
 							</c:if>
 							<c:if test="${apvo.pageNum < apvo.totalPage}">
 								<li><a href="/admin/adminCampList?pageNum=${apvo.pageNum+1}

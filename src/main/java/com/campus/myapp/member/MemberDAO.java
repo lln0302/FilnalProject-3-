@@ -16,6 +16,8 @@ public interface MemberDAO {
     public int memberUpdate(MemberVO vo);
     public int memberDelete(MemberVO vo);
     public MemberVO memberSelect(String userid);
+    public MemberVO isValidEmail(MemberVO vo);
+    public int findUserPwd(MemberVO vo);
 }
 
 
