@@ -6,6 +6,8 @@ import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 
 import com.campus.myapp.camping.CampingVO;
+import com.campus.myapp.car.CarReplyVO;
+import com.campus.myapp.car.CarVO;
 import com.campus.myapp.gather.GatherVO;
 import com.campus.myapp.gather.ReplyVO;
 import com.campus.myapp.member.MemberVO;
@@ -103,7 +105,10 @@ public class AdminServiceImpl implements AdminService {
     public int adminMembersDel(MemberVO mvo) {						//membersDel
     	return dao.adminMembersDel(mvo);
     }
-	
+    @Override
+    public MemberVO adminMembersInfo(String nickname) {					//membersInfo
+    	return dao.adminMembersInfo(nickname);
+    }
     //-------------------------------------------------------------//
     
     //adminCampList (Campinglist)
@@ -138,6 +143,25 @@ public class AdminServiceImpl implements AdminService {
 	
     //-------------------------------------------------------------//
 	
+	//adminAutoCampList (car)
+	public int totalRecordCar (AdminPagingVO apvo) {				//Car TotalRecord
+		return dao.totalRecordCar(apvo);
+	}
+	public List<CarVO> adminAutoCampList (AdminPagingVO apvo) {		//adminAutoCampList
+		return dao.adminAutoCampList(apvo);
+	}
+	public int adminAutoCampListDel (CarVO cvo) {					//adminAutoCampListDel
+		return dao.adminAutoCampListDel(cvo);
+	}
+	
+	//-------------------------------------------------------------//
+	
+	public int totalRecordSupply (AdminPagingVO apvo) {				//share TotalRecord
+		return dao.totalRecordSupply(apvo);
+	}
+	
+	//-------------------------------------------------------------//
+	
 	////adminReviewList (review)
 	@Override
 	public int totalRecordReview (AdminPagingVO apvo) {				//review TotalRecord
@@ -149,16 +173,30 @@ public class AdminServiceImpl implements AdminService {
 	
 	//adminCommentList (gatherReply)
 	@Override
-	public int totalRecordReply(AdminPagingVO apvo) {				//reply TotalRecord
-		return dao.totalRecordReply(apvo);
+	public int totalRecordGatherReply (AdminPagingVO apvo) {				//totalRecordGatherReply
+		return dao.totalRecordGatherReply(apvo);
 	}
 	@Override
-	public List<ReplyVO> adminCommentList(AdminPagingVO apvo) {		//adminCommentList
-		return dao.adminCommentList(apvo);
+	public List<ReplyVO> adminGatherCommentList (AdminPagingVO apvo) {	//adminGatherCommentList
+		return dao.adminGatherCommentList(apvo);
 	}
 	@Override
-	public int adminCommentListDel(ReplyVO rvo) {					//adminCommentListDel
-		return dao.adminCommentListDel(rvo);
+	public int adminGatherCommentListDel(ReplyVO rvo) {				//adminGatherCommentListDel
+		return dao.adminGatherCommentListDel(rvo);
+	}
+	
+	//adminCommentList (carReply)
+	@Override
+	public int totalRecordCarReply (AdminPagingVO apvo) {					//totalRecordCarReply
+		return dao.totalRecordCarReply(apvo);
+	}
+	@Override
+	public List<CarReplyVO> adminCarCommentList (AdminPagingVO apvo) {	//adminCarCommentList
+		return dao.adminCarCommentList(apvo);
+	}
+	@Override
+	public int adminCarCommentListDel(CarReplyVO rvo) {					//adminCarCommentListDel
+		return dao.adminCarCommentListDel(rvo);
 	}
 	
     //-------------------------------------------------------------//

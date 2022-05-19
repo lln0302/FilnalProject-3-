@@ -18,25 +18,19 @@
 <script async src='/cdn-cgi/bm/cv/669835187/api.js'></script>
 <script type="text/javascript" src="/js/admin/adminSideTab.js"></script>
 <script type="text/javascript" src="/js/admin/adminCheckBox.js"></script>
+<script type="text/javascript" src="/js/admin/adminAlert.js"></script>
 
 <style>
 
-#listMenu>li:nth-child(9n+1) {
-	width:4%;
-}
-#listMenu>li:nth-child(9n+2), #listMenu>li:nth-child(9n+5),
-#listMenu>li:nth-child(9n+8), #listMenu>li:nth-child(9n+9)
-{
-	width:14%;
-}
-#listMenu>#listMenuFE>li:nth-child(9n+1) {
-	width:4%;
-}
-#listMenu>#listMenuFE>li:nth-child(9n+2), #listMenu>#listMenuFE>li:nth-child(9n+5),
-#listMenu>#listMenuFE>li:nth-child(9n+8), #listMenu>#listMenuFE>li:nth-child(9n+9)
-{
-	width:14%;
-}
+#listMenu>li:nth-child(6n+1) {width:5%;}
+#listMenu>li:nth-child(6n+3), #listMenu>li:nth-child(6n+5){width:20%;}
+#listMenu>li:nth-child(6n+4) {width:30%;}
+#listMenu>li:nth-child(6n+6) {width:15%;}
+
+#listMenu>#listMenuFE>li:nth-child(6n+1) {width:5%;}
+#listMenu>#listMenuFE>li:nth-child(6n+3), #listMenu>#listMenuFE>li:nth-child(6n+5) {width:20%;}
+#listMenu>#listMenuFE>li:nth-child(6n+4) {width:30%;}
+#listMenu>#listMenuFE>li:nth-child(6n+6) {width:15%}
 
 </style>
 <body>
@@ -88,7 +82,7 @@
 								<img src="/img/admin/adminLeftTap2/reviewList_none.PNG" class="menu2right" id="reviewList_img"/>
 							</a><img src="/img/admin/adminLeftTap1/reviewList.PNG" class="menu2left" id="menu_img_reviewList" />
 							
-							<a class="menuATag" href="/admin/adminCommentList">
+							<a class="menuATag" href="" onclick="javascript:caution()">
 								<img src="/img/admin/adminLeftTap2/commentList_none.PNG" class="menu2right" id="commentList_img"/>
 							</a><img src="/img/admin/adminLeftTap1/commentList.PNG" class="menu2left" id="menu_img_commentList" />
 					</div>
@@ -122,26 +116,20 @@
 						<form method="post" action="/admin/adminMembersDel" id="listMenuFrm">
 							<ul id="listMenu">
 								<li>&nbsp;</li>
-								<li>아이디</li>
-								<li>이름</li>
-								<li>닉네임</li>
-								<li>이메일</li>
-								<li>등급</li>
-								<li>매너온도</li>
-								<li>연락처</li>
-								<li>가입일</li>
+								<li>번호</li>
+								<li>제목</li>
+								<li>내용</li>
+								<li>작성일</li>
+								<li>작성자</li>
 							
 								<div id="listMenuFE">
-								<c:forEach var="vo" items="${list}">.
-									<li><input type='checkbox' name='noList' value='${vo.nickname}' class="chk"/></li>
-									<li>${vo.userid}</li> <!-- <a href="/admin/adminMembersInfo?nickname=${vo.nickname}"></a> -->
-									<li>${vo.username}</li>
-									<li>${vo.nickname}</li>
-									<li>${vo.email}</li>
-									<li>${vo.isadmin}</li>
-									<li>${vo.userscore}</li>
-									<li>${vo.usertel}</li>
-									<li>${vo.joindate}</li>
+								<c:forEach var="vo" items="${list}">
+									<li><input type='checkbox' name='supplyNoList' value='${vo}' class="chk"/></li>
+									<li>${vo}</li> <!-- <a href="/admin/adminMembersInfo?nickname=${vo.nickname}"></a> -->
+									<li>${vo}</li>
+									<li>${vo}</li>
+									<li>${vo}</li>
+									<li>${vo}</li>
 								</c:forEach>
 								</div>
 							</ul>

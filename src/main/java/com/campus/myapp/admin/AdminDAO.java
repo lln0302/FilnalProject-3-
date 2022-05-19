@@ -6,6 +6,8 @@ import org.apache.ibatis.annotations.Mapper;
 import org.springframework.stereotype.Repository;
 
 import com.campus.myapp.camping.CampingVO;
+import com.campus.myapp.car.CarReplyVO;
+import com.campus.myapp.car.CarVO;
 import com.campus.myapp.gather.GatherVO;
 import com.campus.myapp.gather.ReplyVO;
 import com.campus.myapp.member.MemberVO;
@@ -49,6 +51,7 @@ public interface AdminDAO {
 	public int totalRecordMembers(AdminPagingVO apvo);				//member TotalRecord
 	public List<MemberVO> adminMembers(AdminPagingVO apvo); 		//membersList
 	public int adminMembersDel(MemberVO mvo); 						//membersDel
+	public MemberVO adminMembersInfo(String nickname);				//membersInfo
 	
 	//-------------------------------------------------------------//
 	
@@ -67,14 +70,14 @@ public interface AdminDAO {
 	//-------------------------------------------------------------//
 	
 	//adminAutoCampList (car) (임시)
-	//public int totalRecordCar (AdminPagingVO apvo);				//Car TotalRecord
-	//public List<CarVO> adminAutoCampList (AdminPagingVO apvo);	//adminAutoCampList
-	//public int adminAutoCampListDel (CarVO cvo);					//adminAutoCampListDel
+	public int totalRecordCar (AdminPagingVO apvo);					//Car TotalRecord
+	public List<CarVO> adminAutoCampList (AdminPagingVO apvo);		//adminAutoCampList
+	public int adminAutoCampListDel (CarVO cvo);					//adminAutoCampListDel
 	
 	//-------------------------------------------------------------//
 	
 	//adminShareList (supply) (임시)
-	//public int totalRecordSupply (AdminPagingVO apvo);			//share TotalRecord
+	public int totalRecordSupply (AdminPagingVO apvo);				//share TotalRecord
 	//public List<SupplyVO> adminShareList (AdminPagingVO apvo)		//shareList
 	//public int adminShareListDel (SupplyVO svo);					//adminShareListDel
 	
@@ -86,9 +89,14 @@ public interface AdminDAO {
 	//-------------------------------------------------------------//
 	
 	//adminCommentList (gatherReply)
-	public int totalRecordReply (AdminPagingVO apvo);				//reply TotalRecord
-	public List<ReplyVO> adminCommentList (AdminPagingVO apvo);		//adminCommentList
-	public int adminCommentListDel(ReplyVO rvo);					//adminCommentListDel
+	public int totalRecordGatherReply (AdminPagingVO apvo);					//totalRecordGatherReply
+	public List<ReplyVO> adminGatherCommentList (AdminPagingVO apvo);		//adminGatherCommentList
+	public int adminGatherCommentListDel(ReplyVO rvo);						//adminGatherCommentListDel
+	
+	//adminCommentList (carReply)
+	public int totalRecordCarReply (AdminPagingVO apvo);					//totalRecordCarReply
+	public List<CarReplyVO> adminCarCommentList (AdminPagingVO apvo);		//adminCarCommentList
+	public int adminCarCommentListDel(CarReplyVO rvo);						//adminCarCommentListDel
 	
 	//-------------------------------------------------------------//
 	

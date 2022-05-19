@@ -1,11 +1,22 @@
 package com.campus.myapp.car;
 
+import java.util.List;
+
 public class CarReplyVO {
 	private int replyno;
 	private String content;
 	private String writedate;
 	private String nickname;
 	private int carno;
+	
+	private List<Integer> replyNoList;
+	
+	public List<Integer> getReplyNoList() {
+		return replyNoList;
+	}
+	public void setReplyNoList(List<Integer> replyNoList) {
+		this.replyNoList = replyNoList;
+	}
 	
 	public int getReplyno() {
 		return replyno;

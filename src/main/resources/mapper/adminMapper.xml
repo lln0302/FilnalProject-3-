@@ -20,6 +20,14 @@
     </select>
     
     <select id="totalRecordGather" resultType="int">
+    	select count(carno) cnt from car
+    	<if test="searchWord != null">
+			where 			${searchKey}
+			like 			'%${searchWord}%'
+		</if>
+    </select>
+    
+    <select id="totalRecordCar" resultType="int">
     	select count(gatherno) cnt from gather
     	<if test="searchWord != null">
 			where 			${searchKey}
@@ -27,8 +35,16 @@
 		</if>
     </select>
     
-    <select id="totalRecordReply" resultType="int">
+    <select id="totalRecordGatherReply" resultType="int">
     	select count(replyno) cnt from gatherreply
+    	<if test="searchWord != null">
+			where 			${searchKey}
+			like 			'%${searchWord}%'
+		</if>
+    </select>
+    
+    <select id="totalRecordCarReply" resultType="int">
+    	select count(replyno) cnt from carreply
     	<if test="searchWord != null">
 			where 			${searchKey}
 			like 			'%${searchWord}%'
@@ -80,6 +96,12 @@
          </where>
     </delete>
     
+    <select id="adminMembersInfo" resultType="com.campus.myapp.member.MemberVO">
+        select userid, username, nickname, userpwd, usertel, birth, gender, email, joindate,
+        	   case isadmin when 0 then '사용자' else '관리자'end AS isadmin, userscore, zzim_zzimno
+        from member
+        where nickname=#{param1}
+    </select>
     
     
     <select id="adminCampList" resultType="com.campus.myapp.camping.CampingVO">
@@ -124,7 +146,27 @@
          </where>
     </delete>
     
-    <select id="adminCommentList" resultType="com.campus.myapp.gather.ReplyVO">
+    <select id="adminAutoCampList" resultType="com.campus.myapp.car.CarVO">
+    	select carno, title, content, writedate, nickname, region, locx, locy from car
+    	<if test="searchWord != null">
+		where 				${searchKey}
+		like 				'%${searchWord}%'
+		</if>
+    	order by carno desc
+    	limit		 		${onePageRecord}
+		offset				${offsetIndex}
+    </select>
+    
+    <delete id="adminAutoCampListDel">
+    	delete from car
+    	<where>
+            <foreach item="item" collection="carNoList" open="carno in (" separator=", " close=")">
+                #{item}
+            </foreach>
+         </where>
+    </delete>
+    
+    <select id="adminGatherCommentList" resultType="com.campus.myapp.gather.ReplyVO">
     	select replyno, content, writedate, nickname, gatherno from gatherreply
     	<if test="searchWord != null">
 		where 				${searchKey}
@@ -135,7 +177,18 @@
 		offset				${offsetIndex}
     </select>
     
-    <delete id="adminCommentListDel">
+    <select id="adminCarCommentList" resultType="com.campus.myapp.car.CarReplyVO">
+    	select replyno, content, writedate, nickname, carno from carreply
+    	<if test="searchWord != null">
+		where 				${searchKey}
+		like 				'%${searchWord}%'
+		</if>
+    	order by replyno desc
+    	limit		 		${onePageRecord}
+		offset				${offsetIndex}
+    </select>
+    
+    <delete id="adminGatherCommentListDel">
     	delete from gatherreply
     	<where>
             <foreach item="item" collection="replyNoList" open="replyno in (" separator=", " close=")">
@@ -144,7 +197,14 @@
          </where>
     </delete>
     
-    
+    <delete id="adminCarCommentListDel">
+    	delete from carreply
+    	<where>
+            <foreach item="item" collection="replyNoList" open="replyno in (" separator=", " close=")">
+                #{item}
+            </foreach>
+         </where>
+    </delete>
     
     <select id="allList" resultType="com.campus.myapp.member.MemberVO">
         SELECT userid, username, nickname, email, case isadmin when 0 then '관리자' else '사용자'end AS isadmin, userscore, usertel, joindate from member
