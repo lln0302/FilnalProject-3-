@@ -41,7 +41,7 @@ h1, .container *{
 }
 
 #map {
-	width:50%;
+	width:70%;
 	position:relative;
 	overflow:hidden;
 	height:100%;
@@ -52,7 +52,7 @@ h1, .container *{
 .map_wrap a, .map_wrap a:hover, .map_wrap a:active{color:#000;text-decoration: none;}
 .map_wrap {position:relative;width:100%;height:500px;}
 #menu_wrap {
-	width:48%;
+	width:28%;
 	height:100%;
 	margin:10px 0 30px 10px;
 	padding:5px;
@@ -93,6 +93,17 @@ h1, .container *{
 }
 #menu_wrap button:hover {
 	background-color: #e57233;
+}
+
+#infoWin {
+	font-weight: bold;
+	font-size: 16px;
+	text-shadow: -1px 0 #67493B, 0 1px #67493B, 1px 0 #67493B, 0 -1px #67493B;
+	color:#f58243;
+	white-space : nowrap;
+	overflow : hidden;
+	text-overflow: ellipsis;
+	letter-spacing: 1.4px;
 }
 
 #placesList li {list-style: none;}

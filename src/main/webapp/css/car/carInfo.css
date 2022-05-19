@@ -1,54 +1,54 @@
 @charset "UTF-8";
 
 .container {
-	height: auto;
-	text-align: center;
+   height: auto;
+   text-align: center;
 }
 h1, .container *{
-	font-family: 'IBM Plex Sans KR', sans-serif; 
+   font-family: 'IBM Plex Sans KR', sans-serif; 
 }
 #ciBody {
-	/*background-color: #FFD4AE;*/
-	padding: 30px;
-	padding-top: 10px;
-	border: 2px solid orange;
-	
+   /*background-color: #FFD4AE;*/
+   padding: 30px;
+   padding-top: 10px;
+   border: 2px solid orange;
+   
 }
 
 #ciMapWrap {
-	text-align: center;
-	margin-left: 20%;
-	width: 60%;
+   text-align: center;
+   margin-left: 20%;
+   width: 60%;
 }
 #ciContent img{
-	width: 500px;
-	height: 500px;
+   width: 500px;
+   height: 500px;
 }
 
 #ciEdit, #ciDel {
-	width: 5%;
- 	background-color: #f58243;
- 	margin-left: 5px;
- 	margin-top:-5px;
- 	padding: 6px;
- 	border: 0px;
- 	border-radius: 5px;
- 	color:white;
+   width: 5%;
+    background-color: #f58243;
+    margin-left: 5px;
+    margin-top:-5px;
+    padding: 6px;
+    border: 0px;
+    border-radius: 5px;
+    color:white;
 }
 
 #ciReplyEdit, #ciReplyDel {
-	width: 5%;
- 	background-color: #f58243;
- 	margin-left: 5px;
- 	padding: 6px;
- 	border: 0px;
- 	border-radius: 5px;
- 	color:white;
- 	text-align: center;
+   width: 5%;
+    background-color: #f58243;
+    margin-left: 5px;
+    padding: 6px;
+    border: 0px;
+    border-radius: 5px;
+    color:white;
+    text-align: center;
 }
 
 #ciDel, #ciReplyDel {
-	background-color: #67493B;
+   background-color: #67493B;
 }
 
 
@@ -57,13 +57,13 @@ h1, .container *{
 #ciDel:hover, #ciReplyDel:hover { background-color: #57392B; }
 
 #ciHead, #ciFoot {
-	width: 100%;
-	text-align: right;
+   width: 100%;
+   text-align: right;
 }
 
 #ciRep {
-	width:100%;
-	margin-top:10px;
+   width:100%;
+   margin-top:10px;
 }
 
 #ciReply {
@@ -79,16 +79,23 @@ h1, .container *{
 #replyList{
 	margin-top:20px;
 }
+
 #replyList *:not(#ciReplyEdit, #ciReplyDel) {
-	text-align: left;
+   text-align: left;
 }
 
 #replyList li{
-	padding: 5px;
+   padding: 5px;
 }
 
 #replyList hr {
-	margin-bottom:5px;
+   margin-bottom:5px;
+}
+#content{
+   border-radius:10px;
+   outline:none;
+   resize:none;
+   float:left;
 }
 #content{
 	border-radius:10px;
@@ -96,11 +103,11 @@ h1, .container *{
 	resize:none;
 }
 #ciReplyButton {
- 	background-color: #f58243;
- 	color:white;
- 	line-height:66px;
+    background-color: #f58243;
+    color:white;
+    line-height:66px;
 }
 .editForm{
-	display:none;
-	margin-top:10px;
+   display:none;
+   margin-top:10px;
 }

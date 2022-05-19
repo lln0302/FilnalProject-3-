@@ -17,6 +17,9 @@
 
 <div class="container" id="ciBody">
 	<h1>${vo.title }</h1>
+	<input type="hidden" id="locX" name="locX" value="${vo.locX}"/>
+	<input type="hidden" id="locY" name="locY" value="${vo.locY}"/>
+	
 	<div id="ciHead">
 		<span id="ciNick">${vo.nickname }</span> | <i class="fa fa-clock clock"></i> <span id="ciDate">${vo.writedate }</span>
 	</div>
@@ -24,7 +27,7 @@
 	<!-- 본인 게시물인 경우에만 나타나도록 설정해줘야 함 -->
 	<c:if test="${nickname == vo.nickname}">
 		<div style="text-align: right;"> 
-			<button id="ciEdit">수정</button>
+			<button id="ciEdit" onclick="location.href='/car/carEdit?carno=${vo.carno}'">수정</button>
 			<button id="ciDel" onclick="carDelOk()">삭제</button>
 		</div>
 	</c:if>
@@ -40,14 +43,14 @@
 	<div id="ciFoot">
 		<i class='fas fa-eye'></i> <span id="ciView">${vo.views}</span>
 		&nbsp;&nbsp;&nbsp;	
-		<i class='fas fa-comment'></i> <span id="ciReplyCount">[댓글수]</span>
+		<i class='fas fa-comment'></i> <span id="ciReplyCount">${vo.count }</span>
 	</div>
 	
-	<div id="ciRep">
+	<div id="ciRep" >
 		<form method="post" id="ciFrm">
 			<input type="hidden" name="carno" id="carno" value="${vo.carno}">
-			<textarea id="ciReply" name="content" id="content" placeholder="댓글 입력 ..."></textarea>
-			<input type="submit" id="ciReplyButton" class="btn" value="댓글 등록">
+			<textarea id="content" class="col-11" rows="3" name="content" placeholder="댓글 입력 ..."></textarea>
+			<input type="submit" class="col-1 btn" id="ciReplyButton" value="댓글 등록">
 		</form>
 		
 		<!-- 댓글목록 -->

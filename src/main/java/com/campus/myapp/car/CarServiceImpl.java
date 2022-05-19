@@ -34,6 +34,16 @@ public class CarServiceImpl implements CarService {
 	}
 	
 	@Override
+	public CarVO carEdit(int no) {
+		return dao.carEdit(no);
+	}
+	
+	@Override
+	public int carEditOk(CarVO vo) {
+		return dao.carEditOk(vo);
+	}
+	
+	@Override
 	public int carDelete(int no) {
 		return dao.carDelete(no);
 	}
@@ -65,6 +75,10 @@ public class CarServiceImpl implements CarService {
 	public int replyDel(int no) {
 		return dao.replyDel(no);
 	}
+
+	
+
+	
 
 	
 	

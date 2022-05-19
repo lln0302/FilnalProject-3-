@@ -1,35 +1,35 @@
 @charset "UTF-8";
 
 h5 {
-	text-align: center;
-	padding: 10px;
+   text-align: center;
+   padding: 10px;
 }
 h1, h5, .container *{
-	font-family: 'IBM Plex Sans KR', sans-serif; 
+   font-family: 'IBM Plex Sans KR', sans-serif; 
 }
 
 #swFrm {
-	padding: 30px;
-	padding-top: 40px;
-	background:rgba(245, 130, 67, .1);
+   padding: 30px;
+   padding-top: 40px;
+   background:rgba(245, 130, 67, .1);
 }
 
 #swName {
-	width: 100%;
-	padding: 10px;
-	border: solid rgba(245, 130, 67, .2);
-	border-radius:5px;
+   width: 100%;
+   padding: 10px;
+   border: solid rgba(245, 130, 67, .2);
+   border-radius:5px;
 }
 
 #swWriteSubmitWrap{ 
-	margin-top: 10px;
-	text-align: right;
+   margin-top: 10px;
+   text-align: right;
 }
 
 #supplyWriteSubmit {
-	margin-top:20px;
-	width: 90px;
-	background:rgb(245, 130, 67);
-	color:white;
-	padding:10px;
+   margin-top:20px;
+   width: 90px;
+   background:rgb(245, 130, 67);
+   color:white;
+   padding:10px;
 }

@@ -148,7 +148,7 @@
 </div><!-- wrap -->	
 <%@ include file="/WEB-INF/views/camping/modal.jsp" %>
 <script>
-	Listupcampingimages(${cmmvo.contentId});		
+   Listupcampingimages(${cmmvo.contentId});      
 </script>
 <script src="/js/camping/campingView.js"></script>
 <script src="/js/camping/campingMap.js"></script>

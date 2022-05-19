@@ -18,7 +18,8 @@ public class ServerConfigure implements WebMvcConfigurer, WebServerFactoryCustom
 	
 	private static final List<String> URL_PATERRNS = Arrays.asList(
 				"/gather/gatherView","/gather/gatherWrite","/gather/writeOk", 
-				"/gather/gatherEdit"
+				"/gather/gatherEdit", "/car/carWrite", "/car/carWriteOk",
+				"/car/carEdit", "/car/replyWrite"
 			);
 	
 	public void addInterceptors(InterceptorRegistry registry) {

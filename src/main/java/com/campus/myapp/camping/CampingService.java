@@ -4,29 +4,30 @@ import java.util.List;
 
 public interface CampingService {
 	
-	   // 캠핑장정보 등록
+	   // api저장
 	   public int addplace(CampingVO vo);
 	   
-	   // 캠핑장 이미지 등록
+	   // 이미지 저장
 	   public int addimages(CampingVO vo);
 	   
-	   // 총 레코드 수
+	   // 총 레코드
 	   public int totalRecord(Paging10VO pvo);
 
-	   // 캠핑장 목록(search)
+	   // 캠핑서치
 	   public List<CampingVO> campingSearch(Paging10VO pVO);
 	   
-	   // 캠핑장 목록(tag)
+	   // 캠핑서치(태그)
 	   public List<CampingVO> campingTag(Paging10VO pVO);
 	         
-	   // 캠핑장 선택
+	   // 캠핑뷰
 	   public List<CampingVO> campingSelect(String contentId);
 	   
-	   // 캠핑장 목록(suggestion)
+	   // 캠핑장 추천
 	   public List<CampingVO> campingSuggestion(Paging10VO pVO);
 	  
 	   // 지향 - 후기목록
 	   public List<ReviewVO> reviewListSelect(int contentId);
+
 	   // 지향 - 후기등록
 	   public int reviewInsert(ReviewVO vo);
 	   // 지향 - 후기
