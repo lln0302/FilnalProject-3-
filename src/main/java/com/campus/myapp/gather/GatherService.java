@@ -30,7 +30,7 @@ public interface GatherService {
 	// 이미 캠핑 참여한 유저 
 	public GatherMemberVO selectJoinCamper(int gatherno, String nickname);
 	// 특정 캠핑 캠퍼 리스트 
-	public List<GatherVO> selectCamperList(GatherMemberVO vo);
+	public List<GatherMemberVO> selectCamperList(GatherMemberVO vo);
 	// 캠퍼 참여 유저 명수 
 	public int gnewnoCountSelect(int gatherno);
 	// 켐퍼 참여 취소 

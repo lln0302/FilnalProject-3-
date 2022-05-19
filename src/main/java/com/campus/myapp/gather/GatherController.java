@@ -14,13 +14,13 @@ import java.util.regex.Matcher;
 import java.util.regex.Pattern;
 
 import javax.inject.Inject;
+import javax.mail.Session;
 import javax.servlet.ServletException;
 import javax.servlet.ServletOutputStream;
 import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
 import javax.servlet.http.HttpSession;
 
-import org.springframework.beans.factory.annotation.Value;
 import org.springframework.http.HttpHeaders;
 import org.springframework.http.HttpStatus;
 import org.springframework.http.MediaType;
@@ -224,7 +224,7 @@ public class GatherController {
 		mav.addObject("alreadyJoin", service.selectJoinCamper(gatherno, 
 				(String)session.getAttribute("nickname")));
 		// 캠핑 참여한 유저 리스트
-		mav.addObject("list", service.selectCamperList(vo));
+		//mav.addObject("list", service.selectCamperList(vo));
 		mav.setViewName("gather/gatherView");
 		return mav;
 	}
@@ -298,20 +298,22 @@ public class GatherController {
 	
 	// 캠퍼 참여 
 	@GetMapping("/plusGatherCamper")
-	public GatherMemberVO PlusGatherCamper(int gmemberno, int gatherno, GatherMemberVO vo, HttpSession session) {
-		
-		String nickname = (String)session.getAttribute("nickname");
-		vo.setNickname(nickname);
-		vo.setGender((String)session.getAttribute("gender"));
-		
+	public int PlusGatherCamper(int gmemberno, int gatherno, GatherMemberVO vo, HttpSession session) {
+		vo.setNickname((String)session.getAttribute("nickname"));
 		service.plusGatherCamper(gatherno);
-		service.gathermemberInsert(gmemberno, gatherno, vo.getNickname(), vo.getGender());
-		return service.selectJoinCamper(gatherno, nickname);
+		return service.gathermemberInsert(gmemberno, gatherno, vo.getNickname(), vo.getGender());
 	}
 	// 캠퍼 유저 수 표시
 	@GetMapping("/gnewnoCount")
 	public int gnewnoCount(int gatherno) {
 		return service.gnewnoCountSelect(gatherno);
+	}
+	// 캠핑 참여한 캠퍼 리스트 보이기
+	@GetMapping("/showCamperList")
+	public List<GatherMemberVO> showCamperList(GatherMemberVO vo, HttpSession session) {
+		vo.setNickname((String)session.getAttribute("nickname"));
+		vo.setGender((String)session.getAttribute("gender"));
+		return service.selectCamperList(vo);
 	}
 	// 캠퍼 참여 취소
 	@GetMapping("/minusGatherCamper")
@@ -321,6 +323,7 @@ public class GatherController {
 		service.gathermemberDel(gatherno, nickname);
 		return service.selectJoinCamper(gatherno, nickname);
 	}
+	
 	
 	// gather 댓글 등록하기
 	@PostMapping("/replyWrite")
