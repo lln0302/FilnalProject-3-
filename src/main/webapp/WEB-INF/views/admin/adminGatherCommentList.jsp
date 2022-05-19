@@ -18,27 +18,22 @@
 <script async src='/cdn-cgi/bm/cv/669835187/api.js'></script>
 <script type="text/javascript" src="/js/admin/adminSideTab.js"></script>
 <script type="text/javascript" src="/js/admin/adminCheckBox.js"></script>
-<script type="text/javascript" src="/js/admin/adminAlert.js"></script>
-<style>
 
-#listMenu>li:nth-child(9n+1) {
-	width:4%;
-}
-#listMenu>li:nth-child(9n+2), #listMenu>li:nth-child(9n+5),
-#listMenu>li:nth-child(9n+8), #listMenu>li:nth-child(9n+9)
-{
-	width:14%;
-}
-#listMenu>#listMenuFE>li:nth-child(9n+1) {
-	width:4%;
-}
-#listMenu>#listMenuFE>li:nth-child(9n+2), #listMenu>#listMenuFE>li:nth-child(9n+5),
-#listMenu>#listMenuFE>li:nth-child(9n+8), #listMenu>#listMenuFE>li:nth-child(9n+9)
-{
-	width:14%;
-}
+<style>
+#listMenu>li:nth-child(6n+1) {width:5%;}
+#listMenu>li:nth-child(6n+3), #listMenu>li:nth-child(6n+5){width:20%;}
+#listMenu>li:nth-child(6n+4) {width:30%;}
+#listMenu>li:nth-child(6n+6) {width:15%;}
+
+#listMenu>#listMenuFE>li:nth-child(6n+1) {width:5%;}
+#listMenu>#listMenuFE>li:nth-child(6n+3), #listMenu>#listMenuFE>li:nth-child(6n+5) {width:20%;}
+#listMenu>#listMenuFE>li:nth-child(6n+4) {width:30%;}
+#listMenu>#listMenuFE>li:nth-child(6n+6) {width:15%}
 
 </style>
+<!-- <script type="text/javascript">
+        
+</script> -->
 <body>
 	<div id="adminPage">
 		<%@ include file="/WEB-INF/views/admin/adminTop.jsp" %>
@@ -48,13 +43,13 @@
 				<li>
 					<div class='menu_img' id="menu1">
 						<img src="/img/admin/adminLeftTap1/dash.PNG" class="menu_imgs" id="menu_img_dashBoard" />
-						<img src="/img/admin/adminLeftTap1/members_red.PNG" class="menu_imgs" id="menu_img_members" />
+						<img src="/img/admin/adminLeftTap1/members.PNG" class="menu_imgs" id="menu_img_members" />
 						<img src="/img/admin/adminLeftTap1/campList.PNG" class="menu_imgs" id="menu_img_campList" />
 						<img src="/img/admin/adminLeftTap1/addCamperList.PNG" class="menu_imgs" id="menu_img_addCamperList" />
 						<img src="/img/admin/adminLeftTap1/autoCampList.PNG" class="menu_imgs" id="menu_img_autoCampList" />
 						<img src="/img/admin/adminLeftTap1/shareList.PNG" class="menu_imgs" id="menu_img_shareList" />
 						<img src="/img/admin/adminLeftTap1/reviewList.PNG" class="menu_imgs" id="menu_img_reviewList" />
-						<img src="/img/admin/adminLeftTap1/commentList.PNG" class="menu_imgs" id="menu_img_commentList" />
+						<img src="/img/admin/adminLeftTap1/commentList_red.PNG" class="menu_imgs" id="menu_img_commentList" />
 					</div>
 				</li>
 					
@@ -65,8 +60,8 @@
 							</a><img src="/img/admin/adminLeftTap1/dash.PNG" class="menu2left" id="menu_img_dashBoard" />
 							
 							<a class="menuATag" href="/admin/adminMembers">
-								<img src="/img/admin/adminLeftTap2/members_bold.PNG" class="menu2right" id="members_img"/>
-							</a><img src="/img/admin/adminLeftTap1/members_red.PNG" class="menu2left" id="menu_img_members" />
+								<img src="/img/admin/adminLeftTap2/members_none.PNG" class="menu2right" id="members_img"/>
+							</a><img src="/img/admin/adminLeftTap1/members.PNG" class="menu2left" id="menu_img_members" />
 							
 							<a class="menuATag" href="/admin/adminCampList">
 								<img src="/img/admin/adminLeftTap2/campList_none.PNG" class="menu2right" id="campList_img"/>
@@ -88,15 +83,15 @@
 								<img src="/img/admin/adminLeftTap2/reviewList_none.PNG" class="menu2right" id="reviewList_img"/>
 							</a><img src="/img/admin/adminLeftTap1/reviewList.PNG" class="menu2left" id="menu_img_reviewList" />
 							
-							<a class="menuATag" href="" onclick="javascript:caution()">
-								<img src="/img/admin/adminLeftTap2/commentList_none.PNG" class="menu2right" id="commentList_img"/>
-							</a><img src="/img/admin/adminLeftTap1/commentList.PNG" class="menu2left" id="menu_img_commentList" />
+							<a class="menuATag" href="/admin/adminGatherCommentList">
+								<img src="/img/admin/adminLeftTap2/commentList_bold.PNG" class="menu2right" id="commentList_img"/>
+							</a><img src="/img/admin/adminLeftTap1/commentList_red.PNG" class="menu2left" id="menu_img_commentList" />
 					</div>
 				</li>
 			</ul>
 			<div id="adminMainContentTop">
 				<!-- <hr id="hr2px_red"> -->
-				회원목록
+				캠퍼모집-댓글목록
 			</div>
 			<hr id="hr2px">
 				<div class="containerList">
@@ -105,11 +100,11 @@
 					</div>
 					<!-- 검색 -->
 						<div>
-							<form method="get" action="/admin/adminMembers" id="searchFrm">
+							<form method="get" action="/admin/adminGatherCommentList" id="searchFrm">
 								<select name="searchKey">
-									<option value="username">이름</option>
-									<option value="email">이메일</option>
-									<option value="usertel">연락처</option>
+									<option value="content">내용</option>
+									<option value="nickname">작성자</option>
+									<option value="gatherno">캠퍼모집번호</option>
 								</select>
 								<input type="text" name="searchWord" id="searchWord" />
 								<input type="submit" value="Search" />
@@ -119,29 +114,23 @@
 							&nbsp;<input type="checkbox" id="allCheck" />전체선택
 							<input type="button" value="선택삭제" id="multiDel"/>
 						</div>
-						<form method="post" action="/admin/adminMembersDel" id="listMenuFrm">
+						<form method="post" action="/admin/adminGatherCommentListDel" id="listMenuFrm">
 							<ul id="listMenu">
 								<li>&nbsp;</li>
-								<li>아이디</li>
-								<li>이름</li>
-								<li>닉네임</li>
-								<li>이메일</li>
-								<li>등급</li>
-								<li>매너온도</li>
-								<li>연락처</li>
-								<li>가입일</li>
+								<li>댓글번호</li>
+								<li>댓글내용</li>
+								<li>작성일</li>
+								<li>작성자</li>
+								<li>캠퍼모집번호</li>
 							
 								<div id="listMenuFE">
 								<c:forEach var="vo" items="${list}">
-									<li><input type='checkbox' name='telList' value='${vo.usertel}' class="chk"/></li>
-									<li><a href="/admin/adminMembersInfo?nickname=${vo.nickname}">${vo.userid}</a></li>
-									<li>${vo.username}</li>
+									<li><input type='checkbox' name='replyNoList' value='${vo.replyno}' class="chk"/></li>
+									<li>${vo.replyno}</li>
+									<li><a href="/gather/gatherView?gatherno=${vo.gatherno}">${vo.content}</a></li>
 									<li>${vo.nickname}</li>
-									<li>${vo.email}</li>
-									<li>${vo.isadmin}</li>
-									<li>${vo.userscore}</li>
-									<li>${vo.usertel}</li>
-									<li>${vo.joindate}</li>
+									<li>${vo.writedate}</li>
+									<li>${vo.gatherno}</li>
 								</c:forEach>
 								</div>
 							</ul>
@@ -153,7 +142,7 @@
 								<li id="prevBtn">◀</li>
 							</c:if>
 							<c:if test="${apvo.pageNum>1}">
-								<li><a href="/admin/adminMembers?pageNum=${apvo.pageNum-1}
+								<li><a href="/admin/adminGatherCommentList?pageNum=${apvo.pageNum-1}
 											<c:if test='${apvo.searchWord!=null}'>
 											&searchKey=${apvo.searchKey}
 											&searchWord=${apvo.searchWord}
@@ -172,7 +161,7 @@
 					            	<c:if test="${p!=apvo.pageNum}">
 					            		<li>
 					            	</c:if>
-									<a href="/admin/adminMembers?pageNum=${p}
+									<a href="/admin/adminGatherCommentList?pageNum=${p}
 											<c:if test='${apvo.searchWord!=null}'>
 											&searchKey=${apvo.searchKey}
 											&searchWord=${apvo.searchWord}
@@ -187,7 +176,7 @@
 								<li id="nextBtn">▶</li>
 							</c:if>
 							<c:if test="${apvo.pageNum < apvo.totalPage}">
-								<li><a href="/admin/adminMembers?pageNum=${apvo.pageNum+1}
+								<li><a href="/admin/adminGatherCommentList?pageNum=${apvo.pageNum+1}
 											<c:if test='${apvo.searchWord!=null}'>
 											&searchKey=${apvo.searchKey}
 											&searchWord=${apvo.searchWord}

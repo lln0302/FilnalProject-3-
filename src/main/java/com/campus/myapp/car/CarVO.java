@@ -1,5 +1,7 @@
 package com.campus.myapp.car;
 
+import java.util.List;
+
 public class CarVO {
 	private int carno;
 	private String nickname;
@@ -15,6 +17,14 @@ public class CarVO {
 	private String content;
 	private int replyno;
 	
+	private List<Integer> carNoList;
+	
+	public List<Integer> getCarNoList() {
+		return carNoList;
+	}
+	public void setCarNoList(List<Integer> carNoList) {
+		this.carNoList = carNoList;
+	}
 	public int getCarno() {
 		return carno;
 	}
