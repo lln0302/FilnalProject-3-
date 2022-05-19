@@ -110,6 +110,7 @@ $(function(){
 			});	
 		}
 	});
-	replyList();
-	replyCount();
+	
+	replyList();  // 항상 댓글 리스트 보이기
+	replyCount(); // 비동기식으로 댓글 추가되면 +1 삭제되면 -1
 });
