@@ -29,7 +29,7 @@
 				<div class="form-inline">
 					<div class="col-4 writeTitle">
 						<span>모집인원</span>
-						<input type="number" class="col-4 form-control for" id="number" name="gmemberno" min="0"/>
+						<input type="number" class="col-4 form-control for" id="number" name="gmemberno" min="1" max="30"/>
 					</div>	
 					<div class="col-7 writeTitle">
 						<span>일정</span>
@@ -52,3 +52,4 @@
 		</form>
 	</div>
 </div>
+<br/>

@@ -1,10 +1,12 @@
 $(function(){
 		
+	
 	// datepicker 설정
 	$("#startdate, #enddate").datepicker({
 		dateFormat: 'yy-mm-dd',  // Input Display Format 변경
 		changeMonth: true,       // select 문으로 월 선택 가능  
 		changeYear: true, 		 // select 문으로 년 선택 가능
+		minDate: new Date(),     // 오늘 날짜부터 설정가능
 		prevText: '이전 달',       // datepicker 한글로
 	    nextText: '다음 달',
 	    monthNames: ['1월','2월','3월','4월','5월','6월','7월','8월','9월','10월','11월','12월'],
@@ -40,7 +42,7 @@ $(function(){
 	$("#resetBtn").on('click', function(){
 		CKEDITOR.instances.content.setData("");
 	})
-	
+
 	// 리스트로 되돌아가기 버튼
 	$("#showList").click(function(){
 		location.href="/gather/gatherList";
