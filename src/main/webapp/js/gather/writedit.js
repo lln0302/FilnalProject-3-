@@ -54,6 +54,7 @@ $(function(){
 		filebrowserUploadUrl:'/gather/imageUpload', // 이미지 업로드
 		//filebrowserUploadMethod:'form',
 		extraPlugin:'autograw',
+		
 	});
 	
 	// CKEditor 이미지 탭 설정

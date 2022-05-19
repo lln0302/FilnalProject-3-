@@ -80,7 +80,7 @@ public class GatherController {
 	public void imageUpload(HttpServletRequest request, HttpServletResponse response, 
 			@RequestParam MultipartFile upload) throws Exception {
 
-		// 랜덤 문자 생성 : 파일이름 중복 방지
+		// 고유값 생성 : 파일이름 중복 방지
 		UUID uid = UUID.randomUUID();
 		OutputStream out = null;
 		PrintWriter printWriter = null;
