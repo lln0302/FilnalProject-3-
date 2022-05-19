@@ -46,32 +46,29 @@ public class CampingServiceImpl implements CampingService {
 		return dao.addimages(vo);
 	}
 
-	// ÁöÇâ - ¸®ºä¸®½ºÆ®
-	@Override
-	public List<ReviewVO> reviewListSelect(int contentId) {
-	   return dao.reviewListSelect(contentId);
-	}
-	
-	// ÁöÇâ - ¸®ºäµî·Ï
-	@Override
-	public int reviewInsert(ReviewVO vo) {
-	   return dao.reviewInsert(vo);
-	}
-	
-	// ÁöÇâ - ¸®ºä
-	@Override
-	public ReviewVO reviewModalSelect(int reviewno) {
-	   return dao.reviewModalSelect(reviewno);
-	}
-	// ÁöÇâ - ¸®ºä¼öÁ¤
-	@Override
-	public int reviewUpdate(ReviewVO vo) {
-	   return dao.reviewUpdate(vo);
-	}
-	
-	// ÁöÇâ - ¸®ºä»èÁ¦
-	@Override
-	public int reviewDelete(int reviewno) {
-	   return dao.reviewDelete(reviewno);
-	}
+   // ì§€í–¥ - ë¦¬ë·°ë¦¬ìŠ¤íŠ¸
+   @Override
+   public List<ReviewVO> reviewListSelect(int contentId) {
+      return dao.reviewListSelect(contentId);
+   }
+   // ì§€í–¥ - ë¦¬ë·°ë“±ë¡
+   @Override
+   public int reviewInsert(ReviewVO vo) {
+      return dao.reviewInsert(vo);
+   }
+   // ì§€í–¥ - ë¦¬ë·°
+   @Override
+   public ReviewVO reviewModalSelect(int reviewno) {
+      return dao.reviewModalSelect(reviewno);
+   }
+   // ì§€í–¥ - ë¦¬ë·°ìˆ˜ì •
+   @Override
+   public int reviewUpdate(ReviewVO vo) {
+      return dao.reviewUpdate(vo);
+   }
+   // ì§€í–¥ - ë¦¬ë·°ì‚­ì œ
+   @Override
+   public int reviewDelete(int reviewno) {
+      return dao.reviewDelete(reviewno);
+   }
 }

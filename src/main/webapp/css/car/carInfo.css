@@ -67,18 +67,19 @@ h1, .container *{
 }
 
 #ciReply {
-   width: 89%;
-   padding: 15px;
-   /*margin-bottom: 10px;*/
-   resize:none;
-   height:80px;
-   float:left;
-   border-radius:10px;
-   outline:none;
+	width: 89%;
+	padding: 15px;
+	/*margin-bottom: 10px;*/
+	resize:none;
+	height:80px;
+	float:left;
+	border-radius:10px;
+	outline:none;
 }
 #replyList{
-   margin-top:20px;
+	margin-top:20px;
 }
+
 #replyList *:not(#ciReplyEdit, #ciReplyDel) {
    text-align: left;
 }
@@ -95,6 +96,11 @@ h1, .container *{
    outline:none;
    resize:none;
    float:left;
+}
+#content{
+	border-radius:10px;
+	outline:none;
+	resize:none;
 }
 #ciReplyButton {
     background-color: #f58243;

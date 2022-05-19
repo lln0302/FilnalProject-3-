@@ -14,7 +14,7 @@ public class CarVO {
 	private float locY;
 	private String content;
 	private int replyno;
-	private int count;		//´ñ±Û¼ö
+	private int count;		
 	
 	public int getCarno() {
 		return carno;
