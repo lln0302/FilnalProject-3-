@@ -9,27 +9,29 @@ import org.springframework.stereotype.Repository;
 @Repository
 public interface CarDAO {
 	
-
+	// 차박 게시판 목록
 	public List<CarVO> carList();
 	
-
+	// 차박 게시판 글 등록
 	public int carInsert(CarVO vo);
 	
-
+	// 차박 게시판 게시물 불러오기
 	public CarVO carSelect(int no);
 	
-
+	// 차박 게시판 게시물 조회수 증가
 	public int carInfoCount(int no);
 	
-
+	// 차박 게시판 게시물 수정 페이지로 이동
 	public CarVO carEdit(int no);
 	
-
+	// 차박 게시판 게시물 수정 처리
 	public int carEditOk(CarVO vo);
 	
-
+	// 차박 게시판 게시물 삭제
 	public int carDelete(int no);
 	
+	
+	//댓글 처리 부분
 	public int replyWrite(CarVO vo);
 	public int replyCountSelect(int no);
 	public List<CarReplyVO> replyList(int no);

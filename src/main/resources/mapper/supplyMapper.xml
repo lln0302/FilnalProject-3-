@@ -1,0 +1,29 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE mapper
+        PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN"
+        "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+
+<mapper namespace="com.campus.myapp.supply.SupplyDAO">
+	<select id="supplyList" resultType="SupplyVO">
+		SELECT supplyno, title, nickname, views, date_format(writedate, '%y-%m-%d %H:%i') writedate, content, photo
+		FROM supply ORDER BY supplyno DESC
+	</select>
+	<update id="supplyInfoCount">
+		UPDATE supply SET views = views+1 WHERE supplyno=#{param1}
+	</update>
+	<select id="supplySelect" resultType="SupplyVO">
+		SELECT supplyno, title, nickname, date_format(writedate, '%y-%m-%d %H:%i') writedate, views, content, photo
+		FROM supply WHERE supplyno=#{param1}
+	</select>
+	<insert id="supplyInsert">
+		INSERT INTO supply(title, nickname, content, photo)
+		VALUES(#{title}, #{nickname}, #{content}, #{photo})
+	</insert>
+	<update id="supplyEditOk">
+		UPDATE supply SET title=#{title}, content=#{content}
+		WHERE supplyno=#{supplyno}
+	</update>
+	<delete id="supplyDelete">
+		DELETE FROM supply WHERE supplyno=#{param1}
+	</delete>
+</mapper>

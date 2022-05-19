@@ -258,18 +258,12 @@ public class CarController {
 	public ResponseEntity<String> carDelete(int carno, HttpServletRequest request) {
 		
 		ResponseEntity<String> entity = null;
-		
-		
-		
-		// �씤肄붾뵫
 		HttpHeaders headers = new HttpHeaders();
 		headers.setContentType(new MediaType("text", "html", Charset.forName("UTF-8")));
 		
 		try {
-			// �궘�젣
 			int result = service.carDelete(carno);
 			
-			// 湲� �궘�젣 �꽦怨듭떆 ckUpload �뤃�뜑�뿉 �엳�뒗 �씠誘몄� �궘�젣
 			if(result>0) {
 				
 				String body = "<script>alert('게시물이 성공적으로 삭제되었습니다.');";
