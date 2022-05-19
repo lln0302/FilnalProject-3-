@@ -1,4 +1,5 @@
 <%@ page language="java" contentType="text/html; charset=UTF-8" pageEncoding="UTF-8"%>
+<%@ taglib uri="http://java.sun.com/jsp/jstl/core" prefix="c" %>
 <link rel="stylesheet" href="/css/gather/list.css" type="text/css"/>
 <script src="https://kit.fontawesome.com/76aefe2b67.js"></script>
 <script src="/js/gather/list.js"></script>
@@ -49,6 +50,7 @@
 		</div>
 	</div><!-- list-->
 	</c:forEach>
+	<!-- paging -->
 	<ul class="pagination justify-content-center">
 		<c:if test="${pvo.totalPages>0}">
 			<li class="page-item prevBtn">

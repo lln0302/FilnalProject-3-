@@ -66,7 +66,7 @@ public class CampingServiceImpl implements CampingService {
 	public int reviewUpdate(ReviewVO vo) {
 		return dao.reviewUpdate(vo);
 	}
-
+	// 지향 - 리뷰삭제
 	@Override
 	public int reviewDelete(int reviewno) {
 		return dao.reviewDelete(reviewno);

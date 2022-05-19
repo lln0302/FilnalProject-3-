@@ -68,13 +68,17 @@ h1, .container *{
 
 #ciReply {
 	width: 89%;
-	padding: 4px;
+	padding: 15px;
 	/*margin-bottom: 10px;*/
-	resize: none;
-	height: 60px;
+	resize:none;
+	height:80px;
 	float:left;
+	border-radius:10px;
+	outline:none;
 }
-
+#replyList{
+	margin-top:20px;
+}
 #replyList *:not(#ciReplyEdit, #ciReplyDel) {
 	text-align: left;
 }
@@ -86,20 +90,16 @@ h1, .container *{
 #replyList hr {
 	margin-bottom:5px;
 }
+#content{
+	border-radius:10px;
+	outline:none;
+	resize:none;
+}
 #ciReplyButton {
- 	width: 10%;
  	background-color: #f58243;
- 	padding: 6px 12px;
- 	border: 0px;
- 	border-radius: 5px;
  	color:white;
- 	height: 60px;
- 	margin-bottom: 30px;
+ 	line-height:66px;
 }
-#ciReplyButton:hover {
-	background-color: #e57233;
-}
-
 .editForm{
 	display:none;
 	margin-top:10px;

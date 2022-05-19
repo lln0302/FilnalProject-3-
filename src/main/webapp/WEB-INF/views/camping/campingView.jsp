@@ -143,7 +143,7 @@
 			<div id="staticMap" style="width:600px;height:350px;"></div>	
 		</div>
 		<!-- 캠핑후기 -->
-		<div id="campReview"></div><!-- review -->
+		<div id="campReview"></div>
 	</div><!-- contents -->
 </div><!-- wrap -->	
 <%@ include file="/WEB-INF/views/camping/modal.jsp" %>

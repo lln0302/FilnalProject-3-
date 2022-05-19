@@ -46,8 +46,8 @@
 	<div id="ciRep">
 		<form method="post" id="ciFrm">
 			<input type="hidden" name="carno" id="carno" value="${vo.carno}">
-			<textarea id="ciReply" name="content" placeholder="댓글 입력 ..."></textarea>
-			<input type="submit" id="ciReplyButton" value="댓글 등록">
+			<textarea id="ciReply" name="content" id="content" placeholder="댓글 입력 ..."></textarea>
+			<input type="submit" id="ciReplyButton" class="btn" value="댓글 등록">
 		</form>
 		
 		<!-- 댓글목록 -->

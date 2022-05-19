@@ -27,7 +27,6 @@ public class CampingController {
 	@GetMapping("/campingSearch")
 	public ModelAndView CampingSearch(Paging10VO pVO) {
 		ModelAndView mav = new ModelAndView();
-		System.out.println(service.totalRecord(pVO));
 		//레코드수
 		pVO.setTotalRecord(service.totalRecord(pVO));
 		
@@ -123,7 +122,6 @@ public class CampingController {
 		mav.addObject("rvo", service.reviewModalSelect(reviewno));
 		return service.reviewModalSelect(reviewno);
 	}
-	
 	
 	// 지향 - 모달에서 수정을 위한 캠핑 리뷰 폼
 	@GetMapping("reviewModal")

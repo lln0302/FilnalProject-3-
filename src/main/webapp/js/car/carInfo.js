@@ -20,14 +20,14 @@ $(function(){
 					+item.nickname+ " | " + item.writedate + "</span>";
 					if(nickname == item.nickname){
 						body += "<span><button class='btn' id='ciReplyEdit'>수정</button>";
-						body += "<button class='btn' id='ciReplyDel' >삭제</button>";	
+						body += "<button class='btn' id='ciReplyDel'>삭제</button>";	
 					}
 					body += "<br/><br/>" + item.content + "</span></div>"
 					if(nickname == item.nickname){
 						body += "<div class='editForm'><form method='post' class='form-inline'}>";
-						body += "<textarea name='content' class='col-11 form-control'>"+item.content+"</textarea>"
+						body += "<textarea name='content' id='content'class='col-11 form-control'>"+item.content+"</textarea>"
 						body += "<input type='hidden' name='replyno' value="+item.replyno+">";
-						body += "<input type='submit' id='ciReplyButton' value='수정' style='margin-left:10px; height:100%'></form></div>";	
+						body += "<input type='submit' class='btn' id='ciReplyButton' value='수정' style='margin-left:10px; height:100%'></form></div>";	
 					}
 					body += "</li><hr/>";
 				});
