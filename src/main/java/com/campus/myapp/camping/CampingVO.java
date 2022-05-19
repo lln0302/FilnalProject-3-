@@ -25,8 +25,29 @@ public class CampingVO {
     private String operDeCl;
     private String modifiedtime;
     private String imageUrl;
+
+    private int imgno;
+    private String animalCmgCl;
+           
+    public String getAnimalCmgCl() {
+		return animalCmgCl;
+	}
+
+	public void setAnimalCmgCl(String animalCmgCl) {
+		this.animalCmgCl = animalCmgCl;
+	}
+
+	public int getImgno() {
+		return imgno;
+	}
+
+	public void setImgno(int imgno) {
+		this.imgno = imgno;
+	}
+
+	private List<Integer> contentIdList;       
     
-    private String nickname;		//아니 이거 안넣으면 이상하게 캠핑장 리스트 안나옴;;
+    private String nickname;		
     
     public String getNickname() {
 		return nickname;
@@ -34,11 +55,6 @@ public class CampingVO {
 	public void setNickname(String nickname) {
 		this.nickname = nickname;
 	}
-    
-    
-    private List<Integer> contentIdList;
-
-
     
 	public String getImageUrl() {
 		return imageUrl;

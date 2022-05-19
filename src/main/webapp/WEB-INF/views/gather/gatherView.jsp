@@ -1,17 +1,21 @@
 <%@ page language="java" contentType="text/html; charset=UTF-8" pageEncoding="UTF-8"%>
+<%@ taglib uri="http://java.sun.com/jsp/jstl/core" prefix="c" %>ㄴ
 <link rel="stylesheet" href="/css/gather/view.css" type="text/css"/>
 <script src="/js/gather/reply.js"></script>
 <script src="/js/gather/view.js"></script>
 <script>
-	let nickname = "${nickname}"; // 세션에 있는 닉네임 사용
+	// 세션에 있는 닉네임 사용
+	let nickname = "${nickname}"; 
+	
 	$(function(){
-		$("#gatherDel").on('click', function(){ // 삭제 버튼을 누르면 뷰 페이지 삭제
+		// 삭제 버튼 클릭 시 뷰 페이지 삭제
+		$("#gatherDel").on('click', function(){ 
 			if(confirm("삭제하시겠어요?")){
 				location.href="/gather/gatherDel?gatherno=${view.gatherno}";
 			}
 		});
 		
-		// 이미 캠핑에 참여한 유저 구하기
+		// 이미 캠핑 참여한 캠퍼 구해서 캠핑 참여한 유저면 버튼 변경
 		if("${alreadyJoin}"!=''){
 			$("#gnewnoBtn1").addClass("separate");
 			$("#gnewnoBtn1").val("캠핑 취소");
@@ -22,7 +26,6 @@
 		
 	});
 </script>
-
 <div class="container gatherView">
 	<h1>${view.title}</h1>
 	<div class="col-12 camperTitle"></div>
@@ -74,14 +77,7 @@
 						<th>gender</th>
 					</tr>
 				</thead>
-				<tbody>
-					<c:forEach var="list" items="${list}">
-						<tr>
-							<td>${list.nickname}</td>
-							<td>${list.gender}</td>
-						</tr>
-					</c:forEach>
-
+				<tbody id="tbody">
 				</tbody>
 			</table>
 		</div>	

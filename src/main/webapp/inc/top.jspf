@@ -31,6 +31,7 @@
 <!-- ckeditor -->
 <script src="${url}/ckeditor/ckeditor.js"></script>
 <script src="https://kit.fontawesome.com/76aefe2b67.js"></script>
+<script type="text/javascript" src="//dapi.kakao.com/v2/maps/sdk.js?appkey=b0f683cf3769f84d841b883357269e47&libraries=services"></script>
 </head>
 
 <body>

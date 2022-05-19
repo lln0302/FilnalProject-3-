@@ -72,7 +72,7 @@ public class GatherServiceImpl implements GatherService {
 	}
 	// 특정 캠핑 캠퍼 리스트
 	@Override
-	public List<GatherVO> selectCamperList(GatherMemberVO vo) {
+	public List<GatherMemberVO> selectCamperList(GatherMemberVO vo) {
 		return dao.selectCamperList(vo);
 	}
 	// 캠퍼 참여한 유저 명수

@@ -1,3 +1,17 @@
+$(function() {
+	var preRegion = $("#preRegion").val();
+	console.log(preRegion);
+	$("#keyword").val(preRegion).prop("selected", true);
+	
+	var locx = $("#locX").val();
+	var locy = $("#locY").val();
+	
+	var newMarkerPosition = new kakao.maps.LatLng(locx, locy);
+	
+	map.panTo(newMarkerPosition);
+})
+
+
 function mapSearchClick() {
 	// 이미지 지도에서 마커가 표시될 위치입니다 
 	var locx = $("#locX").val();
@@ -7,11 +21,6 @@ function mapSearchClick() {
 	
 	map.panTo(newMarkerPosition);
 }
-
-
-
-
-
 
 
 var mapContainer = document.getElementById('map'), // 지도를 표시할 div 
@@ -73,14 +82,14 @@ kakao.maps.event.addListener(map, 'center_changed', function() {
     var latlng = map.getCenter(); 
 	//Math.round()
     var message = '현재 지도의 중앙 좌표 >> 위도: ' 
-    				+ Math.round(latlng.getLat()*100000)/100000 
-    				+ ', 경도: ' + Math.round(latlng.getLng()*100000)/100000;
+    				+ Math.round(latlng.getLat()*1000000)/1000000 
+    				+ ', 경도: ' + Math.round(latlng.getLng()*1000000)/1000000;
 
     var resultDiv = document.getElementById('cwLabel');
     resultDiv.innerHTML = message;
     
-    $("#locX").val(Math.round(latlng.getLat()*100000)/100000);
-    $("#locY").val(Math.round(latlng.getLng()*100000)/100000);
+    $("#locX").val(Math.round(latlng.getLat()*1000000)/1000000);
+    $("#locY").val(Math.round(latlng.getLng()*1000000)/1000000);
     
     //현재 지도의 중심좌표 정보로 마커 생성
     marker = new kakao.maps.Marker({

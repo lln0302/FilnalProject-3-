@@ -30,6 +30,8 @@ import org.springframework.web.servlet.ModelAndView;
 import org.springframework.web.util.UriComponents;
 import org.springframework.web.util.UriComponentsBuilder;
 
+import com.campus.myapp.gather.GatherVO;
+
 
 @Controller
 @RequestMapping("/car/")
@@ -214,12 +216,50 @@ public class CarController {
 		}
 	}
 	
+	//차박 게시물 수정 페이지로 이동
+	@GetMapping("/carEdit")
+	public ModelAndView carEdit(int carno, HttpSession session) {
+		ModelAndView mav = new ModelAndView();
+		mav.addObject("vo", service.carEdit(carno));
+		mav.setViewName("car/carEdit");
+		return mav; 
+	}
+	
+	//차박 게시물 수정 처리
+	@PostMapping("/carEditOk")
+	public ResponseEntity<String> carEditOk(CarVO vo, MultipartFile file, 
+			HttpSession session) throws Exception {
+		vo.setNickname((String)session.getAttribute("nickname"));
+		
+		ResponseEntity<String> entity = null;
+		HttpHeaders headers = new HttpHeaders();
+		headers.add("Content-Type", "text/html; charset=UTF-8");
+		
+		try {
+			int result = service.carEditOk(vo);
+			if(result>0) {
+				String msg = "<script>alert('글이 수정되었습니다.'); location.href='/car/carInfo?no="+vo.getCarno()+"';</script>";
+				entity = new ResponseEntity<String>(msg,headers,HttpStatus.OK);	}//성공시 수정완료게시물로 이동
+			else {
+				throw new Exception();
+			}
+		} catch(Exception e) {
+			e.printStackTrace();
+			String msg = "<script>alert('글 수정에 실패하였습니다.');history.go(-1);</script>";
+			entity = new ResponseEntity<String>(msg, headers, HttpStatus.BAD_REQUEST); //실패시 다시 수정폼으로 -1
+		}
+		return entity;
+		
+	}
+	
+	
+	
 	@GetMapping("/carDelete")
 	public ResponseEntity<String> carDelete(int carno, HttpServletRequest request) {
 		
 		ResponseEntity<String> entity = null;
 		
-		//어딘가에서.. 폴더에 업로드된 파일을 지워야할 듯하다
+		
 		
 		// �씤肄붾뵫
 		HttpHeaders headers = new HttpHeaders();

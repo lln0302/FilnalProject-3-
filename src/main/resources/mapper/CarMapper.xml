@@ -5,19 +5,29 @@
         
 <mapper namespace="com.campus.myapp.car.CarDAO">
 	<select id="carList" resultType="CarVO">
-		SELECT carno, title, region, nickname, views, locx, locy, date_format(writedate, '%y-%m-%d %H:%i') writedate 
-		FROM car order by writedate desc
+		SELECT carno, title, region, nickname, views, locx, locy, date_format(writedate, '%y-%m-%d %H:%i') writedate, 
+		(select count(*) from carreply c where c.carno=a.carno) count
+		FROM car a order by writedate desc
 	</select>
 	<insert id="carInsert">
 		INSERT INTO car(nickname, title, region, locx, locy, content)
 		VALUES(#{nickname}, #{title}, #{region}, #{locX}, #{locY}, #{content})
 	</insert>
 	<select id="carSelect" resultType="CarVO">
-		SELECT carno, title, nickname, date_format(writedate, '%y-%m-%d %H:%i') writedate, views, locx, locy, content 
+		SELECT carno, title, nickname, date_format(writedate, '%y-%m-%d %H:%i') writedate, views, locx, locy, content,  
+		(SELECT COUNT(carno) FROM carreply WHERE carno=#{param1}) count
 		FROM car WHERE carno=#{param1}
 	</select>
 	<update id="carInfoCount">
 		UPDATE car SET views = views+1 WHERE carno=#{param1}
+	</update>
+	<select id="carEdit" resultType="CarVO">
+		SELECT carno, title, region, locx, locy, content
+		FROM car WHERE carno=#{param1}
+	</select>
+	<update id="carEditOk">
+		UPDATE car SET title=#{title}, region=#{region}, locx=#{locX}, locy=#{locY}, content=#{content}
+		WHERE carno=#{carno}
 	</update>
 	<delete id="carDelete">
 		DELETE FROM car WHERE carno=#{param1}
