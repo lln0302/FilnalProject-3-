@@ -40,16 +40,16 @@
 
 .C_SearchBtnWrap{
 	padding: 20px 0px;
-	    border-bottom: 1.5px solid #ffffff;
-	 	width: 90%;
-	 	margin: 10px auto; 	 	
+	border-bottom: 1.5px solid #ffffff;
+	width: 90%;
+	margin: 10px auto; 	 	
 }	
 
 input {
      -webkit-appearance: none;
        -moz-appearance: none;
-       appearance: none;
-  }
+       appearance: none;       
+}
 
 .detail, .tag_search{
 	width: 45%;
@@ -138,17 +138,18 @@ input {
 
 .col-8{
 	width:700px;
-     padding:0 5px;
-     overflow:hidden;
-     text-overflow:ellipsis;
-     white-space:nowrap;
+    padding:0 5px;
+    overflow:hidden;
+    text-overflow:ellipsis;
+    white-space:nowrap;
 }
 
 #campinglink,
 #campinglink:visited,
 #campinglink:active{
-color : black;
+	color : black;		
 }
+
 #campinglink:hover {
 	text-decoration-line: underline;
 }

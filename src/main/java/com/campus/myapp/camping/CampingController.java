@@ -3,6 +3,7 @@ package com.campus.myapp.camping;
 import java.util.List;
 
 import javax.inject.Inject;
+import javax.mail.Session;
 import javax.servlet.http.HttpSession;
 
 import org.springframework.web.bind.annotation.GetMapping;
@@ -20,6 +21,8 @@ import ch.qos.logback.core.recovery.ResilientSyslogOutputStream;
 public class CampingController {
 	@Inject
 	CampingService service;	
+	
+	ModelAndView mav = new ModelAndView();
 	
 	@GetMapping("/campingSearch")
 	public ModelAndView CampingSearch(Paging10VO pVO) {
@@ -105,6 +108,41 @@ public class CampingController {
 	@GetMapping("/reviewList")
 	public List<ReviewVO> campingViewReview(int contentId, HttpSession session) {
 		return service.reviewListSelect(contentId);
+	}
+	
+	// 지향 - 캠핑 리뷰 글등록
+	@GetMapping("/reviewInsert")
+	public int reviewInsert(ReviewVO vo, HttpSession session) {
+		vo.setNickname((String)session.getAttribute("nickname"));
+		return service.reviewInsert(vo);
+	}
+	
+	// 지향 - 캠핑 리뷰 뷰
+	@GetMapping("/modalView")
+	public ReviewVO modalView(int reviewno) {
+		mav.addObject("rvo", service.reviewModalSelect(reviewno));
+		return service.reviewModalSelect(reviewno);
+	}
+	
+	
+	// 지향 - 모달에서 수정을 위한 캠핑 리뷰 폼
+	@GetMapping("reviewModal")
+	public ReviewVO reviewModalSelect(int reviewno) {
+		mav.addObject("rvo", service.reviewModalSelect(reviewno));
+		return service.reviewModalSelect(reviewno);
+	}
+
+	// 지향 - 캠핑 리뷰 글수정
+	@GetMapping("/reviewUpdate")
+	public int reviewUpdate(ReviewVO vo, HttpSession session) {
+		vo.setNickname((String)session.getAttribute("nickname"));
+		return service.reviewUpdate(vo);
+	}
+	
+	// 지향 - 캠핑 리뷰 글삭제
+	@GetMapping("/reviewDelete")
+	public int reviewDelete(int reviewno) {
+		return service.reviewDelete(reviewno);
 	}
 	
 }	

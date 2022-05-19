@@ -15,7 +15,7 @@
 		
 	});
 	function cwSearch() {
-		alert("cwSearch 눌림");
+		mapSearchClick();
 	}
 </script>
 
@@ -35,6 +35,14 @@
 							<option value="">-지역선택-</option>
 							<option value="서울">서울</option>
 							<option value="경기">경기</option>
+							<option value="강원">강원</option>
+		                    <option value="충북">충북</option>
+		                    <option value="충남">충남</option>
+		                    <option value="전북">전북</option>
+		                    <option value="전남">전남</option>
+		                    <option value="경북">경북</option>
+		                    <option value="경남">경남</option>
+		                    <option value="제주">제주</option>
 						</select>
 					</td>
 					<td><input type="text" id="locX" name="locX" value=0 placeholder="위도 값을 입력"/></td>

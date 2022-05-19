@@ -35,7 +35,7 @@
 	</div>
 	
 	<div id="swWriteSubmitWrap">
-		<input type="submit" value="등록" id="supplyWriteSubmit"/>
+		<input type="submit" value="등록" class="btn" id="supplyWriteSubmit"/>
 	</div>
 	
 </form>
