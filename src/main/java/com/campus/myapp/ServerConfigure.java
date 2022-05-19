@@ -19,7 +19,9 @@ public class ServerConfigure implements WebMvcConfigurer, WebServerFactoryCustom
 	private static final List<String> URL_PATERRNS = Arrays.asList(
 				"/gather/gatherView","/gather/gatherWrite","/gather/writeOk", 
 				"/gather/gatherEdit", "/car/carWrite", "/car/carWriteOk",
-				"/car/carEdit", "/car/replyWrite"
+				"/car/carEdit", "/car/replyWrite", "/supply/supplyWrite",
+				"/supply/supplyWriteOk", "/supply/supplyEdit", "/supply/supplyEditOk",
+				"/supply/supplyChat"
 			);
 	
 	public void addInterceptors(InterceptorRegistry registry) {
@@ -41,7 +43,7 @@ public class ServerConfigure implements WebMvcConfigurer, WebServerFactoryCustom
 	public void customize(TomcatServletWebServerFactory factory) {
 	    factory.addConnectorCustomizers((TomcatConnectorCustomizer)
 	        connector -> connector.setAttribute("relaxedQueryChars", "<>[\\]^`{|}"));
-	  }
+	}
 	
 
 }

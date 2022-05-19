@@ -43,8 +43,9 @@ h1, h5, .container *{
 }
 
 #spInfoImg {
-	width: 60%;
-	height: auto;
+	width: 400px;
+	height: 400px;
+	margin-bottom: 50px;
 }
 
 #spHead, #spFoot {

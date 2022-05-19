@@ -1,11 +1,45 @@
 @charset "UTF-8";
 
-h5 {
+h4, h5 {
    text-align: center;
    padding: 10px;
 }
 h1, h5, .container *{
    font-family: 'IBM Plex Sans KR', sans-serif; 
+}
+
+#swLeft {
+	float:left;
+}
+#swLeft p {
+	width: 250px;
+	text-align: center;
+	margin: 0 40px;
+	letter-spacing: 0.7px;
+}
+
+#swImgWrap{
+    border: 1.5px solid gray;
+    width: 250px;
+    height: 250px;
+    margin: 0 auto;
+    margin-bottom: 50px;
+    overflow: hidden;
+    line-height: 250px;
+    color: gray;
+    cursor: pointer;
+    text-align: center;
+}
+#swImg {
+    width: 255px;
+    height: 255px;
+    vertical-align: middle;
+    margin: 0;
+}
+
+
+#swRight {
+	float:right;
 }
 
 #swFrm {
