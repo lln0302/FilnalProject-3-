@@ -80,7 +80,7 @@ public class GatherController {
 	public void imageUpload(HttpServletRequest request, HttpServletResponse response, 
 			@RequestParam MultipartFile upload) throws Exception {
 
-		// 랜덤 문자 생성 : 파일이름 중복 방지
+		// 고유값 생성 : 파일이름 중복 방지
 		UUID uid = UUID.randomUUID();
 		OutputStream out = null;
 		PrintWriter printWriter = null;
@@ -223,8 +223,6 @@ public class GatherController {
 		// 캠퍼 참여한 유저 표시
 		mav.addObject("alreadyJoin", service.selectJoinCamper(gatherno, 
 				(String)session.getAttribute("nickname")));
-		// 캠핑 참여한 유저 리스트
-		//mav.addObject("list", service.selectCamperList(vo));
 		mav.setViewName("gather/gatherView");
 		return mav;
 	}
@@ -299,7 +297,10 @@ public class GatherController {
 	// 캠퍼 참여 
 	@GetMapping("/plusGatherCamper")
 	public int PlusGatherCamper(int gmemberno, int gatherno, GatherMemberVO vo, HttpSession session) {
+		
 		vo.setNickname((String)session.getAttribute("nickname"));
+		vo.setGender((String)session.getAttribute("gender"));
+		
 		service.plusGatherCamper(gatherno);
 		return service.gathermemberInsert(gmemberno, gatherno, vo.getNickname(), vo.getGender());
 	}
