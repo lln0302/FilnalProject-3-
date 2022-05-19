@@ -168,10 +168,9 @@ tbody tr:nth-child(1) td {
 .img_box{
 	float:left;
 	height:235px;
-	width:380px;
+	width:400px;
 	box-sizing: border-box;
-	border: 1px solid #dedede;
-	padding: 0 0 20px 0;
+	border: 1px solid #dedede;	
 }
 
 .campIntro_txt{
@@ -198,11 +197,3 @@ tbody tr:nth-child(1) td {
 	text-align : center;	
 }
 
-.campGuide_item {
-    width: 94%;
-    height: auto;
-    overflow: hidden;
-    padding: 30px 3%;
-    background: #f9f9f9;
-    border-radius: 5px;
-}

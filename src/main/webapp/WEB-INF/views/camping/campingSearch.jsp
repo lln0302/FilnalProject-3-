@@ -57,11 +57,11 @@
 			<form id="serachForm" action="/camping/campingTag" method="get">
 				<div>
 					<div class="C_SearchBtnWrap">
-					<button class=" detail" type="button" onclick="detailSearch()">상세검색</button>			
-					<button class=" tag_search" type="button">
-						<span>태그로 검색</span>
-					</button>					
-				</div>
+						<button class=" detail" type="button" onclick="detailSearch()">상세검색</button>			
+						<button class=" tag_search" type="button">
+							<span>태그로 검색</span>
+						</button>					
+					</div>
 				<div class="btn-group-toggle" data-toggle="buttons" style="margin-top: 10px;">
 					<ul>				
 						<li>
@@ -140,13 +140,12 @@
 								</p>
 									<c:if test="${vo.tel != ''}">
 										<li><img src="/img/camping/smartphone-call.png" style="height:24px; margin-right: 3px;">  ${vo.tel }</li>
-									</c:if>
-								</ul>	
+									</c:if>									
 							</div>
-						</div>
+						</div>						
 					</div>				
-				</c:forEach>								
-			</ul>			
+				</c:forEach>				
+			</ul>	
 		</div>
 		<ul class="pagination justify-content-center">
 			<c:if test="${pVO.totalRecord > 0 }">

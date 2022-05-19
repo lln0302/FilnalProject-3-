@@ -1,9 +1,7 @@
 @charset "UTF-8";
 
-.container{
-	border-left: 2px solid #dddddd;
-		border-right: 2px solid #dddddd;
-	 	font-family: 'Gowun Dodum', sans-serif; /*메인페이지 타이틀 폰트*/
+.container{	
+	font-family: 'Gowun Dodum', sans-serif; /*메인페이지 타이틀 폰트*/
 	font-family: 'IBM Plex Sans', sans-serif; /* 본문 영문 폰트*/
 	font-family: 'IBM Plex Sans KR', sans-serif; /* 본문 한글폰트 */
 }
@@ -146,18 +144,11 @@ input {
      white-space:nowrap;
 }
 
-#campinglink{
-	color : black;		
+#campinglink,
+#campinglink:visited,
+#campinglink:active{
+color : black;
 }
-
-#campinglink:visited {
-	 color:black; 
-}	
-
-#campinglink:active { 
-	color:black; 
-}
-
 #campinglink:hover {
 	text-decoration-line: underline;
 }
