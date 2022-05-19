@@ -76,10 +76,11 @@
 	margin:20px;
 }
 
-#joinWarn{
+#intro{
 	padding:10px;
 	margin-left:10px;	
 	text-align:center;
+	font-size:1.2em;
 }
 
 /*댓글*/

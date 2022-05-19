@@ -25,8 +25,7 @@ public interface GatherService {
 	
 	// 캠퍼 참여 (gatherDB, gathermemberDB)
 	public int plusGatherCamper(int gatherno); 
-	public int gathermemberInsert(int gmemberno, int gatherno, 
-			String nickname, String gender);
+	public int gathermemberInsert(int gmemberno, int gatherno, String nickname, String gender);
 	// 이미 캠핑 참여한 유저 
 	public GatherMemberVO selectJoinCamper(int gatherno, String nickname);
 	// 특정 캠핑 캠퍼 리스트 
