@@ -20,25 +20,33 @@
 <script type="text/javascript" src="/js/admin/adminCheckBox.js"></script>
 
 <style>
-#listMenu>li:nth-child(6n+1)
+#listMenu>li:nth-child(7n+1)
 {
 	width:5%;
 }
-#listMenu>li:nth-child(6n+2), #listMenu>li:nth-child(6n+3),
-#listMenu>li:nth-child(6n+4), #listMenu>li:nth-child(6n+5),
-#listMenu>li:nth-child(6n+6)
+#listMenu>li:nth-child(7n+3)
 {
-	width:19%;
+	width:20%;
 }
-#listMenu>#listMenuFE>li:nth-child(6n+1)
+#listMenu>li:nth-child(7n+2), #listMenu>li:nth-child(7n+4),
+#listMenu>li:nth-child(7n+5), #listMenu>li:nth-child(7n+6),
+#listMenu>li:nth-child(7n+7)
+{
+	width:15%;
+}
+#listMenu>#listMenuFE>li:nth-child(7n+1)
 {
 	width:5%;
 }
-#listMenu>#listMenuFE>li:nth-child(6n+2), #listMenu>#listMenuFE>li:nth-child(6n+3),
-#listMenu>#listMenuFE>li:nth-child(6n+4), #listMenu>#listMenuFE>li:nth-child(6n+5),
-#listMenu>#listMenuFE>li:nth-child(6n+6)
+#listMenu>#listMenuFE>li:nth-child(7n+2), #listMenu>#listMenuFE>li:nth-child(7n+4),
+#listMenu>#listMenuFE>li:nth-child(7n+5), #listMenu>#listMenuFE>li:nth-child(7n+6),
+#listMenu>#listMenuFE>li:nth-child(7n+7)
 {
-	width:19%;
+	width:15%;
+}
+#listMenu>#listMenuFE>li:nth-child(7n+3)
+{
+	width:20%;
 }
 
 </style>
@@ -131,15 +139,17 @@
 								<li>댓글내용</li>
 								<li>작성일</li>
 								<li>작성자</li>
-								<li>작성글번호</li>
+								<li>차박지글번호</li>
+								<li>캠퍼모집번호</li>
 							
 								<div id="listMenuFE">
 								<c:forEach var="vo" items="${list}">
 									<li><input type='checkbox' name='replyNoList' value='${vo.replyno}' class="chk"/></li>
-									<li>${vo.replyno}</li>
-									<li>${vo.content}</li>
-									<li>${vo.writedate}</li>
-									<li>${vo.nickname}</li>
+									<li><c:out value="${vo.carreplyno}" default="${vo.replyno}"/></li>
+									<li><c:out value="${vo.content}" default="${vo.carcontent}"/></li>
+									<li><c:out value="${vo.writedate}" default="${vo.carwritedate}"/></li>
+									<li><c:out value="${vo.nickname}" default="${vo.carnickname}"/></li>
+									<li><c:out value="${vo.carno}" default="" /></li>
 									<li>${vo.gatherno}</li>
 								</c:forEach>
 								</div>

@@ -18,6 +18,7 @@
 <script async src='/cdn-cgi/bm/cv/669835187/api.js'></script>
 <script type="text/javascript" src="/js/admin/adminSideTab.js"></script>
 <script type="text/javascript" src="/js/admin/adminCheckBox.js"></script>
+<script type="text/javascript" src="/js/admin/adminAlert.js"></script>
 
 <style>
 
@@ -85,7 +86,7 @@
 								<img src="/img/admin/adminLeftTap2/reviewList_bold.PNG" class="menu2right" id="reviewList_img"/>
 							</a><img src="/img/admin/adminLeftTap1/reviewList_red.PNG" class="menu2left" id="menu_img_reviewList" />
 							
-							<a class="menuATag" href="/admin/adminCommentList">
+							<a class="menuATag" href="" onclick="javascript:caution()">
 								<img src="/img/admin/adminLeftTap2/commentList_none.PNG" class="menu2right" id="commentList_img"/>
 							</a><img src="/img/admin/adminLeftTap1/commentList.PNG" class="menu2left" id="menu_img_commentList" />
 					</div>

@@ -21,16 +21,19 @@
 
 <style>
 
-#listMenu>li:nth-child(8n+1), #listMenu>li:nth-child(8n+4),
-#listMenu>li:nth-child(8n+7), #listMenu>li:nth-child(8n+8)
-{
-	width:15%;
-}
-#listMenu>#listMenuFE>li:nth-child(8n+1), #listMenu>#listMenuFE>li:nth-child(8n+4),
-#listMenu>#listMenuFE>li:nth-child(8n+7), #listMenu>#listMenuFE>li:nth-child(8n+8)
-{
-	width:15%;
-}
+#listMenu>li:nth-child(8n+1) {width:5%;}
+#listMenu>li:nth-child(8n+2), #listMenu>li:nth-child(8n+6),
+#listMenu>li:nth-child(8n+7) {width:10%;}
+#listMenu>li:nth-child(8n+5) {width:20%;}
+#listMenu>li:nth-child(8n+3), #listMenu>li:nth-child(8n+4),
+#listMenu>li:nth-child(8n+8) {width:15%;}
+
+#listMenu>#listMenuFE>li:nth-child(8n+1) {width:5%;}
+#listMenu>#listMenuFE>li:nth-child(8n+2), #listMenu>#listMenuFE>li:nth-child(8n+6),
+#listMenu>#listMenuFE>li:nth-child(8n+7) {width:10%;}
+#listMenu>#listMenuFE>li:nth-child(8n+5) {width:20%;}
+#listMenu>#listMenuFE>li:nth-child(8n+3), #listMenu>#listMenuFE>li:nth-child(8n+4),
+#listMenu>#listMenuFE>li:nth-child(8n+8) {width:15%;}
 
 </style>
 <!-- <script type="text/javascript">
@@ -85,7 +88,7 @@
 								<img src="/img/admin/adminLeftTap2/reviewList_none.PNG" class="menu2right" id="reviewList_img"/>
 							</a><img src="/img/admin/adminLeftTap1/reviewList.PNG" class="menu2left" id="menu_img_reviewList" />
 							
-							<a class="menuATag" href="/admin/adminCommentList">
+							<a class="menuATag" href="/admin/adminCarCommentList">
 								<img src="/img/admin/adminLeftTap2/commentList_none.PNG" class="menu2right" id="commentList_img"/>
 							</a><img src="/img/admin/adminLeftTap1/commentList.PNG" class="menu2left" id="menu_img_commentList" />
 					</div>
@@ -97,52 +100,58 @@
 			</div>
 			<hr id="hr2px">
 				<div class="containerList">
-					<!-- <div>
+					<div>
 						총 레코드 수 : ${apvo.totalRecord} / 총 페이지 개수 : ${apvo.totalPage} / 현재 페이지 번호 : ${apvo.pageNum}
-					</div> -->
+					</div>
 					<!-- 검색 -->
 						<div>
-							<form method="get" action="/admin/adminMembers" id="searchFrm">
+							<form method="get" action="/admin/adminAutoCampList" id="searchFrm">
 								<select name="searchKey">
-									<option value="username">이름</option>
-									<option value="email">이메일</option>
-									<option value="usertel">연락처</option>
+									<option value="title">제목</option>
+									<option value="content">내용</option>
+									<option value="nickname">작성자</option>
 								</select>
 								<input type="text" name="searchWord" id="searchWord" />
 								<input type="submit" value="Search" />
 							</form>
 						</div>
-						<ul id="listMenu">
-							<li>아이디</li>
-							<li>이름</li>
-							<li>닉네임</li>
-							<li>이메일</li>
-							<li>등급</li>
-							<li>매너온도</li>
-							<li>연락처</li>
-							<li>가입일</li>
-						
-							<div id="listMenuFE">
-							<c:forEach var="vo" items="${list}">
-								<li>${vo.userid}</li> <!-- <a href="/admin/adminMembersInfo?nickname=${vo.nickname}"></a> -->
-								<li>${vo.username}</li>
-								<li>${vo.nickname}</li>
-								<li>${vo.email}</li>
-								<li>${vo.isadmin}</li>
-								<li>${vo.userscore}</li>
-								<li>${vo.usertel}</li>
-								<li>${vo.joindate}</li>
-							</c:forEach>
-							</div>
-						</ul>
+						<div id="multiDeleteAllCheck">
+							&nbsp;<input type="checkbox" id="allCheck" />전체선택
+							<input type="button" value="선택삭제" id="multiDel"/>
+						</div>
+						<form method="post" action="/admin/adminAutoCampListDel" id="listMenuFrm">
+							<ul id="listMenu">
+								<li>&nbsp;</li>
+								<li>번호</li>
+								<li>글제목</li>
+								<li>글내용</li>
+								<li>작성일</li>
+								<li>작성자</li>
+								<li>지역</li>
+								<li>위도/경도</li>
+							
+								<div id="listMenuFE">
+								<c:forEach var="vo" items="${list}">
+									<li><input type='checkbox' name='carNoList' value='${vo.carno}' class="chk"/></li>
+									<li>${vo.carno}</li>
+									<li><a href="/car/carInfo?no=${vo.carno}">${vo.title}</a></li>
+									<li><a href="/car/carInfo?no=${vo.carno}">${vo.content}</a></li>
+									<li>${vo.writedate}</li>
+									<li>${vo.nickname}</li>
+									<li>${vo.region}</li>
+									<li>${vo.locX}&nbsp;&nbsp;/&nbsp;&nbsp;${vo.locY}</li>
+								</c:forEach>
+								</div>
+							</ul>
+						</form>
 									
 						<ul class="paging">
 							<!-- 이전페이지 -->
 							<c:if test="${apvo.pageNum==1}">
-								<li style="visibility: hidden;">◀</li>
+								<li id="prevBtn">◀</li>
 							</c:if>
 							<c:if test="${apvo.pageNum>1}">
-								<li><a href="/admin/adminMembers?pageNum=${apvo.pageNum-1}
+								<li><a href="/admin/adminAutoCampList?pageNum=${apvo.pageNum-1}
 											<c:if test='${apvo.searchWord!=null}'>
 											&searchKey=${apvo.searchKey}
 											&searchWord=${apvo.searchWord}
@@ -156,12 +165,12 @@
 								<!--  총 페이지수보다 출력할 페이지번호가 작을때 -->
 					            <c:if test="${p<=apvo.totalPage}">
 					            	<c:if test="${p==apvo.pageNum}">
-					            		<li style="background-color:white;font-weight:bold;font-size: 1.1em;">
+					            		<li id="pagingNumberStyle">
 					            	</c:if>
 					            	<c:if test="${p!=apvo.pageNum}">
 					            		<li>
 					            	</c:if>
-									<a href="/admin/adminMembers?pageNum=${p}
+									<a href="/admin/adminAutoCampList?pageNum=${p}
 											<c:if test='${apvo.searchWord!=null}'>
 											&searchKey=${apvo.searchKey}
 											&searchWord=${apvo.searchWord}
@@ -173,10 +182,10 @@
 							<!-- 다음페이지 -->
 							
 							<c:if test="${apvo.pageNum == apvo.totalPage}">
-								<li style="visibility: hidden;">▶</li>
+								<li id="nextBtn">▶</li>
 							</c:if>
 							<c:if test="${apvo.pageNum < apvo.totalPage}">
-								<li><a href="/admin/adminMembers?pageNum=${apvo.pageNum+1}
+								<li><a href="/admin/adminAutoCampList?pageNum=${apvo.pageNum+1}
 											<c:if test='${apvo.searchWord!=null}'>
 											&searchKey=${apvo.searchKey}
 											&searchWord=${apvo.searchWord}

@@ -20,6 +20,25 @@
 <script type="text/javascript" src="/js/admin/adminCheckBox.js"></script>
 <script type="text/javascript" src="/js/admin/adminAlert.js"></script>
 <style>
+.leftTH_main{
+	/*border-bottom:rgba(0, 84, 255, 1) solid 1px;*/
+	border-bottom:rgba(170, 170, 170, 1) solid 1px;
+}
+.rightTH_main{
+	border-bottom:black solid 1px;
+}
+.leftTH {
+	width:30%;
+	/*background-color:rgba(0, 84, 255, 0.2);
+	border: rgba(0, 84, 255, 1) solid 1px;*/
+	background-color:rgba(170, 170, 170, 0.3);
+	border: rgba(170, 170, 170, 1) solid 1px;
+}
+.rightTH {
+	width:70%;
+	text-align: left;
+	border: black solid 1px;
+}
 
 #listMenu>li:nth-child(9n+1) {
 	width:4%;
@@ -100,101 +119,69 @@
 			</div>
 			<hr id="hr2px">
 				<div class="containerList">
-					<div>
-						총 레코드 수 : ${apvo.totalRecord} / 총 페이지 개수 : ${apvo.totalPage} / 현재 페이지 번호 : ${apvo.pageNum}
-					</div>
-					<!-- 검색 -->
-						<div>
-							<form method="get" action="/admin/adminMembers" id="searchFrm">
-								<select name="searchKey">
-									<option value="username">이름</option>
-									<option value="email">이메일</option>
-									<option value="usertel">연락처</option>
-								</select>
-								<input type="text" name="searchWord" id="searchWord" />
-								<input type="submit" value="Search" />
-							</form>
-						</div>
-						<div id="multiDeleteAllCheck">
-							&nbsp;<input type="checkbox" id="allCheck" />전체선택
-							<input type="button" value="선택삭제" id="multiDel"/>
-						</div>
-						<form method="post" action="/admin/adminMembersDel" id="listMenuFrm">
-							<ul id="listMenu">
-								<li>&nbsp;</li>
-								<li>아이디</li>
-								<li>이름</li>
-								<li>닉네임</li>
-								<li>이메일</li>
-								<li>등급</li>
-								<li>매너온도</li>
-								<li>연락처</li>
-								<li>가입일</li>
-							
-								<div id="listMenuFE">
-								<c:forEach var="vo" items="${list}">
-									<li><input type='checkbox' name='telList' value='${vo.usertel}' class="chk"/></li>
-									<li><a href="/admin/adminMembersInfo?nickname=${vo.nickname}">${vo.userid}</a></li>
-									<li>${vo.username}</li>
-									<li>${vo.nickname}</li>
-									<li>${vo.email}</li>
-									<li>${vo.isadmin}</li>
-									<li>${vo.userscore}</li>
-									<li>${vo.usertel}</li>
-									<li>${vo.joindate}</li>
-								</c:forEach>
-								</div>
-							</ul>
-						</form>
-									
-						<ul class="paging">
-							<!-- 이전페이지 -->
-							<c:if test="${apvo.pageNum==1}">
-								<li id="prevBtn">◀</li>
-							</c:if>
-							<c:if test="${apvo.pageNum>1}">
-								<li><a href="/admin/adminMembers?pageNum=${apvo.pageNum-1}
-											<c:if test='${apvo.searchWord!=null}'>
-											&searchKey=${apvo.searchKey}
-											&searchWord=${apvo.searchWord}
-											</c:if>">
-								◀</a></li>
-							</c:if>
-							
-							<!-- 페이지번호 -->
-							<!-- ${apvo.startPage} ${apvo.startPage+apvo.onePageCount-1}-->
-							<c:forEach var="p" begin="${apvo.startPage}" end="${apvo.startPage+apvo.onePageCount-1}">
-								<!--  총 페이지수보다 출력할 페이지번호가 작을때 -->
-					            <c:if test="${p<=apvo.totalPage}">
-					            	<c:if test="${p==apvo.pageNum}">
-					            		<li id="pagingNumberStyle">
-					            	</c:if>
-					            	<c:if test="${p!=apvo.pageNum}">
-					            		<li>
-					            	</c:if>
-									<a href="/admin/adminMembers?pageNum=${p}
-											<c:if test='${apvo.searchWord!=null}'>
-											&searchKey=${apvo.searchKey}
-											&searchWord=${apvo.searchWord}
-											</c:if>">
-									${p}</a></li>
-								</c:if>
-							</c:forEach>
-							
-							<!-- 다음페이지 -->
-							
-							<c:if test="${apvo.pageNum == apvo.totalPage}">
-								<li id="nextBtn">▶</li>
-							</c:if>
-							<c:if test="${apvo.pageNum < apvo.totalPage}">
-								<li><a href="/admin/adminMembers?pageNum=${apvo.pageNum+1}
-											<c:if test='${apvo.searchWord!=null}'>
-											&searchKey=${apvo.searchKey}
-											&searchWord=${apvo.searchWord}
-											</c:if>">
-								▶</a></li>
-							</c:if>
-						</ul>
+					
+					<table class="table">
+						<h2>기본정보</h2>
+						<tr>
+							<th class="leftTH_main" style="border-top:none;"></th>
+							<th class="rightTH_main" style="border-top:none;">
+						</tr>
+						<tr>
+							<th class="leftTH" style="border-top:none;" >아이디</th>
+							<th class="rightTH" style="border-top:none;">${infoVO.userid}</th>
+						</tr>
+						<tr>
+							<th class="leftTH" style="border-top:none;">이름</th>
+							<th class="rightTH" style="border-top:none;">${infoVO.username}</th>
+						</tr>
+						<tr>
+							<th class="leftTH" style="border-top:none;">닉네임</th>
+							<th class="rightTH" style="border-top:none;">${infoVO.nickname}</th>
+						</tr>
+						<tr>
+							<th class="leftTH" style="border-top:none;">비밀번호</th>
+							<th class="rightTH" style="border-top:none;">${infoVO.userpwd}</th>
+						</tr>
+						<tr>
+							<th class="leftTH" style="border-top:none;">전화번호</th>
+							<th class="rightTH" style="border-top:none;">${infoVO.usertel}</th>
+						</tr>
+						<tr>
+							<th class="leftTH" style="border-top:none;">생년월일</th>
+							<th class="rightTH" style="border-top:none;">${infoVO.birth}</th>
+						</tr>
+						<tr>
+							<th class="leftTH" style="border-top:none;">성별</th>
+							<th class="rightTH" style="border-top:none;">${infoVO.gender}</th>
+						</tr>
+						<tr>
+							<th class="leftTH" style="border-top:none;">이메일</th>
+							<th class="rightTH" style="border-top:none;">${infoVO.email}</th>
+						</tr>
+						<tr>
+							<th class="leftTH" style="border-top:none;">가입일</th>
+							<th class="rightTH" style="border-top:none;">${infoVO.joindate}</th>
+						</tr>
+					</table>
+					<table class="table">
+						<h2>추가정보</h2>
+						<tr>
+							<th class="leftTH_main" style="border-top:none;"></th>
+							<th class="rightTH_main" style="border-top:none;">
+						</tr>
+						<tr>
+							<th class="leftTH" style="border-top:none;">관리자여부</th>
+							<th class="rightTH" style="border-top:none;">${infoVO.isadmin}</th>
+						</tr>
+						<tr>
+							<th class="leftTH" style="border-top:none;">매너온도</th>
+							<th class="rightTH" style="border-top:none;">${infoVO.userscore}</th>
+						</tr>
+						<tr>
+							<th class="leftTH" style="border-top:none;">찜번호</th>
+							<th class="rightTH" style="border-top:none;">${infoVO.zzim_zzimno}</th>
+						</tr>
+					</table>
 						
 				</div>
 		</div>
