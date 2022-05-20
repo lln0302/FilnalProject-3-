@@ -48,25 +48,27 @@
 						</a>
 					</div>
 				</c:if>
-				<c:if test="${logStatus != 'Y'}">
+				<c:if test="${logStatus == 'Y'}">
+					<div class="adminTopMenu" id="logoutPart">
+					<span style="background:rgba(210, 210, 210, 0.7); border-radius: 8px;">
+						<span style="color:orange;font-weight: bold;" value="logout" onclick="location.href='${url}/member/logout'">로그아웃</span>
+					</span>
+					</div>
+				</c:if>
+				<!--<c:if test="${logStatus != 'Y'}">
 					<div class="adminTopMenu">　</div>
 				</c:if>
-				<!-- <div class="adminTopMenu" id="signUpPart">
+				 <div class="adminTopMenu" id="signUpPart">
 					<a href="/">
 						<span style="background:rgba(210, 210, 210, 0.7); border-radius: 8px;">메인페이지</span>
 						</a>
 				</div> -->
-				<c:if test="${logStatus == 'Y'}">
-					<div class="adminTopMenu" id="logoutPart">
-						<input type="button" value="logout" onclick="location.href='${url}/member/logout'"/>
-					</div>
-				</c:if>
-				<!-- 로그인 사실 있을 필욘 없는데, 일종의 테스트용도임 -->
+				<!-- 로그인 사실 있을 필욘 없는데, 일종의 테스트용도임 
 				<c:if test="${logStatus != 'Y'}">
 					<div class="adminTopMenu" id="loginPart">
 						<input type="button" value="login" onclick="location.href='${url}/member/loginForm'"/>
 					</div>
-				</c:if>
+				</c:if>-->
 		</div>
 </body>
 </html>

@@ -55,9 +55,9 @@
 
 <body>
 	<div>
-	<div id="adminPage">
+	<div id="adminPage" style="height:1820px;">
 		<%@ include file="/WEB-INF/views/admin/adminTop.jsp" %>
-		<div id="adminMainContent">
+		<div id="adminMainContent" style="height:1720px">
 			
 			<ul id="sideTapFirst">
 				<li>
@@ -130,6 +130,7 @@
 			</div>
 		</div>
 	</div>
+	
 	<script>
 	var ctx = document.getElementById('myChartPie1');
 	var myChartPie1 = new Chart(ctx, {
@@ -241,25 +242,33 @@
 	var myChartBar1 = new Chart(ctx, {
 		type: 'bar',
 		data: {
-			labels: ['Red', 'Blue', 'Yellow', 'Green', 'Purple', 'Orange'],
+			labels: ['서울', '경기', '강원',
+					 '충북', '충남', '전북',
+					 '전남', '경북', '경남',
+					 '제주'],
 			datasets: [{
-				label: '# of Votes',
-				data: [12, 19, 3, 5, 2, 3],
+				label: '',
+				data: [${atvo.tagSeoul}, ${atvo.tagGyunggy}, ${atvo.tagGangwon},
+					   ${atvo.tagChoongbook}, ${atvo.tagChoongnam}, ${atvo.tagJeonbook},
+					   ${atvo.tagJeonnam},${atvo.tagGyeongbook}, ${atvo.tagGyeongnam},
+					   ${atvo.tagJeju}],
 				backgroundColor: [
-					'rgba(255, 99, 132, 0.2)',
-					'rgba(54, 162, 235, 0.2)',
-					'rgba(255, 206, 86, 0.2)',
-					'rgba(75, 192, 192, 0.2)',
-					'rgba(153, 102, 255, 0.2)',
-					'rgba(255, 159, 64, 0.2)'
+					'rgba(255, 0, 0, 0.2)',
+					'rgba(255, 94, 0, 0.2)',
+					'rgba(255, 228, 0, 0.2)',
+					'rgba(29, 219, 22, 0.2)',
+					'rgba(0, 84, 255, 0.2)',
+					'rgba(1, 0, 255, 0.2)',
+					'rgba(95, 0, 255, 0.2)'
 				],
 				borderColor: [
-					'rgba(255, 99, 132, 1)',
-					'rgba(54, 162, 235, 1)',
-					'rgba(255, 206, 86, 1)',
-					'rgba(75, 192, 192, 1)',
-					'rgba(153, 102, 255, 1)',
-					'rgba(255, 159, 64, 1)'
+					'rgba(255, 0, 0, 1)',
+					'rgba(255, 94, 0, 1)',
+					'rgba(255, 228, 0, 1)',
+					'rgba(29, 219, 22, 1)',
+					'rgba(0, 84, 255, 1)',
+					'rgba(1, 0, 255, 1)',
+					'rgba(95, 0, 255, 1)'
 				],
 				borderWidth: 1
 			}]
@@ -277,5 +286,6 @@
 	});
 </script>
 </div>
+<%@ include file="/WEB-INF/views/admin/adminBottom.jsp" %>
 </body>
 </html>

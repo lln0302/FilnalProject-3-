@@ -186,6 +186,6 @@
 				</div>
 		</div>
 	</div>
-	
+	<%@ include file="/WEB-INF/views/admin/adminBottom.jsp" %>
 </body>
 </html>

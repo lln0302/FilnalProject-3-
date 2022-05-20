@@ -3,11 +3,13 @@ package com.campus.myapp.admin;
 import java.util.List;
 
 import com.campus.myapp.camping.CampingVO;
+import com.campus.myapp.camping.ReviewVO;
 import com.campus.myapp.car.CarReplyVO;
 import com.campus.myapp.car.CarVO;
 import com.campus.myapp.gather.GatherVO;
 import com.campus.myapp.gather.ReplyVO;
 import com.campus.myapp.member.MemberVO;
+import com.campus.myapp.supply.AdminSupplyVO;
 
 public interface AdminService {
 	
@@ -36,11 +38,17 @@ public interface AdminService {
 	public int tagSixMoreThan(AdminTagVO atvo);							//#6명이상 (6~9명)
 	public int tagTenMoreThan(AdminTagVO atvo);							//#10명이상 (그외 전부)
 	
-	
-	//adminMain (dashBoard) (autoCampList tag ranking) (임시)
-	//public int tagSeoul(CarVO carvo);
-	//public int tagGyungi(CarVO carvo);
-	//public int tag다른지역 없으려나?
+	//adminMain (dashBoard) (autoCampList tag ranking) (car camping)
+	public int tagSeoul(AdminTagVO atvo);								//서울
+	public int tagGyunggy(AdminTagVO atvo);								//경기
+	public int tagGangwon(AdminTagVO atvo);								//강원
+	public int tagChoongbook(AdminTagVO atvo);							//충북
+	public int tagChoongnam(AdminTagVO atvo);							//충남
+	public int tagJeonbook(AdminTagVO atvo);							//전북
+	public int tagJeonnam(AdminTagVO atvo);								//전남
+	public int tagGyeongbook(AdminTagVO atvo);							//경북
+	public int tagGyeongnam(AdminTagVO atvo);							//경남
+	public int tagJeju(AdminTagVO atvo);								//제주
 	
 	//adminMembers (member)
 	public int totalRecordMembers(AdminPagingVO apvo);				//member TotalRecord
@@ -64,22 +72,24 @@ public interface AdminService {
 	
 	//-------------------------------------------------------------//
 	
-	//adminAutoCampList (car) (임시)
+	//adminAutoCampList (car)
 	public int totalRecordCar (AdminPagingVO apvo);					//Car TotalRecord
 	public List<CarVO> adminAutoCampList (AdminPagingVO apvo);		//adminAutoCampList
 	public int adminAutoCampListDel (CarVO cvo);					//adminAutoCampListDel
 	
 	//-------------------------------------------------------------//
 	
-	//adminShareList (supply) (임시)
-	public int totalRecordSupply (AdminPagingVO apvo);			//share TotalRecord
-	//public List<SupplyVO> adminShareList (AdminPagingVO apvo)		//shareList
-	//public int adminShareListDel (SupplyVO svo);					//adminShareListDel
+	//adminShareList (supply)
+	public int totalRecordSupply (AdminPagingVO apvo);					//share TotalRecord
+	public List<AdminSupplyVO> adminShareList (AdminPagingVO apvo);		//shareList
+	public int adminShareListDel (AdminSupplyVO svo);					//adminShareListDel
 	
-	//adminReviewList (review) (임시)
+	//-------------------------------------------------------------//
+	
+	//adminReviewList (review) 
 	public int totalRecordReview (AdminPagingVO apvo);				//review TotalRecord
-	//public List<ReviewVO> adminReviewList (AdminPagingVO apvo);	//reviewList
-	//public int adminReviewListDel (ReviewVO rvo);					//adminReviewListDel
+	public List<ReviewVO> adminReviewList (AdminPagingVO apvo);		//reviewList
+	public int adminReviewListDel (ReviewVO rvo);					//adminReviewListDel
 	
 	//-------------------------------------------------------------//
 	

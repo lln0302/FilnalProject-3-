@@ -1,5 +1,7 @@
 package com.campus.myapp.camping;
 
+import java.util.List;
+
 public class ReviewVO {
 
 	private int reviewno;
@@ -9,6 +11,14 @@ public class ReviewVO {
 	private String createdate;
 	private String recommend;
 	
+	private List<Integer> reviewNoList;
+	
+	public List<Integer> getReviewNoList() {
+		return reviewNoList;
+	}
+	public void setReviewNoList(List<Integer> reviewNoList) {
+		this.reviewNoList = reviewNoList;
+	}
 	public int getReviewno() {
 		return reviewno;
 	}

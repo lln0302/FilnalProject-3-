@@ -13,11 +13,13 @@ import org.springframework.web.bind.annotation.RestController;
 import org.springframework.web.servlet.ModelAndView;
 
 import com.campus.myapp.camping.CampingVO;
+import com.campus.myapp.camping.ReviewVO;
 import com.campus.myapp.car.CarReplyVO;
 import com.campus.myapp.car.CarVO;
 import com.campus.myapp.gather.GatherVO;
 import com.campus.myapp.gather.ReplyVO;
 import com.campus.myapp.member.MemberVO;
+import com.campus.myapp.supply.AdminSupplyVO;
 import com.fasterxml.jackson.annotation.JsonCreator.Mode;
 
 
@@ -65,7 +67,16 @@ public class AdminController {
 		atvo.setTagTenMoreThan(service.tagTenMoreThan(atvo));
 		
 		//차박지 지역 태그
-		
+		atvo.setTagSeoul(service.tagSeoul(atvo));
+		atvo.setTagGyunggy(service.tagGyunggy(atvo));
+		atvo.setTagGangwon(service.tagGangwon(atvo));
+		atvo.setTagChoongbook(service.tagChoongbook(atvo));
+		atvo.setTagChoongnam(service.tagChoongnam(atvo));
+		atvo.setTagJeonbook(service.tagJeonbook(atvo));
+		atvo.setTagJeonnam(service.tagJeonnam(atvo));
+		atvo.setTagGyeongbook(service.tagGyeongbook(atvo));
+		atvo.setTagGyeongnam(service.tagGyeongnam(atvo));
+		atvo.setTagJeju(service.tagJeju(atvo));
 		
 		mav.addObject("atvo", atvo);
 		mav.setViewName("/admin/adminMain");
@@ -187,12 +198,20 @@ public class AdminController {
 	public ModelAndView adminShareList(AdminPagingVO apvo) {
 		ModelAndView mav = new ModelAndView();
 		//totalRecord numbers
-		apvo.setTotalRecord(service.totalRecordMembers(apvo));
+		apvo.setTotalRecord(service.totalRecordSupply(apvo));
 				
 		//DB connect
-		mav.addObject("list", service.adminMembers(apvo)); //임시로 열어둠 service.adminShareList으로 바꿔놔야함
+		mav.addObject("list", service.adminShareList(apvo));
 		mav.addObject("apvo", apvo);
 		mav.setViewName("/admin/adminShareList");
+		return mav;
+	}
+	//관리자페이지 캠핑용품나눔목록 삭제
+	@PostMapping("adminShareListDel")
+	public ModelAndView adminShareListDel(AdminSupplyVO svo) {
+		ModelAndView mav = new ModelAndView();
+		service.adminShareListDel(svo);
+		mav.setViewName("redirect:adminShareList");
 		return mav;
 	}
 	
@@ -203,12 +222,21 @@ public class AdminController {
 	public ModelAndView adminReviewList(AdminPagingVO apvo) {
 		ModelAndView mav = new ModelAndView();
 		//totalRecord numbers
-		apvo.setTotalRecord(service.totalRecordMembers(apvo));
+		apvo.setTotalRecord(service.totalRecordReview(apvo));
 				
 		//DB connect
-		//mav.addObject("list", service.adminMembers(apvo));
+		mav.addObject("list", service.adminReviewList(apvo));
 		mav.addObject("apvo", apvo);
 		mav.setViewName("/admin/adminReviewList");
+		return mav;
+	}
+	
+	//관리자페이지 캠퍼모집목록-댓글삭제
+	@PostMapping("adminReviewListtDel")
+	public ModelAndView adminReviewListDel(ReviewVO rvo) {
+		ModelAndView mav = new ModelAndView();
+		service.adminReviewListDel(rvo);
+		mav.setViewName("redirect:adminReviewList");
 		return mav;
 	}
 	
