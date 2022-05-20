@@ -35,7 +35,7 @@ $(function(){
 				url:'/gather/plusGatherCamper',
 				data:$("#joinCamperForm").serialize(),
 				type:'GET',
-				success:function(result){
+				success:function(){
 					alert("캠핑에 참여신청하였습니다.");
 					gnewnoCount();
 					$("#gnewnoBtn1").addClass("separate");

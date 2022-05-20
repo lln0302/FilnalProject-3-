@@ -17,6 +17,30 @@
 		<a href="/supply/supplyWrite"><i class="fa fa-pen writeBtn fa-lg"></i></a>
     </div>
     <ul id="spList">
+    	<c:forEach var="vo" items="${list}" varStatus="status">
+	    	<li>
+		    	<a href="/supply/supplyInfo?no=${vo.supplyno }">
+			    	<div>
+			    		<img src="/img/supply/thumbnailImg/${vo.photo }" id="spListImg"/>
+			    		<p id="spTitle">${vo.title }</p>
+			    		<p id="spNick">by <b>${vo.nickname }</b></p>
+			    		<div id="spFoot">
+							<i class='fas fa-eye'></i> <span id="spView">${vo.views }</span>
+							&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;	
+							<i class='fas fa-comment'></i> <span id="spReplyCount">[댓글수]</span><br/>
+							<i class="fa fa-clock clock"></i> <span id="spWriteDate">${vo.writedate }</span>
+						</div>
+					</div>
+				</a>
+	    	</li>
+    	</c:forEach>
+    
+    
+    
+    
+    	
+    	
+    	<!-- 
     	<li>
 	    	<a href="/supply/supplyInfo">
 		    	<div>
@@ -77,20 +101,9 @@
 				</div>
 			</a>
     	</li>
-    	<li>
-	    	<a href="/supply/supplyInfo">
-		    	<div>
-		    		<img src="/img/supply/cat.jpg" id="spListImg"/>
-		    		<p id="spTitle">[글 제목 부분]</p>
-		    		<p id="spNick">[글 작성자 부분]</p>
-		    		<div id="spFoot">
-						<i class='fas fa-eye'></i> <span id="spView">[조회수]</span>
-						&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;	
-						<i class='fas fa-comment'></i> <span id="spReplyCount">[댓글수]</span><br/>
-						<i class="fa fa-clock clock"></i> <span id="spWriteDate">[작성일]</span>
-					</div>
-				</div>
-			</a>
-    	</li>
+    	-->
+    	
+    	
+    	
     </ul>
 </div>
