@@ -124,6 +124,7 @@
 									<option value="facltNm">업체명</option>
 									<option value="tel">전화번호</option>
 									<option value="resveCl">예약방식</option>
+									<option value="contentId">캠핑장번호</option>
 								</select>
 								<input type="text" name="searchWord" id="searchWord" />
 								<input type="submit" value="Search" />
@@ -136,7 +137,7 @@
 						<form method="post" action="/admin/adminCampListDel" id="listMenuFrm">
 							<ul id="listMenu">
 								<li>&nbsp;</li>
-								<li>번호</li>
+								<li>캠핑장번호</li>
 								<li>업체명</li>
 								<li>주소</li>
 								<li>전화번호</li>
@@ -211,6 +212,6 @@
 				</div>
 		</div>
 	</div>
-	
+	<%@ include file="/WEB-INF/views/admin/adminBottom.jsp" %>
 </body>
 </html>

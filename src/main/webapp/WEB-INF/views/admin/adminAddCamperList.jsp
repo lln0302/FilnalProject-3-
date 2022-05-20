@@ -56,6 +56,7 @@
 <body>
 	<div id="adminPage">
 		<%@ include file="/WEB-INF/views/admin/adminTop.jsp" %>
+		
 		<div id="adminMainContent">
 		
 			<ul id="sideTapFirst">
@@ -211,7 +212,8 @@
 						
 				</div>
 		</div>
+		
 	</div>
-	
+	<%@ include file="/WEB-INF/views/admin/adminBottom.jsp" %>
 </body>
 </html>

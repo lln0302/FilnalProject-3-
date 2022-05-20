@@ -22,15 +22,33 @@
 
 <style>
 
-#listMenu>li:nth-child(8n+1), #listMenu>li:nth-child(8n+4),
-#listMenu>li:nth-child(8n+7), #listMenu>li:nth-child(8n+8)
+#listMenu>li:nth-child(7n+1)
+{
+	width:5%;
+}
+#listMenu>li:nth-child(7n+3)
+{
+	width:20%;
+}
+#listMenu>li:nth-child(7n+2), #listMenu>li:nth-child(7n+4),
+#listMenu>li:nth-child(7n+5), #listMenu>li:nth-child(7n+6),
+#listMenu>li:nth-child(7n+7)
 {
 	width:15%;
 }
-#listMenu>#listMenuFE>li:nth-child(8n+1), #listMenu>#listMenuFE>li:nth-child(8n+4),
-#listMenu>#listMenuFE>li:nth-child(8n+7), #listMenu>#listMenuFE>li:nth-child(8n+8)
+#listMenu>#listMenuFE>li:nth-child(7n+1)
+{
+	width:5%;
+}
+#listMenu>#listMenuFE>li:nth-child(7n+2), #listMenu>#listMenuFE>li:nth-child(7n+4),
+#listMenu>#listMenuFE>li:nth-child(7n+5), #listMenu>#listMenuFE>li:nth-child(7n+6),
+#listMenu>#listMenuFE>li:nth-child(7n+7)
 {
 	width:15%;
+}
+#listMenu>#listMenuFE>li:nth-child(7n+3)
+{
+	width:20%;
 }
 
 </style>
@@ -98,9 +116,9 @@
 			</div>
 			<hr id="hr2px">
 				<div class="containerList">
-					<!-- <div>
+					<div>
 						총 레코드 수 : ${apvo.totalRecord} / 총 페이지 개수 : ${apvo.totalPage} / 현재 페이지 번호 : ${apvo.pageNum}
-					</div> -->
+					</div>
 					<!-- 검색 -->
 						<div>
 							<form method="get" action="/admin/adminReviewList" id="searchFrm">
@@ -113,27 +131,29 @@
 								<input type="submit" value="Search" />
 							</form>
 						</div>
+						<div id="multiDeleteAllCheck">
+							&nbsp;<input type="checkbox" id="allCheck" />전체선택
+							<input type="button" value="선택삭제" id="multiDel"/>
+						</div>
 						<form method="post" action="/admin/adminReviewListDel" id="listMenuFrm">
 							<ul id="listMenu">
 								<li>&nbsp;</li>
-								<li>아이디</li>
-								<li>이름</li>
-								<li>닉네임</li>
-								<li>이메일</li>
-								<li>등급</li>
-								<li>매너온도</li>
-								<li>연락처</li>
+								<li>리뷰번호</li>
+								<li>내용</li>
+								<li>작성일</li>
+								<li>작성자</li>
+								<li>추천여부</li>
+								<li>캠핑장번호</li>
 							
 								<div id="listMenuFE">
 								<c:forEach var="vo" items="${list}">
-									<li><input type='checkbox' name='OOList' value='${vo}' class="chk"/></li>
-									<li>${vo.userid}</li>
-									<li>${vo.username}</li>
+									<li><input type='checkbox' name='reviewNoList' value='${vo.reviewno}' class="chk"/></li>
+									<li>${vo.reviewno}</li>
+									<li><a href="http://localhost:8090/camping/campingView?contentId=${vo.contentId}">${vo.content}</a></li>
+									<li>${vo.createdate}</li>
 									<li>${vo.nickname}</li>
-									<li>${vo.email}</li>
-									<li>${vo.isadmin}</li>
-									<li>${vo.userscore}</li>
-									<li>${vo.usertel}</li>
+									<li>${vo.recommend}</li>
+									<li>${vo.contentId}</li>
 								</c:forEach>
 								</div>
 							</ul>
@@ -145,7 +165,7 @@
 								<li id="prevBtn">◀</li>
 							</c:if>
 							<c:if test="${apvo.pageNum>1}">
-								<li><a href="/admin/adminReviewListDel?pageNum=${apvo.pageNum-1}
+								<li><a href="/admin/adminReviewList?pageNum=${apvo.pageNum-1}
 											<c:if test='${apvo.searchWord!=null}'>
 											&searchKey=${apvo.searchKey}
 											&searchWord=${apvo.searchWord}
@@ -164,7 +184,7 @@
 					            	<c:if test="${p!=apvo.pageNum}">
 					            		<li>
 					            	</c:if>
-									<a href="/admin/adminReviewListDel?pageNum=${p}
+									<a href="/admin/adminReviewList?pageNum=${p}
 											<c:if test='${apvo.searchWord!=null}'>
 											&searchKey=${apvo.searchKey}
 											&searchWord=${apvo.searchWord}
@@ -179,7 +199,7 @@
 								<li id="nextBtn">▶</li>
 							</c:if>
 							<c:if test="${apvo.pageNum < apvo.totalPage}">
-								<li><a href="/admin/adminReviewListDel?pageNum=${apvo.pageNum+1}
+								<li><a href="/admin/adminReviewList?pageNum=${apvo.pageNum+1}
 											<c:if test='${apvo.searchWord!=null}'>
 											&searchKey=${apvo.searchKey}
 											&searchWord=${apvo.searchWord}
@@ -191,6 +211,6 @@
 				</div>
 		</div>
 	</div>
-	
+	<%@ include file="/WEB-INF/views/admin/adminBottom.jsp" %>
 </body>
 </html>

@@ -6,11 +6,13 @@ import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 
 import com.campus.myapp.camping.CampingVO;
+import com.campus.myapp.camping.ReviewVO;
 import com.campus.myapp.car.CarReplyVO;
 import com.campus.myapp.car.CarVO;
 import com.campus.myapp.gather.GatherVO;
 import com.campus.myapp.gather.ReplyVO;
 import com.campus.myapp.member.MemberVO;
+import com.campus.myapp.supply.AdminSupplyVO;
 
 @Service
 public class AdminServiceImpl implements AdminService {
@@ -84,11 +86,37 @@ public class AdminServiceImpl implements AdminService {
   		return dao.tagTenMoreThan(atvo);
   	}
   	
-  	
-  	//adminMain (dashBoard) (autoCampList tag ranking) (임시)
-  	//public int tagSeoul(CarVO carvo);
-  	//public int tagGyungi(CarVO carvo);
-  	//public int tag다른지역 없으려나?
+	//adminMain (dashBoard) (autoCampList tag ranking) (car camping)
+	public int tagSeoul(AdminTagVO atvo) {								//서울
+		return dao.tagSeoul(atvo);
+	}
+	public int tagGyunggy(AdminTagVO atvo) {							//경기
+		return dao.tagGyunggy(atvo);
+	}
+	public int tagGangwon(AdminTagVO atvo) {							//강원
+		return dao.tagGangwon(atvo);
+	}
+	public int tagChoongbook(AdminTagVO atvo) {							//충북
+		return dao.tagChoongbook(atvo);
+	}
+	public int tagChoongnam(AdminTagVO atvo) {							//충남
+		return dao.tagChoongnam(atvo);
+	}
+	public int tagJeonbook(AdminTagVO atvo) {							//전북
+		return dao.tagJeonbook(atvo);
+	}
+	public int tagJeonnam(AdminTagVO atvo) {							//전남
+		return dao.tagJeonnam(atvo);
+	}
+	public int tagGyeongbook(AdminTagVO atvo) {							//경북
+		return dao.tagGyeongbook(atvo);
+	}
+	public int tagGyeongnam(AdminTagVO atvo) {							//경남
+		return dao.tagGyeongnam(atvo);
+	}
+	public int tagJeju(AdminTagVO atvo) {								//제주
+		return dao.tagJeju(atvo);
+	}
     
     //-------------------------------------------------------------//
     
@@ -144,20 +172,33 @@ public class AdminServiceImpl implements AdminService {
     //-------------------------------------------------------------//
 	
 	//adminAutoCampList (car)
+	@Override
 	public int totalRecordCar (AdminPagingVO apvo) {				//Car TotalRecord
 		return dao.totalRecordCar(apvo);
 	}
+	@Override
 	public List<CarVO> adminAutoCampList (AdminPagingVO apvo) {		//adminAutoCampList
 		return dao.adminAutoCampList(apvo);
 	}
+	@Override
 	public int adminAutoCampListDel (CarVO cvo) {					//adminAutoCampListDel
 		return dao.adminAutoCampListDel(cvo);
 	}
 	
 	//-------------------------------------------------------------//
 	
+	//adminShareList (supply)
+	@Override
 	public int totalRecordSupply (AdminPagingVO apvo) {				//share TotalRecord
 		return dao.totalRecordSupply(apvo);
+	}
+	@Override
+	public List<AdminSupplyVO> adminShareList (AdminPagingVO apvo) {//shareList
+		return dao.adminShareList(apvo);
+	}
+	@Override
+	public int adminShareListDel (AdminSupplyVO svo) {				//adminShareListDel
+		return dao.adminShareListDel(svo);
 	}
 	
 	//-------------------------------------------------------------//
@@ -167,7 +208,14 @@ public class AdminServiceImpl implements AdminService {
 	public int totalRecordReview (AdminPagingVO apvo) {				//review TotalRecord
 		return dao.totalRecordReview(apvo);
 	}
-	
+	@Override
+	public List<ReviewVO> adminReviewList (AdminPagingVO apvo) {	//reviewList
+		return dao.adminReviewList(apvo);
+	}
+	@Override
+	public int adminReviewListDel (ReviewVO rvo) {					//adminReviewListDel
+		return dao.adminReviewListDel(rvo);
+	}
 	
 	//-------------------------------------------------------------//
 	

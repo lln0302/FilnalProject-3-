@@ -35,6 +35,22 @@
 		</if>
     </select>
     
+    <select id="totalRecordSupply" resultType="int">
+    	select count(supplyno) cnt from supply
+    	<if test="searchWord != null">
+			where 			${searchKey}
+			like 			'%${searchWord}%'
+		</if>
+    </select>
+    
+    <select id="totalRecordReview" resultType="int">
+    	select count(reviewno) cnt from review
+    	<if test="searchWord != null">
+			where 			${searchKey}
+			like 			'%${searchWord}%'
+		</if>
+    </select>
+    
     <select id="totalRecordGatherReply" resultType="int">
     	select count(replyno) cnt from gatherreply
     	<if test="searchWord != null">
@@ -75,6 +91,18 @@
     <select id="tagSixMoreThan" resultType="int">select count(gmemberno) as sixmorethan from gather where gmemberno between '6' and '9'</select>
     <select id="tagTenMoreThan" resultType="int">select count(gmemberno) as tenmorethan from gather where gmemberno between '10' and '999999'</select>
     
+    <select id="tagSeoul" resultType="int">select count(region) cnt from car where region='서울'</select>
+    <select id="tagGyunggy" resultType="int">select count(region) cnt from car where region='경기'</select>
+    <select id="tagGangwon" resultType="int">select count(region) cnt from car where region='강원'</select>
+    <select id="tagChoongbook" resultType="int">select count(region) cnt from car where region='충북'</select>
+    <select id="tagChoongnam" resultType="int">select count(region) cnt from car where region='충남'</select>
+    <select id="tagJeonbook" resultType="int">select count(region) cnt from car where region='전북'</select>
+    <select id="tagJeonnam" resultType="int">select count(region) cnt from car where region='전남'</select>
+    <select id="tagGyeongbook" resultType="int">select count(region) cnt from car where region='경북'</select>
+    <select id="tagGyeongnam" resultType="int">select count(region) cnt from car where region='경남'</select>
+    <select id="tagJeju" resultType="int">select count(region) cnt from car where region='제주'</select>
+    
+    
     
     <select id="adminMembers" resultType="com.campus.myapp.member.MemberVO">
         SELECT userid, username, nickname, email, case isadmin when 0 then '사용자' else '관리자'end AS isadmin, userscore, usertel, joindate from member
@@ -104,6 +132,8 @@
     </select>
     
     
+    
+    
     <select id="adminCampList" resultType="com.campus.myapp.camping.CampingVO">
     	select contentId, facltNm, addr1, addr2, tel, homepage, resveCl, resveUrl from campinglist
     	<if test="searchWord != null">
@@ -123,6 +153,7 @@
             </foreach>
          </where>
     </delete>
+    
     
     
     
@@ -146,6 +177,9 @@
          </where>
     </delete>
     
+    
+    
+    
     <select id="adminAutoCampList" resultType="com.campus.myapp.car.CarVO">
     	select carno, title, content, writedate, nickname, region, locx, locy from car
     	<if test="searchWord != null">
@@ -165,6 +199,55 @@
             </foreach>
          </where>
     </delete>
+    
+    
+    
+    
+    <select id="adminShareList" resultType="com.campus.myapp.supply.AdminSupplyVO">
+    	select supplyno, title, nickname, writedate, content from supply
+    	<if test="searchWord != null">
+		where 				${searchKey}
+		like 				'%${searchWord}%'
+		</if>
+    	order by supplyno desc
+    	limit		 		${onePageRecord}
+		offset				${offsetIndex}
+    </select>
+    
+    <delete id="adminShareListDel">
+    	delete from supply
+    	<where>
+            <foreach item="item" collection="supplyNoList" open="supplyno in (" separator=", " close=")">
+                #{item}
+            </foreach>
+         </where>
+    </delete>
+    
+    
+    
+    
+    <select id="adminReviewList" resultType="com.campus.myapp.camping.ReviewVO">
+    	select reviewno, contentId, nickname, content, createdate, recommend from review
+    	<if test="searchWord != null">
+		where 				${searchKey}
+		like 				'%${searchWord}%'
+		</if>
+    	order by reviewno desc
+    	limit		 		${onePageRecord}
+		offset				${offsetIndex}
+    </select>
+    
+    <delete id="adminReviewListDel">
+    	delete from review
+    	<where>
+            <foreach item="item" collection="reviewNoList" open="reviewno in (" separator=", " close=")">
+                #{item}
+            </foreach>
+         </where>
+    </delete>
+    
+    
+    
     
     <select id="adminGatherCommentList" resultType="com.campus.myapp.gather.ReplyVO">
     	select replyno, content, writedate, nickname, gatherno from gatherreply
