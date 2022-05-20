@@ -50,9 +50,11 @@
 				</c:if>
 				<c:if test="${logStatus == 'Y'}">
 					<div class="adminTopMenu" id="logoutPart">
+					<a href="${url}/member/logout">
 					<span style="background:rgba(210, 210, 210, 0.7); border-radius: 8px;">
-						<span style="color:orange;font-weight: bold;" value="logout" onclick="location.href='${url}/member/logout'">로그아웃</span>
+						<span style="color:orange;font-weight: bold;">로그아웃</span>
 					</span>
+					</a>
 					</div>
 				</c:if>
 				<!--<c:if test="${logStatus != 'Y'}">
