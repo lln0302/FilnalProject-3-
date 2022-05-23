@@ -16,13 +16,13 @@ body
 	/* Remove the background color to make it transparent. */
 	background-color: #fff;
 
-	margin: 20px;
+	margin: 25px;
 }
 
 .cke_editable
 {
 	font-size: 13px;
-	line-height: 0.5;
+	line-height: 1;
 
 	/* Fix for missing scrollbars with RTL texts. (#10488) */
 	word-wrap: break-word;
@@ -82,7 +82,7 @@ img.right
 	border: 1px solid #ccc;
 	float: right;
 	margin-left: 15px;
-	padding: 5px;
+	padding: 10px;
 }
 
 img.left
@@ -90,7 +90,7 @@ img.left
 	border: 1px solid #ccc;
 	float: left;
 	margin-right: 15px;
-	padding: 5px;
+	padding: 10px;
 }
 
 pre

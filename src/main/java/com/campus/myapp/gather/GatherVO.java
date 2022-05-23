@@ -13,9 +13,11 @@ public class GatherVO {
 	private String createdate;
 	private String nickname;
 	private String thumbnail;
+	private String img;
 	private String content; 
 	private int gmemberno;
 	private int gnewno;
+	
 	
 	private List<Integer> gathernoList;
 	
@@ -79,6 +81,12 @@ public class GatherVO {
 	}
 	public void setThumbnail(String thumbnail) {
 		this.thumbnail = thumbnail;
+	}
+	public String getImg() {
+		return img;
+	}
+	public void setImg(String img) {
+		this.img = img;
 	}
 	public String getContent() {
 		return content;

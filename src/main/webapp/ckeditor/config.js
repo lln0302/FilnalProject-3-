@@ -17,7 +17,7 @@ CKEDITOR.editorConfig = function( config ) {
 	
 	        ['BidiLtr', 'BidiRtl'],
 		
-	        ['Image', 'SpecialChar', 'Smiley'],
+	        ['insertTable', 'Image', 'SpecialChar', 'Smiley'],
 	
 	        ['JustifyLeft', 'JustifyCenter', 'JustifyRight', 'JustifyBlock'],
 	
@@ -28,4 +28,7 @@ CKEDITOR.editorConfig = function( config ) {
 	        ['Source'],
 	
 	];
+	
+	config.editorplaceholder = '이미지를 첨부할 경우에는 한 개만 첨부해주세요.';
+	
 };
