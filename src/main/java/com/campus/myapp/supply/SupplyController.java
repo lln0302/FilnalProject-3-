@@ -9,8 +9,12 @@ import java.io.OutputStream;
 import java.io.PrintWriter;
 import java.nio.charset.Charset;
 import java.text.SimpleDateFormat;
+import java.util.ArrayList;
 import java.util.Date;
+import java.util.HashMap;
+import java.util.List;
 import java.util.UUID;
+import java.util.stream.Collectors;
 
 import javax.inject.Inject;
 import javax.servlet.ServletOutputStream;
@@ -27,12 +31,14 @@ import org.springframework.web.bind.annotation.GetMapping;
 import org.springframework.web.bind.annotation.PostMapping;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RequestParam;
+import org.springframework.web.bind.annotation.ResponseBody;
 import org.springframework.web.multipart.MultipartFile;
 import org.springframework.web.multipart.MultipartHttpServletRequest;
 import org.springframework.web.servlet.ModelAndView;
 import org.springframework.web.util.UriComponents;
 import org.springframework.web.util.UriComponentsBuilder;
 
+import com.campus.myapp.car.CarReplyVO;
 import com.campus.myapp.car.CarVO;
 
 @Controller
@@ -74,12 +80,6 @@ public class SupplyController {
 		return mav;
 	}
 	
-	@GetMapping("supplyChat")
-	public ModelAndView supplyChat() {
-		ModelAndView mav = new ModelAndView();
-		mav.setViewName("supply/supplyChat");
-		return mav;
-	}
 	
 	@PostMapping("supplyWriteOk")
 	public ResponseEntity<String> supplyWriteOk(SupplyVO vo, HttpSession session, HttpServletRequest req,
@@ -105,7 +105,6 @@ public class SupplyController {
 				if (!dest.exists()) {
 					try {
 						dest.mkdirs(); // 폴더 없으면 생성
-						System.out.println(dest);
 					} catch (Exception e) {
 						e.getStackTrace();
 					}
@@ -156,7 +155,6 @@ public class SupplyController {
 		
 		try {
 			int result = service.supplyEditOk(vo);
-			System.out.println(vo.getSupplyno()+"___"+vo.getTitle()+"____"+vo.getContent());
 			if(result>0) {
 				String msg = "<script>alert('글이 수정되었습니다.'); location.href='/supply/supplyInfo?no="+vo.getSupplyno()+"';</script>";
 				entity = new ResponseEntity<String>(msg,headers,HttpStatus.OK);	}//성공시 수정완료게시물로 이동
@@ -210,6 +208,7 @@ public class SupplyController {
 	
 	
 	
+	/* CKEDITOR 이미지 업로드 부분 */
 	
 	@PostMapping("imgUpload")
 	public void imageUpload(HttpServletRequest request, HttpServletResponse response,
@@ -320,4 +319,108 @@ public class SupplyController {
 			}
 		}
 	}
+	
+	//채팅방으로 이동
+	@GetMapping("supplyChat")
+	public ModelAndView supplyChat() {
+		ModelAndView mav = new ModelAndView();
+		mav.setViewName("supply/supplyChat");
+		return mav;
+	}
+	
+	
+	
+	
+	
+	/*
+	 * 보고 참고만 하게 될 기존의 채팅방정보 처리 코드들
+	
+	List<RoomVO> roomList = new ArrayList<RoomVO>();
+	static int roomNumber = 0;
+	
+	//채팅방 생성
+	@RequestMapping("createRoom")
+	public @ResponseBody List<RoomVO> createRoom(@RequestParam HashMap<Object, Object> params){
+		String roomName = (String) params.get("roomName");
+		if(roomName != null && !roomName.trim().equals("")) {
+			RoomVO room = new RoomVO();
+			room.setRoomNumber(++roomNumber);
+			room.setRoomName(roomName);
+			roomList.add(room);
+		}
+		return roomList;
+	}
+	
+	//채팅방 리스트 불러오기
+	@RequestMapping("/getRoom")
+	public @ResponseBody List<RoomVO> getRoom(@RequestParam HashMap<Object, Object> params){
+		return roomList;
+	}
+	
+	//채팅방 정보 전송 > 채팅방으로 이동 supplyChat
+	@RequestMapping("moveChating")
+	public ModelAndView chating(@RequestParam HashMap<Object, Object> params) {
+		ModelAndView mv = new ModelAndView();
+		int roomNumber = Integer.parseInt((String) params.get("roomNumber"));
+		
+		List<RoomVO> new_list = roomList.stream().filter(o->o.getRoomNumber()==roomNumber).collect(Collectors.toList());
+		if(new_list != null && new_list.size() > 0) {
+			mv.addObject("roomName", params.get("roomName"));
+			mv.addObject("roomNumber", params.get("roomNumber"));
+			mv.setViewName("supply/supplyChat");
+		}else {
+			mv.setViewName("supply/supplyInfo");
+		}
+		return mv;
+	}
+	*/
+	
+	/* 여기부턴 채팅방 처리 부분 */
+	
+	@PostMapping("chatWrite")
+	@ResponseBody
+	public int chatWrite(ChatVO vo, HttpSession session) {
+		vo.setClientNickname((String) session.getAttribute("nickname"));
+		return service.chatWrite(vo);
+	}
+
+	@GetMapping("chatCountSelect")
+	@ResponseBody
+	public int chatCountSelect(int supplyno) {
+		return service.chatCountSelect(supplyno);
+	}
+	
+	@GetMapping("chatList")
+	@ResponseBody
+	public List<ChatVO> chatList(int supplyno) {
+		return service.chatList(supplyno);
+	}
+	
+	@GetMapping("chatDel")
+	@ResponseBody
+	public int chatDel(int roomno) {
+		return service.chatDel(roomno);
+	}
+	
+	@GetMapping("moveChat")
+	public ModelAndView moveChat(int roomno) {
+		ModelAndView mav = new ModelAndView();
+		
+		mav.addObject("vo", service.chatSelect(roomno));
+		mav.setViewName("supply/supplyChat");
+		
+		return mav;
+	}
+	
+	@RequestMapping("chatSend")
+	@ResponseBody
+	public void chatSend(ChatVO vo) {
+		service.chatSend(vo);
+	}
+	
+	
+	
+	
+	
+	
 }

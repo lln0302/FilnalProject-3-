@@ -48,7 +48,7 @@ $(function(){
 				data:"carno="+parseInt($("#carno").val()),
 				type:'GET',
 				success:function(result){
-					$("#replyCount").html(result);
+					$("#ciReplyCount").html(result);
 					},error:function(){
 					alert("댓글 표시 에러")
 				}
@@ -70,8 +70,8 @@ $(function(){
 					$("#ciReply").val(""); // 댓글창 비우기
 					replyList();           // 댓글 리스트 보이기
 					replyCount();
-					var cnt = parseInt($("#ciReplyCount").text());
-					$("#ciReplyCount").text(cnt+1);
+					//var cnt = parseInt($("#ciReplyCount").text());
+					//$("#ciReplyCount").text(cnt+1);
 				},error:function(){
 					alert("로그인 후 이용해주세요!!");
 				}
@@ -114,8 +114,6 @@ $(function(){
 					alert('댓글이 삭제되었습니다.');
 					replyList();
 					replyCount();
-					var cnt = parseInt($("#ciReplyCount").text());
-					$("#ciReplyCount").text(cnt-1);
 				}
 			});	
 		}

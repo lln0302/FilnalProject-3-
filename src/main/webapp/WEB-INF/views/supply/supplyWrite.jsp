@@ -19,7 +19,7 @@
 	<div class="row">
 		<form method="post" action="/supply/supplyWriteOk" id="swFrm" class="col-12" enctype="multipart/form-data">
 			<div id="swLeft" class="col-4">
-				<h4>대표 이미지를 선택해주세요!</h4><hr/>
+				<h4>대표 이미지를 선택해주세요!</h4><br/>
 				<div id="swImgWrap">
 		            <span id="img_upload_phr">클릭해서 썸네일 추가하기</span> <img src=""   id="swImg" />
 		         </div>

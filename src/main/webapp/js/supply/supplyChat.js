@@ -1,68 +1,143 @@
+var ws;
+var userName;
 
- $(function() {
-	
+function wsOpen() {
+	ws = new WebSocket("ws://" + location.host + "/chating/" + $("#roomno").val());
+	wsEvt();
+}
+
+function wsEvt() {
+	ws.onopen = function(data) {
+		//소켓이 열리면 동작
+	}
+
+	ws.onmessage = function(data) {
+		//메시지를 받으면 동작
+		var msg = data.data;
+		if (msg != null && msg.trim() != '') {
+			var d = JSON.parse(msg);
+			if (d.type == "getId") {
+				var si = d.sessionId != null ? d.sessionId : "";
+				if (si != '') {
+					$("#sessionId").val(si);
+				}
+			} else if (d.type == "message") {
+				if (d.sessionId == $("#sessionId").val()) {
+					$("#chattingBox").append("<p class='item me'>" + `${userName}` + "<br><span class='meMsg'>" + d.msg + "</span></p>");
+				} else {
+					$("#chattingBox").append("<p class='item others'>" + d.userName + "<br><span class='othersMsg'>" + d.msg + "</span></p>");
+				}
+
+			} else {
+				console.warn("unknown type!")
+			}
+		}
+	}
+
+	document.addEventListener("keypress", function(e) {
+		if (e.keyCode == 13) { //enter press
+
+			send();
+		}
+	});
+}
+
+function chatName() {
+	var userName = $("#userName").val();
+	if (userName == null || userName.trim() == "") {
+		alert("사용자 이름을 입력해주세요.");
+		$("#userName").focus();
+	} else {
+		wsOpen();
+		$("#yourName").hide();
+		$("#yourMsg").show();
+	}
+}
+
+function send() {
+	var option = {
+		type: "message",
+		roomno: $("#roomno").val(),
+		sessionId: $("#sessionId").val(),
+		userName: $("#nickname").val(),
+		msg: $("#chatting").val()
+	}
+	ws.send(JSON.stringify(option))
+	$('#chatting').val("");
+
+	var lastItem = $(".chatBoxWrap #chattingBox").find(".item:last");
+	setTimeout(function() {
+		lastItem.addClass("on");
+	}, 10);
+	var position = lastItem.position().top + $(".chatBoxWrap #chattingBox").scrollTop();
+	console.log(position);
+
+	$(".chatBoxWrap #chattingBox").stop().animate({ scrollTop: position }, 500);
+
+	//location.href = "/supply/chatSend?roomno=" + parseInt($("#roomno").val());
+
+}
+
+
+function close() {
+	window.onbeforeunload = function(e) {
+		var txt = $("#chattingBox").html();
+		txt += "<p class='chatInfo'>- - - - - - - - 위는 이전 대화내용입니다 - - - - - - - -</p><br>"
+		$("#content").val(txt);
+		alert($("#content").val());
+
+		$.ajax({
+			url: '/supply/chatSend',
+			data: $("#chatFrm").serialize(),
+			type: 'POST',
+			success: function() {
+				
+				//send();
+			}, error: function() {
+				alert("채팅 전송 오류..");
+			}
+		});
+		
+		return "종료하시겠습니까";
+	}
+}
+
+
+$(function() {
+	close();
+
 	//탑, 푸터 부분 가리기
 	$("#header").css('display', 'none');
 	$("#footer").css('display', 'none');
-	
-	//말풍선 작성자 닉네임 길이만큼만 너비값 설정
-	var selNickLen = $("#sellerId").text().length;
-	var buyNickLen = $("#buyerId").text().length;
-	$("#sellerId").css('width', selNickLen +'em');
-	$("#buyerId").css('width', buyNickLen +'em');
-	
-	
-	//이후 생성되는 모든 말풍선의 작성자 닉네임칸 너비 통일
-	var selWid = $("#sellerId").css('width');
-	var buyWid = $("#buyerId").css('width');
-	$(".sellerId").css('width', selWid);
-	$(".buyerId").css('width', buyWid);
-	
-	
-	//채팅방 영역 너비값 구하기 + 'px'단위제거 정수화
-	var winWid = parseInt($("#chatting").css('width'), 10);
-	
-	var selText = 0;
-	var buyText = 0;
-	var right = 0;
-	for(var i=1; i<=4; i++) {
-		//각 말풍선의 글자수 length를 구함
-		selText = $("#sellerText"+i).text().length;
-		buyText = $("#buyerText"+i).text().length;
 
-		//말풍선의 너비를 글자수 length에 맞게 설정
-		$("#chatSeller"+i).css('width', selText+ 'em');
-		$("#chatBuyer"+i).css('width', buyText+ 'em');
+	userName = $("#nickname").val();
+	console.log(userName);
+	wsOpen();
 
-		//작성자(오른쪽) 말풍선의 너비값을 변수에 저장
-		var selWid = parseInt($("#chatSeller"+i).css('width'), 10);
-		alert($("#chatSeller"+i).css('width'));
-		//말풍선의 너비에 따라 오른쪽으로 땡김
-		right = selWid*1.11 - winWid;
-		if(right < -290) right = -290;
-		$("#chatSeller"+i).css('right', right);
-		
-	}
-	
-	
-	
-	
-/*	
-	
-	//판매자 문구의 글자 개수를 변수에 저장
-	var len = $(".chatSeller").text().length;
-	//위에서 구한 글자수에 따라 말풍선 너비값 설정
-	//$(".chatSeller").css('width', len+1+ 'em');
-	
-	//판매자 말풍선의 너비값을 변수에 저장
-	var selWid = parseInt($(".chatSeller").css('width'), 10);
-	//말풍선의 너비에 따라 오른쪽으로 땡김
-	$(".chatSeller").css('right', selWid*1.2 -winWid);
-	
-	$(window).resize(function() {
-		winWid = parseInt($("#chatting").css('width'), 10);
-		selWid = parseInt($(".chatSeller").css('width'), 10);
-		$(".chatSeller").css('right', selWid*1.2 -winWid);		
-	});*/
-	
+	// 채팅 전송
+	$("#sendBtn").click(function() {
+		$("#content").val($("#chattingBox").html());
+		alert($("#content").val());
+
+		$.ajax({
+			url: '/supply/chatSend',
+			data: $("#chatFrm").serialize(),
+			type: 'POST',
+			success: function() {
+				
+				send();
+			}, error: function() {
+				alert("채팅 전송 오류..");
+			}
+		});
+
+
+	});
+
+
+
+
+
+
+
 })
