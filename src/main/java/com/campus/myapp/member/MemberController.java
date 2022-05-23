@@ -210,7 +210,7 @@ public class MemberController {
         htmlStr += "<span style='font-size: 15px; margin: 0 0 10px 3px;'>MulCamping</span><br />";
         htmlStr += "<span style='color: #555;'>임시 비밀번호</span> 안내입니다.";
         htmlStr += "<p style='font-size: 16px; line-height: 26px; margin-top: 50px; padding: 0 5px;'>안녕하세요.<br />";
-        htmlStr += "요청하신 임시 비밀번호가 생성되었습니다.<br />감사합니다.</p>";
+        htmlStr += "요청하신 임시 비밀번호입니다. 아래 비밀번호를 입력하여 로그인해주세요.<br />감사합니다.</p>";
         htmlStr += "<p style='font-size: 16px; margin: 40px 5px 20px; line-height: 28px;'>임시 비밀번호: <br /><span style='font-size: 24px;'>";
         htmlStr += tempPwd;
         htmlStr += "</span></p>";
