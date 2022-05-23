@@ -64,37 +64,41 @@ h1, h5, .container *{
 	margin-bottom: 10px;
 }
 
-#spReplyList {
+#roomList {
 	margin-top: 10px;
 }
-
-#spReplyList * {
+/*
+#roomList * {
 	text-align: left;
+}*/
+#roomList tr {
+	width: 100%;
+	border-bottom : 0.5px solid #DCDCDC;
 }
-
-#spReplyList li{
+#roomList td{
 	padding: 5px;
 	margin-bottom: 5px;
 	padding-right: 0px;
 }
-#spReplyList div {
+
+#roomList div {
 	width: 70%;
 	float: left;
 }
 
-#spReplyList .spUserInfo {
+#roomList .spUserInfo {
 	padding: 6px 0;
 }
 
-#spReplyList>li>.goChatDiv {
+#roomList td>.goChatDiv {
 	width: 30%;
 	text-align: right;
 }
 
-#spReplyList hr {
+#roomList hr {
 	margin-bottom:5px;
 }
-#spReplyButton {
+#createRoom {
  	width: 100%;
  	background-color: #f58243;
  	padding: 6px 12px;
@@ -102,18 +106,31 @@ h1, h5, .container *{
  	border-radius: 5px;
  	color:white;
 }
-#spReplyButton:hover {
+#createRoom:hover {
 	background-color: #e57233;
 }
 
-.goChat {
+.room {
+	text-align: left;
+}
+
+.go button, .chatDel button {
+	width:100%;
 	border: 0px;
 	border-radius: 5px;
 	padding: 6px 12px;
 	background-color: #f58243;
 	color:white;
+	text-align: center;
 }
 
-.goChat:hover {
+.chatDel button {
+	background-color: #67493B;
+}
+
+.go button:hover {
 	background-color: #e57233;
+}
+.chatDel button:hover {
+	background-color: #57392B;
 }

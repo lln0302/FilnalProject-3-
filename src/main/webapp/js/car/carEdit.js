@@ -1,6 +1,6 @@
 $(function() {
 	var preRegion = $("#preRegion").val();
-	console.log(preRegion);
+	
 	$("#keyword").val(preRegion).prop("selected", true);
 	
 	var locx = $("#locX").val();

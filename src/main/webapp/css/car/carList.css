@@ -98,7 +98,8 @@ h1, .container *{
 #infoWin {
 	font-weight: bold;
 	font-size: 16px;
-	text-shadow: -1px 0 #67493B, 0 1px #67493B, 1px 0 #67493B, 0 -1px #67493B;
+	text-shadow: -1px 0  #67493B, 0 1px #67493B, 1px 0 #67493B, 0 -1px #67493B;
+	/*text-shadow: 1px 1px 1px #67493B;*/
 	color:#f58243;
 	white-space : nowrap;
 	overflow : hidden;
@@ -116,7 +117,7 @@ h1, .container *{
 	min-height: 65px;
 	
 	background-color: rgba(103, 73, 59, .1);
-	box-shadow: 5px 5px 5px 1px rgb(0 0 0 / 50%);
+	box-shadow: 5px 5px 5px 5px rgb(0 0 0 / 50%);
 	transition: all 200ms linear;
 }
 #placesList .item span {display: block;margin-top:4px;}

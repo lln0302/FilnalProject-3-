@@ -27,7 +27,7 @@
 			    		<div id="spFoot">
 							<i class='fas fa-eye'></i> <span id="spView">${vo.views }</span>
 							&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;	
-							<i class='fas fa-comment'></i> <span id="spReplyCount">[댓글수]</span><br/>
+							<i class='fas fa-comment'></i> <span id="spReplyCount">${vo.count }</span><br/>
 							<i class="fa fa-clock clock"></i> <span id="spWriteDate">${vo.writedate }</span>
 						</div>
 					</div>

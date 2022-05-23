@@ -20,4 +20,17 @@ public interface SupplyDAO {
 	public int supplyEditOk(SupplyVO vo);
 	// 나눔 게시판 글 삭제
 	public int supplyDelete(int no);
+	
+	// 채팅방 생성하기
+	public int chatWrite(ChatVO vo);
+	// 채팅방 개수 가져오기
+	public int chatCountSelect(int suuplyno);
+	// 채팅방 목록 가져오기
+	public List<ChatVO> chatList(int supplyno);
+	// 채팅방 삭제하기
+	public int chatDel(int roomno);
+	// 해당 채팅방 정보 불러오기
+	public ChatVO chatSelect(int roomno);
+	// 채팅내용 바로바로 db에 저장
+	public int chatSend(ChatVO vo);
 }

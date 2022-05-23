@@ -43,6 +43,37 @@ public class SupplyServiceImpl implements SupplyService {
 	}
 
 	
+	@Override
+	public int chatWrite(ChatVO vo) {
+		return dao.chatWrite(vo);
+	}
+
+	@Override
+	public int chatCountSelect(int suuplyno) {
+		return dao.chatCountSelect(suuplyno);
+	}
+	
+	@Override
+	public List<ChatVO> chatList(int supplyno) {
+		return dao.chatList(supplyno);
+	}
+
+	@Override
+	public int chatDel(int roomno) {
+		return dao.chatDel(roomno);
+	}
+
+	@Override
+	public ChatVO chatSelect(int roomno) {
+		return dao.chatSelect(roomno);
+	}
+
+	@Override
+	public int chatSend(ChatVO vo) {
+		return dao.chatSend(vo);
+	}
+
+	
 
 	
 

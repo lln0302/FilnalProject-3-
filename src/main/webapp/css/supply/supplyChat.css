@@ -3,117 +3,106 @@
 .container {
 	background-color: #f58243;
 	height: 718px;
-	
 	/*font-family: 'Gowun Dodum', sans-serif;
 	font-family: 'IBM Plex Sans', sans-serif; */
-	font-family: 'IBM Plex Sans KR', sans-serif; 
+	font-family: 'IBM Plex Sans KR', sans-serif;
 }
+
 #scBody {
 	padding: 3%;
 	text-align: center;
 }
 
+#scBody hr {
+	border: 1px dashed #DCDCDC;
+}
+#scBody h5 {
+	text-align: right;
+	font-size: 14px;
+}
 /* 채팅창 */
-#chatting {
+#chattingBox {
 	width: 100%;
-	height: 500px;
+	height: 550px;
 	margin-top: 10px;
 	background-color: rgba(103, 73, 59, .5);
-	padding: 1%;
+	padding: 5%;
 	overflow-y: scroll;
 	border-radius: 5px;
 }
+.chatInfo {
+	color: white
+}
 
-#chatting::-webkit-scrollbar {
+#chattingBox::-webkit-scrollbar {
 	width: 10px;
 }
-#chatting::-webkit-scrollbar-thumb {
+
+#chattingBox::-webkit-scrollbar-thumb {
 	background-color: #f58243;
 	border-radius: 3px;
 	border: 1px solid #67493B;
 }
-#chatting::-webkit-scrollbar-track {
+
+#chattingBox::-webkit-scrollbar-track {
 	background-color: rgba(103, 73, 59, .3);
 	border-radius: 3px;
 }
 
-#sellerId, #buyerId {
-	background-color: black;
-	color: white;
-	border-radius: 15px;
-	padding: 5px;
-}
-.sellerId, .buyerId {
-	position: relative;
-	background-color: black;
-	color: white;
-	border-radius: 15px;
-	padding: 5px;
-	padding-left: 14px;
-	padding-right: 14px;
-	font-size: 1em;
-	margin-bottom: 0px;
-	text-align: center;
-}
-/*말풍선 - 판매자(오른쪽)*/
-.chatSeller, .chatBuyer {
-	position: relative;
-	width: 200px;
-}
-.chatSeller {
-	left: 210px;
-}
-.sellerId, #sellerId {
-	position: relative;
-	left: 100px;
-}
-
-.sellerText {
-	
-	padding: 10px;
+#chattingBox .me {
+	color: #F6F6F6;
 	text-align: right;
-	background-color: #fFF243;
-	margin: 5px;
-	max-width: 180px;
-	min-width: 120px;
-	border: 1px solid black;
-	border-radius: 10px;
+	line-height: 35px;
 }
 
-/*말풍선 - 구매자(왼쪽)*/
-.buyerText {
-	
-	text-align: left;
-	padding: 10px;
-	background-color: white;
-	margin: 5px;
-	max-width: 180px;
-	min-width: 150px;
-	border: 1px solid black;
-	border-radius: 10px;
+#chattingBox .me .meMsg {
+	padding: 6px 12px;
+	border-radius: 2px;
+	background-color: #67493B;
 }
+
+#chattingBox .others {
+	color: #F6F6F6;
+	text-align: left;
+	line-height: 35px;
+}
+
+#chattingBox .others .othersMsg {
+	margin-top: 5px;
+	padding: 6px 12px;
+	border-radius: 2px;
+	background-color: #f58243;
+}
+
 
 #chatDiv {
 	width: 100%;
 	margin-top: 5px;
 }
 
-#chat {
-	width:85%;
-	height: 70px;
-	float:left;
+#chatting {
+	width: 100%; height : 70px;
+	float: left;
 	padding: 5px;
-	border:none;
-    resize: none;
-}
-#send {
-	width: 15%;
+	border: none;
+	resize: none;
 	height: 70px;
-	float:left;
+}
+
+#sendBtn {
+	width: 100%;
+	height: 70px;
+	float: left;
 	background-color: rgba(103, 73, 59, .3);
 	border: none;
-	color:white;
+	color: white;
 }
-#send:hover {
+
+.inputTable {
+	margin-top: 10px;
+	width: 100%;
+}
+
+#sendBtn:hover {
 	background-color: rgba(103, 73, 59, .8);
 }
