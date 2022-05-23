@@ -115,7 +115,7 @@
 		offset				${offsetIndex}
     </select>
     
-    <delete id="adminMultiDelete">
+    <delete id="adminMembersDel">
     	delete from member
     	<where>
             <foreach item="item" collection="telList" open="usertel in (" separator=", " close=")">
