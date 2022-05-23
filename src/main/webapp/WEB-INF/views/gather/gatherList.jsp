@@ -49,8 +49,6 @@
 				  				<c:if test="${list.img!=null && list.img!=''}">
 				  					<img src="${list.img}"/>
 				  				</c:if>
-
-				  				
 				  			</a>
 				  		</div>	
 			  		</div>

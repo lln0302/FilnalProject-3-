@@ -69,7 +69,6 @@
 					</c:if>
 				</form>
 			</div>
-			<!-- <p id="joinWarn">🛑 캠핑 일주일 전 캠핑 취소를 하시면 매너온도가 내려가게 됩니다.</p> -->
 			<p id='intro'>🏕️ 캠핑에 참여하는 유저 리스트 </p>
 			<table class="table table-striped text-center">
 				<thead>
