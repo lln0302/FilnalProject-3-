@@ -234,10 +234,10 @@ public class SupplyController {
 			byte[] bytes = upload.getBytes();
 
 			// 이미지 경로 생성
-			String path = ses.getServletContext().getRealPath("/") + "img\\car\\" + dateForFile + "\\";
+			String path = ses.getServletContext().getRealPath("/") + "img\\supply\\" + dateForFile + "\\";
 			String ckUploadPath = path + uid + "_" + fileName;
 
-			System.out.println(path);
+			//System.out.println(path);
 			File folder = new File(path);
 
 			// 해당 디렉토리 확인
@@ -255,7 +255,7 @@ public class SupplyController {
 
 			String callback = request.getParameter("CKEditorFuncNum");
 			printWriter = response.getWriter();
-			String fileUrl = "/car/ckImgSubmit.do?uid=" + uid + "&fileName=" + fileName;
+			String fileUrl = "/supply/ckImgSubmit.do?uid=" + uid + "&fileName=" + fileName;
 
 			UriComponents uriComponents = UriComponentsBuilder.fromPath(fileUrl).build(); // fromHttpUrl(fileName).build();
 			uriComponents.encode().toUri();
@@ -291,7 +291,7 @@ public class SupplyController {
 		HttpSession ses = request.getSession();
 
 		// String path = fileDir.getPath() + "ckImage/";
-		String path = ses.getServletContext().getRealPath("/") + "img\\car\\" + dateForFile + "\\";
+		String path = ses.getServletContext().getRealPath("/") + "img\\supply\\" + dateForFile + "\\";
 		String sDirPath = path + uid + "_" + fileName;
 		File imgFile = new File(sDirPath); // 사진 이미지 찾지 못하는 경우 예외처리로 빈 이미지 파일을 설정한다.
 
@@ -334,50 +334,7 @@ public class SupplyController {
 	
 	
 	
-	
-	
-	/*
-	 * 보고 참고만 하게 될 기존의 채팅방정보 처리 코드들
-	
-	List<RoomVO> roomList = new ArrayList<RoomVO>();
-	static int roomNumber = 0;
-	
-	//채팅방 생성
-	@RequestMapping("createRoom")
-	public @ResponseBody List<RoomVO> createRoom(@RequestParam HashMap<Object, Object> params){
-		String roomName = (String) params.get("roomName");
-		if(roomName != null && !roomName.trim().equals("")) {
-			RoomVO room = new RoomVO();
-			room.setRoomNumber(++roomNumber);
-			room.setRoomName(roomName);
-			roomList.add(room);
-		}
-		return roomList;
-	}
-	
-	//채팅방 리스트 불러오기
-	@RequestMapping("/getRoom")
-	public @ResponseBody List<RoomVO> getRoom(@RequestParam HashMap<Object, Object> params){
-		return roomList;
-	}
-	
-	//채팅방 정보 전송 > 채팅방으로 이동 supplyChat
-	@RequestMapping("moveChating")
-	public ModelAndView chating(@RequestParam HashMap<Object, Object> params) {
-		ModelAndView mv = new ModelAndView();
-		int roomNumber = Integer.parseInt((String) params.get("roomNumber"));
-		
-		List<RoomVO> new_list = roomList.stream().filter(o->o.getRoomNumber()==roomNumber).collect(Collectors.toList());
-		if(new_list != null && new_list.size() > 0) {
-			mv.addObject("roomName", params.get("roomName"));
-			mv.addObject("roomNumber", params.get("roomNumber"));
-			mv.setViewName("supply/supplyChat");
-		}else {
-			mv.setViewName("supply/supplyInfo");
-		}
-		return mv;
-	}
-	*/
+
 	
 	/* 여기부턴 채팅방 처리 부분 */
 	
