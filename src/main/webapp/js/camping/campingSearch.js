@@ -152,8 +152,22 @@
 		var prev = pb-1;
 		location.href="/camping/campingSearch?pageNum="+prev+"";
 	}
-	function pageNum(p){
-		location.href="/camping/campingSearch?pageNum="+p+"";
+	function pageNum(p, doNm, sigunguNm, induty, sbrsCl){		
+		let loc="/camping/campingSearch?&pageNum="+p;
+		if(doNm!=''){
+			loc+="&doNm="+doNm;
+		}
+		if(sigunguNm!=''){
+			loc+="&sigunguNm="+sigunguNm;
+		}
+		if(induty!=''){
+			loc+="&induty="+induty;
+		}
+		if(sbrsCl!=''){
+			loc+="&sbrsCl="+sbrsCl;
+		}
+		console.log(loc)		
+		location.href=loc;
 	}
 	function nextBtn(nb){
 		var next = nb+1;
