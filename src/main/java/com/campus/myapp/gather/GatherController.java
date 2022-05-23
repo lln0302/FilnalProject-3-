@@ -19,8 +19,6 @@ import org.springframework.web.bind.annotation.RestController;
 import org.springframework.web.multipart.MultipartFile;
 import org.springframework.web.servlet.ModelAndView;
 
-import com.campus.myapp.camping.ckeditorImg;
-
 @RequestMapping("/gather/")
 @RestController
 public class GatherController {
@@ -187,8 +185,8 @@ public class GatherController {
 		return service.gnewnoCountSelect(gatherno);
 	}
 	// 캠핑 참여한 캠퍼 리스트 보이기
-	@GetMapping("/showCamperList")
-	public List<GatherMemberVO> showCamperList(GatherMemberVO vo, HttpSession session) {
+	@GetMapping("/selectCamperList")
+	public List<GatherMemberVO> selectCamperList(GatherMemberVO vo, HttpSession session) {
 		vo.setNickname((String)session.getAttribute("nickname"));
 		vo.setGender((String)session.getAttribute("gender"));
 		return service.selectCamperList(vo);
