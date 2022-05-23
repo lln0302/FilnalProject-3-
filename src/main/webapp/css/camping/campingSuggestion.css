@@ -58,3 +58,25 @@
 #campingSuggestion:hover {
 	text-decoration-line: underline;
 }
+
+#imageBox{
+float:left; width:30%;
+}
+
+#campingInfo{
+float:left; width:70%;
+}
+
+.col-8{
+width:700px;
+padding:0 5px;
+overflow:hidden;
+text-overflow:ellipsis;
+white-space:nowrap;
+}
+
+#campinglink,
+#campinglink:visited,
+#campinglink:active{
+color : black;
+}

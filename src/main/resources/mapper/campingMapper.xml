@@ -130,8 +130,8 @@
   	
   	<select id="campingSuggestion" resultType="com.campus.myapp.camping.CampingVO">
   		select posblFcltyCl, modifiedtime, contentId, firstImageUrl, sigunguNm, doNm, facltNm, 
-  		addr2, addr1, tel, induty, sbrsCl 
-		from campinglist order by rand(), modifiedtime desc limit 10
+  		addr2, addr1, tel, induty, sbrsCl, lineIntro, intro 
+		from campinglist where intro is not null order by rand(), modifiedtime desc limit 10
   	</select>
   	
   	<!-- 캠핑 후기 -->

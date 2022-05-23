@@ -82,10 +82,7 @@
 							</tr>
 						</c:if>
 					</tbody>
-				</table>								
-				<div id="btn_zzim">										
-					<button type="button" class="btn_zzim btn" onclick="">찜하기</button>										
-				</div>
+				</table>
 			</div>
 		</div>
 	</div>
@@ -140,7 +137,7 @@
 		<!-- 위치/주변정보 -->	
 		<div class="campMap" id="campMap" style="display:none;">
 			<h2>위치/주변정보</h2>
-			<div id="staticMap" style="width:600px;height:350px;"></div>	
+			<div id="map" style="width:1200px;height:500px;"></div>	
 		</div>
 		<!-- 캠핑후기 -->
 		<div id="campReview"></div>
