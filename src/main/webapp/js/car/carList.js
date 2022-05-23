@@ -111,7 +111,7 @@ function getListItem(index) {
 
 	itemStr += '  <br><span class="tel">' + /*places.phone*/
 		'<i class="fas fa-eye"></i> ' + $("#plViews" + index).val() + '&nbsp;&nbsp;&nbsp;' +
-		'<i class="fas fa-comment"></i> 0&nbsp;&nbsp;&nbsp;' +
+		'<i class="fas fa-comment"></i> ' + $("#plCount" + index).val() + '&nbsp;&nbsp;&nbsp;' +
 		'<i class="fa fa-clock clock"></i> ' + $("#plWritedate" + index).val() +
 		'</span>' +
 		'</div></a>';
