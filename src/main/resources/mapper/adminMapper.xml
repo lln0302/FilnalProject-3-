@@ -20,7 +20,7 @@
     </select>
     
     <select id="totalRecordGather" resultType="int">
-    	select count(carno) cnt from car
+    	select count(gatherno) cnt from gather
     	<if test="searchWord != null">
 			where 			${searchKey}
 			like 			'%${searchWord}%'
@@ -28,7 +28,7 @@
     </select>
     
     <select id="totalRecordCar" resultType="int">
-    	select count(gatherno) cnt from gather
+    	select count(carno) cnt from car
     	<if test="searchWord != null">
 			where 			${searchKey}
 			like 			'%${searchWord}%'
