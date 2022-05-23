@@ -7,11 +7,15 @@
 	<select id="supplyList" resultType="SupplyVO">
 		SELECT supplyno, title, nickname, views, date_format(writedate, '%y-%m-%d %H:%i') writedate, content, photo,
 		(select count(*) from chatroom c where c.supplyno=a.supplyno) count
-		FROM supply a ORDER BY supplyno DESC;
+		FROM supply a ORDER BY supplyno DESC
+		LIMIT ${param1.postsPerPage} OFFSET ${param1.offset}
 	</select>
 	<update id="supplyInfoCount">
 		UPDATE supply SET views = views+1 WHERE supplyno=#{param1}
 	</update>
+	<select id="selectTotalSupply" resultType="int">
+		SELECT COUNT(supplyno)count FROM supply
+	</select>
 	<select id="supplySelect" resultType="SupplyVO">
 		SELECT supplyno, title, nickname, date_format(writedate, '%y-%m-%d %H:%i') writedate, views, content, photo
 		FROM supply WHERE supplyno=#{param1}

@@ -10,7 +10,7 @@
 		CKEDITOR.replace("content", {
 			filebrowserUploadMethod :'form',
 			filebrowserUploadUrl: "/car/imgUpload",
-			height: 550
+			height: 694
 		});
 		
 	});
@@ -74,7 +74,7 @@
 		</div>
 		
 		<div id="cwWriteSubmitWrap">
-			<input type="submit" value="등록" id="carWriteSubmit"/>
+			<button type="button" id="carWriteSubmit" onclick="cwCheck()">등록</button>
 		</div>
 		
 	</form>
