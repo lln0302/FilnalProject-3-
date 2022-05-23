@@ -54,10 +54,10 @@ $(function(){
 		filebrowserUploadUrl:'/gather/imageUpload', // 이미지 업로드
 		//filebrowserUploadMethod:'form',
 		extraPlugin:'autograw',
-		
+		extraPlugin:'confighelper',
 	});
 	
-	// CKEditor 이미지 탭 설정
+	// CKEditor 이미지 탭 설정(이미지 모달창에서 불필요한 부분 제거)
 	CKEDITOR.on('dialogDefinition', function(ev){
 		let dialogName = ev.data.name;
 		let dialog = ev.data.definition.dialog;

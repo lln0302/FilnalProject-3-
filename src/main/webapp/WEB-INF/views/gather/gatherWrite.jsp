@@ -1,4 +1,5 @@
 <%@ page language="java" contentType="text/html; charset=UTF-8" pageEncoding="UTF-8"%>
+<%@ taglib uri="http://java.sun.com/jsp/jstl/core" prefix="c" %>
 <c:set var="url" value="<%=request.getContextPath()%>"/>
 <link rel="stylesheet" href="/css/gather/writedit.css" type="text/css"/>
 <script src="/js/gather/writedit.js"></script>
