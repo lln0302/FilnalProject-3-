@@ -8,14 +8,12 @@ $(()=>{
 		let localURL = window.location;
 		let dashboard = "http://localhost:8090/admin/adminMain";
 		let members = "http://localhost:8090/admin/adminMembers";
-		let membersInfo = "http://localhost:8090/admin/adminMembersInfo";
 		let campList = "http://localhost:8090/admin/adminCampList";
 		let addCamperList = "http://localhost:8090/admin/adminAddCamperList";
 		let autoCampList = "http://localhost:8090/admin/adminAutoCampList";
 		let shareList = "http://localhost:8090/admin/adminShareList";
 		let reviewList = "http://localhost:8090/admin/adminReviewList";
-		let gatherCommentList = "http://localhost:8090/admin/adminGatherCommentList";
-		let carCommentList = "http://localhost:8090/admin/adminCarCommenList";
+		let commentList = "http://localhost:8090/admin/adminCommentList";
 				
 		if(pr==1.25){
 		   menuCheck=false;

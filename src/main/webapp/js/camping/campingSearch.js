@@ -116,7 +116,35 @@
 			}
 		});
 	}
-		
+	
+	//api 이미지 DB저장
+	function addimages(result){
+		$.ajax({
+			type : 'post',
+			url : '/camping/addimages',
+			contentType : 'application/json; charset=UTF-8',
+			data : JSON.stringify(result),
+			async : false,
+			success : function(res){				
+			},
+			error : function(e){
+				alert(e.responseText);
+			}
+		})
+	}	
+	
+	//이미지리스트 api 받아오기
+	function Listupcampingimages(C_ID){
+		$.ajax({
+			type : 'get',
+			url : "http://api.visitkorea.or.kr/openapi/service/rest/GoCamping/imageList?ServiceKey=aP86zX%2BZyECfP94oWJpuGYSq%2FU4SWkv8At%2FwBv6YUfMepr6LdpZutU23EH2VFkgws6DngpHe0crNKiYVnVOmuQ%3D%3D&MobileOS=ETC&MobileApp=AppTest&contentId="+C_ID+"&_type=json",
+			success : function(result){
+				console.log(result);
+				addimages(result.response.body.items.item);
+			}
+		})
+	}
+	
 	//태그버튼 누름 효과	
 	
 	//페이징

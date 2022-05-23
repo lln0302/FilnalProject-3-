@@ -73,7 +73,7 @@ $(function(){
 	})
 	
 	// 댓글 수정 버튼을 누르면 댓글 폼 보이기
-	$(document).on('click', '#edit', function(){
+	$(document).on('click', '#ciEdit', function(){
 		$(this).parent().css("display", "none");  // 댓글 내용 안보이게 하기
 		$(this).parent().parent().siblings().css("display", "block"); // 댓글 수정 내용 보이게 하기
 	})
@@ -110,7 +110,6 @@ $(function(){
 			});	
 		}
 	});
-	
-	replyList();  // 항상 댓글 리스트 보이기
-	replyCount(); // 비동기식으로 댓글 추가되면 +1 삭제되면 -1
+	replyList();
+	replyCount();
 });
