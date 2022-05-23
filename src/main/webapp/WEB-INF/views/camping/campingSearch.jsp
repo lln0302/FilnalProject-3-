@@ -160,7 +160,7 @@
 						<c:choose>
 							<c:when test="${p!=pVO.pageNum}">
 								<li class="page-item">
-									<a class="page-link"href="javascript:void(0);" onclick="pageNum(${p})">${p}</a>
+									<a class="page-link"href="javascript:void(0);" onclick="pageNum(${p}, '${pVO.doNm }', '${pVO.sigunguNm }', '${pVO.induty }', '${pVO.sbrsCl }')">${p}</a>
 								</li>
 							</c:when>
 							<c:otherwise>
