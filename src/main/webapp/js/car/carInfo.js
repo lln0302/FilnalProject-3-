@@ -1,9 +1,11 @@
 /**
  * 
  */
+var locx, locy;
+locx = $("#locX").val();
+locy = $("#locY").val();
 
 $(function(){
-	
 	// 댓글 리스트
 	function replyList(){
 		let url = "/car/replyList"
@@ -20,14 +22,14 @@ $(function(){
 					+item.nickname+ " | " + item.writedate + "</span>";
 					if(nickname == item.nickname){
 						body += "<span><button class='btn' id='ciReplyEdit'>수정</button>";
-						body += "<button class='btn' id='ciReplyDel' >삭제</button>";	
+						body += "<button class='btn' id='ciReplyDel'>삭제</button>";	
 					}
 					body += "<br/><br/>" + item.content + "</span></div>"
 					if(nickname == item.nickname){
 						body += "<div class='editForm'><form method='post' class='form-inline'}>";
-						body += "<textarea name='content' class='col-11 form-control'>"+item.content+"</textarea>"
+						body += "<textarea name='content' id='content'class='col-11 form-control'>"+item.content+"</textarea>"
 						body += "<input type='hidden' name='replyno' value="+item.replyno+">";
-						body += "<input type='submit' id='ciReplyButton' value='수정' style='margin-left:10px; height:100%'></form></div>";	
+						body += "<input type='submit' class='btn' id='ciReplyButton' value='수정' style='margin-left:10px; height:100%'></form></div>";	
 					}
 					body += "</li><hr/>";
 				});
@@ -46,7 +48,7 @@ $(function(){
 				data:"carno="+parseInt($("#carno").val()),
 				type:'GET',
 				success:function(result){
-					$("#replyCount").html(result);
+					$("#ciReplyCount").html(result);
 					},error:function(){
 					alert("댓글 표시 에러")
 				}
@@ -68,6 +70,8 @@ $(function(){
 					$("#ciReply").val(""); // 댓글창 비우기
 					replyList();           // 댓글 리스트 보이기
 					replyCount();
+					//var cnt = parseInt($("#ciReplyCount").text());
+					//$("#ciReplyCount").text(cnt+1);
 				},error:function(){
 					alert("로그인 후 이용해주세요!!");
 				}
@@ -129,12 +133,8 @@ $(function(){
 
 
 
-
-
-
-
 // 이미지 지도에서 마커가 표시될 위치입니다 
-var markerPosition = new kakao.maps.LatLng(33.450701, 126.570667);
+var markerPosition = new kakao.maps.LatLng(locx, locy);
 
 // 이미지 지도에 표시할 마커입니다
 // 이미지 지도에 표시할 마커는 Object 형태입니다
@@ -144,8 +144,8 @@ var marker = {
 
 var staticMapContainer = document.getElementById('staticMap'), // 이미지 지도를 표시할 div  
 	staticMapOption = {
-		center: new kakao.maps.LatLng(33.450701, 126.570667), // 이미지 지도의 중심좌표
-		level: 3, // 이미지 지도의 확대 레벨
+		center: new kakao.maps.LatLng(locx, locy), // 이미지 지도의 중심좌표
+		level: 2, // 이미지 지도의 확대 레벨
 		marker: marker // 이미지 지도에 표시할 마커 
 	};
 

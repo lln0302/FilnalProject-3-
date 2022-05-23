@@ -44,6 +44,14 @@ dependencies {
 
 	//이메일 발송 의존성
 	implementation 'org.springframework.boot:spring-boot-starter-mail'
+	
+	// 채팅 관련
+	// https://mvnrepository.com/artifact/org.springframework/spring-websocket
+	implementation 'org.springframework:spring-websocket:5.3.18'
+	// https://mvnrepository.com/artifact/com.googlecode.json-simple/json-simple
+	implementation 'com.googlecode.json-simple:json-simple:1.1.1'
+	
+	
 }
 
 tasks.named('test') {

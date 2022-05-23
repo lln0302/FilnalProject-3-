@@ -21,7 +21,7 @@ public class ServerConfigure implements WebMvcConfigurer, WebServerFactoryCustom
 				"/gather/gatherEdit", "/car/carWrite", "/car/carWriteOk",
 				"/car/carEdit", "/car/replyWrite", "/supply/supplyWrite",
 				"/supply/supplyWriteOk", "/supply/supplyEdit", "/supply/supplyEditOk",
-				"/supply/supplyChat"
+				"/supply/supplyChat", "/supply/chatSend", "/supply/chatDel", "/supply/moveChat"
 			);
 	
 	public void addInterceptors(InterceptorRegistry registry) {

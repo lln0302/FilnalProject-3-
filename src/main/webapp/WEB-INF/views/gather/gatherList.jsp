@@ -42,7 +42,16 @@
 				  			</div>
 				  		</div>
 				  		<div class="col-6">
-				  			<a href="/gather/gatherView?gatherno=${list.gatherno}"><img src="/img/logo/mulcamping_logo-03.png"/></a>
+				  			<a href="/gather/gatherView?gatherno=${list.gatherno}">
+				  				<c:if test="${list.thumbnail==null && list.img ==''}">
+				  					<img src="/img/logo/mulcamping_logo-03.png"/>
+				  				</c:if>
+				  				<c:if test="${list.img!=null && list.img!=''}">
+				  					<img src="${list.img}"/>
+				  				</c:if>
+
+				  				
+				  			</a>
 				  		</div>	
 			  		</div>
 			  	</li>
