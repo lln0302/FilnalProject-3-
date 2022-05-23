@@ -5,11 +5,14 @@ import java.util.List;
 import org.apache.ibatis.annotations.Mapper;
 import org.springframework.stereotype.Repository;
 
+
 @Mapper
 @Repository
 public interface SupplyDAO {
 	// 나눔 게시판 리스트 가져오기
-	public List<SupplyVO> supplyList();
+	public List<SupplyVO> supplyList(SupplyPagingVO pvo, SupplyVO vo);
+	// 게시판의 레코드 개수 
+	public int selectTotalSupply();
 	// 나눔 게시판 조회수 증가
 	public int supplyInfoCount(int no);
 	// 나눔 게시판 특정 글 불러오기

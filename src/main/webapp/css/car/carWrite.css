@@ -14,13 +14,13 @@ h1, .container *{
 }
 
 #carMapWrap {
-	width: 42%;
+	
 	height: 900px;
 	float:left;
 }
 
 #carWriteWrap {
-	width: 58%;
+	
 	height: 900px;
 	float:left;
 	padding-top : 0px;

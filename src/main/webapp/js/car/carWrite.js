@@ -39,8 +39,18 @@ kakao.maps.event.addListener(map, 'click', function(mouseEvent) {
             marker.setMap(map);
 
             // 인포윈도우에 클릭한 위치에 대한 법정동 상세 주소정보를 표시합니다
-            infowindow.setContent(content);
-            infowindow.open(map, marker);
+            //infowindow.setContent(content);
+            //infowindow.open(map, marker);
+            
+            var message = '현재 지도의 중앙 좌표 >> 위도: ' 
+    				+ Math.round(mouseEvent.latLng.getLat()*100000)/100000 
+    				+ ', 경도: ' + Math.round(mouseEvent.latLng.getLng()*100000)/100000;
+
+		    var resultDiv = document.getElementById('cwLabel');
+		    resultDiv.innerHTML = message;
+		    
+		    $("#locX").val(Math.round(mouseEvent.latLng.getLat()*100000)/100000);
+		    $("#locY").val(Math.round(mouseEvent.latLng.getLng()*100000)/100000);
         }   
     });
 });
@@ -101,4 +111,23 @@ function displayCenterInfo(result, status) {
             }
         }
     }    
+}
+
+function mapSearchClick() {
+	var moveLatLon = new kakao.maps.LatLng($("#locX").val(), $("#locY").val());
+    
+    map.panTo(moveLatLon);      
+}
+
+function cwCheck() {
+	if($("#carName").val() == "") {
+		alert("제목을 입력해주세요!!");
+		return false;
+	}
+	if($("#keyword").val() == "") {
+		alert("지역을 선택해주세요!!");
+		return false;
+	}
+	
+	$("#cwFrm").submit();
 }
