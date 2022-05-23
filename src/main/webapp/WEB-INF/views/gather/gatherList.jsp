@@ -35,7 +35,7 @@
 				  		<div class="col-6 listContent">
 				  			<div><h5><i class="fa fa-location-arrow"></i> ${list.place}</h5></div>
 				  			<div><h5><i class="fa fa-calendar"></i> ${list.startdate} ~ ${list.enddate}</h5></div>
-				  			<div><h5> ${list.gnewno} / ${list.gmemberno}</h5></div>
+				  			<div><h5> 캠핑 참여: ${list.gnewno} / ${list.gmemberno}</h5></div>
 				  			<div>
 				  				<i class="fa fa-eye fa-lg"></i> ${list.views}&nbsp; 
 				  				<i class="fa fa-clock fa-lg"></i> ${list.createdate}
@@ -49,8 +49,6 @@
 				  				<c:if test="${list.img!=null && list.img!=''}">
 				  					<img src="${list.img}"/>
 				  				</c:if>
-
-				  				
 				  			</a>
 				  		</div>	
 			  		</div>
