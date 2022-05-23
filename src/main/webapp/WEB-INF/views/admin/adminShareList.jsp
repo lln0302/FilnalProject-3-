@@ -94,16 +94,17 @@
 			</div>
 			<hr id="hr2px">
 				<div class="containerList">
-					<!-- <div>
+					<div>
 						총 레코드 수 : ${apvo.totalRecord} / 총 페이지 개수 : ${apvo.totalPage} / 현재 페이지 번호 : ${apvo.pageNum}
-					</div> -->
+					</div>
 					<!-- 검색 -->
 						<div>
-							<form method="get" action="/admin/adminMembers" id="searchFrm">
+							<form method="get" action="/admin/adminShareList" id="searchFrm">
 								<select name="searchKey">
-									<option value="username">이름</option>
-									<option value="email">이메일</option>
-									<option value="usertel">연락처</option>
+									<option value="title">제목</option>
+									<option value="content">내용</option>
+									<option value="nickname">작성자</option>
+									<option value="supplyno">글번호</option>
 								</select>
 								<input type="text" name="searchWord" id="searchWord" />
 								<input type="submit" value="Search" />
@@ -113,7 +114,7 @@
 							&nbsp;<input type="checkbox" id="allCheck" />전체선택
 							<input type="button" value="선택삭제" id="multiDel"/>
 						</div>
-						<form method="post" action="/admin/adminMembersDel" id="listMenuFrm">
+						<form method="post" action="/admin/adminShareListDel" id="listMenuFrm">
 							<ul id="listMenu">
 								<li>&nbsp;</li>
 								<li>번호</li>
@@ -124,12 +125,12 @@
 							
 								<div id="listMenuFE">
 								<c:forEach var="vo" items="${list}">
-									<li><input type='checkbox' name='supplyNoList' value='${vo}' class="chk"/></li>
-									<li>${vo}</li> <!-- <a href="/admin/adminMembersInfo?nickname=${vo.nickname}"></a> -->
-									<li>${vo}</li>
-									<li>${vo}</li>
-									<li>${vo}</li>
-									<li>${vo}</li>
+									<li><input type='checkbox' name='supplyNoList' value='${vo.supplyno}' class="chk"/></li>
+									<li>${vo.supplyno}</li> <!-- <a href="/admin/adminMembersInfo?nickname=${vo.nickname}"></a> -->
+									<li>${vo.title}</li>
+									<li>${vo.content}</li>
+									<li>${vo.writedate}</li>
+									<li>${vo.nickname}</li>
 								</c:forEach>
 								</div>
 							</ul>
@@ -141,7 +142,7 @@
 								<li id="prevBtn">◀</li>
 							</c:if>
 							<c:if test="${apvo.pageNum>1}">
-								<li><a href="/admin/adminMembers?pageNum=${apvo.pageNum-1}
+								<li><a href="/admin/adminShareList?pageNum=${apvo.pageNum-1}
 											<c:if test='${apvo.searchWord!=null}'>
 											&searchKey=${apvo.searchKey}
 											&searchWord=${apvo.searchWord}
@@ -160,7 +161,7 @@
 					            	<c:if test="${p!=apvo.pageNum}">
 					            		<li>
 					            	</c:if>
-									<a href="/admin/adminMembers?pageNum=${p}
+									<a href="/admin/adminShareList?pageNum=${p}
 											<c:if test='${apvo.searchWord!=null}'>
 											&searchKey=${apvo.searchKey}
 											&searchWord=${apvo.searchWord}
@@ -175,7 +176,7 @@
 								<li id="nextBtn">▶</li>
 							</c:if>
 							<c:if test="${apvo.pageNum < apvo.totalPage}">
-								<li><a href="/admin/adminMembers?pageNum=${apvo.pageNum+1}
+								<li><a href="/admin/adminShareList?pageNum=${apvo.pageNum+1}
 											<c:if test='${apvo.searchWord!=null}'>
 											&searchKey=${apvo.searchKey}
 											&searchWord=${apvo.searchWord}
@@ -187,6 +188,6 @@
 				</div>
 		</div>
 	</div>
-	
+	<%@ include file="/WEB-INF/views/admin/adminBottom.jsp" %>
 </body>
 </html>

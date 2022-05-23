@@ -27,6 +27,18 @@ public class AdminTagVO {
 	private int tagSixMoreThan;									//#6명이상 (6~9명)
 	private int tagTenMoreThan;									//#10명이상 (그외 전부)
 	
+	//adminMain (dashBoard) (autoCampList tag ranking) (car camping)
+	private int tagSeoul;										//서울
+	private int tagGyunggy;										//경기
+	private int tagGangwon;										//강원
+	private int tagChoongbook;									//충북
+	private int tagChoongnam;									//충남
+	private int tagJeonbook;									//전북
+	private int tagJeonnam;										//전남
+	private int tagGyeongbook;									//경북
+	private int tagGyeongnam;									//경남
+	private int tagJeju;										//제주
+	
 	public int getTagAnimal() {
 		return tagAnimal;
 	}
@@ -152,6 +164,66 @@ public class AdminTagVO {
 	}
 	public void setTagTenMoreThan(int tagTenMoreThan) {
 		this.tagTenMoreThan = tagTenMoreThan;
+	}
+	public int getTagSeoul() {
+		return tagSeoul;
+	}
+	public void setTagSeoul(int tagSeoul) {
+		this.tagSeoul = tagSeoul;
+	}
+	public int getTagGyunggy() {
+		return tagGyunggy;
+	}
+	public void setTagGyunggy(int tagGyunggy) {
+		this.tagGyunggy = tagGyunggy;
+	}
+	public int getTagGangwon() {
+		return tagGangwon;
+	}
+	public void setTagGangwon(int tagGangwon) {
+		this.tagGangwon = tagGangwon;
+	}
+	public int getTagChoongbook() {
+		return tagChoongbook;
+	}
+	public void setTagChoongbook(int tagChoongbook) {
+		this.tagChoongbook = tagChoongbook;
+	}
+	public int getTagChoongnam() {
+		return tagChoongnam;
+	}
+	public void setTagChoongnam(int tagChoongnam) {
+		this.tagChoongnam = tagChoongnam;
+	}
+	public int getTagJeonbook() {
+		return tagJeonbook;
+	}
+	public void setTagJeonbook(int tagJeonbook) {
+		this.tagJeonbook = tagJeonbook;
+	}
+	public int getTagJeonnam() {
+		return tagJeonnam;
+	}
+	public void setTagJeonnam(int tagJeonnam) {
+		this.tagJeonnam = tagJeonnam;
+	}
+	public int getTagGyeongbook() {
+		return tagGyeongbook;
+	}
+	public void setTagGyeongbook(int tagGyeongbook) {
+		this.tagGyeongbook = tagGyeongbook;
+	}
+	public int getTagGyeongnam() {
+		return tagGyeongnam;
+	}
+	public void setTagGyeongnam(int tagGyeongnam) {
+		this.tagGyeongnam = tagGyeongnam;
+	}
+	public int getTagJeju() {
+		return tagJeju;
+	}
+	public void setTagJeju(int tagJeju) {
+		this.tagJeju = tagJeju;
 	}
 	
 	
