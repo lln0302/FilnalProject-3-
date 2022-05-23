@@ -8,6 +8,7 @@ public class SupplyVO {
 	private String writedate;
 	private String content;
 	private String photo;
+	private int count;
 	
 	public int getSupplyno() {
 		return supplyno;
@@ -50,6 +51,12 @@ public class SupplyVO {
 	}
 	public void setPhoto(String photo) {
 		this.photo = photo;
+	}
+	public int getCount() {
+		return count;
+	}
+	public void setCount(int count) {
+		this.count = count;
 	}
 	
 	

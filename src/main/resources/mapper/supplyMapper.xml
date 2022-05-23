@@ -5,8 +5,9 @@
 
 <mapper namespace="com.campus.myapp.supply.SupplyDAO">
 	<select id="supplyList" resultType="SupplyVO">
-		SELECT supplyno, title, nickname, views, date_format(writedate, '%y-%m-%d %H:%i') writedate, content, photo
-		FROM supply ORDER BY supplyno DESC
+		SELECT supplyno, title, nickname, views, date_format(writedate, '%y-%m-%d %H:%i') writedate, content, photo,
+		(select count(*) from chatroom c where c.supplyno=a.supplyno) count
+		FROM supply a ORDER BY supplyno DESC;
 	</select>
 	<update id="supplyInfoCount">
 		UPDATE supply SET views = views+1 WHERE supplyno=#{param1}
@@ -26,4 +27,32 @@
 	<delete id="supplyDelete">
 		DELETE FROM supply WHERE supplyno=#{param1}
 	</delete>
+	
+	<!-- chatroom -->
+	<insert id="chatWrite">
+		INSERT INTO chatroom(supplyno, masterNickname, clientNickname)
+		VALUES(#{supplyno}, #{masterNickname}, #{clientNickname})
+	</insert>
+	<select id="chatCountSelect" resultType="int">
+		SELECT COUNT(supplyno)count FROM chatroom 
+		WHERE supplyno=#{param1}
+	</select>
+	<select id="chatList" resultType="ChatVO">
+		SELECT roomno, supplyno, content, masterNickname, clientNickname,
+		DATE_FORMAT(writedate, "%Y-%m-%d %H:%i") writedate
+		FROM chatroom WHERE supplyno=#{param1}
+		ORDER BY roomno ASC
+	</select>
+	<delete id="chatDel">
+		DELETE FROM chatroom WHERE roomno=#{param1} 
+	</delete>
+	<select id="chatSelect" resultType="ChatVO">
+		SELECT roomno, supplyno, content, masterNickname, clientNickname,
+		DATE_FORMAT(writedate, "%y-%m-%d %H:%i") writedate
+		FROM chatroom WHERE roomno=#{param1}
+	</select>
+	<update id="chatSend">
+		UPDATE chatroom SET content=#{content}
+		WHERE roomno=#{roomno}
+	</update>
 </mapper>
