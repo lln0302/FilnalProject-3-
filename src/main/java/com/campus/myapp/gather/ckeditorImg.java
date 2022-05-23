@@ -1,4 +1,4 @@
-package com.campus.myapp.camping;
+package com.campus.myapp.gather;
 
 import java.io.ByteArrayOutputStream;
 import java.io.File;
