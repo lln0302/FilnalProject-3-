@@ -27,7 +27,7 @@
 <div class="row">
 
 	<form method="post" action="/car/carWriteOk" id="cwFrm">
-		<div id="carMapWrap" class="col-5">
+		<div id="carMapWrap" class="col-6">
 			<table id="cwTable">
 				<tr>
 					<td>
@@ -68,7 +68,7 @@
 		<!-- -----------여기까지 지도끝///여기부턴 오른쪽 글작성--------------------------------- -->
 		
 		
-		<div id="carWriteWrap" class="col-7">
+		<div id="carWriteWrap" class="col-6">
 			<input type="text" id="carName" name="title" placeholder="제목을 입력하세요"/><hr style="margin:16px 0"/>
 			<textarea id="content" name="content"></textarea>
 		</div>
