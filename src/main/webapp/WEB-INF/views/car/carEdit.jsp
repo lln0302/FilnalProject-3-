@@ -77,7 +77,7 @@
 		</div>
 		
 		<div id="cwWriteSubmitWrap">
-			<input type="submit" value="수정" id="carWriteSubmit"/>
+			<button type="button" id="carWriteSubmit" onclick="cwCheck()">수정</button>
 		</div>
 		
 	</form>

@@ -53,10 +53,14 @@ public class SupplyController {
 	SupplyService service;
 	
 	@GetMapping("supplyList")
-	public ModelAndView supplyList() {
+	public ModelAndView supplyList(SupplyPagingVO pvo, SupplyVO vo, HttpSession session) {
+		vo.setNickname((String)session.getAttribute("nickname"));
 		ModelAndView mav = new ModelAndView();
 		
-		mav.addObject("list", service.supplyList());
+		pvo.setTotalPosts(service.selectTotalSupply());
+		mav.addObject("pvo", pvo);
+		System.out.println(pvo.toString());
+		mav.addObject("list", service.supplyList(pvo, vo));
 		
 		mav.setViewName("supply/supplyList");
 		return mav;

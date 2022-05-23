@@ -13,10 +13,14 @@ public class SupplyServiceImpl implements SupplyService {
 	SupplyDAO dao;
 
 	@Override
-	public List<SupplyVO> supplyList() {
-		return dao.supplyList();
+	public List<SupplyVO> supplyList(SupplyPagingVO pvo, SupplyVO vo) {
+		return dao.supplyList(pvo, vo);
 	}
 	
+	@Override
+	public int selectTotalSupply() {
+		return dao.selectTotalSupply();
+	}
 	@Override
 	public int supplyInfoCount(int no) {
 		return dao.supplyInfoCount(no);
@@ -72,6 +76,8 @@ public class SupplyServiceImpl implements SupplyService {
 	public int chatSend(ChatVO vo) {
 		return dao.chatSend(vo);
 	}
+
+	
 
 	
 
