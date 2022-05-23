@@ -84,7 +84,7 @@ function close() {
 		var txt = $("#chattingBox").html();
 		txt += "<p class='chatInfo'>- - - - - - - - 위는 이전 대화내용입니다 - - - - - - - -</p><br>"
 		$("#content").val(txt);
-		alert($("#content").val());
+		
 
 		$.ajax({
 			url: '/supply/chatSend',
@@ -117,7 +117,7 @@ $(function() {
 	// 채팅 전송
 	$("#sendBtn").click(function() {
 		$("#content").val($("#chattingBox").html());
-		alert($("#content").val());
+		
 
 		$.ajax({
 			url: '/supply/chatSend',

@@ -101,7 +101,7 @@ $(function(){
 function goRoom(number) {
 	//location.href = "/supply/moveChating?roomName=" + name + "&" + "roomNumber=" + number;
 	window.open("/supply/moveChat?roomno=" + number, "chatting",
-		"width=450,height=700,top=" + (window.innerHeight - 400)
+		"width=450,height=770,top=" + (window.innerHeight - 400)
 		+ ",left=" + (window.innerWidth - 400));
 }
 

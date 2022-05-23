@@ -2,7 +2,7 @@
 
 .container {
 	background-color: #f58243;
-	height: 718px;
+	height: 788px;
 	/*font-family: 'Gowun Dodum', sans-serif;
 	font-family: 'IBM Plex Sans', sans-serif; */
 	font-family: 'IBM Plex Sans KR', sans-serif;
@@ -25,13 +25,13 @@
 	width: 100%;
 	height: 550px;
 	margin-top: 10px;
-	background-color: rgba(103, 73, 59, .5);
+	background-color: #FDD7AA;
 	padding: 5%;
 	overflow-y: scroll;
 	border-radius: 5px;
 }
 .chatInfo {
-	color: white
+	
 }
 
 #chattingBox::-webkit-scrollbar {
@@ -50,24 +50,25 @@
 }
 
 #chattingBox .me {
-	color: #F6F6F6;
 	text-align: right;
 	line-height: 35px;
 }
 
 #chattingBox .me .meMsg {
+	color: #F6F6F6;
 	padding: 6px 12px;
 	border-radius: 2px;
 	background-color: #67493B;
 }
 
 #chattingBox .others {
-	color: #F6F6F6;
+	
 	text-align: left;
 	line-height: 35px;
 }
 
 #chattingBox .others .othersMsg {
+	color: #F6F6F6;
 	margin-top: 5px;
 	padding: 6px 12px;
 	border-radius: 2px;
