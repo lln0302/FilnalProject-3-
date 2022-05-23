@@ -127,21 +127,9 @@ function reviewList(){
 					}
 				}
 			})
-			body += "<nav aria-label=''Page navigation example''></tr></tbody></table></div>"
-			body += "<ul class='pagination justify-content-center'>"
-			body += "<li class='page-item prev'><a class='page-link'"
-			body += "href='javascript:void(0);' onclick='prev()'>"
-			body += "<i class='fa fa-angle-left'></i></a></li>"
-			body += "<li class='page-item'><a class='page-link' href='javascript:void(0);'"
-			body += "onclick='current();'></a><li class='page-item next'>"
-			body += "<a class='page-link' href='javascript:void(0);' onclick='next()'>"
-			body += "<i class='fa fa-angle-right'></i></a></li></ul>"
-			body += "</ul></nav><br/>"
 			
 			$("#campReview").html(body);
 			
-		},error:function(){
-			alert('show reviewList error');
 		}
 	});
 }

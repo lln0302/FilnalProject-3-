@@ -1,12 +1,27 @@
 $(function(){
-	
+	camperList();
 	// 캠퍼 참여 인원 표시 함수
 	function gnewnoCount(){
 		$.ajax({
 			url:'/gather/gnewnoCount',
 			data:"gatherno="+$("#gatherno").val(),
 			success:function(result){
-				$("#gnewno").children().html(result)
+				$("#gnewno").children().html(result);
+			}
+		});
+	}
+	
+	function camperList(){
+		$.ajax({
+			url:'/gather/selectCamperList',
+			data:"gatherno="+$("#gatherno").val(),
+			success:function(result){
+				let body = ""
+					$.each(result, function(idx,vo){
+					body += "<tr><th>"+vo.nickname+"</th>";
+					body += "<th>"+vo.gender+"</th></tr>";
+					})
+				$("#tbody").html(body);
 			}
 		});
 	}
@@ -23,6 +38,7 @@ $(function(){
 					gnewnoCount();
 					$("#gnewnoBtn1").addClass("separate");
 					$("#gnewnoBtn1").val("캠핑 취소");
+					camperList();
 				}
 			});
 		}else{// 참여 취소 버튼을 누르면 gathermemeber DB delete, gatherDB gnewno -1
@@ -36,6 +52,7 @@ $(function(){
 						gnewnoCount();
 						$("#gnewnoBtn1").removeClass("separate");
 						$("#gnewnoBtn1").val("캠핑 참여");
+						camperList();
 					}
 				});
 			}
