@@ -11,7 +11,6 @@ public class Paging10VO {
 		private int offsetIndex=0;
 		private int onePageCount=10; 
 		private int startPage = 1;
-		
 		private String animalCmgCl;		 
 		private String doNm;
 		private String sigunguNm;	
