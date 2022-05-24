@@ -205,7 +205,7 @@ public class MemberController {
         message.addRecipient(Message.RecipientType.TO, new InternetAddress(vo.getEmail(),vo.getUsername(),"UTF-8"));
         message.setFrom("mulcamping.com@gmail.com");
         message.setSubject("[MulCamping] 임시 비밀번호 발송");
-        String htmlStr = "<div style='font-family: 'Apple SD Gothic Neo', 'sans-serif' !important; width: 540px; height: 600px; border-top: 4px solid #555; margin: 100px auto; padding: 30px 0; box-sizing: border-box;'>";
+        String htmlStr = "<main style= background-image: 'url('/img/member/myPageMain.jpg'); background-size: cover; '><div style='font-family: 'Apple SD Gothic Neo', 'sans-serif' !important; width: 540px; height: 600px; border-top: 4px solid #555; margin: 100px auto; padding: 30px 0; box-sizing: border-box;'>";
         htmlStr += "<h1 style='margin: 0; padding: 0 5px; font-size: 28px; font-weight: 400;'>";
         htmlStr += "<span style='font-size: 15px; margin: 0 0 10px 3px;'>MulCamping</span><br />";
         htmlStr += "<span style='color: #555;'>임시 비밀번호</span> 안내입니다.";
@@ -218,7 +218,7 @@ public class MemberController {
         htmlStr += "<div style='border-top: 1px solid #DDD; padding: 5px;'><p style='font-size: 13px; line-height: 21px; color: #555;'>";
         htmlStr += "만약 버튼이 정상적으로 클릭되지 않는다면, 아래 링크를 복사하여 접속해 주세요.<br />";
         htmlStr += "http://localhost:8090/member/loginForm";
-        htmlStr += "</p></div></div>";
+        htmlStr += "</p></div></div></main>";
         message.setText(htmlStr, "utf-8","html");
         mailSender.send(message);
         return result;
