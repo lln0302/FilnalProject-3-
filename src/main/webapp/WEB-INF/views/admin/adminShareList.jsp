@@ -94,9 +94,9 @@
 			</div>
 			<hr id="hr2px">
 				<div class="containerList">
-					<div>
+					<!--<div>
 						총 레코드 수 : ${apvo.totalRecord} / 총 페이지 개수 : ${apvo.totalPage} / 현재 페이지 번호 : ${apvo.pageNum}
-					</div>
+					</div>  -->
 					<!-- 검색 -->
 						<div>
 							<form method="get" action="/admin/adminShareList" id="searchFrm">
@@ -127,7 +127,7 @@
 								<c:forEach var="vo" items="${list}">
 									<li><input type='checkbox' name='supplyNoList' value='${vo.supplyno}' class="chk"/></li>
 									<li>${vo.supplyno}</li> <!-- <a href="/admin/adminMembersInfo?nickname=${vo.nickname}"></a> -->
-									<li>${vo.title}</li>
+									<li><a href="http://localhost:8090/supply/supplyInfo?no=${vo.supplyno}">${vo.title}</a></li>
 									<li>${vo.content}</li>
 									<li>${vo.writedate}</li>
 									<li>${vo.nickname}</li>

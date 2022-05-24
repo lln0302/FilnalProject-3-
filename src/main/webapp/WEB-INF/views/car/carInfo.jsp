@@ -50,7 +50,7 @@
 		<form method="post" id="ciFrm">
 			<input type="hidden" name="carno" id="carno" value="${vo.carno}">
 			<textarea id="content" class="col-11" rows="3" name="content" placeholder="댓글 입력 ..."></textarea>
-			<input type="submit" class="col-1 btn" id="ciReplyButton" value="댓글 등록">
+			<input type="submit" class="btn" id="ciReplyButton2" value="댓글 등록">
 		</form>
 		
 		<!-- 댓글목록 -->

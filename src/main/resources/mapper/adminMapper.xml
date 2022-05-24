@@ -105,7 +105,7 @@
     
     
     <select id="adminMembers" resultType="com.campus.myapp.member.MemberVO">
-        SELECT userid, username, nickname, email, case isadmin when 0 then '사용자' else '관리자'end AS isadmin, userscore, usertel, joindate from member
+        SELECT userid, username, nickname, email, case isadmin when 0 then '사용자' else '관리자'end AS isadmin, userscore, usertel, DATE_FORMAT(joindate, "%Y-%m-%d") joindate from member
         <if test="searchWord != null">
 		where 				${searchKey}
 		like 				'%${searchWord}%'
@@ -125,7 +125,7 @@
     </delete>
     
     <select id="adminMembersInfo" resultType="com.campus.myapp.member.MemberVO">
-        select userid, username, nickname, userpwd, usertel, birth, gender, email, joindate,
+        select userid, username, nickname, userpwd, usertel, birth, gender, email, DATE_FORMAT(joindate, "%Y-%m-%d") joindate,
         	   case isadmin when 0 then '사용자' else '관리자'end AS isadmin, userscore, zzim_zzimno
         from member
         where nickname=#{param1}
@@ -158,7 +158,10 @@
     
     
     <select id="adminAddCamperList" resultType="com.campus.myapp.gather.GatherVO">
-    	select gatherno, title, place, nickname, startdate, enddate, createdate from gather
+    	select gatherno, title, place, nickname, 
+		DATE_FORMAT(startdate, "%Y-%m-%d") startdate,
+		DATE_FORMAT(enddate, "%Y-%m-%d") enddate,
+		DATE_FORMAT(createdate, "%y-%m-%d") createdate from gather
     	<if test="searchWord != null">
 		where 				${searchKey}
 		like 				'%${searchWord}%'
@@ -181,7 +184,7 @@
     
     
     <select id="adminAutoCampList" resultType="com.campus.myapp.car.CarVO">
-    	select carno, title, content, writedate, nickname, region, locx, locy from car
+    	select carno, title, content, DATE_FORMAT(writedate, "%Y-%m-%d") writedate, nickname, region, locx, locy from car
     	<if test="searchWord != null">
 		where 				${searchKey}
 		like 				'%${searchWord}%'
@@ -204,7 +207,7 @@
     
     
     <select id="adminShareList" resultType="com.campus.myapp.supply.AdminSupplyVO">
-    	select supplyno, title, nickname, writedate, content from supply
+    	select supplyno, title, nickname, DATE_FORMAT(writedate, "%Y-%m-%d") writedate, content from supply
     	<if test="searchWord != null">
 		where 				${searchKey}
 		like 				'%${searchWord}%'
@@ -227,7 +230,7 @@
     
     
     <select id="adminReviewList" resultType="com.campus.myapp.camping.ReviewVO">
-    	select reviewno, contentId, nickname, content, createdate, recommend from review
+    	select reviewno, contentId, nickname, content, DATE_FORMAT(createdate, "%Y-%m-%d") createdate, recommend from review
     	<if test="searchWord != null">
 		where 				${searchKey}
 		like 				'%${searchWord}%'
@@ -250,7 +253,7 @@
     
     
     <select id="adminGatherCommentList" resultType="com.campus.myapp.gather.ReplyVO">
-    	select replyno, content, writedate, nickname, gatherno from gatherreply
+    	select replyno, content, DATE_FORMAT(writedate, "%Y-%m-%d") writedate, nickname, gatherno from gatherreply
     	<if test="searchWord != null">
 		where 				${searchKey}
 		like 				'%${searchWord}%'
@@ -261,7 +264,7 @@
     </select>
     
     <select id="adminCarCommentList" resultType="com.campus.myapp.car.CarReplyVO">
-    	select replyno, content, writedate, nickname, carno from carreply
+    	select replyno, content, DATE_FORMAT(writedate, "%Y-%m-%d") writedate, nickname, carno from carreply
     	<if test="searchWord != null">
 		where 				${searchKey}
 		like 				'%${searchWord}%'
@@ -290,7 +293,7 @@
     </delete>
     
     <select id="allList" resultType="com.campus.myapp.member.MemberVO">
-        SELECT userid, username, nickname, email, case isadmin when 0 then '관리자' else '사용자'end AS isadmin, userscore, usertel, joindate from member
+        SELECT userid, username, nickname, email, case isadmin when 0 then '관리자' else '사용자'end AS isadmin, userscore, usertel, DATE_FORMAT(joindate, "%Y-%m-%d") joindate from member
         <if test="searchWord != null">
 		where 				${searchKey}
 		like 				'%${searchWord}%'

@@ -95,9 +95,9 @@
 			</div>
 			<hr id="hr2px">
 				<div class="containerList">
-					<div>
+					<!--<div>
 						총 레코드 수 : ${apvo.totalRecord} / 총 페이지 개수 : ${apvo.totalPage} / 현재 페이지 번호 : ${apvo.pageNum}
-					</div>
+					</div>  -->
 					<!-- 검색 -->
 						<div>
 							<form method="get" action="/admin/adminCarCommentList" id="searchFrm">

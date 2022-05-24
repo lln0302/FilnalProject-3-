@@ -1,5 +1,11 @@
 @charset "UTF-8";
 
+div {
+	font-family: 'Gowun Dodum', sans-serif;  /*메인페이지 타이틀 폰트*/
+	font-family: 'IBM Plex Sans', sans-serif; /* 본문 영문 폰트*/
+	font-family: 'IBM Plex Sans KR', sans-serif; /* 본문 한글폰트 */
+}
+
 #adminPage {
 	/*position: absolute;*/
 	/*left: 25%;*/

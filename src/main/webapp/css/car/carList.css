@@ -4,6 +4,10 @@ h1, .container *{
 	font-family: 'IBM Plex Sans KR', sans-serif; 
 }
 
+.container {
+	height: 600px;
+}
+
 .writeBtn{
    border-bottom : 5px solid;
    padding: 5px;
