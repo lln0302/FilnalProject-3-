@@ -57,17 +57,6 @@ public class GatherController {
 		return mav;
 	}
 	
-	// 파일 삭제 함수
-	public static void fileDelete(String path, String files, GatherVO vo) {
-		if(files!=null) { // 파일이 존재하면
-			File file = new File(path, files); // 파일 객체 생성
-			System.out.println(file);
-			if(files==vo.getImg()) {
-				file.delete();
-			}
-			
-		}
-	}
 
 	// 캠퍼 모임 글등록 DB연결
 	@PostMapping("/gatherWriteOK")
@@ -148,10 +137,6 @@ public class GatherController {
 			
 			// 글 삭제 성공시 ckUpload 폴더에 있는 이미지 삭제
 			if(result>0) {
-				if(vo.getImg()!=null) {
-					fileDelete(path, vo.getImg(), vo);
-				
-				}
 				String body = "<script>alert('글이 성공적으로 삭제되었습니다.');";
 				body += "location.href='/gather/gatherList';</script>";
 				entity = new ResponseEntity<String>(body, headers, HttpStatus.OK);

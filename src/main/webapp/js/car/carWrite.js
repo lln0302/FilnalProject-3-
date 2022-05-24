@@ -114,6 +114,7 @@ function displayCenterInfo(result, status) {
 }
 
 function mapSearchClick() {
+
 	var moveLatLon = new kakao.maps.LatLng($("#locX").val(), $("#locY").val());
     
     map.panTo(moveLatLon);      
