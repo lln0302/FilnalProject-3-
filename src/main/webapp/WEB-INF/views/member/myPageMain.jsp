@@ -58,15 +58,15 @@
                     </a>
 
                 </li>
-                <li class="has-subnav">
-                    <a href="${url}/member/myPageLikeList">
-                        <i class="fa fa-thumbs-up fa-2x"></i>
-                        <span class="nav-text">
-                            좋아요 목록
-                        </span>
-                    </a>
+<%--                <li class="has-subnav">--%>
+<%--                    <a href="${url}/member/myPageLikeList">--%>
+<%--                        <i class="fa fa-thumbs-up fa-2x"></i>--%>
+<%--                        <span class="nav-text">--%>
+<%--                            좋아요 목록--%>
+<%--                        </span>--%>
+<%--                    </a>--%>
 
-                </li>
+<%--                </li>--%>
 
             </ul>
 
