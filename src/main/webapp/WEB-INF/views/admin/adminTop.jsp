@@ -39,7 +39,7 @@
 			<div class="adminTopMenu">　</div>
 			<div class="adminTopMenu">　</div>
 				<c:if test="${logStatus == 'Y'}">
-					<div class="adminTopMenu" id="signInPart">
+					<div class="adminTopMenu" id="signInPart" style="margin-top: 25px;">
 						<a href="#">
 						<span style="background:rgba(210, 210, 210, 0.7); border-radius: 8px;">
 							<span style="color:orange;font-weight: bold;">관리자</span>
@@ -49,7 +49,7 @@
 					</div>
 				</c:if>
 				<c:if test="${logStatus == 'Y'}">
-					<div class="adminTopMenu" id="logoutPart">
+					<div class="adminTopMenu" id="logoutPart" style="margin-top: 25px;">
 					<a href="${url}/member/logout">
 					<span style="background:rgba(210, 210, 210, 0.7); border-radius: 8px;">
 						<span style="color:orange;font-weight: bold;">로그아웃</span>

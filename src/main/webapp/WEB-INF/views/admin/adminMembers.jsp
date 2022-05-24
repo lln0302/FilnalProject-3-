@@ -21,21 +21,21 @@
 <script type="text/javascript" src="/js/admin/adminAlert.js"></script>
 <style>
 
-#listMenu>li:nth-child(9n+1) {
-	width:4%;
+#listMenu>li:nth-child(8n+1) {
+   width:6%;
 }
-#listMenu>li:nth-child(9n+2), #listMenu>li:nth-child(9n+5),
-#listMenu>li:nth-child(9n+8), #listMenu>li:nth-child(9n+9)
+#listMenu>li:nth-child(8n+2), #listMenu>li:nth-child(8n+5),
+#listMenu>li:nth-child(8n+7), #listMenu>li:nth-child(8n+8)
 {
-	width:14%;
+   width:16%;
 }
-#listMenu>#listMenuFE>li:nth-child(9n+1) {
-	width:4%;
+#listMenu>#listMenuFE>li:nth-child(8n+1) {
+   width:6%;
 }
-#listMenu>#listMenuFE>li:nth-child(9n+2), #listMenu>#listMenuFE>li:nth-child(9n+5),
-#listMenu>#listMenuFE>li:nth-child(9n+8), #listMenu>#listMenuFE>li:nth-child(9n+9)
+#listMenu>#listMenuFE>li:nth-child(8n+2), #listMenu>#listMenuFE>li:nth-child(8n+5),
+#listMenu>#listMenuFE>li:nth-child(8n+7), #listMenu>#listMenuFE>li:nth-child(8n+8)
 {
-	width:14%;
+   width:16%;
 }
 
 </style>
@@ -100,9 +100,9 @@
 			</div>
 			<hr id="hr2px">
 				<div class="containerList">
-					<div>
+					<!--<div>
 						총 레코드 수 : ${apvo.totalRecord} / 총 페이지 개수 : ${apvo.totalPage} / 현재 페이지 번호 : ${apvo.pageNum}
-					</div>
+					</div>  -->
 					<!-- 검색 -->
 						<div>
 							<form method="get" action="/admin/adminMembers" id="searchFrm">
@@ -127,7 +127,7 @@
 								<li>닉네임</li>
 								<li>이메일</li>
 								<li>등급</li>
-								<li>매너온도</li>
+								<!-- <li>매너온도</li> -->
 								<li>연락처</li>
 								<li>가입일</li>
 							
@@ -139,7 +139,7 @@
 									<li>${vo.nickname}</li>
 									<li>${vo.email}</li>
 									<li>${vo.isadmin}</li>
-									<li>${vo.userscore}</li>
+									<!-- <li>${vo.userscore}</li> -->
 									<li>${vo.usertel}</li>
 									<li>${vo.joindate}</li>
 								</c:forEach>

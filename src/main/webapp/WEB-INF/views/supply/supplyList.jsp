@@ -29,7 +29,7 @@
 <h5>이곳에서 다른 사람들과 나눠보세요</h5>
 
 <div class="container">
-	<div class="col-12" style="text-align: right">
+	<div class="col-11" style="text-align: right; margin-bottom: 5px">
 		<a href="/supply/supplyWrite"><i class="fa fa-pen writeBtn fa-lg"></i></a>
 	</div>
 	<ul id="spList">
