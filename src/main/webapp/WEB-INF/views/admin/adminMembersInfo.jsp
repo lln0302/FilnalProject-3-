@@ -173,6 +173,7 @@
 							<th class="leftTH" style="border-top:none;">관리자여부</th>
 							<th class="rightTH" style="border-top:none;">${infoVO.isadmin}</th>
 						</tr>
+						<!-- 
 						<tr>
 							<th class="leftTH" style="border-top:none;">매너온도</th>
 							<th class="rightTH" style="border-top:none;">${infoVO.userscore}</th>
@@ -181,6 +182,7 @@
 							<th class="leftTH" style="border-top:none;">찜번호</th>
 							<th class="rightTH" style="border-top:none;">${infoVO.zzim_zzimno}</th>
 						</tr>
+						 -->
 					</table>
 						
 				</div>

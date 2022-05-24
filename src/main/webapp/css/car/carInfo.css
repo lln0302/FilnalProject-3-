@@ -102,13 +102,20 @@ h1, .container *{
 	outline:none;
 	resize:none;
 }
-#ciReplyButton {
+#ciReplyButton, #ciReplyButton2 {
+	
     background-color: #f58243;
     color:white;
-    line-height:66px;
+    line-height:62px;
     text-align: center;
-    padding:0 ;
-    height: 72px;
+    /*padding:0 ;*/
+    /*height: 72px;*/
+}
+#ciReplyButton {
+	line-height:50px;
+}
+#ciReplyButton2 {
+	margin-left: 2px;
 }
 .editForm{
    display:none;
