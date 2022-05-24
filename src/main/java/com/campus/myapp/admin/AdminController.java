@@ -232,7 +232,7 @@ public class AdminController {
 	}
 	
 	//관리자페이지 캠퍼모집목록-댓글삭제
-	@PostMapping("adminReviewListtDel")
+	@PostMapping("adminReviewListDel")
 	public ModelAndView adminReviewListDel(ReviewVO rvo) {
 		ModelAndView mav = new ModelAndView();
 		service.adminReviewListDel(rvo);
