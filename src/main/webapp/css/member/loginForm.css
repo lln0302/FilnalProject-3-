@@ -7,6 +7,9 @@ main {
     background-image: linear-gradient( rgba(0, 0, 0, 0.3), rgba(0, 0, 0, 0.2)), url("/img/member/logBackGround2.jpg");
     background-size: cover;
     background-attachment : fixed;
+    font-family: 'Gowun Dodum', sans-serif;  /*메인페이지 타이틀 폰트*/
+    font-family: 'IBM Plex Sans', sans-serif; /* 본문 영문 폰트*/
+    font-family: 'IBM Plex Sans KR', sans-serif; /* 본문 한글폰트 */
 }
 
 
