@@ -3,7 +3,8 @@ package com.campus.myapp.supply;
 import java.util.List;
 
 public interface SupplyService {
-	public List<SupplyVO> supplyList();
+	public List<SupplyVO> supplyList(SupplyPagingVO pvo, SupplyVO vo);
+	public int selectTotalSupply();
 	public int supplyInfoCount(int no);
 	public SupplyVO supplySelect(int no);
 	public int supplyInsert(SupplyVO vo);
